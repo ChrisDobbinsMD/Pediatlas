@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const clinicalPearls = [
   "Bronchiolitis is primarily a clinical diagnosis.",
@@ -192,6 +193,16 @@ export default function BronchiolitisPage() {
             <h2 className="mt-2 text-3xl font-bold">
               From viral infection to respiratory distress
             </h2>
+            <div className="mt-7 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+  <Image
+    src="/images/bronchiolitis-pathophysiology.png"
+    alt="Comparison of a normal bronchiole with bronchiolitis showing airway-wall inflammation, mucus production, airway narrowing, and impaired airflow"
+    width={1600}
+    height={1000}
+    className="h-auto w-full"
+    priority
+  />
+</div>
 
             <div className="mt-7 grid gap-4">
               {[
