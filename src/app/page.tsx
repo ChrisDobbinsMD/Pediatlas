@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const systems = [
   {
     name: "Respiratory",
@@ -112,9 +114,12 @@ export default function Home() {
                   </p>
 
                   {isAvailable && (
-                    <button className="mt-6 font-semibold text-blue-800 hover:text-blue-600">
-                      Enter respiratory module →
-                    </button>
+                    <Link
+  href="/respiratory"
+  className="mt-6 inline-block font-semibold text-blue-800 hover:text-blue-600"
+>
+  Enter respiratory module →
+</Link>
                   )}
                 </article>
               );
