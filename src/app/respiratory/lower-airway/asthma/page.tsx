@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const pathophysiology = [
   {
@@ -245,6 +246,16 @@ export default function AsthmaPage() {
             <h2 className="mt-2 text-3xl font-bold">
               Inflammation plus reversible airway narrowing
             </h2>
+<div className="mt-7 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+  <Image
+    src="/images/asthma-pathophysiology.png"
+    alt="Asthma anatomy localization and comparison of a normal airway with an asthmatic airway showing bronchoconstriction, inflammation, mucus production, and airway remodeling"
+    width={1600}
+    height={1000}
+    className="h-auto w-full"
+    priority
+  />
+</div>
 
             <div className="mt-7 grid gap-5 md:grid-cols-2">
               {pathophysiology.map((item) => (
@@ -376,6 +387,150 @@ export default function AsthmaPage() {
               ))}
             </div>
           </section>
+
+<section
+  id="workup"
+  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+>
+  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+    Diagnostic workup
+  </p>
+
+  <h2 className="mt-2 text-3xl font-bold">
+    Confirm variable airflow obstruction and avoid unnecessary testing
+  </h2>
+
+  <p className="mt-5 text-lg leading-8 text-slate-600">
+    Asthma is diagnosed by a characteristic pattern of variable respiratory
+    symptoms together with objective evidence of variable expiratory airflow
+    limitation when testing is feasible.
+  </p>
+
+  <div className="mt-8 grid gap-6 md:grid-cols-2">
+    <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+      <h3 className="text-xl font-bold text-emerald-950">
+        Initial evaluation
+      </h3>
+
+      <ul className="mt-4 space-y-3 leading-7 text-emerald-900">
+        <li>• Detailed symptom and trigger history</li>
+        <li>• Prior exacerbations and response to treatment</li>
+        <li>• Physical examination and oxygen saturation</li>
+        <li>• Assessment of atopy and relevant comorbidities</li>
+        <li>• Review of inhaler technique and medication adherence</li>
+      </ul>
+    </div>
+
+    <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
+      <h3 className="text-xl font-bold text-blue-950">
+        Objective lung-function testing
+      </h3>
+
+      <ul className="mt-4 space-y-3 leading-7 text-blue-900">
+        <li>
+          • Perform spirometry with bronchodilator testing when the child is
+          developmentally able
+        </li>
+        <li>• Look for reduced expiratory airflow before treatment</li>
+        <li>• Repeat testing after an inhaled bronchodilator</li>
+        <li>
+          • Improvement in airflow supports variable, reversible obstruction
+        </li>
+        <li>
+          • Normal spirometry between episodes does not completely exclude
+          asthma
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div className="mt-6 rounded-2xl border border-purple-200 bg-purple-50 p-6">
+    <h3 className="text-xl font-bold text-purple-950">
+      When the diagnosis remains uncertain
+    </h3>
+
+    <div className="mt-5 grid gap-5 md:grid-cols-2">
+      <div>
+        <h4 className="font-bold text-purple-950">
+          Additional options
+        </h4>
+
+        <ul className="mt-3 space-y-3 leading-7 text-purple-900">
+          <li>• Repeat spirometry during symptoms</li>
+          <li>• Serial peak expiratory flow measurements</li>
+          <li>• Exercise or bronchoprovocation testing</li>
+          <li>• Specialist-directed allergy evaluation</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 className="font-bold text-purple-950">
+          Fractional exhaled nitric oxide
+        </h4>
+
+        <p className="mt-3 leading-7 text-purple-900">
+          FeNO may support the diagnosis of type 2 airway inflammation when
+          asthma remains uncertain, but it should be interpreted as an adjunct
+          rather than used alone to diagnose or exclude asthma.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div className="mt-6 grid gap-6 md:grid-cols-2">
+    <div className="rounded-2xl border border-rose-200 bg-rose-50 p-6">
+      <h3 className="text-xl font-bold text-rose-950">
+        Avoid routinely in a typical exacerbation
+      </h3>
+
+      <ul className="mt-4 space-y-3 leading-7 text-rose-900">
+        <li>• Chest radiograph</li>
+        <li>• CBC or inflammatory markers</li>
+        <li>• Respiratory viral testing</li>
+        <li>• Blood cultures</li>
+        <li>• Arterial or venous blood gas</li>
+        <li>• CT imaging</li>
+      </ul>
+    </div>
+
+    <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+      <h3 className="text-xl font-bold text-amber-950">
+        Consider targeted testing when
+      </h3>
+
+      <ul className="mt-4 space-y-3 leading-7 text-amber-900">
+        <li>• Findings are focal or markedly asymmetric</li>
+        <li>• Foreign body aspiration is possible</li>
+        <li>• Pneumonia or pneumothorax is suspected</li>
+        <li>• The diagnosis is uncertain or the course is atypical</li>
+        <li>• The child fails to improve as expected</li>
+        <li>• Respiratory failure or another complication is suspected</li>
+      </ul>
+    </div>
+  </div>
+
+  <div className="mt-6 rounded-2xl bg-slate-950 p-6 text-white">
+    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
+      Severe-asthma warning
+    </p>
+
+    <h3 className="mt-2 text-2xl font-bold">
+      A normal or rising carbon dioxide level may be ominous
+    </h3>
+
+    <p className="mt-4 leading-7 text-slate-200">
+      Early in an asthma exacerbation, children commonly hyperventilate and
+      lower their carbon dioxide level. In a child with severe distress, a
+      normalizing or rising carbon dioxide level may indicate worsening
+      fatigue and inadequate ventilation.
+    </p>
+
+    <p className="mt-4 font-semibold text-amber-300">
+      Decreasing wheeze with worsening air movement may represent a silent
+      chest—not clinical improvement.
+    </p>
+  </div>
+</section>
 
           <section
             id="management"
