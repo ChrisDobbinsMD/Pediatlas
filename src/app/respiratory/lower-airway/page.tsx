@@ -155,12 +155,21 @@ export default function LowerAirwayPage() {
                     </p>
                   </div>
 
-                  {isNext && (
+                  {disease.name === "Bronchiolitis" && (
   <Link
     href="/respiratory/lower-airway/bronchiolitis"
     className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
   >
     Open bronchiolitis →
+  </Link>
+)}
+
+{disease.name === "Asthma" && (
+  <Link
+    href="/respiratory/lower-airway/asthma"
+    className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
+  >
+    Open asthma →
   </Link>
 )}
                 </article>
