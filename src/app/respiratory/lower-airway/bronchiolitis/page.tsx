@@ -539,37 +539,84 @@ export default function BronchiolitisPage() {
 )}
             </div>
 
-            <p className="mt-5 text-sm text-purple-800">
-              Interactive answer feedback will be added next.
-            </p>
+            
           </section>
 
-          <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              References
-            </p>
-
-            <ul className="mt-5 space-y-3 leading-7 text-slate-600">
-              <li>
-                American Academy of Pediatrics clinical practice guideline:
-                diagnosis, management, and prevention of bronchiolitis.
-              </li>
-              <li>
-                Canadian Paediatric Society bronchiolitis recommendations.
-              </li>
-              <li>
-                NICE guideline: bronchiolitis in children—diagnosis and
-                management.
-              </li>
-            </ul>
-
-            <p className="mt-5 text-sm leading-6 text-slate-500">
-              Educational content should be reviewed against current local
-              pathways before clinical implementation.
-            </p>
-          </section>
-        </div>
+                </div>
       </div>
+      <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+    References and Evidence Base
+  </p>
+
+  <h2 className="mt-2 text-3xl font-bold">
+    Clinical References
+  </h2>
+
+  <div className="mt-6 space-y-4 text-slate-700 leading-7">
+    <div>
+      <p className="font-semibold">
+        American Academy of Pediatrics Clinical Practice Guideline
+      </p>
+      <p>
+        Diagnosis, Management, and Prevention of Bronchiolitis.
+      </p>
+    </div>
+
+    <div>
+      <p className="font-semibold">
+        Canadian Paediatric Society
+      </p>
+      <p>
+        Bronchiolitis: Recommendations for diagnosis, monitoring, and management.
+      </p>
+    </div>
+
+    <div>
+      <p className="font-semibold">
+        NICE Guideline NG9
+      </p>
+      <p>
+        Bronchiolitis in children: diagnosis and management.
+      </p>
+    </div>
+
+    <div>
+      <p className="font-semibold">
+        Secondary Educational Sources
+      </p>
+      <p>
+        UpToDate and OpenEvidence were used for educational verification and
+        consistency checks where appropriate.
+      </p>
+    </div>
+  </div>
+
+  <div className="mt-8 rounded-2xl bg-slate-50 p-5">
+    <p className="font-semibold text-slate-800">
+      Version Information
+    </p>
+
+    <p className="mt-2 text-slate-600">
+      Bronchiolitis v1.0
+    </p>
+
+    <p className="text-slate-600">
+      Last reviewed: July 2026
+    </p>
+  </div>
+
+  <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-5">
+    <p className="font-semibold text-amber-900">
+      Educational Disclaimer
+    </p>
+
+    <p className="mt-2 text-amber-800 leading-7">
+      PediAtlas is intended for medical education and should not replace
+      institutional guidelines, local protocols, or clinical judgment.
+    </p>
+  </div>
+</section>
     </main>
   );
 }
