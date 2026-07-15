@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 
 const clinicalPearls = [
@@ -20,6 +23,8 @@ const avoidRoutineUse = [
 ];
 
 export default function BronchiolitisPage() {
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 to-white px-6 py-14">
@@ -460,18 +465,67 @@ export default function BronchiolitisPage() {
 
             <div className="mt-6 grid gap-3">
               {[
-                "Obtain a chest radiograph",
-                "Administer routine albuterol",
-                "Provide supportive care and reassess",
-                "Start systemic corticosteroids",
-              ].map((answer) => (
-                <button
-                  key={answer}
-                  className="rounded-2xl border border-purple-200 bg-white px-5 py-4 text-left font-semibold text-purple-950 transition hover:border-purple-400 hover:bg-purple-100"
-                >
-                  {answer}
-                </button>
-              ))}
+  "Obtain a chest radiograph",
+  "Administer routine albuterol",
+  "Provide supportive care and reassess",
+  "Start systemic corticosteroids",
+].map((answer) => (
+  <button
+    key={answer}
+    onClick={() => setSelectedAnswer(answer)}
+    className={`rounded-2xl border px-5 py-4 text-left font-semibold transition
+      ${
+        selectedAnswer === answer
+          ? answer === "Provide supportive care and reassess"
+            ? "border-green-500 bg-green-100"
+            : "border-red-500 bg-red-100"
+          : "border-purple-200 bg-white hover:border-purple-400 hover:bg-purple-100"
+      }`}
+  >
+    {answer}
+  </button>
+))}
+{selectedAnswer && (
+  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
+    {selectedAnswer === "Provide supportive care and reassess" ? (
+      <>
+        <h3 className="text-xl font-bold text-green-700">
+          Correct!
+        </h3>
+
+        <p className="mt-4 leading-7 text-slate-700">
+          This infant has uncomplicated bronchiolitis with adequate
+          oxygenation, feeding, and only mild work of breathing. Supportive
+          care and reassessment are appropriate.
+        </p>
+
+        <p className="mt-4 leading-7 text-slate-700">
+          Routine chest radiography, bronchodilators, and corticosteroids are
+          not recommended for typical bronchiolitis.
+        </p>
+      </>
+    ) : (
+      <>
+        <h3 className="text-xl font-bold text-red-700">
+          Not quite.
+        </h3>
+
+        <p className="mt-4 leading-7 text-slate-700">
+          The best answer is:
+        </p>
+
+        <p className="mt-2 font-bold text-green-700">
+          Provide supportive care and reassess.
+        </p>
+
+        <p className="mt-4 leading-7 text-slate-700">
+          Bronchiolitis management focuses on supportive care and severity
+          assessment rather than routine testing or medications.
+        </p>
+      </>
+    )}
+  </div>
+)}
             </div>
 
             <p className="mt-5 text-sm text-purple-800">

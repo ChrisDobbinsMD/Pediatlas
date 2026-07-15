@@ -156,10 +156,13 @@ export default function LowerAirwayPage() {
                   </div>
 
                   {isNext && (
-                    <button className="mt-auto pt-6 text-left font-semibold text-blue-800 hover:text-blue-600">
-                      Open bronchiolitis →
-                    </button>
-                  )}
+  <Link
+    href="/respiratory/lower-airway/bronchiolitis"
+    className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
+  >
+    Open bronchiolitis →
+  </Link>
+)}
                 </article>
               );
             })}
