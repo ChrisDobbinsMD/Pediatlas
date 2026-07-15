@@ -590,6 +590,213 @@ export default function AsthmaPage() {
           </section>
 
 <section
+  id="disposition"
+  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+>
+  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+    Disposition
+  </p>
+
+  <h2 className="mt-2 text-3xl font-bold">
+    Reassess the response—not just the initial appearance
+  </h2>
+
+  <p className="mt-5 text-lg leading-8 text-slate-600">
+    Disposition depends on the child&apos;s clinical response after initial
+    treatment, oxygen requirement, work of breathing, air movement, ability to
+    speak or feed, prior high-risk history, and the safety of outpatient
+    follow-up.
+  </p>
+
+  <div className="mt-8 grid gap-6 lg:grid-cols-3">
+    <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+      <h3 className="text-xl font-bold text-emerald-950">
+        Consider discharge
+      </h3>
+
+      <ul className="mt-4 space-y-3 leading-7 text-emerald-900">
+        <li>• Symptoms and work of breathing are substantially improved</li>
+        <li>• Air movement is good without concerning fatigue</li>
+        <li>• Oxygenation is stable on room air</li>
+        <li>• Bronchodilator treatments can be spaced appropriately</li>
+        <li>• The child can speak, drink, and ambulate near baseline</li>
+        <li>• Caregivers understand treatment and return precautions</li>
+        <li>• Reliable follow-up and access to medications are available</li>
+      </ul>
+    </div>
+
+    <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+      <h3 className="text-xl font-bold text-amber-950">
+        Consider hospital admission
+      </h3>
+
+      <ul className="mt-4 space-y-3 leading-7 text-amber-900">
+        <li>• Persistent moderate or severe respiratory distress</li>
+        <li>• Continued oxygen requirement or recurrent hypoxemia</li>
+        <li>• Need for frequent or continuous bronchodilator therapy</li>
+        <li>• Incomplete or short-lived response to initial treatment</li>
+        <li>• Poor oral intake, dehydration, or inability to manage at home</li>
+        <li>• High-risk history or significant comorbidity</li>
+        <li>• Unsafe social situation or unreliable follow-up</li>
+      </ul>
+    </div>
+
+    <div className="rounded-2xl border border-rose-300 bg-rose-50 p-6">
+      <h3 className="text-xl font-bold text-rose-950">
+        Escalate to intensive care
+      </h3>
+
+      <ul className="mt-4 space-y-3 leading-7 text-rose-900">
+        <li>• Worsening despite aggressive initial therapy</li>
+        <li>• Markedly reduced air movement or silent chest</li>
+        <li>• Exhaustion, confusion, drowsiness, or agitation</li>
+        <li>• Persistent or worsening hypoxemia</li>
+        <li>• Rising carbon dioxide or evidence of ventilatory failure</li>
+        <li>• Need for advanced or rapidly escalating respiratory support</li>
+        <li>• Concern for impending respiratory arrest</li>
+      </ul>
+    </div>
+  </div>
+
+  <div className="mt-7 rounded-2xl border border-blue-200 bg-blue-50 p-6">
+    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+      Discharge bundle
+    </p>
+
+    <h3 className="mt-2 text-2xl font-bold text-blue-950">
+      Stabilization is only half of the job
+    </h3>
+
+    <div className="mt-5 grid gap-4 md:grid-cols-2">
+      {[
+        "Confirm an inhaled corticosteroid-containing treatment plan",
+        "Provide an appropriate reliever plan",
+        "Complete the prescribed systemic corticosteroid course when indicated",
+        "Demonstrate inhaler and spacer technique",
+        "Review triggers, adherence, and barriers to obtaining medication",
+        "Provide a written asthma action plan",
+        "Give clear return precautions",
+        "Arrange timely outpatient follow-up",
+      ].map((item) => (
+        <div
+          key={item}
+          className="flex gap-3 rounded-xl bg-white p-4 text-blue-950"
+        >
+          <span className="font-bold text-blue-700">✓</span>
+          <p className="leading-6">{item}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div className="mt-7 rounded-2xl bg-slate-950 p-6 text-white">
+    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
+      High-risk history
+    </p>
+
+    <p className="mt-3 leading-7 text-slate-200">
+      Prior intensive-care admission, previous intubation, recent emergency
+      visits or systemic corticosteroid courses, poor controller adherence,
+      medication-access barriers, and psychosocial concerns should lower the
+      threshold for observation, admission, or specialist involvement.
+    </p>
+  </div>
+
+  <p className="mt-6 text-sm leading-6 text-slate-500">
+    Exact admission, oxygen, and bronchodilator-spacing criteria vary by
+    institution. Apply the local pediatric asthma pathway when making clinical
+    decisions.
+  </p>
+</section>
+
+<section
+  id="pearls"
+  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+>
+  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+    Clinical pearls
+  </p>
+
+  <h2 className="mt-2 text-3xl font-bold">
+    High-yield asthma takeaways
+  </h2>
+
+  <div className="mt-7 grid gap-4">
+    {[
+      {
+        title: "Wheezing intensity does not equal disease severity",
+        description:
+          "A child with minimal wheezing but very poor air movement may be more critically ill than a child with loud wheezing and good air exchange.",
+      },
+      {
+        title: "A silent chest is an emergency",
+        description:
+          "Diminishing wheeze accompanied by worsening work of breathing, fatigue, altered mental status, or poor air movement suggests critically limited airflow—not improvement.",
+      },
+      {
+        title: "Treat before ordering routine tests",
+        description:
+          "A typical asthma exacerbation is assessed clinically, and urgent bronchodilator treatment should not be delayed for routine chest radiography or laboratory testing.",
+      },
+      {
+        title: "Look beyond the current exacerbation",
+        description:
+          "Ask about nighttime symptoms, exercise limitation, prior emergency visits, systemic steroid courses, hospitalization, intensive-care admission, and previous intubation.",
+      },
+      {
+        title: "Inhaler technique is part of the treatment",
+        description:
+          "Before escalating long-term therapy, confirm that the medication is being taken, the inhaler technique is correct, and the child has an appropriate spacer.",
+      },
+      {
+        title: "Asthma control and asthma severity are not the same",
+        description:
+          "Control describes the child's current symptoms and future risk, while severity is judged retrospectively by the treatment required to maintain control.",
+      },
+      {
+        title: "Every child needs a plan after stabilization",
+        description:
+          "Discharge planning should address controller therapy, reliever use, trigger reduction, spacer technique, follow-up, and a written asthma action plan.",
+      },
+    ].map((pearl) => (
+      <div
+        key={pearl.title}
+        className="flex gap-4 rounded-2xl border border-sky-100 bg-sky-50 p-5"
+      >
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-700 font-bold text-white">
+          ✓
+        </span>
+
+        <div>
+          <h3 className="font-bold text-slate-900">
+            {pearl.title}
+          </h3>
+
+          <p className="mt-2 leading-7 text-slate-700">
+            {pearl.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div className="mt-7 rounded-2xl bg-slate-950 p-6 text-white">
+    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
+      Do not miss
+    </p>
+
+    <p className="mt-3 text-xl font-bold">
+      Less wheezing can mean less airflow.
+    </p>
+
+    <p className="mt-3 leading-7 text-slate-200">
+      Always interpret wheezing together with air entry, respiratory effort,
+      speech, oxygenation, fatigue, and mental status.
+    </p>
+  </div>
+</section>
+
+<section
   id="quiz"
   className="rounded-3xl border border-purple-200 bg-purple-50 p-8 shadow-sm"
 >
@@ -646,22 +853,43 @@ export default function AsthmaPage() {
           </p>
         </>
       ) : (
-        <>
-          <h3 className="text-xl font-bold text-red-700">Not quite.</h3>
+<>
+  <h3 className="text-xl font-bold text-red-700">Not quite.</h3>
 
-          <p className="mt-4 leading-7 text-slate-700">
-            The best answer is:
-          </p>
+  <p className="mt-4 leading-7 text-slate-700">
+    The best answer is:
+  </p>
 
-          <p className="mt-2 font-bold text-green-700">
-            Give inhaled albuterol, oxygen, and systemic corticosteroid.
-          </p>
+  <p className="mt-2 font-bold text-green-700">
+    Give inhaled albuterol, oxygen, and systemic corticosteroid.
+  </p>
 
-          <p className="mt-4 leading-7 text-slate-700">
-            Treatment should not be delayed for routine imaging when the
-            presentation is typical of an acute asthma exacerbation.
-          </p>
-        </>
+  {selectedAnswer === "Obtain a chest radiograph before treatment" && (
+    <p className="mt-4 leading-7 text-slate-700">
+      A typical asthma exacerbation is treated clinically. Routine chest
+      radiography is not required before starting therapy and should not delay
+      bronchodilator treatment, oxygen, or corticosteroids.
+    </p>
+  )}
+
+  {selectedAnswer === "Start antibiotics for presumed pneumonia" && (
+    <p className="mt-4 leading-7 text-slate-700">
+      This presentation is most consistent with an acute asthma exacerbation,
+      not bacterial pneumonia. Antibiotics are reserved for findings that
+      suggest bacterial infection, such as focal lung findings, persistent
+      fever, or another convincing source.
+    </p>
+  )}
+
+  {selectedAnswer ===
+    "Observe without treatment because wheezing is expected" && (
+    <p className="mt-4 leading-7 text-slate-700">
+      This child has hypoxemia, moderate retractions, and impaired speech,
+      indicating a moderate-to-severe exacerbation. Observation alone is unsafe;
+      treatment should begin immediately.
+    </p>
+  )}
+</>
       )}
     </div>
   )}
