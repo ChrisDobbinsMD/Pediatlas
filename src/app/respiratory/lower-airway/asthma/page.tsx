@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 
 const pathophysiology = [
@@ -47,6 +50,8 @@ const differential = [
 ];
 
 export default function AsthmaPage() {
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 to-white px-6 py-14">
@@ -123,13 +128,17 @@ export default function AsthmaPage() {
           </p>
 
           <nav className="mt-4 flex flex-col gap-3 text-sm font-semibold text-blue-800">
-            <a href="#vignette">Clinical vignette</a>
-            <a href="#pathophysiology">Pathophysiology</a>
-            <a href="#assessment">History and exam</a>
-            <a href="#severity">Acute severity</a>
-            <a href="#differential">Differential</a>
-            <a href="#management">Management</a>
-          </nav>
+  <a href="#vignette">Clinical vignette</a>
+  <a href="#localization">Anatomy localization</a>
+  <a href="#pathophysiology">Pathophysiology</a>
+  <a href="#assessment">History and exam</a>
+  <a href="#differential">Differential</a>
+  <a href="#workup">Diagnostic workup</a>
+  <a href="#management">Management</a>
+  <a href="#disposition">Disposition</a>
+  <a href="#pearls">Clinical pearls</a>
+  <a href="#quiz">Quiz</a>
+</nav>
         </aside>
 
         <div className="space-y-8">
@@ -164,6 +173,66 @@ export default function AsthmaPage() {
               </p>
             </div>
           </section>
+
+<section
+  id="localization"
+  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+>
+  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+    Anatomy localization
+  </p>
+
+  <h2 className="mt-2 text-3xl font-bold">
+    Asthma is a disease of the conducting airways
+  </h2>
+
+  <p className="mt-5 text-lg leading-8 text-slate-600">
+    Asthma primarily affects the medium and small bronchi through
+    inflammation, bronchial smooth muscle constriction, and mucus
+    production resulting in variable airflow obstruction.
+  </p>
+
+  <div className="mt-8 grid gap-5 md:grid-cols-2">
+    <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
+      <h3 className="text-xl font-bold text-blue-950">
+        Structures involved
+      </h3>
+
+      <ul className="mt-4 space-y-3 leading-7 text-blue-900">
+        <li>• Medium and small bronchi</li>
+        <li>• Bronchial smooth muscle</li>
+        <li>• Airway mucosa</li>
+        <li>• Goblet cells and mucus glands</li>
+      </ul>
+    </div>
+
+    <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
+      <h3 className="text-xl font-bold text-red-950">
+        Structures usually spared
+      </h3>
+
+      <ul className="mt-4 space-y-3 leading-7 text-red-900">
+        <li>• Alveoli</li>
+        <li>• Pleural space</li>
+        <li>• Pulmonary vasculature</li>
+        <li>• Lung parenchyma</li>
+      </ul>
+    </div>
+  </div>
+
+  <div className="mt-8 rounded-2xl bg-slate-50 p-6">
+    <h3 className="text-xl font-bold">
+      Clinical implication
+    </h3>
+
+    <p className="mt-3 leading-7 text-slate-600">
+      Because asthma affects the conducting airways rather than the alveoli,
+      patients typically present with wheezing, prolonged expiration,
+      chest tightness, and airflow obstruction rather than focal crackles
+      or consolidation.
+    </p>
+  </div>
+</section>
 
           <section
             id="pathophysiology"
@@ -364,6 +433,84 @@ export default function AsthmaPage() {
               </p>
             </div>
           </section>
+
+<section
+  id="quiz"
+  className="rounded-3xl border border-purple-200 bg-purple-50 p-8 shadow-sm"
+>
+  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-700">
+    Knowledge check
+  </p>
+
+  <h2 className="mt-2 text-3xl font-bold text-purple-950">
+    What is the best next step?
+  </h2>
+
+  <p className="mt-5 leading-8 text-purple-900">
+    A 9-year-old with known asthma presents with diffuse wheezing,
+    moderate intercostal retractions, and difficulty speaking in full
+    sentences. Oxygen saturation is 91% on room air. Which initial
+    treatment is most appropriate?
+  </p>
+
+  <div className="mt-6 grid gap-3">
+    {[
+      "Obtain a chest radiograph before treatment",
+      "Give inhaled albuterol, oxygen, and systemic corticosteroid",
+      "Start antibiotics for presumed pneumonia",
+      "Observe without treatment because wheezing is expected",
+    ].map((answer) => (
+      <button
+        key={answer}
+        onClick={() => setSelectedAnswer(answer)}
+        className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${
+          selectedAnswer === answer
+            ? answer ===
+              "Give inhaled albuterol, oxygen, and systemic corticosteroid"
+              ? "border-green-500 bg-green-100 text-green-950"
+              : "border-red-500 bg-red-100 text-red-950"
+            : "border-purple-200 bg-white text-purple-950 hover:border-purple-400 hover:bg-purple-100"
+        }`}
+      >
+        {answer}
+      </button>
+    ))}
+  </div>
+
+  {selectedAnswer && (
+    <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
+      {selectedAnswer ===
+      "Give inhaled albuterol, oxygen, and systemic corticosteroid" ? (
+        <>
+          <h3 className="text-xl font-bold text-green-700">Correct!</h3>
+
+          <p className="mt-4 leading-7 text-slate-700">
+            This child has a moderate-to-severe asthma exacerbation with
+            hypoxemia and impaired speech. Immediate treatment should target
+            bronchoconstriction, oxygenation, and airway inflammation.
+          </p>
+        </>
+      ) : (
+        <>
+          <h3 className="text-xl font-bold text-red-700">Not quite.</h3>
+
+          <p className="mt-4 leading-7 text-slate-700">
+            The best answer is:
+          </p>
+
+          <p className="mt-2 font-bold text-green-700">
+            Give inhaled albuterol, oxygen, and systemic corticosteroid.
+          </p>
+
+          <p className="mt-4 leading-7 text-slate-700">
+            Treatment should not be delayed for routine imaging when the
+            presentation is typical of an acute asthma exacerbation.
+          </p>
+        </>
+      )}
+    </div>
+  )}
+</section>
 
           <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
