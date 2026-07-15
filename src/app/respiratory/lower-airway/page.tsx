@@ -113,7 +113,9 @@ export default function LowerAirwayPage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {diseases.map((disease) => {
+            {[...diseases]
+  .sort((a, b) => a.name.localeCompare(b.name))
+  .map((disease) => {
               const isNext = disease.status === "Build next";
 
               return (
