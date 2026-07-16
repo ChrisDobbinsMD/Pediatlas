@@ -58,6 +58,43 @@ export default function PneumoniaPage() {
       <section className="border-b border-blue-100 bg-gradient-to-b from-sky-100 via-sky-50 to-white">
   <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-10 sm:px-8 sm:py-14 lg:grid-cols-[1fr_auto]">
     <div>
+
+<nav
+  aria-label="Breadcrumb"
+  className="mb-8 flex flex-wrap items-center gap-3 text-sm font-semibold"
+>
+  <a
+    href="/"
+    className="text-blue-700 transition hover:text-blue-900 hover:underline"
+  >
+    PediAtlas
+  </a>
+
+  <span className="text-slate-400">/</span>
+
+  <a
+    href="/respiratory"
+    className="text-blue-700 transition hover:text-blue-900 hover:underline"
+  >
+    Respiratory
+  </a>
+
+  <span className="text-slate-400">/</span>
+
+  <a
+    href="/respiratory/lower-airway"
+    className="text-blue-700 transition hover:text-blue-900 hover:underline"
+  >
+    Lower Airway
+  </a>
+
+  <span className="text-slate-400">/</span>
+
+  <span className="text-slate-600" aria-current="page">
+    Pneumonia
+  </span>
+</nav>
+
       <p className="mb-3 text-sm font-bold uppercase tracking-[0.3em] text-sky-700">
         Community-acquired lower respiratory tract infection
       </p>

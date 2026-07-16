@@ -6,21 +6,21 @@ const diseases = [
     description:
       "Acute viral inflammation of the bronchioles causing edema, mucus production, and small-airway obstruction.",
     age: "Usually younger than 2 years",
-    status: "Build next",
+    status: "Available!",
   },
   {
     name: "Asthma",
     description:
       "Chronic inflammatory airway disease characterized by variable airflow obstruction and bronchial hyperresponsiveness.",
     age: "Most often recognized in childhood",
-    status: "Coming soon",
+    status: "Available!",
   },
   {
     name: "Pneumonia",
     description:
       "Infection of the lung parenchyma caused by viral, bacterial, or atypical pathogens.",
     age: "All pediatric age groups",
-    status: "Coming soon",
+    status: "Available!",
   },
   {
     name: "Pertussis",
@@ -172,6 +172,15 @@ export default function LowerAirwayPage() {
     className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
   >
     Open asthma →
+  </Link>
+)}
+
+{disease.name === "Pneumonia" && (
+  <Link
+    href="/respiratory/lower-airway/pneumonia"
+    className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
+  >
+    Open pneumonia →
   </Link>
 )}
                 </article>
