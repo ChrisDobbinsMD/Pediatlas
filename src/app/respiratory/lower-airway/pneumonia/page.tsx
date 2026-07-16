@@ -1049,7 +1049,11 @@ export default function PneumoniaPage() {
   </main>
 );
 }
-
+type SectionProps = {
+  id: string;
+  title: string;
+  children: React.ReactNode;
+};
 function Section({ id, title, children }: SectionProps) {
   return (
     <section
