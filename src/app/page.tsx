@@ -22,7 +22,7 @@ const systems = [
   {
     name: "Gastroenterology",
     description: "Esophagus, stomach, intestines, liver, and nutrition",
-    icon: "🩺",
+    icon: "💩",
     status: "Coming soon",
   },
   {
