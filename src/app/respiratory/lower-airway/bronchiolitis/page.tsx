@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import EvidenceBase from "@/components/EvidenceBase";
 
 const clinicalPearls = [
   "Bronchiolitis is primarily a clinical diagnosis.",
@@ -541,77 +542,23 @@ export default function BronchiolitisPage() {
 
             
           </section>
-<section
-  id="references"
-  className="mx-auto max-w-6xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
->
-  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-    Evidence Base
-  </p>
-
-  <h2 className="mt-2 text-3xl font-bold">
-    Clinical References
-  </h2>
-
-  <div className="mt-8 space-y-6">
-    <div>
-      <a
-        href="https://publications.aap.org/pediatrics/article/134/5/e1474/75848/Clinical-Practice-Guideline-The-Diagnosis"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-semibold text-blue-700 hover:text-blue-500 hover:underline"
-      >
-        American Academy of Pediatrics Clinical Practice Guideline
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-600">
-        Diagnosis, management, and prevention of bronchiolitis.
-      </p>
-    </div>
-
-    <div>
-      <a
-        href="https://cps.ca/documents/position/bronchiolitis"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-semibold text-blue-700 hover:text-blue-500 hover:underline"
-      >
-        Canadian Paediatric Society
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-600">
-        Bronchiolitis: Recommendations for diagnosis, monitoring, and
-        management.
-      </p>
-    </div>
-
-    <div>
-    </div>
-
-    <div>
-      <p className="font-semibold text-slate-700">
-        Secondary Educational Sources
-      </p>
-
-      <p className="mt-1 leading-7 text-slate-600">
-        UpToDate and OpenEvidence were used for educational verification and
-        consistency checks where appropriate.
-      </p>
-    </div>
-  </div>
-
-  <div className="mt-8 rounded-2xl border border-amber-300 bg-amber-50 p-5">
-    <p className="font-semibold text-amber-900">
-      Educational Disclaimer
-    </p>
-
-    <p className="mt-3 leading-7 text-amber-800">
-      PediAtlas is intended for medical education and should not replace
-      institutional guidelines, local protocols, patient-specific assessment,
-      or clinical judgment.
-    </p>
-  </div>
-</section>
+<EvidenceBase
+  references={[
+    {
+      title: "American Academy of Pediatrics Clinical Practice Guideline",
+      href: "https://publications.aap.org/pediatrics/article/134/5/e1474/75848/Clinical-Practice-Guideline-The-Diagnosis",
+      description:
+        "Diagnosis, management, and prevention of bronchiolitis.",
+    },
+    {
+      title: "Canadian Paediatric Society",
+      href: "https://cps.ca/documents/position/bronchiolitis",
+      description:
+        "Bronchiolitis: Recommendations for diagnosis, monitoring, and management.",
+    },
+  ]}
+  secondarySources="UpToDate and OpenEvidence were used for educational verification and consistency checks where appropriate."
+/>
                 </div>
       </div>
     </main>

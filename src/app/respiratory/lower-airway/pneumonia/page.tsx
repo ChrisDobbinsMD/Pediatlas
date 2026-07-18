@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import EvidenceBase from "@/components/EvidenceBase";
 
 const pageSections = [
   { id: "clinical-vignette", label: "Clinical vignette" },
@@ -954,94 +955,35 @@ export default function PneumoniaPage() {
           </Section>
 
           {/* Sources */}
-<section
-  id="sources"
-  className="scroll-mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
->
-  <p className="text-sm font-bold uppercase tracking-[0.25em] text-sky-700">
-    Evidence base
-  </p>
-
-  <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">
-    Clinical references
-  </h2>
-
-  <div className="mt-8 space-y-6">
-    <div>
-      <a
-        href="https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-in-infants-and-children/"
-        target="_blank"
-        rel="noreferrer"
-        className="font-bold text-slate-700 transition hover:text-blue-700 hover:underline"
-      >
-        Infectious Diseases Society of America and Pediatric Infectious
-        Diseases Society
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-700">
-        Clinical practice guideline for community-acquired pneumonia in infants
-        and children older than 3 months.
-      </p>
-    </div>
-
-    <div>
-      <a
-        href="https://www.texaschildrens.org/sites/tc/files/uploads/documents/outcomes/2024%20standards/CAP%20Guideline%20FINAL.pdf"
-        target="_blank"
-        rel="noreferrer"
-        className="font-bold text-slate-700 transition hover:text-blue-700 hover:underline"
-      >
-        Texas Children&apos;s Hospital
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-700">
-        Evidence-based guideline for pediatric community-acquired pneumonia.
-      </p>
-    </div>
-
-    <div>
-      <a
-        href="https://publications.aap.org/pediatriccare/article/doi/10.1542/aap.ppcqr.396216/97/Pneumonia"
-        target="_blank"
-        rel="noreferrer"
-        className="font-bold text-slate-700 transition hover:text-blue-700 hover:underline"
-      >
-        American Academy of Pediatrics
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-700">
-        Pediatric Care Online clinical overview of pneumonia.
-      </p>
-    </div>
-
-    <div>
-      <a
-        href="https://www.who.int/news-room/fact-sheets/detail/pneumonia"
-        target="_blank"
-        rel="noreferrer"
-        className="font-bold text-slate-700 transition hover:text-blue-700 hover:underline"
-      >
-        World Health Organization
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-700">
-        Global overview of pneumonia in children.
-      </p>
-    </div>
-  </div>
-
-  <div className="mt-9 rounded-2xl border border-amber-300 bg-amber-50 p-5 sm:p-6">
-    <h3 className="font-bold text-amber-900">
-      Educational disclaimer
-    </h3>
-
-    <p className="mt-3 leading-7 text-amber-800">
-      PediAtlas is intended for medical education and should not replace
-      institutional pathways, local antimicrobial guidance, patient-specific
-      assessment, or clinical judgment.
-    </p>
-  </div>
-</section>
+<EvidenceBase
+  references={[
+    {
+      title:
+        "Infectious Diseases Society of America and Pediatric Infectious Diseases Society",
+      href: "https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-in-infants-and-children/",
+      description:
+        "Clinical practice guideline for community-acquired pneumonia in infants and children older than 3 months.",
+    },
+    {
+      title: "Texas Children's Hospital",
+      href: "https://www.texaschildrens.org/sites/tc/files/uploads/documents/outcomes/2024%20standards/CAP%20Guideline%20FINAL.pdf",
+      description:
+        "Evidence-based guideline for pediatric community-acquired pneumonia.",
+    },
+    {
+      title: "American Academy of Pediatrics",
+      href: "https://publications.aap.org/pediatriccare/article/doi/10.1542/aap.ppcqr.396216/97/Pneumonia",
+      description:
+        "Pediatric Care Online clinical overview of pneumonia.",
+    },
+    {
+      title: "World Health Organization",
+      href: "https://www.who.int/news-room/fact-sheets/detail/pneumonia",
+      description:
+        "Global overview of pneumonia in children.",
+    },
+  ]}
+/>
         </div> {/* main content column */}
       </div> {/* grid */}
     </div> {/* max-width container */}

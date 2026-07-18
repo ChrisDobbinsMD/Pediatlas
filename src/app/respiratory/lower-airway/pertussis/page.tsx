@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import EvidenceBase from "@/components/EvidenceBase";
 
 const diseaseStages = [
   {
@@ -977,115 +978,35 @@ export default function PertussisPage() {
             )}
           </section>
 
-          <section
-  id="references"
-  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
->
-  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-    Evidence base
-  </p>
-
-  <h2 className="mt-2 text-3xl font-bold">
-    Clinical references
-  </h2>
-
-  <div className="mt-8 space-y-6">
-
-    <div>
-      <a
-        href="https://www.cdc.gov/pertussis/hcp/clinical-signs/index.html"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-lg font-semibold text-blue-700 hover:text-blue-500 hover:underline"
-      >
-        Centers for Disease Control and Prevention (CDC)
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-600">
-        Clinical features, disease progression, diagnosis, complications,
-        and age-specific presentation of pertussis.
-      </p>
-    </div>
-
-    <div>
-      <a
-        href="https://www.cdc.gov/pertussis/hcp/clinical-care/index.html"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-lg font-semibold text-blue-700 hover:text-blue-500 hover:underline"
-      >
-        CDC Clinical Care Guidance
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-600">
-        Evidence-based recommendations for antimicrobial therapy,
-        postexposure prophylaxis, and management.
-      </p>
-    </div>
-
-    <div>
-      <a
-        href="https://publications.aap.org/redbook/book/755/chapter/14080319/Pertussis-Whooping-Cough"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-lg font-semibold text-blue-700 hover:text-blue-500 hover:underline"
-      >
-        American Academy of Pediatrics — Red Book
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-600">
-        Comprehensive pediatric guidance on diagnosis, treatment,
-        prevention, and infection control.
-      </p>
-    </div>
-
-    <div>
-      <a
-        href="https://publications.aap.org/pediatricsinreview/article/39/5/247/35146/Bordetella-pertussis-Pertussis"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-lg font-semibold text-blue-700 hover:text-blue-500 hover:underline"
-      >
-        Pediatrics in Review — Bordetella pertussis
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-600">
-        Excellent review of epidemiology, pathophysiology, diagnosis,
-        treatment, and prevention.
-      </p>
-    </div>
-
-    <div>
-      <a
-        href="https://pubmed.ncbi.nlm.nih.gov/33961197/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-lg font-semibold text-blue-700 hover:text-blue-500 hover:underline"
-      >
-        Malignant Pertussis in Infants
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-600">
-        Reviews severe infant disease, leukocytosis,
-        pulmonary hypertension, and predictors of mortality.
-      </p>
-    </div>
-
-  </div>
-
-  <div className="mt-8 rounded-2xl border border-amber-300 bg-amber-50 p-5">
-    <h3 className="text-lg font-semibold text-amber-900">
-      Educational disclaimer
-    </h3>
-
-    <p className="mt-3 leading-7 text-amber-800">
-      PediAtlas is intended for medical education and should not replace
-      institutional guidelines, local antimicrobial recommendations,
-      patient-specific clinical judgment, or specialist consultation when
-      appropriate.
-    </p>
-  </div>
-</section>
+          <EvidenceBase
+  references={[
+    {
+      title: "Centers for Disease Control and Prevention",
+      href: "https://www.cdc.gov/pertussis/hcp/clinical-care/index.html",
+      description:
+        "Clinical care guidance for treatment, postexposure prophylaxis, and management of pertussis.",
+    },
+    {
+      title: "American Academy of Pediatrics",
+      href: "https://publications.aap.org/aapbooks/monograph/756/chapter/14086744/Pertussis-Whooping-Cough",
+      description:
+        "Red Book guidance for the diagnosis, treatment, prevention, and infection control of pertussis.",
+    },
+    {
+      title: "Pediatrics in Review",
+      href: "https://publications.aap.org/pediatricsinreview",
+      description:
+        "Clinical review of pertussis presentation, pathophysiology, diagnosis, and management in children.",
+    },
+    {
+      title: "PubMed",
+      href: "https://pubmed.ncbi.nlm.nih.gov/?term=pertussis+infants+apnea+leukocytosis",
+      description:
+        "Primary literature regarding severe pertussis in young infants, including apnea, leukocytosis, and cardiopulmonary complications.",
+    },
+  ]}
+  secondarySources="UpToDate and OpenEvidence were used for educational verification and consistency checks where appropriate."
+/>
         </div>
       </div>
     </main>

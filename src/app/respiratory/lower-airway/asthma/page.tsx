@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import EvidenceBase from "@/components/EvidenceBase";
 
 const pathophysiology = [
   {
@@ -895,62 +896,23 @@ export default function AsthmaPage() {
   )}
 </section>
 
-          <section
-  id="references"
-  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
->
-  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-    Evidence Base
-  </p>
+                    <EvidenceBase
+            references={[
+              {
+                title: "Global Initiative for Asthma",
+                href: "https://ginasthma.org/2026-gina-strategy-report/",
+                description:
+                  "Global Strategy for Asthma Management and Prevention, 2026.",
+              },
+              {
+                title: "National Asthma Education and Prevention Program",
+                href: "https://www.nhlbi.nih.gov/health-topics/asthma-management-guidelines-2020-updates",
+                description:
+                  "2020 Focused Updates to the Asthma Management Guidelines.",
+              },
+            ]}
+          />
 
-  <h2 className="mt-2 text-3xl font-bold">
-    Clinical References
-  </h2>
-
-  <div className="mt-8 space-y-6">
-    <div>
-      <a
-        href="https://ginasthma.org/2026-gina-strategy-report/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-semibold text-blue-700 hover:text-blue-500 hover:underline"
-      >
-        Global Initiative for Asthma
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-600">
-        Global Strategy for Asthma Management and Prevention, 2026.
-      </p>
-    </div>
-
-    <div>
-      <a
-        href="https://www.nhlbi.nih.gov/health-topics/asthma-management-guidelines-2020-updates"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="font-semibold text-blue-700 hover:text-blue-500 hover:underline"
-      >
-        National Asthma Education and Prevention Program
-      </a>
-
-      <p className="mt-1 leading-7 text-slate-600">
-        2020 Focused Updates to the Asthma Management Guidelines.
-      </p>
-    </div>
-  </div>
-
-  <div className="mt-8 rounded-2xl border border-amber-300 bg-amber-50 p-5">
-    <p className="font-semibold text-amber-900">
-      Educational Disclaimer
-    </p>
-
-    <p className="mt-3 leading-7 text-amber-800">
-      PediAtlas is intended for medical education and should not replace
-      institutional pathways, local protocols, patient-specific assessment,
-      or clinical judgment.
-    </p>
-  </div>
-</section>
         </div>
       </div>
     </main>
