@@ -12,7 +12,7 @@ const diseaseStages = [
   },
   {
     title: "Paroxysmal stage",
-    timing: "Usually 1–6 weeks or longer",
+    timing: "Usually 2–6 weeks or longer",
     description:
       "Repeated bursts of rapid coughing may be followed by an inspiratory whoop, cyanosis, exhaustion, or post-tussive vomiting. Young infants may present primarily with apnea.",
   },
@@ -20,7 +20,7 @@ const diseaseStages = [
     title: "Convalescent stage",
     timing: "Weeks to months",
     description:
-      "Coughing episodes gradually become less frequent and severe, but paroxysms may recur temporarily with subsequent respiratory infections.",
+      "Coughing episodes gradually become less frequent and severe, but paroxysms may recur temporarily with subsequent respiratory infections (hence the term - 100-day cough).",
   },
 ];
 
@@ -35,7 +35,7 @@ const differential = [
   },
   {
     diagnosis: "Asthma",
-    clue: "Recurrent wheezing, prolonged expiration, triggers, and improvement with bronchodilator therapy support asthma.",
+    clue: "Recurrent wheezing, prolonged expiration, triggers, and improvement with bronchodilator therapy.",
   },
   {
     diagnosis: "Pneumonia",
@@ -356,21 +356,14 @@ export default function PertussisPage() {
   <div className="mt-8">
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
       <Image
-        src="/images/pertussis-pathophys.png"
-        alt="Pertussis pathophysiology showing Bordetella pertussis adherence to ciliated respiratory epithelium, toxin-mediated ciliary injury, impaired mucociliary clearance, mucus retention, and paroxysmal coughing"
-        width={1536}
-        height={1024}
-        className="h-auto w-full object-contain"
-        priority
-      />
+  src="/images/pertussis-pathophys-v2.png"
+  alt="Pertussis pathophysiology showing Bordetella pertussis adherence to ciliated respiratory epithelium, toxin-mediated ciliary injury, impaired mucociliary clearance, mucus retention, and paroxysmal coughing"
+  width={1536}
+  height={1024}
+  className="h-auto w-full object-contain"
+  unoptimized
+/>
     </div>
-
-    <p className="mt-3 text-sm leading-6 text-slate-500">
-      Bordetella pertussis adheres to ciliated respiratory epithelial cells.
-      Toxin-mediated injury disrupts ciliary function and mucociliary clearance,
-      leading to secretion retention, airway irritation, and paroxysmal
-      coughing.
-    </p>
   </div>
 
   <div className="mt-8">
@@ -672,15 +665,10 @@ export default function PertussisPage() {
                 </h3>
 
                 <ul className="mt-4 space-y-3 leading-7 text-emerald-900">
-                  <li>• A macrolide is generally first-line therapy</li>
-                  <li>• Azithromycin is commonly preferred in infants</li>
-                  <li>• Treat early to reduce severity and transmission</li>
-                  <li>
-                    • Later treatment may reduce transmission more than the
-                    established cough
-                  </li>
-                  <li>
-                    • Follow age-specific recommendations and local guidance
+                  <li>• Macrolides are the first-line antibiotics for pertussis.</li>
+                  <li>• Azithromycin is generally the preferred agent, particularly in infants.</li>
+                  <li>• Treat early (during the catarrhal phase) to reduce symptom severity and transmission.</li>
+                  <li>                  • Follow age-specific recommendations and local guidance
                   </li>
                 </ul>
               </div>
@@ -717,63 +705,136 @@ export default function PertussisPage() {
           </section>
 
           <section
-            id="disposition"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
-          >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Disposition
-            </p>
+  id="disposition"
+  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+>
+  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+    Disposition
+  </p>
 
-            <h2 className="mt-2 text-3xl font-bold">
-              Young infants deserve a low threshold for admission
-            </h2>
+  <h2 className="mt-2 text-3xl font-bold">
+    Young infants deserve a low threshold for admission
+  </h2>
 
-            <div className="mt-8 grid gap-6 lg:grid-cols-3">
-              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
-                <h3 className="text-xl font-bold text-emerald-950">
-                  Consider outpatient care
-                </h3>
+  <p className="mt-4 max-w-4xl leading-7 text-slate-600">
+    Disposition depends on age, respiratory stability, feeding, hydration,
+    comorbidities, and the caregiver&apos;s ability to recognize deterioration.
+    Infants younger than 3 months warrant particularly cautious assessment,
+    with the greatest risk occurring in those younger than 2 months.
+  </p>
 
-                <ul className="mt-4 space-y-3 leading-7 text-emerald-900">
-                  <li>• Older infant or child with mild disease</li>
-                  <li>• No apnea, cyanosis, or significant hypoxemia</li>
-                  <li>• Adequate feeding and hydration</li>
-                  <li>• Stable examination between coughing episodes</li>
-                  <li>• Reliable caregivers and follow-up</li>
-                </ul>
-              </div>
+  <div className="mt-8 grid gap-6 lg:grid-cols-3">
+    <div className="rounded-2xl border border-emerald-300 bg-emerald-50 p-6">
+      <h3 className="text-xl font-bold text-emerald-950">
+        Consider outpatient care
+      </h3>
 
-              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
-                <h3 className="text-xl font-bold text-amber-950">
-                  Consider admission
-                </h3>
+      <ul className="mt-5 space-y-4 leading-7 text-emerald-900">
+        <li>
+          • Infant at least 3 months old or older child with mild disease
+        </li>
+        <li>
+          • No apnea, cyanosis, bradycardia, or significant hypoxemia
+        </li>
+        <li>
+          • No meaningful respiratory distress between coughing episodes
+        </li>
+        <li>
+          • Adequate feeding and hydration
+        </li>
+        <li>
+          • No high-risk comorbidity or concerning laboratory findings
+        </li>
+        <li>
+          • Reliable caregivers, return precautions, and close follow-up
+        </li>
+      </ul>
 
-                <ul className="mt-4 space-y-3 leading-7 text-amber-900">
-                  <li>• Young infant, especially under 3 months</li>
-                  <li>• Apnea, cyanosis, or bradycardia</li>
-                  <li>• Feeding difficulty or dehydration</li>
-                  <li>• Hypoxemia or significant respiratory distress</li>
-                  <li>• Frequent severe paroxysms</li>
-                  <li>• Significant comorbidity or unsafe follow-up</li>
-                </ul>
-              </div>
+      <p className="mt-5 rounded-xl bg-emerald-100 p-4 text-sm leading-6 text-emerald-950">
+        Infants 3–6 months remain at increased risk. Age alone should not
+        override concerning symptoms or an unreliable examination.
+      </p>
+    </div>
 
-              <div className="rounded-2xl border border-rose-300 bg-rose-50 p-6">
-                <h3 className="text-xl font-bold text-rose-950">
-                  Escalate to intensive care
-                </h3>
+    <div className="rounded-2xl border border-amber-300 bg-amber-50 p-6">
+      <h3 className="text-xl font-bold text-amber-950">
+        Strongly consider admission
+      </h3>
 
-                <ul className="mt-4 space-y-3 leading-7 text-rose-900">
-                  <li>• Recurrent or prolonged apnea</li>
-                  <li>• Respiratory failure or escalating support</li>
-                  <li>• Severe hypoxemia</li>
-                  <li>• Hemodynamic instability</li>
-                  <li>• Pulmonary hypertension</li>
-                  <li>• Marked leukocytosis with critical infant disease</li>
-                </ul>
-              </div>
-            </div>
-          </section>
+      <ul className="mt-5 space-y-4 leading-7 text-amber-900">
+        <li>
+          • Age younger than 3 months, especially younger than 2 months
+        </li>
+        <li>
+          • Apnea, cyanosis, bradycardia, or post-tussive heart-rate decrease
+        </li>
+        <li>
+          • Feeding difficulty, weight loss, or dehydration
+        </li>
+        <li>
+          • Hypoxemia, pneumonia, or significant respiratory distress
+        </li>
+        <li>
+          • Frequent, prolonged, or severe coughing paroxysms
+        </li>
+        <li>
+          • Marked leukocytosis with lymphocytosis
+        </li>
+        <li>
+          • Prematurity, cardiopulmonary disease, immunodeficiency, or
+          concerning viral coinfection
+        </li>
+        <li>
+          • Unsafe home observation or inability to ensure close follow-up
+        </li>
+      </ul>
+    </div>
+
+    <div className="rounded-2xl border border-rose-300 bg-rose-50 p-6">
+      <h3 className="text-xl font-bold text-rose-950">
+        Escalate to intensive care
+      </h3>
+
+      <ul className="mt-5 space-y-4 leading-7 text-rose-900">
+        <li>
+          • Recurrent or prolonged apnea
+        </li>
+        <li>
+          • Respiratory failure or rapidly increasing respiratory support
+        </li>
+        <li>
+          • Severe or recurrent hypoxemia
+        </li>
+        <li>
+          • Hemodynamic instability
+        </li>
+        <li>
+          • Pulmonary hypertension
+        </li>
+        <li>
+          • Rapid clinical deterioration
+        </li>
+        <li>
+          • Marked leukocytosis with critical infant disease
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div className="mt-7 rounded-2xl bg-slate-950 p-6 text-white">
+    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
+      Clinical pearl
+    </p>
+
+    <p className="mt-3 leading-7 text-slate-200">
+      Young infants with pertussis may initially appear deceptively well, with
+      only mild coryza or cough, before progressing to gagging, gasping,
+      bradycardia, cyanosis, or apnea. A reassuring appearance early in the
+      illness should not outweigh the patient&apos;s age, history, or observed
+      events when deciding disposition.
+    </p>
+  </div>
+</section>
 
           <section
             id="pearls"
@@ -916,48 +977,115 @@ export default function PertussisPage() {
             )}
           </section>
 
-          <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Evidence base
-            </p>
+          <section
+  id="references"
+  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+>
+  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+    Evidence base
+  </p>
 
-            <h2 className="mt-2 text-3xl font-bold">
-              Clinical references
-            </h2>
+  <h2 className="mt-2 text-3xl font-bold">
+    Clinical references
+  </h2>
 
-            <div className="mt-6 space-y-4 leading-7 text-slate-700">
-              <div>
-                <p className="font-semibold">
-                  Centers for Disease Control and Prevention
-                </p>
-                <p>
-                  Pertussis clinical care, laboratory testing, vaccination,
-                  surveillance, and post-exposure prophylaxis guidance.
-                </p>
-              </div>
+  <div className="mt-8 space-y-6">
 
-              <div>
-                <p className="font-semibold">
-                  CDC Pink Book
-                </p>
-                <p>
-                  Chapter 16: Pertussis.
-                </p>
-              </div>
-            </div>
+    <div>
+      <a
+        href="https://www.cdc.gov/pertussis/hcp/clinical-signs/index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-lg font-semibold text-blue-700 hover:text-blue-500 hover:underline"
+      >
+        Centers for Disease Control and Prevention (CDC)
+      </a>
 
-            <div className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-5">
-              <p className="font-semibold text-amber-900">
-                Educational disclaimer
-              </p>
+      <p className="mt-1 leading-7 text-slate-600">
+        Clinical features, disease progression, diagnosis, complications,
+        and age-specific presentation of pertussis.
+      </p>
+    </div>
 
-              <p className="mt-2 leading-7 text-amber-800">
-                PediAtlas is intended for medical education and should not
-                replace local public-health requirements, institutional
-                pathways, antimicrobial guidance, or clinical judgment.
-              </p>
-            </div>
-          </section>
+    <div>
+      <a
+        href="https://www.cdc.gov/pertussis/hcp/clinical-care/index.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-lg font-semibold text-blue-700 hover:text-blue-500 hover:underline"
+      >
+        CDC Clinical Care Guidance
+      </a>
+
+      <p className="mt-1 leading-7 text-slate-600">
+        Evidence-based recommendations for antimicrobial therapy,
+        postexposure prophylaxis, and management.
+      </p>
+    </div>
+
+    <div>
+      <a
+        href="https://publications.aap.org/redbook/book/755/chapter/14080319/Pertussis-Whooping-Cough"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-lg font-semibold text-blue-700 hover:text-blue-500 hover:underline"
+      >
+        American Academy of Pediatrics — Red Book
+      </a>
+
+      <p className="mt-1 leading-7 text-slate-600">
+        Comprehensive pediatric guidance on diagnosis, treatment,
+        prevention, and infection control.
+      </p>
+    </div>
+
+    <div>
+      <a
+        href="https://publications.aap.org/pediatricsinreview/article/39/5/247/35146/Bordetella-pertussis-Pertussis"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-lg font-semibold text-blue-700 hover:text-blue-500 hover:underline"
+      >
+        Pediatrics in Review — Bordetella pertussis
+      </a>
+
+      <p className="mt-1 leading-7 text-slate-600">
+        Excellent review of epidemiology, pathophysiology, diagnosis,
+        treatment, and prevention.
+      </p>
+    </div>
+
+    <div>
+      <a
+        href="https://pubmed.ncbi.nlm.nih.gov/33961197/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-lg font-semibold text-blue-700 hover:text-blue-500 hover:underline"
+      >
+        Malignant Pertussis in Infants
+      </a>
+
+      <p className="mt-1 leading-7 text-slate-600">
+        Reviews severe infant disease, leukocytosis,
+        pulmonary hypertension, and predictors of mortality.
+      </p>
+    </div>
+
+  </div>
+
+  <div className="mt-8 rounded-2xl border border-amber-300 bg-amber-50 p-5">
+    <h3 className="text-lg font-semibold text-amber-900">
+      Educational disclaimer
+    </h3>
+
+    <p className="mt-3 leading-7 text-amber-800">
+      PediAtlas is intended for medical education and should not replace
+      institutional guidelines, local antimicrobial recommendations,
+      patient-specific clinical judgment, or specialist consultation when
+      appropriate.
+    </p>
+  </div>
+</section>
         </div>
       </div>
     </main>

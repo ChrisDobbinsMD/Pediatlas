@@ -14,7 +14,6 @@ const pageSections = [
   { id: "disposition", label: "Disposition" },
   { id: "clinical-pearls", label: "Clinical pearls" },
   { id: "quiz", label: "Quiz" },
-  { id: "sources", label: "Sources" },
 ];
 
 const quizOptions = [

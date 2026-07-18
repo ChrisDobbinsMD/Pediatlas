@@ -27,7 +27,7 @@ const diseases = [
     description:
       "Toxin-mediated respiratory infection associated with paroxysmal cough, apnea, and post-tussive emesis.",
     age: "Highest risk in young infants",
-    status: "Coming soon",
+    status: "Available!",
   },
   {
     name: "Aspiration",
@@ -116,7 +116,7 @@ export default function LowerAirwayPage() {
             {[...diseases]
   .sort((a, b) => a.name.localeCompare(b.name))
   .map((disease) => {
-              const isNext = disease.status === "Build next";
+              const isNext = disease.status === "Available!";
 
               return (
                 <article
@@ -181,6 +181,15 @@ export default function LowerAirwayPage() {
     className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
   >
     Open pneumonia →
+  </Link>
+)}
+
+{disease.name === "Pertussis" && (
+  <Link
+    href="/respiratory/lower-airway/pertussis"
+    className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
+  >
+    Open pertussis →
   </Link>
 )}
                 </article>
