@@ -614,19 +614,37 @@ export default function ForeignBodyAspirationPage() {
 
       </div>
 
-      <Image
-        src={
-          showAirwayAnnotations
-            ? "/images/foreign-body-airtrapping-annotated.png"
-            : "/images/foreign-body-airtrapping.jpg"
-        }
-        alt="Chest radiograph demonstrating unilateral hyperinflation from foreign body aspiration."
-        width={1600}
-        height={1200}
-        className="mx-auto mt-5 h-auto w-full max-w-4xl rounded-2xl border border-slate-200 shadow-sm"
-        unoptimized
-      />
-
+      <a
+  href={
+    showAirwayAnnotations
+      ? "/images/foreign-body-airtrapping-annotated.png"
+      : "/images/foreign-body-airtrapping.jpg"
+  }
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <img
+    src={
+      showAirwayAnnotations
+        ? "/images/foreign-body-airtrapping-annotated.png"
+        : "/images/foreign-body-airtrapping.jpg"
+    }
+    alt="Chest radiograph demonstrating unilateral air trapping from bronchial foreign body aspiration"
+   className="mx-auto w-full max-w-xl cursor-zoom-in rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-lg"
+  />
+</a>
+<p className="mt-4 text-sm text-slate-500">
+  Wikimedia Commons:{" "}
+  <a
+    href="https://commons.wikimedia.org/wiki/File:Fremdkoerperaspiration_mit_Ventilwirkung_2W_-_CR_ap_-_001.jpg"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-700 hover:underline"
+  >
+    Foreign Body Aspiration Chest Radiograph (Hellerhoff, 2022)
+  </a>{" "}
+  · CC BY-SA 4.0
+</p>
       <div className="mt-5 rounded-xl border border-sky-200 bg-sky-50 p-5">
 
         <p className="font-semibold text-sky-900">
@@ -644,57 +662,104 @@ export default function ForeignBodyAspirationPage() {
 
     </div>
 
-    {/* Esophageal Foreign Body */}
-
+    {/* Esophageal Coin */}
+<div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+  <div className="flex items-center justify-between">
     <div>
-
-      <div className="flex items-center justify-between">
-
-        <h4 className="text-xl font-bold">
-          Esophageal Coin
-        </h4>
-
-        <button
-          onClick={() =>
-            setShowCoinAnnotations(!showCoinAnnotations)
-          }
-          className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium hover:bg-slate-100"
-        >
-          {showCoinAnnotations
-            ? "👁 Hide annotations"
-            : "👁 Show annotations"}
-        </button>
-
-      </div>
-
-      <Image
-        src={
-          showCoinAnnotations
-            ? "/images/coin-placeholder.png"
-            : "/images/coin-placeholder.png"
-        }
-        alt="Placeholder for esophageal coin radiograph."
-        width={1600}
-        height={1200}
-        className="mx-auto mt-5 h-auto w-full max-w-4xl rounded-2xl border border-slate-200 shadow-sm"
-        unoptimized
-      />
-
-      <div className="mt-5 rounded-xl border border-purple-200 bg-purple-50 p-5">
-
-        <p className="font-semibold text-purple-900">
-          Clinical Pearl
-        </p>
-
-        <p className="mt-2 leading-7 text-purple-900">
-          Placeholder image. This section will demonstrate the classic
-          appearance of an esophageal coin and compare it with other
-          ingested foreign bodies such as button batteries.
-        </p>
-
-      </div>
-
+      <h3 className="text-2xl font-bold text-blue-950">
+        Esophageal Coin
+      </h3>
+      <p className="mt-2 text-slate-600">
+        AP and lateral radiographs demonstrate the typical appearance of an
+        esophageal foreign body. The lateral view confirms that the coin lies
+        posterior to the trachea.
+      </p>
     </div>
+  </div>
+
+  <div className="mt-5 grid gap-5 md:grid-cols-2">
+  <a
+    href="/images/coin-ap.png"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src="/images/coin-ap.png"
+      alt="AP radiograph demonstrating an esophageal coin"
+      className="w-full cursor-zoom-in rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-lg"
+    />
+  </a>
+
+  <a
+    href={
+      showCoinAnnotations
+        ? "/images/coin-lateral-annotated.jpeg"
+        : "/images/coin-lateral.jpeg"
+    }
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      src={
+        showCoinAnnotations
+          ? "/images/coin-lateral-annotated.jpeg"
+          : "/images/coin-lateral.jpeg"
+      }
+      alt="Lateral radiograph demonstrating an esophageal coin"
+      className="w-full cursor-zoom-in rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-lg"
+    />
+  </a>
+</div>
+
+  <button
+    onClick={() => setShowCoinAnnotations(!showCoinAnnotations)}
+    className="mt-4 text-sm font-semibold text-blue-700 hover:text-blue-900"
+  >
+    👁 {showCoinAnnotations ? "Hide" : "Show"} annotations
+  </button>
+
+<p className="mt-2 text-xs text-slate-500">
+  🔍 Click either image to view the full-resolution radiograph.
+</p>
+
+  <p className="mt-3 text-sm text-slate-500">
+    Radiopaedia Case:{" "}
+    <a
+      href="https://radiopaedia.org/cases/oesophageal-foreign-body-coin?lang=us"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-700 hover:underline"
+    >
+      Oesophageal Foreign Body – Coin
+    </a>
+    . Licensed under CC BY-NC-SA.
+  </p>
+
+  <div className="mt-6 rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-5">
+    <h4 className="font-semibold text-amber-900">
+      Clinical Pearl
+    </h4>
+
+    <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
+      <li>
+        On the <strong>AP radiograph</strong>, esophageal coins are usually seen
+        <strong> en face</strong> (round), whereas tracheal coins more commonly
+        appear edge-on.
+      </li>
+
+      <li>
+        The <strong>lateral radiograph</strong> confirms the coin is
+        <strong> posterior to the trachea</strong>, supporting an esophageal
+        location.
+      </li>
+
+      <li>
+        Always distinguish a coin from a <strong>button battery</strong>, which
+        requires emergent removal because of the risk of caustic injury.
+      </li>
+    </ul>
+  </div>
+</div>
 
   </div>
 
