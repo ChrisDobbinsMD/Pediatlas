@@ -1,11 +1,11 @@
-interface Reference {
+export interface EvidenceReference {
   title: string;
   href?: string;
   description: string;
 }
 
 interface EvidenceBaseProps {
-  references: Reference[];
+  references: EvidenceReference[];
   secondarySources?: string;
 }
 
