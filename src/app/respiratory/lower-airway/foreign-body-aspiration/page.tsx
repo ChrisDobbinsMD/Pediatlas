@@ -177,7 +177,7 @@ export default function ForeignBodyAspirationPage() {
             </div>
 
             <div className="text-8xl" aria-hidden="true">
-              🪙🫁
+              🪙🫁🥜
             </div>
           </div>
         </div>

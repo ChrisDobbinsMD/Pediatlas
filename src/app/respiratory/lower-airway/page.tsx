@@ -41,7 +41,7 @@ const diseases = [
     description:
       "Acute or occult airway obstruction caused by an inhaled object.",
     age: "Most common in toddlers",
-    status: "Coming soon",
+    status: "Available!",
   },
 ];
 
@@ -190,6 +190,15 @@ export default function LowerAirwayPage() {
     className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
   >
     Open pertussis →
+  </Link>
+)}
+
+{disease.name === "Foreign Body Aspiration" && (
+  <Link
+    href="/respiratory/lower-airway/foreign-body-aspiration"
+    className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
+  >
+    Open foreign body aspiration →
   </Link>
 )}
                 </article>
