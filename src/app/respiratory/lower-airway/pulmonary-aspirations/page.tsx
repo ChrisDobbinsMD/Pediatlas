@@ -378,14 +378,16 @@ export default function PulmonaryAspirationPage() {
               through the larynx and into the tracheobronchial tree.
             </p>
 
-            <Image
-              src="/images/pulmonary-aspiration-anatomy.png"
-              alt="Normal swallowing compared with pulmonary aspiration."
-              width={1600}
-              height={900}
-              className="mt-8 h-auto w-full rounded-2xl border border-slate-200 shadow-sm"
-              unoptimized
-            />
+            <div className="mt-8 flex justify-center">
+  <Image
+    src="/images/aspiration.png"
+    alt="Normal swallowing compared with pulmonary aspiration."
+    width={700}
+    height={500}
+    className="h-auto w-full max-w-xl rounded-2xl border border-slate-200 shadow-sm"
+    unoptimized
+  />
+</div>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2">
 
@@ -1533,9 +1535,141 @@ export default function PulmonaryAspirationPage() {
   )}
 </div>
 
-          </section>
-                  </div>
+</section>
+
+{/* ================= CARE SETTING & FOLLOW-UP ================= */}
+
+<section
+  id="disposition"
+  className="mt-14 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+>
+  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+    Care setting &amp; follow-up
+  </p>
+
+  <h2 className="mt-2 text-3xl font-bold">
+    Match the care plan to respiratory severity, feeding safety, and recurrence risk
+  </h2>
+
+  <p className="mt-5 text-lg leading-8 text-slate-600">
+    Children with pulmonary aspiration may be managed in the outpatient
+    setting, admitted for acute respiratory support or feeding evaluation,
+    or require intensive care when airway protection and ventilation are
+    compromised. Long-term follow-up should focus on preventing recurrent
+    aspiration and chronic lung injury.
+  </p>
+
+  <div className="mt-8 grid gap-6 lg:grid-cols-3">
+    {/* Outpatient management */}
+
+    <div className="rounded-2xl border border-emerald-300 bg-emerald-50 p-6">
+      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+        Outpatient care
+      </p>
+
+      <h3 className="mt-2 text-2xl font-bold text-emerald-950">
+        Appropriate when the child is clinically stable
+      </h3>
+
+      <ul className="mt-5 space-y-3 leading-7 text-emerald-900">
+        <li>• Stable oxygenation without significant respiratory distress</li>
+        <li>• Safe feeding plan or reliable alternative nutrition plan</li>
+        <li>• No evidence of progressive respiratory deterioration</li>
+        <li>• Caregivers understand feeding precautions and warning signs</li>
+        <li>• Timely primary care and subspecialty follow-up can be arranged</li>
+      </ul>
+    </div>
+
+    {/* Inpatient care */}
+
+    <div className="rounded-2xl border border-amber-300 bg-amber-50 p-6">
+      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
+        Inpatient care
+      </p>
+
+      <h3 className="mt-2 text-2xl font-bold text-amber-950">
+        Admit when monitoring or active treatment is required
+      </h3>
+
+      <ul className="mt-5 space-y-3 leading-7 text-amber-900">
+        <li>• Persistent oxygen requirement or moderate respiratory distress</li>
+        <li>• Need for IV fluids, enteral support, or feeding restriction</li>
+        <li>• Aspiration pneumonia requiring inpatient therapy</li>
+        <li>• Need for swallow evaluation or feeding-plan development</li>
+        <li>• Recurrent events requiring coordinated diagnostic evaluation</li>
+        <li>• Inability to maintain hydration, nutrition, or secretion control</li>
+      </ul>
+    </div>
+
+    {/* Intensive care */}
+
+    <div className="rounded-2xl border border-red-300 bg-red-50 p-6">
+      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+        Intensive care
+      </p>
+
+      <h3 className="mt-2 text-2xl font-bold text-red-950">
+        Escalate when airway protection or ventilation is threatened
+      </h3>
+
+      <ul className="mt-5 space-y-3 leading-7 text-red-900">
+        <li>• Respiratory failure or rapidly worsening gas exchange</li>
+        <li>• Need for noninvasive or invasive ventilatory support</li>
+        <li>• Inability to protect the airway or manage secretions</li>
+        <li>• Recurrent apnea, cyanosis, or altered mental status</li>
+        <li>• Hemodynamic instability or concern for severe sepsis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div className="mt-8 rounded-2xl border border-purple-200 bg-purple-50 p-6">
+    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-700">
+      Long-term follow-up
+    </p>
+
+    <h3 className="mt-2 text-xl font-bold text-purple-950">
+      Follow-up should address both lung disease and the source of aspiration
+    </h3>
+
+    <p className="mt-3 leading-7 text-purple-900">
+      Depending on the underlying disorder, children may require coordinated
+      care involving Primary Care, Speech-Language Pathology, Pulmonology,
+      Gastroenterology, Otolaryngology, Nutrition, Neurology, Surgery, and an
+      aerodigestive program.
+    </p>
+
+    <div className="mt-5 grid gap-4 md:grid-cols-2">
+      <div className="rounded-xl border border-purple-200 bg-white/70 p-4">
+        <h4 className="font-bold text-purple-950">
+          Monitor respiratory outcomes
+        </h4>
+
+        <ul className="mt-3 space-y-2 leading-7 text-purple-900">
+          <li>• Recurrent pneumonia or wheezing</li>
+          <li>• Oxygen requirement</li>
+          <li>• Airway-clearance needs</li>
+          <li>• Development of bronchiectasis or chronic lung disease</li>
+        </ul>
       </div>
-    </main>
+
+      <div className="rounded-xl border border-purple-200 bg-white/70 p-4">
+        <h4 className="font-bold text-purple-950">
+          Monitor feeding and growth
+        </h4>
+
+        <ul className="mt-3 space-y-2 leading-7 text-purple-900">
+          <li>• Feeding tolerance and safety</li>
+          <li>• Weight gain and nutritional status</li>
+          <li>• Need for repeat swallow evaluation</li>
+          <li>• Effectiveness of the prevention plan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</div>
+</main>
   );
 }
