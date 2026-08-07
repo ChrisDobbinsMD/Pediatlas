@@ -1370,12 +1370,12 @@ export default function PulmonaryAspirationPage() {
       </p>
 
       <h3 className="mt-2 text-xl font-bold text-blue-950">
-        Empiric Antibiotic Selection
-      </h3>
+  Empiric Antibiotic Selection
+</h3>
 
-      <p className="mt-2 text-sm leading-6 text-blue-800">
-        Typical pediatric options for suspected aspiration pneumonia
-      </p>
+<p className="mt-2 text-sm leading-6 text-blue-800">
+  Common IV and oral approaches for pediatric aspiration pneumonia
+</p>
     </div>
 
     <span
@@ -1389,150 +1389,187 @@ export default function PulmonaryAspirationPage() {
   </button>
 
   {showAntibiotics && (
-    <div
-      id="aspiration-antibiotic-guide"
-      className="border-t border-blue-200 bg-white p-6"
-    >
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[700px] border-collapse text-left">
-          <thead>
-            <tr className="border-b border-slate-200">
-              <th className="px-4 py-3 text-sm font-bold uppercase tracking-wide text-slate-600">
-                Clinical scenario
-              </th>
+  <div
+    id="aspiration-antibiotic-guide"
+    className="border-t border-blue-200 bg-white p-6 md:p-8"
+  >
+    <div className="mb-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-600">
+        Evidence note
+      </p>
 
-              <th className="px-4 py-3 text-sm font-bold uppercase tracking-wide text-slate-600">
-                Typical empiric therapy
-              </th>
-
-              <th className="px-4 py-3 text-sm font-bold uppercase tracking-wide text-slate-600">
-                Notes
-              </th>
-            </tr>
-          </thead>
-
-          <tbody className="divide-y divide-slate-200">
-            <tr>
-              <td className="px-4 py-4 align-top font-semibold text-slate-900">
-                Community-onset aspiration pneumonia requiring IV therapy
-              </td>
-
-              <td className="px-4 py-4 align-top text-slate-700">
-                <strong>Ampicillin-sulbactam</strong>
-                <p className="mt-1 text-sm text-slate-600">
-                  50 mg ampicillin/kg/dose IV every 6 hours
-                  <br />
-                  Maximum: 2,000 mg ampicillin per dose
-                </p>
-              </td>
-
-              <td className="px-4 py-4 align-top text-slate-700">
-                Common inpatient empiric option. Adjust to local susceptibility
-                patterns and the child&apos;s clinical context.
-              </td>
-            </tr>
-
-            <tr>
-              <td className="px-4 py-4 align-top font-semibold text-slate-900">
-                Enteral treatment or IV-to-oral transition
-              </td>
-
-              <td className="px-4 py-4 align-top text-slate-700">
-                <strong>Amoxicillin-clavulanate</strong>
-                <p className="mt-1 text-sm text-slate-600">
-                  Dose using the amoxicillin component according to local
-                  pediatric guidance.
-                </p>
-              </td>
-
-              <td className="px-4 py-4 align-top text-slate-700">
-                Appropriate when the child is clinically stable, tolerating
-                enteral medication, and does not require broader hospital-acquired
-                coverage.
-              </td>
-            </tr>
-
-            <tr>
-              <td className="px-4 py-4 align-top font-semibold text-slate-900">
-                Hospital-acquired or ventilator-associated infection
-              </td>
-
-              <td className="px-4 py-4 align-top text-slate-700">
-                Follow the institution&apos;s hospital-acquired pneumonia
-                pathway and local antibiogram.
-              </td>
-
-              <td className="px-4 py-4 align-top text-slate-700">
-                Broader gram-negative or MRSA coverage may be needed depending
-                on prior cultures, recent antibiotics, devices, and local
-                resistance patterns.
-              </td>
-            </tr>
-
-            <tr>
-              <td className="px-4 py-4 align-top font-semibold text-slate-900">
-                Abscess, empyema, or necrotizing infection
-              </td>
-
-              <td className="px-4 py-4 align-top text-slate-700">
-                Broaden therapy based on the complication and obtain
-                subspecialty guidance.
-              </td>
-
-              <td className="px-4 py-4 align-top text-slate-700">
-                Obtain cultures when feasible and consider Infectious Disease,
-                Pulmonology, or surgical consultation.
-              </td>
-            </tr>
-
-            <tr>
-              <td className="px-4 py-4 align-top font-semibold text-slate-900">
-                Immediate-type penicillin allergy
-              </td>
-
-              <td className="px-4 py-4 align-top text-slate-700">
-                Use an institution-specific allergy alternative.
-              </td>
-
-              <td className="px-4 py-4 align-top text-slate-700">
-                The appropriate substitute depends on allergy severity, likely
-                organisms, local resistance patterns, and illness severity.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
-          Antibiotic stewardship pearl
-        </p>
-
-        <h4 className="mt-2 text-lg font-bold text-amber-950">
-          Do not give antibiotics for aspiration pneumonitis alone
-        </h4>
-
-        <p className="mt-3 leading-7 text-amber-900">
-          An aspiration event, fever, leukocytosis, or an early infiltrate does
-          not by itself establish bacterial pneumonia. Antibiotics are
-          appropriate when symptoms persist or evolve in a pattern consistent
-          with infection.
-        </p>
-      </div>
-
-      <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-        <p className="font-semibold text-slate-900">
-          Use local guidance
-        </p>
-
-        <p className="mt-2 leading-7 text-slate-700">
-          Antibiotic selection, dosing, allergy alternatives, and treatment
-          duration should follow the child&apos;s institution-specific
-          antimicrobial guidelines and antibiogram.
-        </p>
-      </div>
+      <p className="mt-3 leading-7 text-slate-700">
+        PIDS/IDSA pediatric community-acquired pneumonia guidelines do not
+        provide a separate empiric regimen specifically for aspiration
+        pneumonia. In practice, antibiotic selection generally follows
+        pediatric pneumonia principles while accounting for aspiration risk,
+        illness severity, prior cultures, healthcare exposure, and local
+        antimicrobial guidance.
+      </p>
     </div>
-  )}
+
+    <div className="overflow-x-auto">
+      <table className="w-full min-w-[760px] border-collapse text-left">
+        <thead>
+          <tr className="border-b border-slate-200">
+            <th className="px-4 py-4 text-sm font-bold uppercase tracking-wide text-slate-600">
+              Clinical setting
+            </th>
+
+            <th className="px-4 py-4 text-sm font-bold uppercase tracking-wide text-slate-600">
+              Common empiric approach
+            </th>
+
+            <th className="px-4 py-4 text-sm font-bold uppercase tracking-wide text-slate-600">
+              Notes
+            </th>
+          </tr>
+        </thead>
+
+        <tbody className="divide-y divide-slate-200">
+          <tr className="align-top">
+            <td className="px-4 py-5 font-semibold text-slate-900">
+              Community-onset aspiration pneumonia requiring IV therapy
+            </td>
+
+            <td className="px-4 py-5 text-slate-700">
+              <p className="font-bold text-blue-950">
+                Ampicillin-sulbactam
+              </p>
+
+              <p className="mt-2">
+                Commonly used when bacterial aspiration pneumonia is suspected
+                and parenteral therapy is appropriate.
+              </p>
+            </td>
+
+            <td className="px-4 py-5 leading-7 text-slate-700">
+              Provides coverage for typical respiratory pathogens together
+              with oral flora. Dose according to local pediatric antimicrobial
+              guidance and renal function.
+            </td>
+          </tr>
+
+          <tr className="align-top">
+            <td className="px-4 py-5 font-semibold text-slate-900">
+              Community-onset aspiration pneumonia appropriate for oral therapy
+              or IV-to-PO transition
+            </td>
+
+            <td className="px-4 py-5 text-slate-700">
+              <p className="font-bold text-blue-950">
+                Amoxicillin-clavulanate
+              </p>
+
+              <p className="mt-2">
+                Common enteral option for a clinically stable child.
+              </p>
+            </td>
+
+            <td className="px-4 py-5 leading-7 text-slate-700">
+              Dose using the amoxicillin component according to age,
+              indication, formulation, renal function, and local pediatric
+              guidance.
+            </td>
+          </tr>
+
+          <tr className="align-top">
+            <td className="px-4 py-5 font-semibold text-slate-900">
+              Severe immediate-type β-lactam allergy
+            </td>
+
+            <td className="px-4 py-5 text-slate-700">
+              <p className="font-bold text-blue-950">
+                Individualize therapy
+              </p>
+
+              <p className="mt-2">
+                Clindamycin may be considered in selected patients depending
+                on the allergy phenotype, likely organisms, and local
+                susceptibility patterns.
+              </p>
+            </td>
+
+            <td className="px-4 py-5 leading-7 text-slate-700">
+              Use institution-specific pediatric antimicrobial stewardship
+              guidance rather than a single universal substitute.
+            </td>
+          </tr>
+
+          <tr className="align-top">
+            <td className="px-4 py-5 font-semibold text-slate-900">
+              Healthcare-associated disease or significant resistant-organism risk
+            </td>
+
+            <td className="px-4 py-5 text-slate-700">
+              <p className="font-bold text-blue-950">
+                Follow institutional pneumonia guidance
+              </p>
+
+              <p className="mt-2">
+                Broader gram-negative and/or MRSA coverage may be required.
+              </p>
+            </td>
+
+            <td className="px-4 py-5 leading-7 text-slate-700">
+              Prior cultures, recent antibiotics, devices, local resistance
+              patterns, and illness severity should guide escalation.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div className="mt-6 rounded-2xl border border-amber-300 bg-amber-50 p-6">
+      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
+        Antibiotic stewardship pearl
+      </p>
+
+      <h4 className="mt-2 text-xl font-bold text-amber-950">
+        Aspiration pneumonitis does not require routine antibiotics
+      </h4>
+
+      <p className="mt-3 leading-7 text-amber-900">
+        Fever, leukocytosis, and pulmonary infiltrates may occur after an
+        aspiration event from inflammation alone. Antibiotics should be
+        reserved for patients whose clinical course supports bacterial
+        aspiration pneumonia rather than given automatically after aspiration.
+      </p>
+    </div>
+
+    <div className="mt-5 rounded-2xl border border-blue-200 bg-blue-50 p-6">
+      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+        Anaerobic coverage
+      </p>
+
+      <h4 className="mt-2 text-xl font-bold text-blue-950">
+        Avoid automatically adding dedicated anaerobic therapy
+      </h4>
+
+      <p className="mt-3 leading-7 text-blue-900">
+        Ampicillin-sulbactam and amoxicillin-clavulanate already provide
+        activity against oral anaerobes. Routine addition of metronidazole or
+        another dedicated anaerobic agent is generally unnecessary for
+        uncomplicated aspiration pneumonia. Complicated infection such as lung
+        abscess, empyema, or necrotizing disease should be managed according to
+        the specific complication and local guidance.
+      </p>
+    </div>
+
+    <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+      <p className="font-semibold text-slate-900">
+        Guideline context
+      </p>
+
+      <p className="mt-2 leading-7 text-slate-700">
+        The PIDS/IDSA pediatric CAP guideline provides the broader framework
+        for empiric pneumonia treatment but does not issue a dedicated
+        aspiration-pneumonia regimen. Keep this distinction explicit when
+        interpreting the evidence.
+      </p>
+    </div>
+  </div>
+)}
 </div>
 
 </section>
@@ -1544,7 +1581,7 @@ export default function PulmonaryAspirationPage() {
   className="mt-14 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
 >
   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-    Care setting &amp; follow-up
+    Disposition/Care setting &amp; follow-up
   </p>
 
   <h2 className="mt-2 text-3xl font-bold">
@@ -1665,6 +1702,165 @@ export default function PulmonaryAspirationPage() {
         </ul>
       </div>
     </div>
+  </div>
+</section>
+  
+{/* ================= CLINICAL PEARLS ================= */}
+
+<section
+  id="pearls"
+  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+>
+  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+    Clinical Pearls
+  </p>
+
+  <h2 className="mt-2 text-3xl font-bold">
+    High-yield takeaways
+  </h2>
+
+  <p className="mt-5 text-lg leading-8 text-slate-600">
+    These are the practical distinctions that matter most when evaluating
+    and managing children with suspected pulmonary aspiration.
+  </p>
+
+  <div className="mt-8 grid gap-5 md:grid-cols-2">
+
+    <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+      <h3 className="font-bold text-amber-950">
+        1. Aspiration pneumonitis is not aspiration pneumonia
+      </h3>
+
+      <p className="mt-3 leading-7 text-amber-900">
+        Pneumonitis is primarily a chemical inflammatory injury, whereas
+        aspiration pneumonia is a bacterial infection. The distinction
+        directly affects whether antibiotics are indicated.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
+      <h3 className="font-bold text-blue-950">
+        2. Immediate deterioration favors pneumonitis
+      </h3>
+
+      <p className="mt-3 leading-7 text-blue-900">
+        Abrupt cough, hypoxemia, wheezing, or respiratory distress shortly
+        after a witnessed aspiration event is more consistent with chemical
+        injury than bacterial pneumonia.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-rose-200 bg-rose-50 p-6">
+      <h3 className="font-bold text-rose-950">
+        3. Fever does not automatically mean infection
+      </h3>
+
+      <p className="mt-3 leading-7 text-rose-900">
+        Fever and leukocytosis may occur after aspiration from inflammation
+        alone. The overall clinical trajectory is more useful than any single
+        finding.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-purple-200 bg-purple-50 p-6">
+      <h3 className="font-bold text-purple-950">
+        4. Silent aspiration is common in high-risk children
+      </h3>
+
+      <p className="mt-3 leading-7 text-purple-900">
+        Children with neurologic impairment, poor laryngeal sensation, or
+        weak cough may aspirate without obvious choking or coughing.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+      <h3 className="font-bold text-emerald-950">
+        5. Recurrent respiratory disease should trigger a feeding history
+      </h3>
+
+      <p className="mt-3 leading-7 text-emerald-900">
+        Recurrent pneumonia, chronic wet cough, persistent wheezing, or poor
+        growth should prompt questions about coughing, choking, fatigue,
+        congestion, or desaturation during feeds.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+      <h3 className="font-bold text-sky-950">
+        6. A normal chest radiograph does not exclude aspiration
+      </h3>
+
+      <p className="mt-3 leading-7 text-sky-900">
+        Early radiographs may be normal, and intermittent aspiration may not
+        produce consistent imaging abnormalities.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
+      <h3 className="font-bold text-indigo-950">
+        7. VFSS and FEES answer different questions
+      </h3>
+
+      <p className="mt-3 leading-7 text-indigo-900">
+        VFSS evaluates swallowing mechanics across oral and pharyngeal phases,
+        while FEES directly evaluates laryngeal anatomy, secretion management,
+        and airway protection.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+      <h3 className="font-bold text-amber-950">
+        8. Do not overstate right-sided disease
+      </h3>
+
+      <p className="mt-3 leading-7 text-amber-900">
+        Aspiration often affects dependent lung regions, but laterality varies
+        with body position and pediatric airway anatomy. Right-sided disease
+        is not a universal rule in children.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
+      <h3 className="font-bold text-blue-950">
+        9. Treat the source, not just the lung injury
+      </h3>
+
+      <p className="mt-3 leading-7 text-blue-900">
+        Recurrent aspiration requires evaluation for swallowing dysfunction,
+        neurologic disease, airway abnormalities, esophageal disease, reflux,
+        and impaired secretion clearance.
+      </p>
+    </div>
+
+    <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+      <h3 className="font-bold text-emerald-950">
+        10. Prevention determines long-term outcome
+      </h3>
+
+      <p className="mt-3 leading-7 text-emerald-900">
+        Feeding modifications, therapy, airway clearance, nutritional support,
+        and multidisciplinary care may be more important long term than
+        treating individual aspiration events.
+      </p>
+    </div>
+
+  </div>
+
+  <div className="mt-8 rounded-2xl bg-blue-950 p-6 text-white">
+    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
+      Bottom line
+    </p>
+
+    <h3 className="mt-2 text-xl font-bold">
+      Aspiration is an event; the syndrome that follows determines the treatment
+    </h3>
+
+    <p className="mt-3 leading-7 text-blue-100">
+      Think in three categories: chemical pneumonitis, bacterial aspiration
+      pneumonia, and chronic recurrent aspiration. Then tailor evaluation and
+      management to the child&apos;s physiology, feeding safety, and underlying
+      disease.
+    </p>
   </div>
 </section>
 
