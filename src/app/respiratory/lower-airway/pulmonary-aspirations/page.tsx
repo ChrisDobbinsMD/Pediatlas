@@ -116,45 +116,166 @@ const aspirationSyndromes = [
 const quizQuestions = [
   {
     question:
-      "A previously healthy 3-year-old aspirates gastric contents during a seizure. Four hours later she develops tachypnea and hypoxemia. Which syndrome is most likely?",
+      "A previously healthy 3-year-old has a seizure followed by emesis and a witnessed aspiration event. Within 2 hours, she develops tachypnea, hypoxemia, and diffuse crackles. She has a temperature of 38.1°C. What is the most likely diagnosis?",
     answers: [
-      "Aspiration pneumonitis",
-      "Aspiration pneumonia",
-      "Chronic pulmonary aspiration",
-      "Bronchiolitis",
+      {
+        text: "Aspiration pneumonitis",
+        correct: true,
+        feedback:
+          "Correct. The abrupt respiratory deterioration shortly after a witnessed aspiration event is most consistent with chemical pneumonitis. Fever can occur from the inflammatory response and does not by itself establish bacterial infection.",
+      },
+      {
+        text: "Aspiration pneumonia",
+        correct: false,
+        feedback:
+          "Not quite. Aspiration pneumonia is a bacterial infection and generally has a more evolving infectious course. Immediate respiratory deterioration after a clear aspiration event favors chemical pneumonitis.",
+      },
+      {
+        text: "Chronic pulmonary aspiration",
+        correct: false,
+        feedback:
+          "Not quite. Chronic aspiration typically presents with recurrent feeding-associated symptoms, chronic cough, recurrent pneumonia, or poor growth rather than a single abrupt event.",
+      },
+      {
+        text: "Foreign body aspiration",
+        correct: false,
+        feedback:
+          "Not quite. Foreign body aspiration can cause abrupt respiratory symptoms, but this history specifically describes emesis followed by aspiration of gastric contents.",
+      },
     ],
-    correct: "Aspiration pneumonitis",
   },
+
   {
     question:
-      "Which study is considered the gold standard for evaluating oropharyngeal swallowing dysfunction in many children?",
+      "A 2-year-old with cerebral palsy has recurrent pneumonia, poor weight gain, and intermittent oxygen desaturations. His parents deny coughing or choking during feeds. Which statement is most accurate?",
     answers: [
-      "Chest radiograph",
-      "Flexible bronchoscopy",
-      "Videofluoroscopic Swallow Study (VFSS)",
-      "Chest CT",
+      {
+        text: "The absence of coughing makes aspiration unlikely",
+        correct: false,
+        feedback:
+          "Incorrect. Children with neurologic impairment may have reduced laryngeal sensation or a weak cough and can aspirate without an obvious protective response.",
+      },
+      {
+        text: "Silent aspiration should still be considered",
+        correct: true,
+        feedback:
+          "Correct. Silent aspiration can occur without coughing or choking, particularly in children with neurologic impairment or reduced airway sensation.",
+      },
+      {
+        text: "A normal chest radiograph would exclude aspiration",
+        correct: false,
+        feedback:
+          "Incorrect. A normal chest radiograph does not exclude intermittent or chronic aspiration. Imaging findings may be absent or variable.",
+      },
+      {
+        text: "Aspiration should only be considered if disease is right-sided",
+        correct: false,
+        feedback:
+          "Incorrect. Aspiration is not obligatorily right-sided in children. Distribution depends on body position, airway anatomy, and the aspiration event.",
+      },
     ],
-    correct:
-      "Videofluoroscopic Swallow Study (VFSS)",
   },
+
   {
     question:
-      "A child with recurrent aspiration from neuromuscular disease develops fever and focal infiltrates. What is the most appropriate treatment?",
+      "A child has recurrent coughing and oxygen desaturation specifically during feeds. Which study best evaluates swallowing mechanics and can demonstrate material passing below the vocal folds during swallowing?",
     answers: [
-      "Supportive care only",
-      "Bronchodilators",
-      "Antibiotics for aspiration pneumonia",
-      "Systemic steroids",
+      {
+        text: "Chest CT",
+        correct: false,
+        feedback:
+          "Incorrect. Chest CT can evaluate complications such as bronchiectasis or chronic lung injury but does not directly evaluate swallowing mechanics.",
+      },
+      {
+        text: "Videofluoroscopic swallow study (VFSS/MBSS)",
+        correct: true,
+        feedback:
+          "Correct. VFSS/MBSS dynamically evaluates the oral and pharyngeal phases of swallowing and can identify penetration, aspiration, timing abnormalities, and the effect of different consistencies or feeding strategies.",
+      },
+      {
+        text: "Flexible bronchoscopy",
+        correct: false,
+        feedback:
+          "Not the best answer. Bronchoscopy can evaluate airway anatomy and other pulmonary pathology but does not provide the same dynamic assessment of swallowing as VFSS.",
+      },
+      {
+        text: "Chest radiograph",
+        correct: false,
+        feedback:
+          "Incorrect. A chest radiograph may demonstrate pulmonary consequences of aspiration but cannot determine whether aspiration occurs during swallowing.",
+      },
     ],
-    correct:
-      "Antibiotics for aspiration pneumonia",
+  },
+
+  {
+    question:
+      "A hospitalized child has a clinical course consistent with community-onset bacterial aspiration pneumonia and requires IV therapy. Which approach is commonly used?",
+    answers: [
+      {
+        text: "Supportive care without antibiotics in every case",
+        correct: false,
+        feedback:
+          "Incorrect. Supportive care alone is appropriate for isolated aspiration pneumonitis, but this child has a clinical syndrome consistent with bacterial aspiration pneumonia.",
+      },
+      {
+        text: "Ampicillin-sulbactam",
+        correct: true,
+        feedback:
+          "Correct. Ampicillin-sulbactam is a commonly used IV option for community-onset pediatric aspiration pneumonia. Pediatric-specific aspiration-pneumonia comparative evidence is limited, so therapy should also reflect local antimicrobial guidance.",
+      },
+      {
+        text: "Metronidazole alone",
+        correct: false,
+        feedback:
+          "Incorrect. Routine dedicated anaerobic therapy with metronidazole alone is not appropriate treatment for uncomplicated aspiration pneumonia and would inadequately cover typical respiratory pathogens.",
+      },
+      {
+        text: "Vancomycin alone",
+        correct: false,
+        feedback:
+          "Incorrect. Vancomycin alone does not provide appropriate empiric coverage for routine community-onset aspiration pneumonia. MRSA coverage is reserved for appropriate clinical risk.",
+      },
+    ],
+  },
+
+  {
+    question:
+      "Which statement about the anatomic distribution of pulmonary aspiration in children is most accurate?",
+    answers: [
+      {
+        text: "Aspiration always enters the right mainstem bronchus",
+        correct: false,
+        feedback:
+          "Incorrect. Pediatric main bronchial anatomy is more symmetric than adult anatomy, especially in younger children, so aspiration is not obligatorily right-sided.",
+      },
+      {
+        text: "Aspiration always causes right lower lobe disease",
+        correct: false,
+        feedback:
+          "Incorrect. The affected lung regions vary with body position, airway anatomy, and the nature of the aspiration event.",
+      },
+      {
+        text: "Dependent lung regions are commonly involved, but laterality is not absolute",
+        correct: true,
+        feedback:
+          "Correct. Aspiration often affects dependent lung regions, but the exact distribution depends on patient position and pediatric airway anatomy.",
+      },
+      {
+        text: "The location of pulmonary disease has no relationship to body position",
+        correct: false,
+        feedback:
+          "Incorrect. Gravity and body position influence which lung regions are dependent and therefore more likely to receive aspirated material.",
+      },
+    ],
   },
 ];
 
 export default function PulmonaryAspirationPage() {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] =
-    useState<string | null>(null);
+const [selectedAnswers, setSelectedAnswers] = useState<
+  Record<number, number>
+>({});
+
+const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
 
   const [showVFSSAnnotations, setShowVFSSAnnotations] =
     useState(false);
@@ -1864,8 +1985,199 @@ export default function PulmonaryAspirationPage() {
   </div>
 </section>
 
-</div>
-</div>
-</main>
+{/* ================= QUIZ ================= */}
+
+<section
+  id="quiz"
+  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+>
+  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+    Knowledge Check
+  </p>
+
+  <h2 className="mt-2 text-3xl font-bold">
+    Apply what you learned
+  </h2>
+
+  <p className="mt-5 text-lg leading-8 text-slate-600">
+    Work through each question in sequence. Select an answer, review the
+    explanation, then continue to the next question.
+  </p>
+
+  <div className="mt-8 space-y-8">
+    {quizQuestions
+      .slice(0, visibleQuestionCount)
+      .map((question, questionIndex) => {
+        const selectedAnswerIndex = selectedAnswers[questionIndex];
+
+        const hasAnswered = selectedAnswerIndex !== undefined;
+
+        const selectedAnswer = hasAnswered
+          ? question.answers[selectedAnswerIndex]
+          : undefined;
+
+        const isCorrect = selectedAnswer?.correct === true;
+
+        return (
+          <div
+            key={questionIndex}
+            className="rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8"
+          >
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+                Question {questionIndex + 1}
+              </p>
+
+              {hasAnswered && (
+                <span
+                  className={`rounded-full px-3 py-1 text-sm font-semibold ${
+                    isCorrect
+                      ? "bg-emerald-100 text-emerald-800"
+                      : "bg-rose-100 text-rose-800"
+                  }`}
+                >
+                  {isCorrect ? "Correct" : "Review"}
+                </span>
+              )}
+            </div>
+
+            <h3 className="mt-4 text-xl font-bold leading-8 text-slate-950">
+              {question.question}
+            </h3>
+
+            <div className="mt-6 space-y-3">
+              {question.answers.map((answer, answerIndex) => {
+                const isSelected =
+                  selectedAnswerIndex === answerIndex;
+
+                let answerClass =
+                  "border-slate-200 bg-white text-slate-700 hover:border-sky-300 hover:bg-sky-50";
+
+                if (hasAnswered && answer.correct) {
+                  answerClass =
+                    "border-emerald-400 bg-emerald-50 text-emerald-950";
+                }
+
+                if (
+                  hasAnswered &&
+                  isSelected &&
+                  !answer.correct
+                ) {
+                  answerClass =
+                    "border-rose-400 bg-rose-50 text-rose-950";
+                }
+
+                return (
+                  <button
+                    key={answerIndex}
+                    type="button"
+                    disabled={hasAnswered}
+                    onClick={() =>
+                      setSelectedAnswers((previous) => ({
+                        ...previous,
+                        [questionIndex]: answerIndex,
+                      }))
+                    }
+                    className={`w-full rounded-2xl border px-5 py-4 text-left font-medium transition ${answerClass} ${
+                      hasAnswered
+                        ? "cursor-default"
+                        : "cursor-pointer"
+                    }`}
+                  >
+                    <span className="mr-3 font-bold">
+                      {String.fromCharCode(65 + answerIndex)}.
+                    </span>
+
+                    {answer.text}
+                  </button>
+                );
+              })}
+            </div>
+
+            {hasAnswered && selectedAnswer && (
+              <div
+                className={`mt-6 rounded-2xl border p-6 ${
+                  isCorrect
+                    ? "border-emerald-200 bg-emerald-50"
+                    : "border-amber-200 bg-amber-50"
+                }`}
+              >
+                <p
+                  className={`font-bold ${
+                    isCorrect
+                      ? "text-emerald-950"
+                      : "text-amber-950"
+                  }`}
+                >
+                  {isCorrect ? "Correct" : "Not quite"}
+                </p>
+
+                <p
+                  className={`mt-3 leading-7 ${
+                    isCorrect
+                      ? "text-emerald-900"
+                      : "text-amber-900"
+                  }`}
+                >
+                  {selectedAnswer.feedback}
+                </p>
+
+                {questionIndex < quizQuestions.length - 1 &&
+                  visibleQuestionCount === questionIndex + 1 && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setVisibleQuestionCount(questionIndex + 2)
+                      }
+                      className="mt-5 rounded-xl bg-blue-950 px-5 py-3 font-semibold text-white transition hover:bg-blue-900"
+                    >
+                      Continue to Question {questionIndex + 2} →
+                    </button>
+                  )}
+              </div>
+            )}
+          </div>
+        );
+      })}
+  </div>
+
+  {visibleQuestionCount === quizQuestions.length &&
+    Object.keys(selectedAnswers).length === quizQuestions.length && (
+      <div className="mt-8 rounded-2xl bg-blue-950 p-6 text-white">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
+          Quiz Complete
+        </p>
+
+        <h3 className="mt-2 text-2xl font-bold">
+          {
+            Object.entries(selectedAnswers).filter(
+              ([questionIndex, answerIndex]) =>
+                quizQuestions[Number(questionIndex)].answers[answerIndex]
+                  .correct
+            ).length
+          }{" "}
+          / {quizQuestions.length} correct
+        </h3>
+
+        <p className="mt-3 leading-7 text-blue-100">
+          Review any missed questions above before moving on.
+        </p>
+
+        <button
+          type="button"
+          onClick={() => {
+            setSelectedAnswers({});
+            setVisibleQuestionCount(1);
+          }}
+          className="mt-5 rounded-xl bg-white px-5 py-3 font-semibold text-blue-950 transition hover:bg-blue-50"
+        >
+          Restart Quiz
+        </button>
+      </div>
+    )}
+</section>
+                </div>
+      </div>
+    </main>
   );
 }

@@ -30,11 +30,11 @@ const diseases = [
     status: "Available!",
   },
   {
-    name: "Aspiration",
-    description:
-      "Entry of feeds, secretions, or foreign material into the lower respiratory tract.",
-    age: "Infants and children with feeding or neurologic risk factors",
-    status: "Coming soon",
+  name: "Pulmonary Aspiration",
+  description:
+    "Entry of feeds, secretions, or gastric contents into the lower respiratory tract, resulting in pneumonitis, pneumonia, or chronic recurrent aspiration.",
+  age: "Infants and children with feeding, neurologic, or airway-protection risk factors",
+  status: "Available!",
   },
   {
     name: "Foreign Body Aspiration",
@@ -199,6 +199,14 @@ export default function LowerAirwayPage() {
     className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
   >
     Open foreign body aspiration →
+  </Link>
+)}
+{disease.name === "Pulmonary Aspiration" && (
+  <Link
+    href="/respiratory/lower-airway/pulmonary-aspirations"
+    className="mt-auto pt-6 font-semibold text-blue-700 hover:text-blue-900"
+  >
+    Open pulmonary aspiration →
   </Link>
 )}
                 </article>
