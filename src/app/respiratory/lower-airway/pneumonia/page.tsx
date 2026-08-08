@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import EvidenceBase from "@/components/EvidenceBase";
+import { EvidenceBase } from "@/components/disease";
 
 const pageSections = [
   { id: "clinical-vignette", label: "Clinical vignette" },
@@ -957,13 +957,14 @@ export default function PneumoniaPage() {
           {/* Sources */}
 <EvidenceBase
   references={[
-    {
-      title:
-        "Infectious Diseases Society of America and Pediatric Infectious Diseases Society",
-      href: "https://www.idsociety.org/practice-guideline/community-acquired-pneumonia-in-infants-and-children/",
-      description:
-        "Clinical practice guideline for community-acquired pneumonia in infants and children older than 3 months.",
-    },
+     {
+            title:
+              "The Management of Community-Acquired Pneumonia in Infants and Children Older Than 3 Months of Age",
+            href:
+              "https://pmc.ncbi.nlm.nih.gov/articles/PMC7107838/",
+            description:
+              "PIDS/IDSA pediatric community-acquired pneumonia guideline.",
+          },
     {
       title: "Texas Children's Hospital",
       href: "https://www.texaschildrens.org/sites/tc/files/uploads/documents/outcomes/2024%20standards/CAP%20Guideline%20FINAL.pdf",

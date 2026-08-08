@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import EvidenceBase from "@/components/EvidenceBase";
+import { EvidenceBase } from "@/components/disease";
 
 const aspirationSyndromes = [
   {
@@ -2176,8 +2176,33 @@ const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
       </div>
     )}
 </section>
-                </div>
-      </div>
-    </main>
+
+      {/* ================= EVIDENCE BASE ================= */}
+
+      <EvidenceBase
+        references={[
+          {
+            title:
+              "Chronic Pulmonary Aspiration in Children: Diagnosis and Management",
+            href:
+              "https://pubmed.ncbi.nlm.nih.gov/29571544/",
+            description:
+              "Pediatric review outlining the causes, diagnostic evaluation, pulmonary complications, and multidisciplinary management of chronic pulmonary aspiration.",
+          },
+          {
+            title:
+              "The Management of Community-Acquired Pneumonia in Infants and Children Older Than 3 Months of Age",
+            href:
+              "https://pmc.ncbi.nlm.nih.gov/articles/PMC7107838/",
+            description:
+              "PIDS/IDSA pediatric community-acquired pneumonia guideline providing the broader framework for empiric antibacterial therapy. It does not provide a separate pediatric aspiration-pneumonia regimen.",
+          },
+        ]}
+        secondarySources="UpToDate and OpenEvidence were used for educational verification, comparison of recommendations, and consistency checks where appropriate."
+      />
+
+    </div>
+  </div>
+</main>
   );
 }

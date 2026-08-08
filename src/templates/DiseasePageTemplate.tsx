@@ -3,40 +3,73 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import EvidenceBase from "@/components/EvidenceBase";
+import { EvidenceBase } from "@/components/disease";
 
 /*
-  PEDIATLAS DISEASE PAGE TEMPLATE
+  ============================================================
+  PEDIATLAS DISEASE PAGE TEMPLATE V2
+  ============================================================
 
-  Instructions:
+  HOW TO USE:
+
   1. Copy this file into the appropriate disease route.
-  2. Rename the copied file to page.tsx.
-  3. Rename DiseasePageTemplate to the disease-specific page name.
-  4. Replace all bracketed placeholder text.
-  5. Add the pathophysiology image path when the image is ready.
-  6. Do not add Evidence Base to pageSections.
+  2. Rename the exported component.
+  3. Replace all [BRACKETED PLACEHOLDERS].
+  4. Update breadcrumb links if the disease is not Lower Airway.
+  5. Add images to public/images.
+  6. Add/remove the Differential Diagnosis section only when useful.
+  7. Keep the overall section order and design language consistent.
+  8. EvidenceBase stays near the bottom and does NOT need to appear
+     in the "On This Page" sidebar.
+
+  Standard sequence:
+
+  Hero
+  Clinical Vignette
+  Anatomy & Localization
+  Pathophysiology
+  History & Physical
+  Diagnostic Workup
+  Management
+  Care Setting & Follow-Up
+  Clinical Pearls
+  Quiz
+  Evidence Base
+  Disclaimer
+  Bottom Navigation
 */
 
 const pageSections = [
   { id: "vignette", label: "Clinical Vignette" },
-  { id: "anatomy", label: "Anatomy Localization" },
+  { id: "localization", label: "Anatomy & Localization" },
   { id: "pathophysiology", label: "Pathophysiology" },
-  { id: "history-exam", label: "History & Physical" },
-  { id: "differential", label: "Differential Diagnosis" },
+  { id: "assessment", label: "History & Physical" },
+
+  // OPTIONAL:
+  // { id: "differential", label: "Differential Diagnosis" },
+
   { id: "workup", label: "Diagnostic Workup" },
   { id: "management", label: "Management" },
-  { id: "disposition", label: "Disposition" },
+  { id: "disposition", label: "Care Setting & Follow-Up" },
   { id: "pearls", label: "Clinical Pearls" },
   { id: "quiz", label: "Knowledge Check" },
 ];
 
 /*
-  Add the image to public/images, then replace the empty string.
-
-  Example:
-  const pathophysiologyImage = "/images/croup-pathophysiology.png";
+  ============================================================
+  IMAGES
+  ============================================================
 */
+
+const anatomyImage = "";
+
 const pathophysiologyImage = "";
+
+/*
+  ============================================================
+  OPTIONAL DIFFERENTIAL
+  ============================================================
+*/
 
 const differential = [
   {
@@ -45,364 +78,1080 @@ const differential = [
   },
 ];
 
-const quizOptions = [
-  "[Answer option A]",
-  "[Answer option B]",
-  "[Answer option C]",
-  "[Answer option D]",
+/*
+  ============================================================
+  QUIZ
+  ============================================================
+*/
+
+const quizQuestions = [
+  {
+    question:
+      "[Clinical reasoning question #1]",
+    answers: [
+      {
+        text: "[Answer A]",
+        correct: true,
+        feedback:
+          "[Explain why this answer is correct.]",
+      },
+      {
+        text: "[Answer B]",
+        correct: false,
+        feedback:
+          "[Explain specifically why this answer is less appropriate.]",
+      },
+      {
+        text: "[Answer C]",
+        correct: false,
+        feedback:
+          "[Explain specifically why this answer is less appropriate.]",
+      },
+      {
+        text: "[Answer D]",
+        correct: false,
+        feedback:
+          "[Explain specifically why this answer is less appropriate.]",
+      },
+    ],
+  },
+
+  {
+    question:
+      "[Clinical reasoning question #2]",
+    answers: [
+      {
+        text: "[Answer A]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer B]",
+        correct: true,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer C]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer D]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+    ],
+  },
+
+  {
+    question:
+      "[Clinical reasoning question #3]",
+    answers: [
+      {
+        text: "[Answer A]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer B]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer C]",
+        correct: true,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer D]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+    ],
+  },
+
+  {
+    question:
+      "[Clinical reasoning question #4]",
+    answers: [
+      {
+        text: "[Answer A]",
+        correct: true,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer B]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer C]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer D]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+    ],
+  },
+
+  {
+    question:
+      "[Clinical reasoning question #5]",
+    answers: [
+      {
+        text: "[Answer A]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer B]",
+        correct: true,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer C]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+      {
+        text: "[Answer D]",
+        correct: false,
+        feedback:
+          "[Individualized explanation.]",
+      },
+    ],
+  },
 ];
 
-const correctAnswerIndex = 0;
-
 export default function DiseasePageTemplate() {
-  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+  const [selectedAnswers, setSelectedAnswers] = useState<
+    Record<number, number>
+  >({});
 
-  const answerSubmitted = selectedAnswer !== null;
-  const answerIsCorrect = selectedAnswer === correctAnswerIndex;
+  const [visibleQuestionCount, setVisibleQuestionCount] =
+    useState(1);
 
   return (
-    <main className="min-h-screen bg-slate-50">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        {/* Breadcrumbs */}
-        <nav
-          aria-label="Breadcrumb"
-          className="mb-8 text-sm font-medium text-slate-600"
-        >
-          <Link href="/" className="hover:text-sky-700 hover:underline">
-            Home
-          </Link>
+    <main className="min-h-screen bg-slate-50 text-slate-900">
 
-          <span className="mx-2 text-slate-400">/</span>
+      {/* =====================================================
+          HERO
+      ====================================================== */}
 
-          <Link
-            href="/respiratory"
-            className="hover:text-sky-700 hover:underline"
-          >
-            Respiratory
-          </Link>
+      <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 to-white px-6 py-14">
+        <div className="mx-auto max-w-6xl">
 
-          <span className="mx-2 text-slate-400">/</span>
+          {/* Breadcrumbs */}
 
-          <Link
-            href="/respiratory/lower-airway"
-            className="hover:text-sky-700 hover:underline"
-          >
-            Lower Airway
-          </Link>
+          <nav className="flex flex-wrap gap-3 text-sm font-semibold">
+            <Link
+              href="/"
+              className="text-blue-800 hover:text-blue-600"
+            >
+              PediAtlas
+            </Link>
 
-          <span className="mx-2 text-slate-400">/</span>
+            <span className="text-slate-400">/</span>
 
-          <span className="text-slate-900">[Disease Name]</span>
-        </nav>
+            <Link
+              href="/respiratory"
+              className="text-blue-800 hover:text-blue-600"
+            >
+              Respiratory
+            </Link>
 
-        {/* Page heading */}
-        <header className="mb-10">
-          <p className="text-sm font-bold uppercase tracking-[0.25em] text-sky-700">
-            Respiratory · Lower Airway
-          </p>
+            <span className="text-slate-400">/</span>
 
-          <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
-            [Disease Name]
-          </h1>
+            <Link
+              href="/respiratory/lower-airway"
+              className="text-blue-800 hover:text-blue-600"
+            >
+              Lower Airway
+            </Link>
 
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-700">
-            [Brief introductory description explaining what the disease is and
-            why it matters clinically.]
-          </p>
-        </header>
+            <span className="text-slate-400">/</span>
 
-        <div className="grid gap-8 lg:grid-cols-[250px_minmax(0,1fr)]">
-          {/* On this page sidebar */}
-          <aside className="lg:sticky lg:top-8 lg:self-start">
-            <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-              <p className="font-bold text-slate-900">On this page</p>
+            <span className="text-slate-600">
+              [Disease Name]
+            </span>
+          </nav>
 
-              <nav className="mt-4 space-y-1">
-                {pageSections.map((section) => (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    className="block rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-sky-50 hover:text-sky-800"
-                  >
-                    {section.label}
-                  </a>
-                ))}
-              </nav>
+          <div className="mt-9 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
+                [ANATOMIC / DISEASE CATEGORY]
+              </p>
+
+              <h1 className="mt-3 text-5xl font-bold tracking-tight text-blue-950 md:text-6xl">
+                [Disease Name]
+              </h1>
+
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+                [Concise definition describing what the disease is,
+                where it occurs, and why it matters clinically.]
+              </p>
+
+              <div className="mt-7 flex flex-wrap gap-3">
+                <span className="rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-sky-800">
+                  [Key concept]
+                </span>
+
+                <span className="rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-800">
+                  [Key concept]
+                </span>
+
+                <span className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-800">
+                  [Key concept]
+                </span>
+              </div>
             </div>
-          </aside>
 
-          {/* Main educational content */}
-          <div className="space-y-8">
-            <Section id="vignette" title="Clinical Vignette">
-              <div className="rounded-2xl border border-sky-200 bg-sky-50 p-5 sm:p-6">
-                <p className="leading-8 text-slate-800">
-                  [Write a representative pediatric clinical vignette here.
-                  Include age, symptoms, duration, key examination findings,
-                  and important contextual clues.]
-                </p>
+            <div
+              className="text-8xl"
+              aria-hidden="true"
+            >
+              🫁
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* =====================================================
+          PAGE LAYOUT
+      ====================================================== */}
+
+      <div className="mx-auto grid max-w-6xl gap-8 px-6 py-14 lg:grid-cols-[220px_1fr]">
+
+        {/* ===================================================
+            SIDEBAR
+        ==================================================== */}
+
+        <aside className="h-fit rounded-3xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-6">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+            On this page
+          </p>
+
+          <nav className="mt-4 flex flex-col gap-3 text-sm font-semibold text-blue-800">
+            {pageSections.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                className="transition hover:text-blue-600"
+              >
+                {section.label}
+              </a>
+            ))}
+          </nav>
+        </aside>
+
+        {/* ===================================================
+            MAIN EDUCATIONAL CONTENT
+        ==================================================== */}
+
+        <div className="space-y-8">
+
+          {/* =================================================
+              CLINICAL VIGNETTE
+          ================================================== */}
+
+          <section
+            id="vignette"
+            className="scroll-mt-8 rounded-3xl border border-blue-200 bg-blue-950 p-8 text-white shadow-sm"
+          >
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
+              Clinical Vignette
+            </p>
+
+            <h2 className="mt-3 text-3xl font-bold">
+              [Short vignette title]
+            </h2>
+
+            <p className="mt-5 text-lg leading-8 text-blue-50">
+              [Representative pediatric vignette. Include age,
+              symptoms, timing, examination findings, and contextual
+              clues without immediately revealing the diagnosis.]
+            </p>
+
+            <div className="mt-7 rounded-2xl bg-white/10 p-5">
+              <p className="font-semibold text-sky-200">
+                Your first clinical task
+              </p>
+
+              <p className="mt-2 leading-7 text-blue-50">
+                [What should the learner recognize, distinguish, or
+                decide first?]
+              </p>
+            </div>
+          </section>
+
+          {/* =================================================
+              ANATOMY & LOCALIZATION
+          ================================================== */}
+
+          <Section
+            id="localization"
+            label="Anatomy & Localization"
+            title="[Localization-focused teaching statement]"
+            description="[Explain the relevant anatomy and how the disease location produces the characteristic clinical findings.]"
+          >
+            {anatomyImage && (
+              <div className="mx-auto max-w-xl">
+                <Image
+                  src={anatomyImage}
+                  alt="[Disease name] anatomy"
+                  width={900}
+                  height={700}
+                  className="h-auto w-full rounded-2xl border border-slate-200 shadow-sm"
+                  unoptimized
+                />
               </div>
+            )}
 
-              <InfoCard title="Clinical question">
-                [What diagnosis or clinical decision should the learner identify
-                from this vignette?]
+            <div className="grid gap-5 md:grid-cols-2">
+              <InfoCard
+                title="[Relevant structure]"
+                tone="blue"
+              >
+                [Describe the important normal anatomy.]
               </InfoCard>
-            </Section>
 
-            <Section id="anatomy" title="Anatomy Localization">
-              <p className="leading-8 text-slate-700">
-                [Identify the principal anatomical site involved and explain
-                how localization accounts for the characteristic symptoms and
-                examination findings.]
-              </p>
-
-              <InfoCard title="Localization">
-                [Example: upper airway, central airway, bronchioles, alveoli,
-                pleura, pulmonary vasculature, or another relevant structure.]
+              <InfoCard
+                title="[Disease localization]"
+                tone="rose"
+              >
+                [Explain where pathology occurs and why it matters.]
               </InfoCard>
-            </Section>
+            </div>
 
-            <Section id="pathophysiology" title="Pathophysiology">
-              <p className="leading-8 text-slate-700">
-                [Explain the disease mechanism sequentially. Connect the
-                underlying process to the clinical manifestations.]
-              </p>
+            <Callout
+              label="Pediatric Anatomy Pearl"
+              title="[Age-specific anatomical pearl]"
+              tone="amber"
+            >
+              [Explain a clinically important pediatric anatomical
+              distinction.]
+            </Callout>
+          </Section>
 
-              {pathophysiologyImage ? (
-                <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                  <Image
-                    src={pathophysiologyImage}
-                    alt="[Disease name] pathophysiology diagram"
-                    width={1600}
-                    height={1000}
-                    className="h-auto w-full"
-                    unoptimized
-                  />
-                </div>
-              ) : (
-                <div className="mt-6 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-center">
-                  <p className="font-semibold text-slate-700">
-                    Pathophysiology image placeholder
+          {/* =================================================
+              PATHOPHYSIOLOGY
+          ================================================== */}
+
+          <Section
+            id="pathophysiology"
+            label="Pathophysiology"
+            title="[Mechanistic teaching statement]"
+            description="[Explain how the disease develops and connect the mechanism to the clinical manifestations.]"
+          >
+            {pathophysiologyImage && (
+              <div className="mx-auto max-w-2xl">
+                <Image
+                  src={pathophysiologyImage}
+                  alt="[Disease name] pathophysiology diagram"
+                  width={1200}
+                  height={900}
+                  className="h-auto w-full rounded-2xl border border-slate-200 shadow-sm"
+                  unoptimized
+                />
+              </div>
+            )}
+
+            <div className="grid gap-5 md:grid-cols-3">
+              <ProcessStep
+                number="1"
+                title="[Trigger]"
+                description="[Initiating event or disease process.]"
+              />
+
+              <ProcessStep
+                number="2"
+                title="[Physiologic change]"
+                description="[Resulting functional or anatomical abnormality.]"
+              />
+
+              <ProcessStep
+                number="3"
+                title="[Clinical consequence]"
+                description="[How this produces symptoms and examination findings.]"
+              />
+            </div>
+
+            <Callout
+              label="Clinical Pearl"
+              title="[Important pathophysiology distinction]"
+              tone="blue"
+            >
+              [High-yield connection between mechanism and presentation.]
+            </Callout>
+          </Section>
+
+          {/* =================================================
+              HISTORY & PHYSICAL
+          ================================================== */}
+
+          <Section
+            id="assessment"
+            label="History & Physical"
+            title="[What the clinician should look for]"
+            description="[Brief introduction to the highest-yield history and examination findings.]"
+          >
+            <div className="grid gap-6 md:grid-cols-2">
+              <InfoCard
+                title="Key History"
+                tone="blue"
+              >
+                <ul className="space-y-2">
+                  <li>• [History feature]</li>
+                  <li>• [History feature]</li>
+                  <li>• [History feature]</li>
+                  <li>• [History feature]</li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard
+                title="Physical Examination"
+                tone="amber"
+              >
+                <ul className="space-y-2">
+                  <li>• [Examination finding]</li>
+                  <li>• [Examination finding]</li>
+                  <li>• [Examination finding]</li>
+                  <li>• [Examination finding]</li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard
+                title="Risk Factors"
+                tone="emerald"
+              >
+                <ul className="space-y-2">
+                  <li>• [Risk factor]</li>
+                  <li>• [Risk factor]</li>
+                  <li>• [Risk factor]</li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard
+                title="Red Flags"
+                tone="rose"
+              >
+                <ul className="space-y-2">
+                  <li>• [Red flag]</li>
+                  <li>• [Red flag]</li>
+                  <li>• [Red flag]</li>
+                </ul>
+              </InfoCard>
+            </div>
+          </Section>
+
+          {/* =================================================
+              OPTIONAL DIFFERENTIAL DIAGNOSIS
+
+              Uncomment ONLY when a dedicated differential
+              section materially improves the module.
+          ================================================== */}
+
+          {/*
+          <Section
+            id="differential"
+            label="Differential Diagnosis"
+            title="Distinguish common mimics"
+            description="Use the history, examination, and disease course to separate this condition from competing diagnoses."
+          >
+            <div className="space-y-4">
+              {differential.map((item) => (
+                <div
+                  key={item.diagnosis}
+                  className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
+                >
+                  <h3 className="font-bold text-slate-900">
+                    {item.diagnosis}
+                  </h3>
+
+                  <p className="mt-2 leading-7 text-slate-700">
+                    {item.clue}
                   </p>
-
-                  <p className="mt-2 text-sm leading-6 text-slate-500">
-                    Add the finished image to{" "}
-                    <code className="rounded bg-slate-200 px-1.5 py-0.5">
-                      public/images
-                    </code>{" "}
-                    and update{" "}
-                    <code className="rounded bg-slate-200 px-1.5 py-0.5">
-                      pathophysiologyImage
-                    </code>
-                    .
-                  </p>
                 </div>
-              )}
+              ))}
+            </div>
+          </Section>
+          */}
 
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {/* =================================================
+              DIAGNOSTIC WORKUP
+          ================================================== */}
+
+          <Section
+            id="workup"
+            label="Diagnostic Workup"
+            title="[Diagnostic reasoning statement]"
+            description="[Explain whether diagnosis is clinical and how testing should be selected based on disease severity and clinical question.]"
+          >
+            <div className="grid gap-6 md:grid-cols-2">
+              <InfoCard
+                title="Clinical Diagnosis"
+                tone="blue"
+              >
+                [Explain whether the diagnosis is primarily clinical.]
+              </InfoCard>
+
+              <InfoCard
+                title="Testing When Indicated"
+                tone="amber"
+              >
+                [Describe appropriate labs, microbiology, imaging,
+                specialized studies, or monitoring.]
+              </InfoCard>
+
+              <InfoCard
+                title="Complications / Severe Disease"
+                tone="rose"
+              >
+                [Testing or findings that should be considered when
+                disease is severe or atypical.]
+              </InfoCard>
+
+              <InfoCard
+                title="Testing to Avoid"
+                tone="slate"
+              >
+                [Identify routinely unnecessary or low-value testing.]
+              </InfoCard>
+            </div>
+
+            <Callout
+              label="Important Limitation"
+              title="[Limitation of testing]"
+              tone="rose"
+            >
+              [Explain why a normal or abnormal test does not necessarily
+              settle the diagnosis.]
+            </Callout>
+          </Section>
+
+          {/* =================================================
+              MANAGEMENT
+          ================================================== */}
+
+          <Section
+            id="management"
+            label="Management"
+            title="[Management teaching statement]"
+            description="[Summarize the overall treatment priorities.]"
+          >
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8">
+              <h3 className="text-center text-2xl font-bold">
+                Initial Management
+              </h3>
+
+              <div className="mt-8 grid gap-5 md:grid-cols-3">
                 <ProcessStep
                   number="1"
-                  title="[Initial process]"
-                  description="[Describe the initiating event.]"
+                  title="Stabilize"
+                  description="[ABCs, monitoring, oxygen, fluids, etc.]"
                 />
 
                 <ProcessStep
                   number="2"
-                  title="[Physiologic consequence]"
-                  description="[Describe the resulting anatomical or functional change.]"
+                  title="Treat"
+                  description="[Disease-specific treatment.]"
                 />
 
                 <ProcessStep
                   number="3"
-                  title="[Clinical manifestation]"
-                  description="[Connect the mechanism to symptoms and examination findings.]"
+                  title="Reassess"
+                  description="[Response to therapy and escalation criteria.]"
                 />
               </div>
-            </Section>
+            </div>
 
-            <Section id="history-exam" title="History & Physical">
-              <div className="grid gap-5 md:grid-cols-2">
-                <InfoCard title="Key history">
-                  [List the most useful history features, timing, exposures,
-                  risk factors, and associated symptoms.]
-                </InfoCard>
-
-                <InfoCard title="Key examination findings">
-                  [List characteristic findings, severity markers, and findings
-                  that suggest an alternative diagnosis.]
-                </InfoCard>
-              </div>
-
-              <InfoCard title="Red flags">
-                [Identify findings that indicate severe disease, impending
-                deterioration, complications, or the need for escalation.]
+            <div className="grid gap-6 md:grid-cols-3">
+              <InfoCard
+                title="Supportive Care"
+                tone="amber"
+              >
+                <ul className="space-y-2">
+                  <li>• [Supportive intervention]</li>
+                  <li>• [Supportive intervention]</li>
+                  <li>• [Supportive intervention]</li>
+                </ul>
               </InfoCard>
-            </Section>
 
-            <Section id="differential" title="Differential Diagnosis">
-              <div className="space-y-4">
-                {differential.map((item) => (
-                  <div
-                    key={item.diagnosis}
-                    className="rounded-2xl border border-slate-200 bg-slate-50 p-5"
-                  >
-                    <h3 className="font-bold text-slate-900">
-                      {item.diagnosis}
-                    </h3>
-
-                    <p className="mt-2 leading-7 text-slate-700">
-                      {item.clue}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </Section>
-
-            <Section id="workup" title="Diagnostic Workup">
-              <div className="grid gap-5 md:grid-cols-2">
-                <InfoCard title="Diagnosis">
-                  [Explain whether diagnosis is clinical or requires
-                  confirmatory testing.]
-                </InfoCard>
-
-                <InfoCard title="Testing">
-                  [Describe appropriate laboratory tests, imaging, or
-                  microbiologic studies and when each is indicated.]
-                </InfoCard>
-              </div>
-
-              <InfoCard title="Testing to avoid">
-                [Identify tests that are routinely unnecessary or low-value in
-                uncomplicated disease.]
+              <InfoCard
+                title="Disease-Specific Therapy"
+                tone="blue"
+              >
+                <ul className="space-y-2">
+                  <li>• [Primary therapy]</li>
+                  <li>• [Alternative therapy]</li>
+                  <li>• [Special circumstance]</li>
+                </ul>
               </InfoCard>
-            </Section>
 
-            <Section id="management" title="Management">
-              <div className="space-y-4">
-                <ProcessStep
-                  number="1"
-                  title="[Initial stabilization]"
-                  description="[Airway, breathing, circulation, monitoring, or supportive care.]"
-                />
-
-                <ProcessStep
-                  number="2"
-                  title="[Disease-directed treatment]"
-                  description="[Medication, procedure, or primary intervention.]"
-                />
-
-                <ProcessStep
-                  number="3"
-                  title="[Reassessment]"
-                  description="[Response to treatment and criteria for escalation.]"
-                />
-              </div>
-
-              <InfoCard title="Avoid or use cautiously">
-                [List interventions that are ineffective, potentially harmful,
-                or only appropriate in selected patients.]
+              <InfoCard
+                title="Prevent / Monitor Complications"
+                tone="emerald"
+              >
+                <ul className="space-y-2">
+                  <li>• [Prevention / follow-up step]</li>
+                  <li>• [Prevention / follow-up step]</li>
+                  <li>• [Prevention / follow-up step]</li>
+                </ul>
               </InfoCard>
-            </Section>
+            </div>
 
-            <Section id="disposition" title="Disposition">
-              <div className="grid gap-5 md:grid-cols-3">
-                <InfoCard title="Discharge">
-                  [Criteria supporting safe outpatient management.]
-                </InfoCard>
+            <Callout
+              label="Clinical Pearl"
+              title="[Important management distinction]"
+              tone="blue"
+            >
+              [Management pearl.]
+            </Callout>
+          </Section>
 
-                <InfoCard title="Hospital admission">
-                  [Clinical findings or risk factors supporting inpatient
-                  management.]
-                </InfoCard>
+          {/* =================================================
+              CARE SETTING & FOLLOW-UP
+          ================================================== */}
 
-                <InfoCard title="ICU or escalation">
-                  [Findings indicating respiratory failure, hemodynamic
-                  instability, rapid progression, or need for advanced support.]
-                </InfoCard>
-              </div>
-            </Section>
+          <Section
+            id="disposition"
+            label="Care Setting & Follow-Up"
+            title="[How severity determines level of care]"
+            description="[Explain which clinical findings determine outpatient management, hospitalization, ICU care, and follow-up.]"
+          >
+            <div className="grid gap-6 lg:grid-cols-3">
+              <InfoCard
+                title="Outpatient Care"
+                tone="emerald"
+              >
+                <ul className="space-y-2">
+                  <li>• [Outpatient criterion]</li>
+                  <li>• [Outpatient criterion]</li>
+                  <li>• [Follow-up requirement]</li>
+                </ul>
+              </InfoCard>
 
-            <Section id="pearls" title="Clinical Pearls">
-              <ul className="space-y-3 leading-7 text-slate-700">
-                <li>• [High-yield clinical pearl.]</li>
-                <li>• [Common diagnostic pitfall.]</li>
-                <li>• [Important management distinction.]</li>
-                <li>• [Age-specific or severity-specific consideration.]</li>
-              </ul>
-            </Section>
+              <InfoCard
+                title="Hospital Admission"
+                tone="amber"
+              >
+                <ul className="space-y-2">
+                  <li>• [Admission criterion]</li>
+                  <li>• [Admission criterion]</li>
+                  <li>• [Admission criterion]</li>
+                </ul>
+              </InfoCard>
 
-            <Section id="quiz" title="Knowledge Check">
-              <p className="leading-8 text-slate-700">
-                [Write a clinical question based on the major learning objective
-                of this module.]
+              <InfoCard
+                title="Intensive Care"
+                tone="rose"
+              >
+                <ul className="space-y-2">
+                  <li>• [PICU criterion]</li>
+                  <li>• [PICU criterion]</li>
+                  <li>• [PICU criterion]</li>
+                </ul>
+              </InfoCard>
+            </div>
+
+            <InfoCard
+              title="Long-Term Follow-Up"
+              tone="purple"
+            >
+              [Describe primary care, subspecialty, developmental,
+              nutritional, pulmonary, or other long-term follow-up.]
+            </InfoCard>
+          </Section>
+
+          {/* =================================================
+              CLINICAL PEARLS
+          ================================================== */}
+
+          <Section
+            id="pearls"
+            label="Clinical Pearls"
+            title="High-yield takeaways"
+            description="[One sentence explaining what the learner should remember most.]"
+          >
+            <div className="grid gap-5 md:grid-cols-2">
+              <PearlCard
+                number="1"
+                title="[Pearl]"
+                tone="amber"
+              >
+                [High-yield explanation.]
+              </PearlCard>
+
+              <PearlCard
+                number="2"
+                title="[Pearl]"
+                tone="blue"
+              >
+                [High-yield explanation.]
+              </PearlCard>
+
+              <PearlCard
+                number="3"
+                title="[Pearl]"
+                tone="rose"
+              >
+                [High-yield explanation.]
+              </PearlCard>
+
+              <PearlCard
+                number="4"
+                title="[Pearl]"
+                tone="purple"
+              >
+                [High-yield explanation.]
+              </PearlCard>
+
+              <PearlCard
+                number="5"
+                title="[Pearl]"
+                tone="emerald"
+              >
+                [High-yield explanation.]
+              </PearlCard>
+
+              <PearlCard
+                number="6"
+                title="[Pearl]"
+                tone="blue"
+              >
+                [High-yield explanation.]
+              </PearlCard>
+            </div>
+
+            <div className="rounded-2xl bg-blue-950 p-6 text-white">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
+                Bottom Line
               </p>
 
-              <div className="mt-6 space-y-3">
-                {quizOptions.map((option, index) => {
-                  const isSelected = selectedAnswer === index;
-                  const isCorrectOption = index === correctAnswerIndex;
+              <h3 className="mt-2 text-xl font-bold">
+                [One-sentence summary]
+              </h3>
 
-                  let optionStyle =
-                    "border-slate-200 bg-white hover:border-sky-300 hover:bg-sky-50";
+              <p className="mt-3 leading-7 text-blue-100">
+                [Brief final teaching statement.]
+              </p>
+            </div>
+          </Section>
 
-                  if (answerSubmitted && isCorrectOption) {
-                    optionStyle =
-                      "border-emerald-400 bg-emerald-50 text-emerald-900";
-                  } else if (
-                    answerSubmitted &&
-                    isSelected &&
-                    !isCorrectOption
-                  ) {
-                    optionStyle = "border-rose-400 bg-rose-50 text-rose-900";
-                  }
+          {/* =================================================
+              QUIZ
+          ================================================== */}
+
+          <section
+            id="quiz"
+            className="scroll-mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+          >
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+              Knowledge Check
+            </p>
+
+            <h2 className="mt-2 text-3xl font-bold">
+              Apply what you learned
+            </h2>
+
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Work through each question in sequence. Select an answer,
+              review the explanation, then continue.
+            </p>
+
+            <div className="mt-8 space-y-8">
+              {quizQuestions
+                .slice(0, visibleQuestionCount)
+                .map((question, questionIndex) => {
+                  const selectedAnswerIndex =
+                    selectedAnswers[questionIndex];
+
+                  const hasAnswered =
+                    selectedAnswerIndex !== undefined;
+
+                  const selectedAnswer = hasAnswered
+                    ? question.answers[selectedAnswerIndex]
+                    : undefined;
+
+                  const isCorrect =
+                    selectedAnswer?.correct === true;
 
                   return (
-                    <button
-                      key={option}
-                      type="button"
-                      onClick={() => setSelectedAnswer(index)}
-                      className={`block w-full rounded-2xl border p-4 text-left font-medium transition ${optionStyle}`}
+                    <div
+                      key={questionIndex}
+                      className="rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8"
                     >
-                      {option}
-                    </button>
+                      <div className="flex items-center justify-between gap-4">
+                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+                          Question {questionIndex + 1}
+                        </p>
+
+                        {hasAnswered && (
+                          <span
+                            className={`rounded-full px-3 py-1 text-sm font-semibold ${
+                              isCorrect
+                                ? "bg-emerald-100 text-emerald-800"
+                                : "bg-rose-100 text-rose-800"
+                            }`}
+                          >
+                            {isCorrect
+                              ? "Correct"
+                              : "Review"}
+                          </span>
+                        )}
+                      </div>
+
+                      <h3 className="mt-4 text-xl font-bold leading-8 text-slate-950">
+                        {question.question}
+                      </h3>
+
+                      <div className="mt-6 space-y-3">
+                        {question.answers.map(
+                          (answer, answerIndex) => {
+                            const isSelected =
+                              selectedAnswerIndex ===
+                              answerIndex;
+
+                            let answerClass =
+                              "border-slate-200 bg-white text-slate-700 hover:border-sky-300 hover:bg-sky-50";
+
+                            if (
+                              hasAnswered &&
+                              answer.correct
+                            ) {
+                              answerClass =
+                                "border-emerald-400 bg-emerald-50 text-emerald-950";
+                            }
+
+                            if (
+                              hasAnswered &&
+                              isSelected &&
+                              !answer.correct
+                            ) {
+                              answerClass =
+                                "border-rose-400 bg-rose-50 text-rose-950";
+                            }
+
+                            return (
+                              <button
+                                key={answerIndex}
+                                type="button"
+                                disabled={hasAnswered}
+                                onClick={() =>
+                                  setSelectedAnswers(
+                                    (previous) => ({
+                                      ...previous,
+                                      [questionIndex]:
+                                        answerIndex,
+                                    })
+                                  )
+                                }
+                                className={`w-full rounded-2xl border px-5 py-4 text-left font-medium transition ${answerClass} ${
+                                  hasAnswered
+                                    ? "cursor-default"
+                                    : "cursor-pointer"
+                                }`}
+                              >
+                                <span className="mr-3 font-bold">
+                                  {String.fromCharCode(
+                                    65 + answerIndex
+                                  )}
+                                  .
+                                </span>
+
+                                {answer.text}
+                              </button>
+                            );
+                          }
+                        )}
+                      </div>
+
+                      {hasAnswered &&
+                        selectedAnswer && (
+                          <div
+                            className={`mt-6 rounded-2xl border p-6 ${
+                              isCorrect
+                                ? "border-emerald-200 bg-emerald-50"
+                                : "border-amber-200 bg-amber-50"
+                            }`}
+                          >
+                            <p
+                              className={`font-bold ${
+                                isCorrect
+                                  ? "text-emerald-950"
+                                  : "text-amber-950"
+                              }`}
+                            >
+                              {isCorrect
+                                ? "Correct"
+                                : "Not quite"}
+                            </p>
+
+                            <p
+                              className={`mt-3 leading-7 ${
+                                isCorrect
+                                  ? "text-emerald-900"
+                                  : "text-amber-900"
+                              }`}
+                            >
+                              {
+                                selectedAnswer.feedback
+                              }
+                            </p>
+
+                            {questionIndex <
+                              quizQuestions.length -
+                                1 &&
+                              visibleQuestionCount ===
+                                questionIndex + 1 && (
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    setVisibleQuestionCount(
+                                      questionIndex + 2
+                                    )
+                                  }
+                                  className="mt-5 rounded-xl bg-blue-950 px-5 py-3 font-semibold text-white transition hover:bg-blue-900"
+                                >
+                                  Continue to Question{" "}
+                                  {questionIndex + 2} →
+                                </button>
+                              )}
+                          </div>
+                        )}
+                    </div>
                   );
                 })}
-              </div>
+            </div>
 
-              {answerSubmitted && (
-                <div
-                  className={`mt-6 rounded-2xl border p-5 ${
-                    answerIsCorrect
-                      ? "border-emerald-300 bg-emerald-50 text-emerald-900"
-                      : "border-amber-300 bg-amber-50 text-amber-900"
-                  }`}
-                >
-                  <p className="font-bold">
-                    {answerIsCorrect ? "Correct" : "Not quite"}
+            {visibleQuestionCount ===
+              quizQuestions.length &&
+              Object.keys(selectedAnswers).length ===
+                quizQuestions.length && (
+                <div className="mt-8 rounded-2xl bg-blue-950 p-6 text-white">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
+                    Quiz Complete
                   </p>
 
-                  <p className="mt-2 leading-7">
-                    [Explain why the correct option is correct and briefly
-                    clarify why the alternatives are less appropriate.]
+                  <h3 className="mt-2 text-2xl font-bold">
+                    {
+                      Object.entries(
+                        selectedAnswers
+                      ).filter(
+                        ([
+                          questionIndex,
+                          answerIndex,
+                        ]) =>
+                          quizQuestions[
+                            Number(
+                              questionIndex
+                            )
+                          ].answers[answerIndex]
+                            .correct
+                      ).length
+                    }{" "}
+                    / {quizQuestions.length} correct
+                  </h3>
+
+                  <p className="mt-3 leading-7 text-blue-100">
+                    Review any missed questions above
+                    before moving on.
                   </p>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedAnswers({});
+                      setVisibleQuestionCount(1);
+                    }}
+                    className="mt-5 rounded-xl bg-white px-5 py-3 font-semibold text-blue-950 transition hover:bg-blue-50"
+                  >
+                    Restart Quiz
+                  </button>
                 </div>
               )}
-            </Section>
+          </section>
 
-            {/*
-              Evidence Base intentionally appears at the bottom but is not
-              included in the "On this page" sidebar.
-            */}
-            <EvidenceBase
-              references={[
-                {
-                  title: "[Exact guideline, chapter, or article title]",
-                  href: "[Direct URL]",
-                  description:
-                    "[Organization, publication type, and why it supports this module.]",
-                },
-              ]}
-              secondarySources="[Optional educational resources used for verification.]"
-            />
+          {/* =================================================
+              EVIDENCE BASE
+          ================================================== */}
+
+          <EvidenceBase
+            references={[
+              {
+                title:
+                  "[Exact guideline or article title]",
+                href: "[Direct URL]",
+                description:
+                  "[Organization, publication type, and why it supports the module.]",
+              },
+              {
+                title:
+                  "[Second authoritative source]",
+                href: "[Direct URL]",
+                description:
+                  "[How this source supports the module.]",
+              },
+            ]}
+            secondarySources="[Optional secondary resources used for verification.]"
+          />
+
+          {/* =================================================
+              DISCLAIMER
+          ================================================== */}
+
+          <div className="rounded-2xl border border-slate-200 bg-slate-100 p-6 text-sm leading-6 text-slate-600">
+            <p className="font-semibold text-slate-800">
+              PediAtlas Educational Disclaimer
+            </p>
+
+            <p className="mt-2">
+              PediAtlas is intended for medical education and
+              clinical learning. It does not replace institutional
+              protocols, specialist consultation, or individualized
+              medical decision-making. Medication dosing,
+              antimicrobial selection, and management decisions
+              should be verified against current institutional and
+              specialty guidance.
+            </p>
+          </div>
+
+          {/* =================================================
+              BOTTOM NAVIGATION
+          ================================================== */}
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Link
+              href="/respiratory/lower-airway/[previous-route]"
+              className="rounded-2xl border border-slate-200 bg-white p-5 font-semibold text-blue-800 shadow-sm transition hover:border-sky-300 hover:bg-sky-50"
+            >
+              ← [Previous Disease]
+            </Link>
+
+            <Link
+              href="/respiratory/lower-airway/[next-route]"
+              className="rounded-2xl border border-slate-200 bg-white p-5 text-right font-semibold text-blue-800 shadow-sm transition hover:border-sky-300 hover:bg-sky-50"
+            >
+              [Next Disease] →
+            </Link>
           </div>
         </div>
       </div>
@@ -410,38 +1159,140 @@ export default function DiseasePageTemplate() {
   );
 }
 
+/*
+  ============================================================
+  REUSABLE COMPONENTS
+  ============================================================
+*/
+
 type SectionProps = {
   id: string;
+  label: string;
   title: string;
+  description?: string;
   children: React.ReactNode;
 };
 
-function Section({ id, title, children }: SectionProps) {
+function Section({
+  id,
+  label,
+  title,
+  description,
+  children,
+}: SectionProps) {
   return (
     <section
       id={id}
-      className="scroll-mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+      className="scroll-mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
     >
-      <h2 className="text-3xl font-bold tracking-tight text-slate-900">
+      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+        {label}
+      </p>
+
+      <h2 className="mt-2 text-3xl font-bold text-slate-950">
         {title}
       </h2>
 
-      <div className="mt-6 space-y-6">{children}</div>
+      {description && (
+        <p className="mt-5 text-lg leading-8 text-slate-600">
+          {description}
+        </p>
+      )}
+
+      <div className="mt-8 space-y-6">
+        {children}
+      </div>
     </section>
   );
 }
 
+type Tone =
+  | "blue"
+  | "amber"
+  | "emerald"
+  | "rose"
+  | "purple"
+  | "slate";
+
+const toneClasses: Record<
+  Tone,
+  {
+    container: string;
+    title: string;
+    text: string;
+  }
+> = {
+  blue: {
+    container:
+      "border-blue-200 bg-blue-50",
+    title: "text-blue-950",
+    text: "text-blue-900",
+  },
+
+  amber: {
+    container:
+      "border-amber-200 bg-amber-50",
+    title: "text-amber-950",
+    text: "text-amber-900",
+  },
+
+  emerald: {
+    container:
+      "border-emerald-200 bg-emerald-50",
+    title: "text-emerald-950",
+    text: "text-emerald-900",
+  },
+
+  rose: {
+    container:
+      "border-rose-200 bg-rose-50",
+    title: "text-rose-950",
+    text: "text-rose-900",
+  },
+
+  purple: {
+    container:
+      "border-purple-200 bg-purple-50",
+    title: "text-purple-950",
+    text: "text-purple-900",
+  },
+
+  slate: {
+    container:
+      "border-slate-200 bg-slate-50",
+    title: "text-slate-950",
+    text: "text-slate-700",
+  },
+};
+
 type InfoCardProps = {
   title: string;
+  tone?: Tone;
   children: React.ReactNode;
 };
 
-function InfoCard({ title, children }: InfoCardProps) {
-  return (
-    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-      <h3 className="font-bold text-slate-900">{title}</h3>
+function InfoCard({
+  title,
+  tone = "slate",
+  children,
+}: InfoCardProps) {
+  const styles = toneClasses[tone];
 
-      <div className="mt-2 leading-7 text-slate-700">{children}</div>
+  return (
+    <div
+      className={`rounded-2xl border p-6 ${styles.container}`}
+    >
+      <h3
+        className={`text-xl font-bold ${styles.title}`}
+      >
+        {title}
+      </h3>
+
+      <div
+        className={`mt-4 leading-7 ${styles.text}`}
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -458,14 +1309,92 @@ function ProcessStep({
   description,
 }: ProcessStepProps) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-sky-100 font-bold text-sky-800">
+    <div className="rounded-2xl border border-slate-200 bg-white p-5">
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 font-bold text-sky-800">
         {number}
       </div>
 
-      <h3 className="mt-4 font-bold text-slate-900">{title}</h3>
+      <h3 className="mt-4 font-bold text-slate-950">
+        {title}
+      </h3>
 
-      <p className="mt-2 leading-7 text-slate-700">{description}</p>
+      <p className="mt-2 leading-7 text-slate-700">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+type CalloutProps = {
+  label: string;
+  title: string;
+  tone?: Tone;
+  children: React.ReactNode;
+};
+
+function Callout({
+  label,
+  title,
+  tone = "blue",
+  children,
+}: CalloutProps) {
+  const styles = toneClasses[tone];
+
+  return (
+    <div
+      className={`rounded-2xl border p-6 ${styles.container}`}
+    >
+      <p
+        className={`text-sm font-semibold uppercase tracking-[0.2em] ${styles.title}`}
+      >
+        {label}
+      </p>
+
+      <h3
+        className={`mt-2 text-xl font-bold ${styles.title}`}
+      >
+        {title}
+      </h3>
+
+      <div
+        className={`mt-3 leading-7 ${styles.text}`}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+type PearlCardProps = {
+  number: string;
+  title: string;
+  tone?: Tone;
+  children: React.ReactNode;
+};
+
+function PearlCard({
+  number,
+  title,
+  tone = "blue",
+  children,
+}: PearlCardProps) {
+  const styles = toneClasses[tone];
+
+  return (
+    <div
+      className={`rounded-2xl border p-6 ${styles.container}`}
+    >
+      <h3
+        className={`font-bold ${styles.title}`}
+      >
+        {number}. {title}
+      </h3>
+
+      <div
+        className={`mt-3 leading-7 ${styles.text}`}
+      >
+        {children}
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import EvidenceBase from "@/components/EvidenceBase";
+import { EvidenceBase } from "@/components/disease";
 
 const diseaseStages = [
   {
