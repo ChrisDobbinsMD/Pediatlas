@@ -48,7 +48,7 @@ const diseases = [
 export default function LowerAirwayPage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 to-white px-6 py-16">
+      <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 via-sky-50/70 to-white px-6 py-12">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-wrap gap-4 text-sm font-semibold">
             <Link

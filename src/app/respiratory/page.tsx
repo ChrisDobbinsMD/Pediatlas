@@ -6,6 +6,7 @@ const sections = [
     description:
       "Nose, pharynx, larynx, and proximal trachea disorders.",
     icon: "👃",
+    href: "/respiratory/upper-airway",
     topics: [
       "Viral URI",
       "Sinusitis",
@@ -22,6 +23,7 @@ const sections = [
     description:
       "Bronchi, bronchioles, alveoli, infection, inflammation, and obstruction.",
     icon: "🫁",
+    href: "/respiratory/lower-airway",
     topics: [
       "Bronchiolitis",
       "Asthma",
@@ -74,11 +76,12 @@ const sections = [
 export default function RespiratoryPage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 to-white px-6 py-16">
+      {/* Header */}
+      <header className="border-b border-sky-100 bg-gradient-to-b from-sky-50 to-white px-6 py-12">
         <div className="mx-auto max-w-6xl">
           <Link
             href="/"
-            className="text-sm font-semibold text-blue-800 hover:text-blue-600"
+            className="text-sm font-medium text-sky-700 transition hover:text-sky-900"
           >
             ← Back to PediAtlas
           </Link>
@@ -107,6 +110,7 @@ export default function RespiratoryPage() {
         </div>
       </header>
 
+      {/* Respiratory regions */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10">
@@ -154,18 +158,20 @@ export default function RespiratoryPage() {
                   ))}
                 </ul>
 
-                {section.title === "Lower Airway" ? (
-  <Link
-    href="/respiratory/lower-airway"
-    className="mt-6 inline-block font-semibold text-blue-800 hover:text-blue-600"
-  >
-    Explore lower airway →
-  </Link>
-) : (
-  <span className="mt-6 inline-block font-semibold text-slate-400">
-    Module coming soon
-  </span>
-)}
+                <div className="mt-6">
+                  {section.href ? (
+                    <Link
+                      href={section.href}
+                      className="inline-flex items-center gap-1 font-semibold text-blue-700 transition hover:text-blue-900"
+                    >
+                      Explore {section.title.toLowerCase()} →
+                    </Link>
+                  ) : (
+                    <span className="font-semibold text-slate-400">
+                      Module coming soon
+                    </span>
+                  )}
+                </div>
               </article>
             ))}
           </div>
