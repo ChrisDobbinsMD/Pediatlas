@@ -135,11 +135,10 @@ export default function UpperAirwayPage() {
                 return (
                   <article
                     key={disease.name}
-                    className={`flex h-full flex-col rounded-3xl border bg-white p-7 shadow-sm transition ${
-                      isAvailable
+                    className={`flex h-full flex-col rounded-3xl border bg-white p-7 shadow-sm transition ${isAvailable
                         ? "border-sky-300 hover:-translate-y-1 hover:shadow-lg"
                         : "border-slate-200"
-                    }`}
+                      }`}
                   >
                     <div className="flex items-start justify-between gap-4">
                       <h3 className="text-2xl font-bold">
@@ -147,11 +146,10 @@ export default function UpperAirwayPage() {
                       </h3>
 
                       <span
-                        className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                          isAvailable
+                        className={`rounded-full px-3 py-1 text-xs font-semibold ${isAvailable
                             ? "bg-emerald-100 text-emerald-700"
                             : "bg-slate-100 text-slate-500"
-                        }`}
+                          }`}
                       >
                         {disease.status}
                       </span>

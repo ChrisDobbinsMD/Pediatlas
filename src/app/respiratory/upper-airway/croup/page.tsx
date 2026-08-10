@@ -8,12 +8,13 @@ import {
   PearlCard,
   ProgressiveQuiz,
   EvidenceBase,
+  FigureModal,
   type QuizQuestion,
   type Reference,
 } from "@/components/disease";
 
 import CroupAnatomyFigure from "@/components/disease/figures/CroupAnatomyFigure";
-import CroupSteepleModal from "@/components/disease/figures/CroupSteepleModal";
+import CroupSteepleSign from "@/components/disease/figures/CroupSteepleSign";
 
 /* =========================================================
    QUIZ DATA
@@ -416,7 +417,7 @@ export default function CroupPage() {
             </div>
           </DiseaseSection>
 
-      {/* =================================================
+          {/* =================================================
               ANATOMY & LOCALIZATION
           ================================================== */}
 
@@ -446,10 +447,10 @@ export default function CroupPage() {
                 tone="blue"
               >
                 <p>
-                Croup predominantly involves the larynx and subglottic
-                region immediately below the vocal cords. This localization
-                explains the characteristic combination of barking cough,
-                hoarseness, and inspiratory stridor.
+                  Croup predominantly involves the larynx and subglottic
+                  region immediately below the vocal cords. This localization
+                  explains the characteristic combination of barking cough,
+                  hoarseness, and inspiratory stridor.
                 </p>
               </InfoCard>
             </div>
@@ -502,7 +503,7 @@ export default function CroupPage() {
             </Callout>
           </DiseaseSection>
 
-      {/* =================================================
+          {/* =================================================
               PATHOPHYSIOLOGY
           ================================================== */}
 
@@ -542,31 +543,31 @@ export default function CroupPage() {
               label="Airway Physics"
               title="Why a few millimeters matter"
               tone="blue"
->
+            >
               <p>
-              Airway resistance is extremely sensitive to airway radius. Under
-              laminar-flow conditions, Poiseuille&apos;s law predicts that resistance
-              varies inversely with the fourth power of the radius:
+                Airway resistance is extremely sensitive to airway radius. Under
+                laminar-flow conditions, Poiseuille&apos;s law predicts that resistance
+                varies inversely with the fourth power of the radius:
               </p>
 
               <div className="my-6 rounded-2xl border border-blue-200 bg-white p-6 text-center">
-              <p className="text-3xl font-bold tracking-wide text-blue-950">
-              R ∝ 1 / r⁴
-              </p>
+                <p className="text-3xl font-bold tracking-wide text-blue-950">
+                  R ∝ 1 / r⁴
+                </p>
               </div>
 
               <p>
-              This means that even a modest decrease in airway radius can produce a
-              disproportionately large increase in resistance. Because young children
-              begin with a relatively small subglottic airway, circumferential mucosal
-              edema can rapidly consume a clinically important fraction of the
-              available lumen.
+                This means that even a modest decrease in airway radius can produce a
+                disproportionately large increase in resistance. Because young children
+                begin with a relatively small subglottic airway, circumferential mucosal
+                edema can rapidly consume a clinically important fraction of the
+                available lumen.
               </p>
 
               <p className="mt-4">
-              Actual airflow through a narrowed croup airway may become turbulent, so
-              Poiseuille&apos;s law is best used here as a conceptual model rather than
-              an exact description of airflow during croup.
+                Actual airflow through a narrowed croup airway may become turbulent, so
+                Poiseuille&apos;s law is best used here as a conceptual model rather than
+                an exact description of airflow during croup.
               </p>
             </Callout>
 
@@ -597,7 +598,7 @@ export default function CroupPage() {
             </InfoCard>
           </DiseaseSection>
 
-      {/* =================================================
+          {/* =================================================
               HISTORY & PHYSICAL
           ================================================== */}
 
@@ -703,69 +704,68 @@ export default function CroupPage() {
             </Callout>
           </DiseaseSection>
 
-   {/* =================================================
+          {/* =================================================
           DIFFERENTIAL DIAGNOSIS
       ================================================== */}
 
-      <DiseaseSection
-        id="differential"
-        label="Differential Diagnosis"
-        title="What else could look like this?"
-        description="Stridor is a localization clue, not a diagnosis. Features outside the classic croup pattern should prompt consideration of alternative causes of upper-airway obstruction."
-      >
-        <div className="overflow-hidden rounded-2xl border border-slate-200">
-          {[
-            {
-              diagnosis: "Bacterial tracheitis",
-              clues:
-                "High fever, toxic appearance, rapidly progressive obstruction, thick or purulent secretions, or poor response to standard croup therapy.",
-            },
-            {
-              diagnosis: "Epiglottitis",
-              clues:
-                "Drooling, dysphagia, severe sore throat, muffled voice, tripod positioning, toxic appearance, and absence of the classic barking cough.",
-            },
-            {
-              diagnosis: "Foreign body",
-              clues:
-                "Abrupt onset, choking history, little or no viral prodrome, or persistent focal airway findings.",
-            },
-            {
-              diagnosis: "Anaphylaxis / angioedema",
-              clues:
-                "Sudden airway symptoms with urticaria, lip or tongue swelling, gastrointestinal symptoms, hypotension, or recent allergen exposure.",
-            },
-          ].map((item, index) => (
-            <div
-              key={item.diagnosis}
-              className={`grid gap-3 p-5 md:grid-cols-[200px_1fr] ${
-                index !== 3 ? "border-b border-slate-200" : ""
-              }`}
-            >
-              <p className="font-bold text-slate-900">
-                {item.diagnosis}
-              </p>
+          <DiseaseSection
+            id="differential"
+            label="Differential Diagnosis"
+            title="What else could look like this?"
+            description="Stridor is a localization clue, not a diagnosis. Features outside the classic croup pattern should prompt consideration of alternative causes of upper-airway obstruction."
+          >
+            <div className="overflow-hidden rounded-2xl border border-slate-200">
+              {[
+                {
+                  diagnosis: "Bacterial tracheitis",
+                  clues:
+                    "High fever, toxic appearance, rapidly progressive obstruction, thick or purulent secretions, or poor response to standard croup therapy.",
+                },
+                {
+                  diagnosis: "Epiglottitis",
+                  clues:
+                    "Drooling, dysphagia, severe sore throat, muffled voice, tripod positioning, toxic appearance, and absence of the classic barking cough.",
+                },
+                {
+                  diagnosis: "Foreign body",
+                  clues:
+                    "Abrupt onset, choking history, little or no viral prodrome, or persistent focal airway findings.",
+                },
+                {
+                  diagnosis: "Anaphylaxis / angioedema",
+                  clues:
+                    "Sudden airway symptoms with urticaria, lip or tongue swelling, gastrointestinal symptoms, hypotension, or recent allergen exposure.",
+                },
+              ].map((item, index) => (
+                <div
+                  key={item.diagnosis}
+                  className={`grid gap-3 p-5 md:grid-cols-[200px_1fr] ${index !== 3 ? "border-b border-slate-200" : ""
+                    }`}
+                >
+                  <p className="font-bold text-slate-900">
+                    {item.diagnosis}
+                  </p>
 
-              <p className="leading-7 text-slate-600">
-                {item.clues}
-              </p>
+                  <p className="leading-7 text-slate-600">
+                    {item.clues}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <Callout
-          label="Diagnostic Red Flag"
-          title="Toxic appearance is not typical uncomplicated croup"
-          tone="rose"
-        >
-          <p>
-            High fever, toxicity, rapidly progressive obstruction, purulent
-            secretions, or poor response to appropriate croup therapy should
-            prompt urgent reconsideration of the diagnosis, particularly
-            bacterial tracheitis or another serious upper-airway process.
-          </p>
-        </Callout>
-      </DiseaseSection>
+            <Callout
+              label="Diagnostic Red Flag"
+              title="Toxic appearance is not typical uncomplicated croup"
+              tone="rose"
+            >
+              <p>
+                High fever, toxicity, rapidly progressive obstruction, purulent
+                secretions, or poor response to appropriate croup therapy should
+                prompt urgent reconsideration of the diagnosis, particularly
+                bacterial tracheitis or another serious upper-airway process.
+              </p>
+            </Callout>
+          </DiseaseSection>
 
           {/* =================================================
               DIAGNOSTIC WORKUP
@@ -827,11 +827,16 @@ export default function CroupPage() {
               tone="blue"
             >
               <p>
-                An anteroposterior neck radiograph may demonstrate tapering
-                subglottic narrowing known as the <CroupSteepleModal />.
-                However, the finding is neither sufficiently sensitive nor
-                specific to justify routine imaging when the clinical
-                presentation is classic.
+                If an AP neck radiograph is obtained, it may demonstrate tapered
+                subglottic narrowing known as the{" "}
+                <FigureModal
+                  trigger="steeple sign"
+                  title="Steeple sign in croup"
+                >
+                  <CroupSteepleSign />
+                </FigureModal>
+                . The finding is supportive rather than diagnostic, and routine imaging
+                is unnecessary when the clinical presentation is classic.
               </p>
             </Callout>
 

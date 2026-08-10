@@ -6,6 +6,7 @@ export { default as PearlCard } from "./PearlCard";
 export { default as ProgressiveQuiz } from "./ProgressiveQuiz";
 export { default as EvidenceBase } from "./EvidenceBase";
 export type { Reference } from "./EvidenceBase";
+export { default as FigureModal } from "./FigureModal";
 
 export type { CardTone } from "./InfoCard";
 export type {

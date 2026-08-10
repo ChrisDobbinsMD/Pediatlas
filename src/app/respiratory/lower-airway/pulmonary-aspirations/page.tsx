@@ -271,11 +271,11 @@ const quizQuestions = [
 ];
 
 export default function PulmonaryAspirationPage() {
-const [selectedAnswers, setSelectedAnswers] = useState<
-  Record<number, number>
->({});
+  const [selectedAnswers, setSelectedAnswers] = useState<
+    Record<number, number>
+  >({});
 
-const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
+  const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
 
   const [showVFSSAnnotations, setShowVFSSAnnotations] =
     useState(false);
@@ -283,7 +283,7 @@ const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
   const [showXRAnnotations, setShowXRAnnotations] =
     useState(false);
 
-    const [showAntibiotics, setShowAntibiotics] = useState(false);
+  const [showAntibiotics, setShowAntibiotics] = useState(false);
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
@@ -477,7 +477,7 @@ const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
 
           </section>
 
-                    {/* ================= ANATOMY ================= */}
+          {/* ================= ANATOMY ================= */}
 
           <section
             id="localization"
@@ -500,15 +500,15 @@ const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
             </p>
 
             <div className="mt-8 flex justify-center">
-  <Image
-    src="/images/aspiration.png"
-    alt="Normal swallowing compared with pulmonary aspiration."
-    width={700}
-    height={500}
-    className="h-auto w-full max-w-xl rounded-2xl border border-slate-200 shadow-sm"
-    unoptimized
-  />
-</div>
+              <Image
+                src="/images/aspiration.png"
+                alt="Normal swallowing compared with pulmonary aspiration."
+                width={700}
+                height={500}
+                className="h-auto w-full max-w-xl rounded-2xl border border-slate-200 shadow-sm"
+                unoptimized
+              />
+            </div>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2">
 
@@ -624,7 +624,7 @@ const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
 
           </section>
 
-                    {/* ================= PATHOPHYSIOLOGY ================= */}
+          {/* ================= PATHOPHYSIOLOGY ================= */}
 
           <section
             id="pathophysiology"
@@ -707,7 +707,7 @@ const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
             </div>
           </section>
 
-                    {/* ================= CLINICAL ASSESSMENT ================= */}
+          {/* ================= CLINICAL ASSESSMENT ================= */}
 
           <section
             id="assessment"
@@ -904,7 +904,7 @@ const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
             </div>
           </section>
 
-                    {/* ================= DIAGNOSTIC WORKUP ================= */}
+          {/* ================= DIAGNOSTIC WORKUP ================= */}
 
           <section
             id="workup"
@@ -1338,7 +1338,7 @@ const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
 
                 </div>
 
-                                <div className="text-3xl">↓</div>
+                <div className="text-3xl">↓</div>
 
                 <div className="rounded-xl border bg-white px-6 py-4 text-center font-semibold">
                   Determine the clinical syndrome
@@ -1475,734 +1475,728 @@ const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
               </p>
             </div>
 
-{/* ================= EXPANDABLE ANTIBIOTIC GUIDE ================= */}
+            {/* ================= EXPANDABLE ANTIBIOTIC GUIDE ================= */}
+
+            <div className="mt-8 overflow-hidden rounded-2xl border border-blue-200 bg-blue-50">
+              <button
+                type="button"
+                onClick={() => setShowAntibiotics((previous) => !previous)}
+                aria-expanded={showAntibiotics}
+                aria-controls="aspiration-antibiotic-guide"
+                className="flex w-full items-center justify-between gap-4 p-6 text-left transition hover:bg-blue-100"
+              >
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+                    Medication quick reference
+                  </p>
+
+                  <h3 className="mt-2 text-xl font-bold text-blue-950">
+                    Empiric Antibiotic Selection
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-6 text-blue-800">
+                    Common IV and oral approaches for pediatric aspiration pneumonia
+                  </p>
+                </div>
 
-<div className="mt-8 overflow-hidden rounded-2xl border border-blue-200 bg-blue-50">
-  <button
-    type="button"
-    onClick={() => setShowAntibiotics((previous) => !previous)}
-    aria-expanded={showAntibiotics}
-    aria-controls="aspiration-antibiotic-guide"
-    className="flex w-full items-center justify-between gap-4 p-6 text-left transition hover:bg-blue-100"
-  >
-    <div>
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
-        Medication quick reference
-      </p>
-
-      <h3 className="mt-2 text-xl font-bold text-blue-950">
-  Empiric Antibiotic Selection
-</h3>
-
-<p className="mt-2 text-sm leading-6 text-blue-800">
-  Common IV and oral approaches for pediatric aspiration pneumonia
-</p>
-    </div>
-
-    <span
-      aria-hidden="true"
-      className={`shrink-0 text-2xl font-semibold text-blue-800 transition-transform duration-200 ${
-        showAntibiotics ? "rotate-180" : ""
-      }`}
-    >
-     ⌄
-    </span>
-  </button>
-
-  {showAntibiotics && (
-  <div
-    id="aspiration-antibiotic-guide"
-    className="border-t border-blue-200 bg-white p-6 md:p-8"
-  >
-    <div className="mb-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-600">
-        Evidence note
-      </p>
-
-      <p className="mt-3 leading-7 text-slate-700">
-        PIDS/IDSA pediatric community-acquired pneumonia guidelines do not
-        provide a separate empiric regimen specifically for aspiration
-        pneumonia. In practice, antibiotic selection generally follows
-        pediatric pneumonia principles while accounting for aspiration risk,
-        illness severity, prior cultures, healthcare exposure, and local
-        antimicrobial guidance.
-      </p>
-    </div>
-
-    <div className="overflow-x-auto">
-      <table className="w-full min-w-[760px] border-collapse text-left">
-        <thead>
-          <tr className="border-b border-slate-200">
-            <th className="px-4 py-4 text-sm font-bold uppercase tracking-wide text-slate-600">
-              Clinical setting
-            </th>
-
-            <th className="px-4 py-4 text-sm font-bold uppercase tracking-wide text-slate-600">
-              Common empiric approach
-            </th>
-
-            <th className="px-4 py-4 text-sm font-bold uppercase tracking-wide text-slate-600">
-              Notes
-            </th>
-          </tr>
-        </thead>
-
-        <tbody className="divide-y divide-slate-200">
-          <tr className="align-top">
-            <td className="px-4 py-5 font-semibold text-slate-900">
-              Community-onset aspiration pneumonia requiring IV therapy
-            </td>
-
-            <td className="px-4 py-5 text-slate-700">
-              <p className="font-bold text-blue-950">
-                Ampicillin-sulbactam
-              </p>
-
-              <p className="mt-2">
-                Commonly used when bacterial aspiration pneumonia is suspected
-                and parenteral therapy is appropriate.
-              </p>
-            </td>
-
-            <td className="px-4 py-5 leading-7 text-slate-700">
-              Provides coverage for typical respiratory pathogens together
-              with oral flora. Dose according to local pediatric antimicrobial
-              guidance and renal function.
-            </td>
-          </tr>
-
-          <tr className="align-top">
-            <td className="px-4 py-5 font-semibold text-slate-900">
-              Community-onset aspiration pneumonia appropriate for oral therapy
-              or IV-to-PO transition
-            </td>
-
-            <td className="px-4 py-5 text-slate-700">
-              <p className="font-bold text-blue-950">
-                Amoxicillin-clavulanate
-              </p>
-
-              <p className="mt-2">
-                Common enteral option for a clinically stable child.
-              </p>
-            </td>
-
-            <td className="px-4 py-5 leading-7 text-slate-700">
-              Dose using the amoxicillin component according to age,
-              indication, formulation, renal function, and local pediatric
-              guidance.
-            </td>
-          </tr>
-
-          <tr className="align-top">
-            <td className="px-4 py-5 font-semibold text-slate-900">
-              Severe immediate-type β-lactam allergy
-            </td>
-
-            <td className="px-4 py-5 text-slate-700">
-              <p className="font-bold text-blue-950">
-                Individualize therapy
-              </p>
-
-              <p className="mt-2">
-                Clindamycin may be considered in selected patients depending
-                on the allergy phenotype, likely organisms, and local
-                susceptibility patterns.
-              </p>
-            </td>
-
-            <td className="px-4 py-5 leading-7 text-slate-700">
-              Use institution-specific pediatric antimicrobial stewardship
-              guidance rather than a single universal substitute.
-            </td>
-          </tr>
-
-          <tr className="align-top">
-            <td className="px-4 py-5 font-semibold text-slate-900">
-              Healthcare-associated disease or significant resistant-organism risk
-            </td>
-
-            <td className="px-4 py-5 text-slate-700">
-              <p className="font-bold text-blue-950">
-                Follow institutional pneumonia guidance
-              </p>
-
-              <p className="mt-2">
-                Broader gram-negative and/or MRSA coverage may be required.
-              </p>
-            </td>
-
-            <td className="px-4 py-5 leading-7 text-slate-700">
-              Prior cultures, recent antibiotics, devices, local resistance
-              patterns, and illness severity should guide escalation.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div className="mt-6 rounded-2xl border border-amber-300 bg-amber-50 p-6">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
-        Antibiotic stewardship pearl
-      </p>
-
-      <h4 className="mt-2 text-xl font-bold text-amber-950">
-        Aspiration pneumonitis does not require routine antibiotics
-      </h4>
-
-      <p className="mt-3 leading-7 text-amber-900">
-        Fever, leukocytosis, and pulmonary infiltrates may occur after an
-        aspiration event from inflammation alone. Antibiotics should be
-        reserved for patients whose clinical course supports bacterial
-        aspiration pneumonia rather than given automatically after aspiration.
-      </p>
-    </div>
-
-    <div className="mt-5 rounded-2xl border border-blue-200 bg-blue-50 p-6">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
-        Anaerobic coverage
-      </p>
-
-      <h4 className="mt-2 text-xl font-bold text-blue-950">
-        Avoid automatically adding dedicated anaerobic therapy
-      </h4>
-
-      <p className="mt-3 leading-7 text-blue-900">
-        Ampicillin-sulbactam and amoxicillin-clavulanate already provide
-        activity against oral anaerobes. Routine addition of metronidazole or
-        another dedicated anaerobic agent is generally unnecessary for
-        uncomplicated aspiration pneumonia. Complicated infection such as lung
-        abscess, empyema, or necrotizing disease should be managed according to
-        the specific complication and local guidance.
-      </p>
-    </div>
-
-    <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-      <p className="font-semibold text-slate-900">
-        Guideline context
-      </p>
-
-      <p className="mt-2 leading-7 text-slate-700">
-        The PIDS/IDSA pediatric CAP guideline provides the broader framework
-        for empiric pneumonia treatment but does not issue a dedicated
-        aspiration-pneumonia regimen. Keep this distinction explicit when
-        interpreting the evidence.
-      </p>
-    </div>
-  </div>
-)}
-</div>
-
-</section>
-
-{/* ================= CARE SETTING & FOLLOW-UP ================= */}
-
-<section
-  id="disposition"
-  className="mt-14 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
->
-  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-    Disposition/Care setting &amp; follow-up
-  </p>
-
-  <h2 className="mt-2 text-3xl font-bold">
-    Match the care plan to respiratory severity, feeding safety, and recurrence risk
-  </h2>
-
-  <p className="mt-5 text-lg leading-8 text-slate-600">
-    Children with pulmonary aspiration may be managed in the outpatient
-    setting, admitted for acute respiratory support or feeding evaluation,
-    or require intensive care when airway protection and ventilation are
-    compromised. Long-term follow-up should focus on preventing recurrent
-    aspiration and chronic lung injury.
-  </p>
-
-  <div className="mt-8 grid gap-6 lg:grid-cols-3">
-    {/* Outpatient management */}
-
-    <div className="rounded-2xl border border-emerald-300 bg-emerald-50 p-6">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-        Outpatient care
-      </p>
-
-      <h3 className="mt-2 text-2xl font-bold text-emerald-950">
-        Appropriate when the child is clinically stable
-      </h3>
-
-      <ul className="mt-5 space-y-3 leading-7 text-emerald-900">
-        <li>• Stable oxygenation without significant respiratory distress</li>
-        <li>• Safe feeding plan or reliable alternative nutrition plan</li>
-        <li>• No evidence of progressive respiratory deterioration</li>
-        <li>• Caregivers understand feeding precautions and warning signs</li>
-        <li>• Timely primary care and subspecialty follow-up can be arranged</li>
-      </ul>
-    </div>
-
-    {/* Inpatient care */}
-
-    <div className="rounded-2xl border border-amber-300 bg-amber-50 p-6">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
-        Inpatient care
-      </p>
-
-      <h3 className="mt-2 text-2xl font-bold text-amber-950">
-        Admit when monitoring or active treatment is required
-      </h3>
-
-      <ul className="mt-5 space-y-3 leading-7 text-amber-900">
-        <li>• Persistent oxygen requirement or moderate respiratory distress</li>
-        <li>• Need for IV fluids, enteral support, or feeding restriction</li>
-        <li>• Aspiration pneumonia requiring inpatient therapy</li>
-        <li>• Need for swallow evaluation or feeding-plan development</li>
-        <li>• Recurrent events requiring coordinated diagnostic evaluation</li>
-        <li>• Inability to maintain hydration, nutrition, or secretion control</li>
-      </ul>
-    </div>
-
-    {/* Intensive care */}
-
-    <div className="rounded-2xl border border-red-300 bg-red-50 p-6">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
-        Intensive care
-      </p>
-
-      <h3 className="mt-2 text-2xl font-bold text-red-950">
-        Escalate when airway protection or ventilation is threatened
-      </h3>
-
-      <ul className="mt-5 space-y-3 leading-7 text-red-900">
-        <li>• Respiratory failure or rapidly worsening gas exchange</li>
-        <li>• Need for noninvasive or invasive ventilatory support</li>
-        <li>• Inability to protect the airway or manage secretions</li>
-        <li>• Recurrent apnea, cyanosis, or altered mental status</li>
-        <li>• Hemodynamic instability or concern for severe sepsis</li>
-      </ul>
-    </div>
-  </div>
-
-  <div className="mt-8 rounded-2xl border border-purple-200 bg-purple-50 p-6">
-    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-700">
-      Long-term follow-up
-    </p>
-
-    <h3 className="mt-2 text-xl font-bold text-purple-950">
-      Follow-up should address both lung disease and the source of aspiration
-    </h3>
-
-    <p className="mt-3 leading-7 text-purple-900">
-      Depending on the underlying disorder, children may require coordinated
-      care involving Primary Care, Speech-Language Pathology, Pulmonology,
-      Gastroenterology, Otolaryngology, Nutrition, Neurology, Surgery, and an
-      aerodigestive program.
-    </p>
-
-    <div className="mt-5 grid gap-4 md:grid-cols-2">
-      <div className="rounded-xl border border-purple-200 bg-white/70 p-4">
-        <h4 className="font-bold text-purple-950">
-          Monitor respiratory outcomes
-        </h4>
-
-        <ul className="mt-3 space-y-2 leading-7 text-purple-900">
-          <li>• Recurrent pneumonia or wheezing</li>
-          <li>• Oxygen requirement</li>
-          <li>• Airway-clearance needs</li>
-          <li>• Development of bronchiectasis or chronic lung disease</li>
-        </ul>
-      </div>
-
-      <div className="rounded-xl border border-purple-200 bg-white/70 p-4">
-        <h4 className="font-bold text-purple-950">
-          Monitor feeding and growth
-        </h4>
-
-        <ul className="mt-3 space-y-2 leading-7 text-purple-900">
-          <li>• Feeding tolerance and safety</li>
-          <li>• Weight gain and nutritional status</li>
-          <li>• Need for repeat swallow evaluation</li>
-          <li>• Effectiveness of the prevention plan</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-  
-{/* ================= CLINICAL PEARLS ================= */}
-
-<section
-  id="pearls"
-  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
->
-  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-    Clinical Pearls
-  </p>
-
-  <h2 className="mt-2 text-3xl font-bold">
-    High-yield takeaways
-  </h2>
-
-  <p className="mt-5 text-lg leading-8 text-slate-600">
-    These are the practical distinctions that matter most when evaluating
-    and managing children with suspected pulmonary aspiration.
-  </p>
-
-  <div className="mt-8 grid gap-5 md:grid-cols-2">
-
-    <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
-      <h3 className="font-bold text-amber-950">
-        1. Aspiration pneumonitis is not aspiration pneumonia
-      </h3>
-
-      <p className="mt-3 leading-7 text-amber-900">
-        Pneumonitis is primarily a chemical inflammatory injury, whereas
-        aspiration pneumonia is a bacterial infection. The distinction
-        directly affects whether antibiotics are indicated.
-      </p>
-    </div>
-
-    <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
-      <h3 className="font-bold text-blue-950">
-        2. Immediate deterioration favors pneumonitis
-      </h3>
-
-      <p className="mt-3 leading-7 text-blue-900">
-        Abrupt cough, hypoxemia, wheezing, or respiratory distress shortly
-        after a witnessed aspiration event is more consistent with chemical
-        injury than bacterial pneumonia.
-      </p>
-    </div>
-
-    <div className="rounded-2xl border border-rose-200 bg-rose-50 p-6">
-      <h3 className="font-bold text-rose-950">
-        3. Fever does not automatically mean infection
-      </h3>
-
-      <p className="mt-3 leading-7 text-rose-900">
-        Fever and leukocytosis may occur after aspiration from inflammation
-        alone. The overall clinical trajectory is more useful than any single
-        finding.
-      </p>
-    </div>
-
-    <div className="rounded-2xl border border-purple-200 bg-purple-50 p-6">
-      <h3 className="font-bold text-purple-950">
-        4. Silent aspiration is common in high-risk children
-      </h3>
-
-      <p className="mt-3 leading-7 text-purple-900">
-        Children with neurologic impairment, poor laryngeal sensation, or
-        weak cough may aspirate without obvious choking or coughing.
-      </p>
-    </div>
-
-    <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
-      <h3 className="font-bold text-emerald-950">
-        5. Recurrent respiratory disease should trigger a feeding history
-      </h3>
-
-      <p className="mt-3 leading-7 text-emerald-900">
-        Recurrent pneumonia, chronic wet cough, persistent wheezing, or poor
-        growth should prompt questions about coughing, choking, fatigue,
-        congestion, or desaturation during feeds.
-      </p>
-    </div>
-
-    <div className="rounded-2xl border border-sky-200 bg-sky-50 p-6">
-      <h3 className="font-bold text-sky-950">
-        6. A normal chest radiograph does not exclude aspiration
-      </h3>
-
-      <p className="mt-3 leading-7 text-sky-900">
-        Early radiographs may be normal, and intermittent aspiration may not
-        produce consistent imaging abnormalities.
-      </p>
-    </div>
-
-    <div className="rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
-      <h3 className="font-bold text-indigo-950">
-        7. VFSS and FEES answer different questions
-      </h3>
-
-      <p className="mt-3 leading-7 text-indigo-900">
-        VFSS evaluates swallowing mechanics across oral and pharyngeal phases,
-        while FEES directly evaluates laryngeal anatomy, secretion management,
-        and airway protection.
-      </p>
-    </div>
-
-    <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
-      <h3 className="font-bold text-amber-950">
-        8. Do not overstate right-sided disease
-      </h3>
-
-      <p className="mt-3 leading-7 text-amber-900">
-        Aspiration often affects dependent lung regions, but laterality varies
-        with body position and pediatric airway anatomy. Right-sided disease
-        is not a universal rule in children.
-      </p>
-    </div>
-
-    <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
-      <h3 className="font-bold text-blue-950">
-        9. Treat the source, not just the lung injury
-      </h3>
-
-      <p className="mt-3 leading-7 text-blue-900">
-        Recurrent aspiration requires evaluation for swallowing dysfunction,
-        neurologic disease, airway abnormalities, esophageal disease, reflux,
-        and impaired secretion clearance.
-      </p>
-    </div>
-
-    <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
-      <h3 className="font-bold text-emerald-950">
-        10. Prevention determines long-term outcome
-      </h3>
-
-      <p className="mt-3 leading-7 text-emerald-900">
-        Feeding modifications, therapy, airway clearance, nutritional support,
-        and multidisciplinary care may be more important long term than
-        treating individual aspiration events.
-      </p>
-    </div>
-
-  </div>
-
-  <div className="mt-8 rounded-2xl bg-blue-950 p-6 text-white">
-    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
-      Bottom line
-    </p>
-
-    <h3 className="mt-2 text-xl font-bold">
-      Aspiration is an event; the syndrome that follows determines the treatment
-    </h3>
-
-    <p className="mt-3 leading-7 text-blue-100">
-      Think in three categories: chemical pneumonitis, bacterial aspiration
-      pneumonia, and chronic recurrent aspiration. Then tailor evaluation and
-      management to the child&apos;s physiology, feeding safety, and underlying
-      disease.
-    </p>
-  </div>
-</section>
-
-{/* ================= QUIZ ================= */}
-
-<section
-  id="quiz"
-  className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
->
-  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-    Knowledge Check
-  </p>
-
-  <h2 className="mt-2 text-3xl font-bold">
-    Apply what you learned
-  </h2>
-
-  <p className="mt-5 text-lg leading-8 text-slate-600">
-    Work through each question in sequence. Select an answer, review the
-    explanation, then continue to the next question.
-  </p>
-
-  <div className="mt-8 space-y-8">
-    {quizQuestions
-      .slice(0, visibleQuestionCount)
-      .map((question, questionIndex) => {
-        const selectedAnswerIndex = selectedAnswers[questionIndex];
-
-        const hasAnswered = selectedAnswerIndex !== undefined;
-
-        const selectedAnswer = hasAnswered
-          ? question.answers[selectedAnswerIndex]
-          : undefined;
-
-        const isCorrect = selectedAnswer?.correct === true;
-
-        return (
-          <div
-            key={questionIndex}
-            className="rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8"
-          >
-            <div className="flex items-center justify-between gap-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-                Question {questionIndex + 1}
-              </p>
-
-              {hasAnswered && (
                 <span
-                  className={`rounded-full px-3 py-1 text-sm font-semibold ${
-                    isCorrect
-                      ? "bg-emerald-100 text-emerald-800"
-                      : "bg-rose-100 text-rose-800"
-                  }`}
+                  aria-hidden="true"
+                  className={`shrink-0 text-2xl font-semibold text-blue-800 transition-transform duration-200 ${showAntibiotics ? "rotate-180" : ""
+                    }`}
                 >
-                  {isCorrect ? "Correct" : "Review"}
+                  ⌄
                 </span>
+              </button>
+
+              {showAntibiotics && (
+                <div
+                  id="aspiration-antibiotic-guide"
+                  className="border-t border-blue-200 bg-white p-6 md:p-8"
+                >
+                  <div className="mb-6 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-600">
+                      Evidence note
+                    </p>
+
+                    <p className="mt-3 leading-7 text-slate-700">
+                      PIDS/IDSA pediatric community-acquired pneumonia guidelines do not
+                      provide a separate empiric regimen specifically for aspiration
+                      pneumonia. In practice, antibiotic selection generally follows
+                      pediatric pneumonia principles while accounting for aspiration risk,
+                      illness severity, prior cultures, healthcare exposure, and local
+                      antimicrobial guidance.
+                    </p>
+                  </div>
+
+                  <div className="overflow-x-auto">
+                    <table className="w-full min-w-[760px] border-collapse text-left">
+                      <thead>
+                        <tr className="border-b border-slate-200">
+                          <th className="px-4 py-4 text-sm font-bold uppercase tracking-wide text-slate-600">
+                            Clinical setting
+                          </th>
+
+                          <th className="px-4 py-4 text-sm font-bold uppercase tracking-wide text-slate-600">
+                            Common empiric approach
+                          </th>
+
+                          <th className="px-4 py-4 text-sm font-bold uppercase tracking-wide text-slate-600">
+                            Notes
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="align-top">
+                          <td className="px-4 py-5 font-semibold text-slate-900">
+                            Community-onset aspiration pneumonia requiring IV therapy
+                          </td>
+
+                          <td className="px-4 py-5 text-slate-700">
+                            <p className="font-bold text-blue-950">
+                              Ampicillin-sulbactam
+                            </p>
+
+                            <p className="mt-2">
+                              Commonly used when bacterial aspiration pneumonia is suspected
+                              and parenteral therapy is appropriate.
+                            </p>
+                          </td>
+
+                          <td className="px-4 py-5 leading-7 text-slate-700">
+                            Provides coverage for typical respiratory pathogens together
+                            with oral flora. Dose according to local pediatric antimicrobial
+                            guidance and renal function.
+                          </td>
+                        </tr>
+
+                        <tr className="align-top">
+                          <td className="px-4 py-5 font-semibold text-slate-900">
+                            Community-onset aspiration pneumonia appropriate for oral therapy
+                            or IV-to-PO transition
+                          </td>
+
+                          <td className="px-4 py-5 text-slate-700">
+                            <p className="font-bold text-blue-950">
+                              Amoxicillin-clavulanate
+                            </p>
+
+                            <p className="mt-2">
+                              Common enteral option for a clinically stable child.
+                            </p>
+                          </td>
+
+                          <td className="px-4 py-5 leading-7 text-slate-700">
+                            Dose using the amoxicillin component according to age,
+                            indication, formulation, renal function, and local pediatric
+                            guidance.
+                          </td>
+                        </tr>
+
+                        <tr className="align-top">
+                          <td className="px-4 py-5 font-semibold text-slate-900">
+                            Severe immediate-type β-lactam allergy
+                          </td>
+
+                          <td className="px-4 py-5 text-slate-700">
+                            <p className="font-bold text-blue-950">
+                              Individualize therapy
+                            </p>
+
+                            <p className="mt-2">
+                              Clindamycin may be considered in selected patients depending
+                              on the allergy phenotype, likely organisms, and local
+                              susceptibility patterns.
+                            </p>
+                          </td>
+
+                          <td className="px-4 py-5 leading-7 text-slate-700">
+                            Use institution-specific pediatric antimicrobial stewardship
+                            guidance rather than a single universal substitute.
+                          </td>
+                        </tr>
+
+                        <tr className="align-top">
+                          <td className="px-4 py-5 font-semibold text-slate-900">
+                            Healthcare-associated disease or significant resistant-organism risk
+                          </td>
+
+                          <td className="px-4 py-5 text-slate-700">
+                            <p className="font-bold text-blue-950">
+                              Follow institutional pneumonia guidance
+                            </p>
+
+                            <p className="mt-2">
+                              Broader gram-negative and/or MRSA coverage may be required.
+                            </p>
+                          </td>
+
+                          <td className="px-4 py-5 leading-7 text-slate-700">
+                            Prior cultures, recent antibiotics, devices, local resistance
+                            patterns, and illness severity should guide escalation.
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div className="mt-6 rounded-2xl border border-amber-300 bg-amber-50 p-6">
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
+                      Antibiotic stewardship pearl
+                    </p>
+
+                    <h4 className="mt-2 text-xl font-bold text-amber-950">
+                      Aspiration pneumonitis does not require routine antibiotics
+                    </h4>
+
+                    <p className="mt-3 leading-7 text-amber-900">
+                      Fever, leukocytosis, and pulmonary infiltrates may occur after an
+                      aspiration event from inflammation alone. Antibiotics should be
+                      reserved for patients whose clinical course supports bacterial
+                      aspiration pneumonia rather than given automatically after aspiration.
+                    </p>
+                  </div>
+
+                  <div className="mt-5 rounded-2xl border border-blue-200 bg-blue-50 p-6">
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+                      Anaerobic coverage
+                    </p>
+
+                    <h4 className="mt-2 text-xl font-bold text-blue-950">
+                      Avoid automatically adding dedicated anaerobic therapy
+                    </h4>
+
+                    <p className="mt-3 leading-7 text-blue-900">
+                      Ampicillin-sulbactam and amoxicillin-clavulanate already provide
+                      activity against oral anaerobes. Routine addition of metronidazole or
+                      another dedicated anaerobic agent is generally unnecessary for
+                      uncomplicated aspiration pneumonia. Complicated infection such as lung
+                      abscess, empyema, or necrotizing disease should be managed according to
+                      the specific complication and local guidance.
+                    </p>
+                  </div>
+
+                  <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                    <p className="font-semibold text-slate-900">
+                      Guideline context
+                    </p>
+
+                    <p className="mt-2 leading-7 text-slate-700">
+                      The PIDS/IDSA pediatric CAP guideline provides the broader framework
+                      for empiric pneumonia treatment but does not issue a dedicated
+                      aspiration-pneumonia regimen. Keep this distinction explicit when
+                      interpreting the evidence.
+                    </p>
+                  </div>
+                </div>
               )}
             </div>
 
-            <h3 className="mt-4 text-xl font-bold leading-8 text-slate-950">
-              {question.question}
-            </h3>
+          </section>
 
-            <div className="mt-6 space-y-3">
-              {question.answers.map((answer, answerIndex) => {
-                const isSelected =
-                  selectedAnswerIndex === answerIndex;
+          {/* ================= CARE SETTING & FOLLOW-UP ================= */}
 
-                let answerClass =
-                  "border-slate-200 bg-white text-slate-700 hover:border-sky-300 hover:bg-sky-50";
+          <section
+            id="disposition"
+            className="mt-14 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+          >
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+              Disposition/Care setting &amp; follow-up
+            </p>
 
-                if (hasAnswered && answer.correct) {
-                  answerClass =
-                    "border-emerald-400 bg-emerald-50 text-emerald-950";
-                }
+            <h2 className="mt-2 text-3xl font-bold">
+              Match the care plan to respiratory severity, feeding safety, and recurrence risk
+            </h2>
 
-                if (
-                  hasAnswered &&
-                  isSelected &&
-                  !answer.correct
-                ) {
-                  answerClass =
-                    "border-rose-400 bg-rose-50 text-rose-950";
-                }
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Children with pulmonary aspiration may be managed in the outpatient
+              setting, admitted for acute respiratory support or feeding evaluation,
+              or require intensive care when airway protection and ventilation are
+              compromised. Long-term follow-up should focus on preventing recurrent
+              aspiration and chronic lung injury.
+            </p>
 
-                return (
-                  <button
-                    key={answerIndex}
-                    type="button"
-                    disabled={hasAnswered}
-                    onClick={() =>
-                      setSelectedAnswers((previous) => ({
-                        ...previous,
-                        [questionIndex]: answerIndex,
-                      }))
-                    }
-                    className={`w-full rounded-2xl border px-5 py-4 text-left font-medium transition ${answerClass} ${
-                      hasAnswered
-                        ? "cursor-default"
-                        : "cursor-pointer"
-                    }`}
-                  >
-                    <span className="mr-3 font-bold">
-                      {String.fromCharCode(65 + answerIndex)}.
-                    </span>
+            <div className="mt-8 grid gap-6 lg:grid-cols-3">
+              {/* Outpatient management */}
 
-                    {answer.text}
-                  </button>
-                );
-              })}
+              <div className="rounded-2xl border border-emerald-300 bg-emerald-50 p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+                  Outpatient care
+                </p>
+
+                <h3 className="mt-2 text-2xl font-bold text-emerald-950">
+                  Appropriate when the child is clinically stable
+                </h3>
+
+                <ul className="mt-5 space-y-3 leading-7 text-emerald-900">
+                  <li>• Stable oxygenation without significant respiratory distress</li>
+                  <li>• Safe feeding plan or reliable alternative nutrition plan</li>
+                  <li>• No evidence of progressive respiratory deterioration</li>
+                  <li>• Caregivers understand feeding precautions and warning signs</li>
+                  <li>• Timely primary care and subspecialty follow-up can be arranged</li>
+                </ul>
+              </div>
+
+              {/* Inpatient care */}
+
+              <div className="rounded-2xl border border-amber-300 bg-amber-50 p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
+                  Inpatient care
+                </p>
+
+                <h3 className="mt-2 text-2xl font-bold text-amber-950">
+                  Admit when monitoring or active treatment is required
+                </h3>
+
+                <ul className="mt-5 space-y-3 leading-7 text-amber-900">
+                  <li>• Persistent oxygen requirement or moderate respiratory distress</li>
+                  <li>• Need for IV fluids, enteral support, or feeding restriction</li>
+                  <li>• Aspiration pneumonia requiring inpatient therapy</li>
+                  <li>• Need for swallow evaluation or feeding-plan development</li>
+                  <li>• Recurrent events requiring coordinated diagnostic evaluation</li>
+                  <li>• Inability to maintain hydration, nutrition, or secretion control</li>
+                </ul>
+              </div>
+
+              {/* Intensive care */}
+
+              <div className="rounded-2xl border border-red-300 bg-red-50 p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red-700">
+                  Intensive care
+                </p>
+
+                <h3 className="mt-2 text-2xl font-bold text-red-950">
+                  Escalate when airway protection or ventilation is threatened
+                </h3>
+
+                <ul className="mt-5 space-y-3 leading-7 text-red-900">
+                  <li>• Respiratory failure or rapidly worsening gas exchange</li>
+                  <li>• Need for noninvasive or invasive ventilatory support</li>
+                  <li>• Inability to protect the airway or manage secretions</li>
+                  <li>• Recurrent apnea, cyanosis, or altered mental status</li>
+                  <li>• Hemodynamic instability or concern for severe sepsis</li>
+                </ul>
+              </div>
             </div>
 
-            {hasAnswered && selectedAnswer && (
-              <div
-                className={`mt-6 rounded-2xl border p-6 ${
-                  isCorrect
-                    ? "border-emerald-200 bg-emerald-50"
-                    : "border-amber-200 bg-amber-50"
-                }`}
-              >
-                <p
-                  className={`font-bold ${
-                    isCorrect
-                      ? "text-emerald-950"
-                      : "text-amber-950"
-                  }`}
-                >
-                  {isCorrect ? "Correct" : "Not quite"}
-                </p>
+            <div className="mt-8 rounded-2xl border border-purple-200 bg-purple-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-700">
+                Long-term follow-up
+              </p>
 
-                <p
-                  className={`mt-3 leading-7 ${
-                    isCorrect
-                      ? "text-emerald-900"
-                      : "text-amber-900"
-                  }`}
-                >
-                  {selectedAnswer.feedback}
-                </p>
+              <h3 className="mt-2 text-xl font-bold text-purple-950">
+                Follow-up should address both lung disease and the source of aspiration
+              </h3>
 
-                {questionIndex < quizQuestions.length - 1 &&
-                  visibleQuestionCount === questionIndex + 1 && (
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setVisibleQuestionCount(questionIndex + 2)
-                      }
-                      className="mt-5 rounded-xl bg-blue-950 px-5 py-3 font-semibold text-white transition hover:bg-blue-900"
-                    >
-                      Continue to Question {questionIndex + 2} →
-                    </button>
-                  )}
+              <p className="mt-3 leading-7 text-purple-900">
+                Depending on the underlying disorder, children may require coordinated
+                care involving Primary Care, Speech-Language Pathology, Pulmonology,
+                Gastroenterology, Otolaryngology, Nutrition, Neurology, Surgery, and an
+                aerodigestive program.
+              </p>
+
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
+                <div className="rounded-xl border border-purple-200 bg-white/70 p-4">
+                  <h4 className="font-bold text-purple-950">
+                    Monitor respiratory outcomes
+                  </h4>
+
+                  <ul className="mt-3 space-y-2 leading-7 text-purple-900">
+                    <li>• Recurrent pneumonia or wheezing</li>
+                    <li>• Oxygen requirement</li>
+                    <li>• Airway-clearance needs</li>
+                    <li>• Development of bronchiectasis or chronic lung disease</li>
+                  </ul>
+                </div>
+
+                <div className="rounded-xl border border-purple-200 bg-white/70 p-4">
+                  <h4 className="font-bold text-purple-950">
+                    Monitor feeding and growth
+                  </h4>
+
+                  <ul className="mt-3 space-y-2 leading-7 text-purple-900">
+                    <li>• Feeding tolerance and safety</li>
+                    <li>• Weight gain and nutritional status</li>
+                    <li>• Need for repeat swallow evaluation</li>
+                    <li>• Effectiveness of the prevention plan</li>
+                  </ul>
+                </div>
               </div>
-            )}
-          </div>
-        );
-      })}
-  </div>
+            </div>
+          </section>
 
-  {visibleQuestionCount === quizQuestions.length &&
-    Object.keys(selectedAnswers).length === quizQuestions.length && (
-      <div className="mt-8 rounded-2xl bg-blue-950 p-6 text-white">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
-          Quiz Complete
-        </p>
+          {/* ================= CLINICAL PEARLS ================= */}
 
-        <h3 className="mt-2 text-2xl font-bold">
-          {
-            Object.entries(selectedAnswers).filter(
-              ([questionIndex, answerIndex]) =>
-                quizQuestions[Number(questionIndex)].answers[answerIndex]
-                  .correct
-            ).length
-          }{" "}
-          / {quizQuestions.length} correct
-        </h3>
+          <section
+            id="pearls"
+            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+          >
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+              Clinical Pearls
+            </p>
 
-        <p className="mt-3 leading-7 text-blue-100">
-          Review any missed questions above before moving on.
-        </p>
+            <h2 className="mt-2 text-3xl font-bold">
+              High-yield takeaways
+            </h2>
 
-        <button
-          type="button"
-          onClick={() => {
-            setSelectedAnswers({});
-            setVisibleQuestionCount(1);
-          }}
-          className="mt-5 rounded-xl bg-white px-5 py-3 font-semibold text-blue-950 transition hover:bg-blue-50"
-        >
-          Restart Quiz
-        </button>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              These are the practical distinctions that matter most when evaluating
+              and managing children with suspected pulmonary aspiration.
+            </p>
+
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
+
+              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+                <h3 className="font-bold text-amber-950">
+                  1. Aspiration pneumonitis is not aspiration pneumonia
+                </h3>
+
+                <p className="mt-3 leading-7 text-amber-900">
+                  Pneumonitis is primarily a chemical inflammatory injury, whereas
+                  aspiration pneumonia is a bacterial infection. The distinction
+                  directly affects whether antibiotics are indicated.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
+                <h3 className="font-bold text-blue-950">
+                  2. Immediate deterioration favors pneumonitis
+                </h3>
+
+                <p className="mt-3 leading-7 text-blue-900">
+                  Abrupt cough, hypoxemia, wheezing, or respiratory distress shortly
+                  after a witnessed aspiration event is more consistent with chemical
+                  injury than bacterial pneumonia.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-rose-200 bg-rose-50 p-6">
+                <h3 className="font-bold text-rose-950">
+                  3. Fever does not automatically mean infection
+                </h3>
+
+                <p className="mt-3 leading-7 text-rose-900">
+                  Fever and leukocytosis may occur after aspiration from inflammation
+                  alone. The overall clinical trajectory is more useful than any single
+                  finding.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-purple-200 bg-purple-50 p-6">
+                <h3 className="font-bold text-purple-950">
+                  4. Silent aspiration is common in high-risk children
+                </h3>
+
+                <p className="mt-3 leading-7 text-purple-900">
+                  Children with neurologic impairment, poor laryngeal sensation, or
+                  weak cough may aspirate without obvious choking or coughing.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+                <h3 className="font-bold text-emerald-950">
+                  5. Recurrent respiratory disease should trigger a feeding history
+                </h3>
+
+                <p className="mt-3 leading-7 text-emerald-900">
+                  Recurrent pneumonia, chronic wet cough, persistent wheezing, or poor
+                  growth should prompt questions about coughing, choking, fatigue,
+                  congestion, or desaturation during feeds.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                <h3 className="font-bold text-sky-950">
+                  6. A normal chest radiograph does not exclude aspiration
+                </h3>
+
+                <p className="mt-3 leading-7 text-sky-900">
+                  Early radiographs may be normal, and intermittent aspiration may not
+                  produce consistent imaging abnormalities.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-indigo-200 bg-indigo-50 p-6">
+                <h3 className="font-bold text-indigo-950">
+                  7. VFSS and FEES answer different questions
+                </h3>
+
+                <p className="mt-3 leading-7 text-indigo-900">
+                  VFSS evaluates swallowing mechanics across oral and pharyngeal phases,
+                  while FEES directly evaluates laryngeal anatomy, secretion management,
+                  and airway protection.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+                <h3 className="font-bold text-amber-950">
+                  8. Do not overstate right-sided disease
+                </h3>
+
+                <p className="mt-3 leading-7 text-amber-900">
+                  Aspiration often affects dependent lung regions, but laterality varies
+                  with body position and pediatric airway anatomy. Right-sided disease
+                  is not a universal rule in children.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
+                <h3 className="font-bold text-blue-950">
+                  9. Treat the source, not just the lung injury
+                </h3>
+
+                <p className="mt-3 leading-7 text-blue-900">
+                  Recurrent aspiration requires evaluation for swallowing dysfunction,
+                  neurologic disease, airway abnormalities, esophageal disease, reflux,
+                  and impaired secretion clearance.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+                <h3 className="font-bold text-emerald-950">
+                  10. Prevention determines long-term outcome
+                </h3>
+
+                <p className="mt-3 leading-7 text-emerald-900">
+                  Feeding modifications, therapy, airway clearance, nutritional support,
+                  and multidisciplinary care may be more important long term than
+                  treating individual aspiration events.
+                </p>
+              </div>
+
+            </div>
+
+            <div className="mt-8 rounded-2xl bg-blue-950 p-6 text-white">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
+                Bottom line
+              </p>
+
+              <h3 className="mt-2 text-xl font-bold">
+                Aspiration is an event; the syndrome that follows determines the treatment
+              </h3>
+
+              <p className="mt-3 leading-7 text-blue-100">
+                Think in three categories: chemical pneumonitis, bacterial aspiration
+                pneumonia, and chronic recurrent aspiration. Then tailor evaluation and
+                management to the child&apos;s physiology, feeding safety, and underlying
+                disease.
+              </p>
+            </div>
+          </section>
+
+          {/* ================= QUIZ ================= */}
+
+          <section
+            id="quiz"
+            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+          >
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+              Knowledge Check
+            </p>
+
+            <h2 className="mt-2 text-3xl font-bold">
+              Apply what you learned
+            </h2>
+
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Work through each question in sequence. Select an answer, review the
+              explanation, then continue to the next question.
+            </p>
+
+            <div className="mt-8 space-y-8">
+              {quizQuestions
+                .slice(0, visibleQuestionCount)
+                .map((question, questionIndex) => {
+                  const selectedAnswerIndex = selectedAnswers[questionIndex];
+
+                  const hasAnswered = selectedAnswerIndex !== undefined;
+
+                  const selectedAnswer = hasAnswered
+                    ? question.answers[selectedAnswerIndex]
+                    : undefined;
+
+                  const isCorrect = selectedAnswer?.correct === true;
+
+                  return (
+                    <div
+                      key={questionIndex}
+                      className="rounded-3xl border border-slate-200 bg-slate-50 p-6 md:p-8"
+                    >
+                      <div className="flex items-center justify-between gap-4">
+                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+                          Question {questionIndex + 1}
+                        </p>
+
+                        {hasAnswered && (
+                          <span
+                            className={`rounded-full px-3 py-1 text-sm font-semibold ${isCorrect
+                                ? "bg-emerald-100 text-emerald-800"
+                                : "bg-rose-100 text-rose-800"
+                              }`}
+                          >
+                            {isCorrect ? "Correct" : "Review"}
+                          </span>
+                        )}
+                      </div>
+
+                      <h3 className="mt-4 text-xl font-bold leading-8 text-slate-950">
+                        {question.question}
+                      </h3>
+
+                      <div className="mt-6 space-y-3">
+                        {question.answers.map((answer, answerIndex) => {
+                          const isSelected =
+                            selectedAnswerIndex === answerIndex;
+
+                          let answerClass =
+                            "border-slate-200 bg-white text-slate-700 hover:border-sky-300 hover:bg-sky-50";
+
+                          if (hasAnswered && answer.correct) {
+                            answerClass =
+                              "border-emerald-400 bg-emerald-50 text-emerald-950";
+                          }
+
+                          if (
+                            hasAnswered &&
+                            isSelected &&
+                            !answer.correct
+                          ) {
+                            answerClass =
+                              "border-rose-400 bg-rose-50 text-rose-950";
+                          }
+
+                          return (
+                            <button
+                              key={answerIndex}
+                              type="button"
+                              disabled={hasAnswered}
+                              onClick={() =>
+                                setSelectedAnswers((previous) => ({
+                                  ...previous,
+                                  [questionIndex]: answerIndex,
+                                }))
+                              }
+                              className={`w-full rounded-2xl border px-5 py-4 text-left font-medium transition ${answerClass} ${hasAnswered
+                                  ? "cursor-default"
+                                  : "cursor-pointer"
+                                }`}
+                            >
+                              <span className="mr-3 font-bold">
+                                {String.fromCharCode(65 + answerIndex)}.
+                              </span>
+
+                              {answer.text}
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      {hasAnswered && selectedAnswer && (
+                        <div
+                          className={`mt-6 rounded-2xl border p-6 ${isCorrect
+                              ? "border-emerald-200 bg-emerald-50"
+                              : "border-amber-200 bg-amber-50"
+                            }`}
+                        >
+                          <p
+                            className={`font-bold ${isCorrect
+                                ? "text-emerald-950"
+                                : "text-amber-950"
+                              }`}
+                          >
+                            {isCorrect ? "Correct" : "Not quite"}
+                          </p>
+
+                          <p
+                            className={`mt-3 leading-7 ${isCorrect
+                                ? "text-emerald-900"
+                                : "text-amber-900"
+                              }`}
+                          >
+                            {selectedAnswer.feedback}
+                          </p>
+
+                          {questionIndex < quizQuestions.length - 1 &&
+                            visibleQuestionCount === questionIndex + 1 && (
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setVisibleQuestionCount(questionIndex + 2)
+                                }
+                                className="mt-5 rounded-xl bg-blue-950 px-5 py-3 font-semibold text-white transition hover:bg-blue-900"
+                              >
+                                Continue to Question {questionIndex + 2} →
+                              </button>
+                            )}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+            </div>
+
+            {visibleQuestionCount === quizQuestions.length &&
+              Object.keys(selectedAnswers).length === quizQuestions.length && (
+                <div className="mt-8 rounded-2xl bg-blue-950 p-6 text-white">
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
+                    Quiz Complete
+                  </p>
+
+                  <h3 className="mt-2 text-2xl font-bold">
+                    {
+                      Object.entries(selectedAnswers).filter(
+                        ([questionIndex, answerIndex]) =>
+                          quizQuestions[Number(questionIndex)].answers[answerIndex]
+                            .correct
+                      ).length
+                    }{" "}
+                    / {quizQuestions.length} correct
+                  </h3>
+
+                  <p className="mt-3 leading-7 text-blue-100">
+                    Review any missed questions above before moving on.
+                  </p>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedAnswers({});
+                      setVisibleQuestionCount(1);
+                    }}
+                    className="mt-5 rounded-xl bg-white px-5 py-3 font-semibold text-blue-950 transition hover:bg-blue-50"
+                  >
+                    Restart Quiz
+                  </button>
+                </div>
+              )}
+          </section>
+
+          {/* ================= EVIDENCE BASE ================= */}
+
+          <EvidenceBase
+            references={[
+              {
+                title:
+                  "Chronic Pulmonary Aspiration in Children: Diagnosis and Management",
+                href:
+                  "https://pubmed.ncbi.nlm.nih.gov/29571544/",
+                description:
+                  "Pediatric review outlining the causes, diagnostic evaluation, pulmonary complications, and multidisciplinary management of chronic pulmonary aspiration.",
+              },
+              {
+                title:
+                  "The Management of Community-Acquired Pneumonia in Infants and Children Older Than 3 Months of Age",
+                href:
+                  "https://pmc.ncbi.nlm.nih.gov/articles/PMC7107838/",
+                description:
+                  "PIDS/IDSA pediatric community-acquired pneumonia guideline providing the broader framework for empiric antibacterial therapy. It does not provide a separate pediatric aspiration-pneumonia regimen.",
+              },
+            ]}
+            secondarySources="UpToDate and OpenEvidence were used for educational verification, comparison of recommendations, and consistency checks where appropriate."
+          />
+
+        </div>
       </div>
-    )}
-</section>
-
-      {/* ================= EVIDENCE BASE ================= */}
-
-      <EvidenceBase
-        references={[
-          {
-            title:
-              "Chronic Pulmonary Aspiration in Children: Diagnosis and Management",
-            href:
-              "https://pubmed.ncbi.nlm.nih.gov/29571544/",
-            description:
-              "Pediatric review outlining the causes, diagnostic evaluation, pulmonary complications, and multidisciplinary management of chronic pulmonary aspiration.",
-          },
-          {
-            title:
-              "The Management of Community-Acquired Pneumonia in Infants and Children Older Than 3 Months of Age",
-            href:
-              "https://pmc.ncbi.nlm.nih.gov/articles/PMC7107838/",
-            description:
-              "PIDS/IDSA pediatric community-acquired pneumonia guideline providing the broader framework for empiric antibacterial therapy. It does not provide a separate pediatric aspiration-pneumonia regimen.",
-          },
-        ]}
-        secondarySources="UpToDate and OpenEvidence were used for educational verification, comparison of recommendations, and consistency checks where appropriate."
-      />
-
-    </div>
-  </div>
-</main>
+    </main>
   );
 }

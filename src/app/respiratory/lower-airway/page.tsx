@@ -30,11 +30,11 @@ const diseases = [
     status: "Available!",
   },
   {
-  name: "Pulmonary Aspiration",
-  description:
-    "Entry of feeds, secretions, or gastric contents into the lower respiratory tract, resulting in pneumonitis, pneumonia, or chronic recurrent aspiration.",
-  age: "Infants and children with feeding, neurologic, or airway-protection risk factors",
-  status: "Available!",
+    name: "Pulmonary Aspiration",
+    description:
+      "Entry of feeds, secretions, or gastric contents into the lower respiratory tract, resulting in pneumonitis, pneumonia, or chronic recurrent aspiration.",
+    age: "Infants and children with feeding, neurologic, or airway-protection risk factors",
+    status: "Available!",
   },
   {
     name: "Foreign Body Aspiration",
@@ -114,104 +114,102 @@ export default function LowerAirwayPage() {
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[...diseases]
-  .sort((a, b) => a.name.localeCompare(b.name))
-  .map((disease) => {
-              const isNext = disease.status === "Available!";
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((disease) => {
+                const isNext = disease.status === "Available!";
 
-              return (
-                <article
-                  key={disease.name}
-                  className={`flex h-full flex-col rounded-3xl border bg-white p-7 shadow-sm transition ${
-                    isNext
-                      ? "border-sky-300 hover:-translate-y-1 hover:shadow-lg"
-                      : "border-slate-200"
-                  }`}
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-2xl font-bold">
-                      {disease.name}
-                    </h3>
-
-                    <span
-                      className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                        isNext
-                          ? "bg-emerald-100 text-emerald-700"
-                          : "bg-slate-100 text-slate-500"
+                return (
+                  <article
+                    key={disease.name}
+                    className={`flex h-full flex-col rounded-3xl border bg-white p-7 shadow-sm transition ${isNext
+                        ? "border-sky-300 hover:-translate-y-1 hover:shadow-lg"
+                        : "border-slate-200"
                       }`}
-                    >
-                      {disease.status}
-                    </span>
-                  </div>
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-2xl font-bold">
+                        {disease.name}
+                      </h3>
 
-                  <p className="mt-4 leading-7 text-slate-600">
-                    {disease.description}
-                  </p>
+                      <span
+                        className={`rounded-full px-3 py-1 text-xs font-semibold ${isNext
+                            ? "bg-emerald-100 text-emerald-700"
+                            : "bg-slate-100 text-slate-500"
+                          }`}
+                      >
+                        {disease.status}
+                      </span>
+                    </div>
 
-                  <div className="mt-6 rounded-2xl bg-slate-50 p-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">
-                      Typical population
+                    <p className="mt-4 leading-7 text-slate-600">
+                      {disease.description}
                     </p>
 
-                    <p className="mt-2 text-sm font-medium text-slate-700">
-                      {disease.age}
-                    </p>
-                  </div>
+                    <div className="mt-6 rounded-2xl bg-slate-50 p-4">
+                      <p className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-500">
+                        Typical population
+                      </p>
 
-                  {disease.name === "Bronchiolitis" && (
-  <Link
-    href="/respiratory/lower-airway/bronchiolitis"
-    className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
-  >
-    Open bronchiolitis →
-  </Link>
-)}
+                      <p className="mt-2 text-sm font-medium text-slate-700">
+                        {disease.age}
+                      </p>
+                    </div>
 
-{disease.name === "Asthma" && (
-  <Link
-    href="/respiratory/lower-airway/asthma"
-    className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
-  >
-    Open asthma →
-  </Link>
-)}
+                    {disease.name === "Bronchiolitis" && (
+                      <Link
+                        href="/respiratory/lower-airway/bronchiolitis"
+                        className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
+                      >
+                        Open bronchiolitis →
+                      </Link>
+                    )}
 
-{disease.name === "Pneumonia" && (
-  <Link
-    href="/respiratory/lower-airway/pneumonia"
-    className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
-  >
-    Open pneumonia →
-  </Link>
-)}
+                    {disease.name === "Asthma" && (
+                      <Link
+                        href="/respiratory/lower-airway/asthma"
+                        className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
+                      >
+                        Open asthma →
+                      </Link>
+                    )}
 
-{disease.name === "Pertussis" && (
-  <Link
-    href="/respiratory/lower-airway/pertussis"
-    className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
-  >
-    Open pertussis →
-  </Link>
-)}
+                    {disease.name === "Pneumonia" && (
+                      <Link
+                        href="/respiratory/lower-airway/pneumonia"
+                        className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
+                      >
+                        Open pneumonia →
+                      </Link>
+                    )}
 
-{disease.name === "Foreign Body Aspiration" && (
-  <Link
-    href="/respiratory/lower-airway/foreign-body-aspiration"
-    className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
-  >
-    Open foreign body aspiration →
-  </Link>
-)}
-{disease.name === "Pulmonary Aspiration" && (
-  <Link
-    href="/respiratory/lower-airway/pulmonary-aspirations"
-    className="mt-auto pt-6 font-semibold text-blue-700 hover:text-blue-900"
-  >
-    Open pulmonary aspiration →
-  </Link>
-)}
-                </article>
-              );
-            })}
+                    {disease.name === "Pertussis" && (
+                      <Link
+                        href="/respiratory/lower-airway/pertussis"
+                        className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
+                      >
+                        Open pertussis →
+                      </Link>
+                    )}
+
+                    {disease.name === "Foreign Body Aspiration" && (
+                      <Link
+                        href="/respiratory/lower-airway/foreign-body-aspiration"
+                        className="mt-auto pt-6 font-semibold text-blue-800 hover:text-blue-600"
+                      >
+                        Open foreign body aspiration →
+                      </Link>
+                    )}
+                    {disease.name === "Pulmonary Aspiration" && (
+                      <Link
+                        href="/respiratory/lower-airway/pulmonary-aspirations"
+                        className="mt-auto pt-6 font-semibold text-blue-700 hover:text-blue-900"
+                      >
+                        Open pulmonary aspiration →
+                      </Link>
+                    )}
+                  </article>
+                );
+              })}
           </div>
         </div>
       </section>

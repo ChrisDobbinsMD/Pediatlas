@@ -171,7 +171,10 @@ export default function BronchiolitisPage() {
               {[
                 ["Edema", "Thickens the bronchiolar wall."],
                 ["Mucus", "Narrows and plugs the airway lumen."],
-                ["Air trapping", "Occurs when expiration is more limited than inspiration."],
+                [
+                  "Air trapping",
+                  "Occurs when expiration is more limited than inspiration.",
+                ],
               ].map(([title, description]) => (
                 <div key={title} className="rounded-2xl bg-slate-50 p-5">
                   <h3 className="font-bold text-slate-900">{title}</h3>
@@ -195,15 +198,15 @@ export default function BronchiolitisPage() {
               From viral infection to respiratory distress
             </h2>
             <div className="mt-7 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-  <Image
-    src="/images/bronchiolitis-pathophysiology.png"
-    alt="Comparison of a normal bronchiole with bronchiolitis showing airway-wall inflammation, mucus production, airway narrowing, and impaired airflow"
-    width={1600}
-    height={1000}
-    className="h-auto w-full"
-    priority
-  />
-</div>
+              <Image
+                src="/images/bronchiolitis-pathophysiology.png"
+                alt="Comparison of a normal bronchiole with bronchiolitis showing airway-wall inflammation, mucus production, airway narrowing, and impaired airflow"
+                width={1600}
+                height={1000}
+                className="h-auto w-full"
+                priority
+              />
+            </div>
 
             <div className="mt-7 grid gap-4">
               {[
@@ -284,11 +287,26 @@ export default function BronchiolitisPage() {
 
             <div className="mt-7 overflow-hidden rounded-2xl border border-slate-200">
               {[
-                ["Asthma or viral-induced wheeze", "Recurrent episodes, prior response to bronchodilator, atopy, or older age."],
-                ["Pneumonia", "Focal examination findings, persistent high fever, or toxic appearance."],
-                ["Foreign body aspiration", "Abrupt onset, asymmetric air entry, focal wheeze, or choking history."],
-                ["Heart failure", "Hepatomegaly, diaphoresis with feeds, poor growth, murmur, or cardiomegaly."],
-                ["Pertussis", "Paroxysmal cough, apnea, post-tussive emesis, or minimal fever."],
+                [
+                  "Asthma or viral-induced wheeze",
+                  "Recurrent episodes, prior response to bronchodilator, atopy, or older age.",
+                ],
+                [
+                  "Pneumonia",
+                  "Focal examination findings, persistent high fever, or toxic appearance.",
+                ],
+                [
+                  "Foreign body aspiration",
+                  "Abrupt onset, asymmetric air entry, focal wheeze, or choking history.",
+                ],
+                [
+                  "Heart failure",
+                  "Hepatomegaly, diaphoresis with feeds, poor growth, murmur, or cardiomegaly.",
+                ],
+                [
+                  "Pertussis",
+                  "Paroxysmal cough, apnea, post-tussive emesis, or minimal fever.",
+                ],
               ].map(([diagnosis, clue]) => (
                 <div
                   key={diagnosis}
@@ -359,19 +377,29 @@ export default function BronchiolitisPage() {
 
             <div className="mt-7 grid gap-5 md:grid-cols-2">
               {[
-                ["Nasal suctioning", "Use gentle, targeted suctioning when secretions impair breathing or feeding."],
-                ["Hydration", "Continue oral feeds when safe; consider enteral or intravenous support when intake is inadequate."],
-                ["Oxygen", "Provide supplemental oxygen for persistent clinically significant hypoxemia according to local policy."],
-                ["Respiratory support", "Escalate support when work of breathing, oxygenation, apnea, or fatigue worsens."],
+                [
+                  "Nasal suctioning",
+                  "Use gentle, targeted suctioning when secretions impair breathing or feeding.",
+                ],
+                [
+                  "Hydration",
+                  "Continue oral feeds when safe; consider enteral or intravenous support when intake is inadequate.",
+                ],
+                [
+                  "Oxygen",
+                  "Provide supplemental oxygen for persistent clinically significant hypoxemia according to local policy.",
+                ],
+                [
+                  "Respiratory support",
+                  "Escalate support when work of breathing, oxygenation, apnea, or fatigue worsens.",
+                ],
               ].map(([title, description]) => (
                 <div
                   key={title}
                   className="rounded-2xl border border-slate-200 p-6"
                 >
                   <h3 className="text-xl font-bold">{title}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">
-                    {description}
-                  </p>
+                  <p className="mt-3 leading-7 text-slate-600">{description}</p>
                 </div>
               ))}
             </div>
@@ -382,10 +410,9 @@ export default function BronchiolitisPage() {
               </h3>
 
               <p className="mt-3 leading-7 text-amber-900">
-                Many bronchiolitis guidelines use a persistent oxygen
-                saturation below approximately 90% as a threshold for
-                supplemental oxygen, but institutional policies and patient
-                comorbidities may differ.
+                Many bronchiolitis guidelines use a persistent oxygen saturation
+                below approximately 90% as a threshold for supplemental oxygen,
+                but institutional policies and patient comorbidities may differ.
               </p>
             </div>
           </section>
@@ -439,9 +466,7 @@ export default function BronchiolitisPage() {
               Clinical pearls
             </p>
 
-            <h2 className="mt-2 text-3xl font-bold">
-              High-yield takeaways
-            </h2>
+            <h2 className="mt-2 text-3xl font-bold">High-yield takeaways</h2>
 
             <div className="mt-7 grid gap-4">
               {clinicalPearls.map((pearl) => (
@@ -477,15 +502,15 @@ export default function BronchiolitisPage() {
 
             <div className="mt-6 grid gap-3">
               {[
-  "Obtain a chest radiograph",
-  "Administer routine albuterol",
-  "Provide supportive care and reassess",
-  "Start systemic corticosteroids",
-].map((answer) => (
-  <button
-    key={answer}
-    onClick={() => setSelectedAnswer(answer)}
-    className={`rounded-2xl border px-5 py-4 text-left font-semibold transition
+                "Obtain a chest radiograph",
+                "Administer routine albuterol",
+                "Provide supportive care and reassess",
+                "Start systemic corticosteroids",
+              ].map((answer) => (
+                <button
+                  key={answer}
+                  onClick={() => setSelectedAnswer(answer)}
+                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition
       ${
         selectedAnswer === answer
           ? answer === "Provide supportive care and reassess"
@@ -493,73 +518,75 @@ export default function BronchiolitisPage() {
             : "border-red-500 bg-red-100"
           : "border-purple-200 bg-white hover:border-purple-400 hover:bg-purple-100"
       }`}
-  >
-    {answer}
-  </button>
-))}
-{selectedAnswer && (
-  <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
-    {selectedAnswer === "Provide supportive care and reassess" ? (
-      <>
-        <h3 className="text-xl font-bold text-green-700">
-          Correct!
-        </h3>
+                >
+                  {answer}
+                </button>
+              ))}
+              {selectedAnswer && (
+                <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
+                  {selectedAnswer === "Provide supportive care and reassess" ? (
+                    <>
+                      <h3 className="text-xl font-bold text-green-700">
+                        Correct!
+                      </h3>
 
-        <p className="mt-4 leading-7 text-slate-700">
-          This infant has uncomplicated bronchiolitis with adequate
-          oxygenation, feeding, and only mild work of breathing. Supportive
-          care and reassessment are appropriate.
-        </p>
+                      <p className="mt-4 leading-7 text-slate-700">
+                        This infant has uncomplicated bronchiolitis with
+                        adequate oxygenation, feeding, and only mild work of
+                        breathing. Supportive care and reassessment are
+                        appropriate.
+                      </p>
 
-        <p className="mt-4 leading-7 text-slate-700">
-          Routine chest radiography, bronchodilators, and corticosteroids are
-          not recommended for typical bronchiolitis.
-        </p>
-      </>
-    ) : (
-      <>
-        <h3 className="text-xl font-bold text-red-700">
-          Not quite.
-        </h3>
+                      <p className="mt-4 leading-7 text-slate-700">
+                        Routine chest radiography, bronchodilators, and
+                        corticosteroids are not recommended for typical
+                        bronchiolitis.
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <h3 className="text-xl font-bold text-red-700">
+                        Not quite.
+                      </h3>
 
-        <p className="mt-4 leading-7 text-slate-700">
-          The best answer is:
-        </p>
+                      <p className="mt-4 leading-7 text-slate-700">
+                        The best answer is:
+                      </p>
 
-        <p className="mt-2 font-bold text-green-700">
-          Provide supportive care and reassess.
-        </p>
+                      <p className="mt-2 font-bold text-green-700">
+                        Provide supportive care and reassess.
+                      </p>
 
-        <p className="mt-4 leading-7 text-slate-700">
-          Bronchiolitis management focuses on supportive care and severity
-          assessment rather than routine testing or medications.
-        </p>
-      </>
-    )}
-  </div>
-)}
-            </div>
-
-            
-          </section>
-<EvidenceBase
-  references={[
-    {
-      title: "American Academy of Pediatrics Clinical Practice Guideline",
-      href: "https://publications.aap.org/pediatrics/article/134/5/e1474/75848/Clinical-Practice-Guideline-The-Diagnosis",
-      description:
-        "Diagnosis, management, and prevention of bronchiolitis.",
-    },
-    {
-      title: "Canadian Paediatric Society",
-      href: "https://cps.ca/documents/position/bronchiolitis",
-      description:
-        "Bronchiolitis: Recommendations for diagnosis, monitoring, and management.",
-    },
-  ]}
-  secondarySources="UpToDate and OpenEvidence were used for educational verification and consistency checks where appropriate."
-/>
+                      <p className="mt-4 leading-7 text-slate-700">
+                        Bronchiolitis management focuses on supportive care and
+                        severity assessment rather than routine testing or
+                        medications.
+                      </p>
+                    </>
+                  )}
                 </div>
+              )}
+            </div>
+          </section>
+          <EvidenceBase
+            references={[
+              {
+                title:
+                  "American Academy of Pediatrics Clinical Practice Guideline",
+                href: "https://publications.aap.org/pediatrics/article/134/5/e1474/75848/Clinical-Practice-Guideline-The-Diagnosis",
+                description:
+                  "Diagnosis, management, and prevention of bronchiolitis.",
+              },
+              {
+                title: "Canadian Paediatric Society",
+                href: "https://cps.ca/documents/position/bronchiolitis",
+                description:
+                  "Bronchiolitis: Recommendations for diagnosis, monitoring, and management.",
+              },
+            ]}
+            secondarySources="UpToDate and OpenEvidence were used for educational verification and consistency checks where appropriate."
+          />
+        </div>
       </div>
     </main>
   );

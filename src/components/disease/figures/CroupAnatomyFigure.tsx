@@ -94,7 +94,7 @@ export default function CroupAnatomyFigure() {
             strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
-/>
+           />
 
             <circle
               cx="484"

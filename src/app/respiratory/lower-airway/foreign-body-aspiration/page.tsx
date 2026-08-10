@@ -260,14 +260,14 @@ export default function ForeignBodyAspirationPage() {
               both the pathway taken and the level at which the object
               becomes lodged.
             </p>
-<Image
-  src="/images/aspiration-ingestion-pthwy.png"
-  alt="Comparison of airway aspiration versus esophageal ingestion showing the aspiration pathway into the tracheobronchial tree and the ingestion pathway into the esophagus."
-  width={1600}
-  height={900}
-  className="mt-8 h-auto w-full rounded-2xl border border-slate-200 shadow-sm"
-  unoptimized
-/>
+            <Image
+              src="/images/aspiration-ingestion-pthwy.png"
+              alt="Comparison of airway aspiration versus esophageal ingestion showing the aspiration pathway into the tracheobronchial tree and the ingestion pathway into the esophagus."
+              width={1600}
+              height={900}
+              className="mt-8 h-auto w-full rounded-2xl border border-slate-200 shadow-sm"
+              unoptimized
+            />
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
@@ -540,8 +540,8 @@ export default function ForeignBodyAspirationPage() {
 
                 <p className="mt-3 leading-7 text-purple-900">
                   Standard frontal and lateral chest radiographs remain the initial
-                  imaging study for suspected foreign body aspiration. 
-                  Inspiratory-expiratory or lateral decubitus views have historically 
+                  imaging study for suspected foreign body aspiration.
+                  Inspiratory-expiratory or lateral decubitus views have historically
                   been used to demonstrate unilateral air trapping, but their diagnostic
                   performance is limited and they are no longer routinely recommended in many centers.
                 </p>
@@ -576,194 +576,194 @@ export default function ForeignBodyAspirationPage() {
                 </p>
               </div>
             </div>
-{/* Imaging Examples */}
+            {/* Imaging Examples */}
 
-<div className="mt-8 rounded-3xl border border-slate-200 bg-slate-50 p-8">
+            <div className="mt-8 rounded-3xl border border-slate-200 bg-slate-50 p-8">
 
-  <h3 className="text-2xl font-bold text-slate-900">
-    Imaging Pearls
-  </h3>
+              <h3 className="text-2xl font-bold text-slate-900">
+                Imaging Pearls
+              </h3>
 
-  <p className="mt-3 leading-7 text-slate-600">
-    Review these classic imaging findings. Study the image first,
-    then reveal the annotations to identify the important features.
-  </p>
+              <p className="mt-3 leading-7 text-slate-600">
+                Review these classic imaging findings. Study the image first,
+                then reveal the annotations to identify the important features.
+              </p>
 
-  <div className="mt-8 space-y-12">
+              <div className="mt-8 space-y-12">
 
-    {/* Airway Foreign Body */}
+                {/* Airway Foreign Body */}
 
-    <div>
+                <div>
 
-      <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between">
 
-        <h4 className="text-xl font-bold">
-          Airway Foreign Body
-        </h4>
+                    <h4 className="text-xl font-bold">
+                      Airway Foreign Body
+                    </h4>
 
-        <button
-          onClick={() =>
-            setShowAirwayAnnotations(!showAirwayAnnotations)
-          }
-          className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium hover:bg-slate-100"
-        >
-          {showAirwayAnnotations
-            ? "👁 Hide annotations"
-            : "👁 Show annotations"}
-        </button>
+                    <button
+                      onClick={() =>
+                        setShowAirwayAnnotations(!showAirwayAnnotations)
+                      }
+                      className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium hover:bg-slate-100"
+                    >
+                      {showAirwayAnnotations
+                        ? "👁 Hide annotations"
+                        : "👁 Show annotations"}
+                    </button>
 
-      </div>
+                  </div>
 
-      <a
-  href={
-    showAirwayAnnotations
-      ? "/images/foreign-body-airtrapping-annotated.png"
-      : "/images/foreign-body-airtrapping.jpg"
-  }
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <img
-    src={
-      showAirwayAnnotations
-        ? "/images/foreign-body-airtrapping-annotated.png"
-        : "/images/foreign-body-airtrapping.jpg"
-    }
-    alt="Chest radiograph demonstrating unilateral air trapping from bronchial foreign body aspiration"
-   className="mx-auto w-full max-w-xl cursor-zoom-in rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-lg"
-  />
-</a>
-<p className="mt-4 text-sm text-slate-500">
-  Wikimedia Commons:{" "}
-  <a
-    href="https://commons.wikimedia.org/wiki/File:Fremdkoerperaspiration_mit_Ventilwirkung_2W_-_CR_ap_-_001.jpg"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-blue-700 hover:underline"
-  >
-    Foreign Body Aspiration Chest Radiograph (Hellerhoff, 2022)
-  </a>{" "}
-  · CC BY-SA 4.0
-</p>
-      <div className="mt-5 rounded-xl border border-sky-200 bg-sky-50 p-5">
+                  <a
+                    href={
+                      showAirwayAnnotations
+                        ? "/images/foreign-body-airtrapping-annotated.png"
+                        : "/images/foreign-body-airtrapping.jpg"
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={
+                        showAirwayAnnotations
+                          ? "/images/foreign-body-airtrapping-annotated.png"
+                          : "/images/foreign-body-airtrapping.jpg"
+                      }
+                      alt="Chest radiograph demonstrating unilateral air trapping from bronchial foreign body aspiration"
+                      className="mx-auto w-full max-w-xl cursor-zoom-in rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-lg"
+                    />
+                  </a>
+                  <p className="mt-4 text-sm text-slate-500">
+                    Wikimedia Commons:{" "}
+                    <a
+                      href="https://commons.wikimedia.org/wiki/File:Fremdkoerperaspiration_mit_Ventilwirkung_2W_-_CR_ap_-_001.jpg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-700 hover:underline"
+                    >
+                      Foreign Body Aspiration Chest Radiograph (Hellerhoff, 2022)
+                    </a>{" "}
+                    · CC BY-SA 4.0
+                  </p>
+                  <div className="mt-5 rounded-xl border border-sky-200 bg-sky-50 p-5">
 
-        <p className="font-semibold text-sky-900">
-          Clinical Pearl
-        </p>
+                    <p className="font-semibold text-sky-900">
+                      Clinical Pearl
+                    </p>
 
-        <p className="mt-2 leading-7 text-sky-900">
-          Most aspirated foreign bodies are radiolucent and are not
-          directly visible on chest radiographs. Diagnosis often relies
-          on indirect findings such as unilateral hyperinflation,
-          air trapping, and mediastinal shift.
-        </p>
+                    <p className="mt-2 leading-7 text-sky-900">
+                      Most aspirated foreign bodies are radiolucent and are not
+                      directly visible on chest radiographs. Diagnosis often relies
+                      on indirect findings such as unilateral hyperinflation,
+                      air trapping, and mediastinal shift.
+                    </p>
 
-      </div>
+                  </div>
 
-    </div>
+                </div>
 
-    {/* Esophageal Coin */}
-<div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-  <div className="flex items-center justify-between">
-    <div>
-      <h3 className="text-2xl font-bold text-blue-950">
-        Esophageal Coin
-      </h3>
-      <p className="mt-2 text-slate-600">
-        AP and lateral radiographs demonstrate the typical appearance of an
-        esophageal foreign body. The lateral view confirms that the coin lies
-        posterior to the trachea.
-      </p>
-    </div>
-  </div>
+                {/* Esophageal Coin */}
+                <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="text-2xl font-bold text-blue-950">
+                        Esophageal Coin
+                      </h3>
+                      <p className="mt-2 text-slate-600">
+                        AP and lateral radiographs demonstrate the typical appearance of an
+                        esophageal foreign body. The lateral view confirms that the coin lies
+                        posterior to the trachea.
+                      </p>
+                    </div>
+                  </div>
 
-  <div className="mt-5 grid gap-5 md:grid-cols-2">
-  <a
-    href="/images/coin-ap.png"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <img
-      src="/images/coin-ap.png"
-      alt="AP radiograph demonstrating an esophageal coin"
-      className="w-full cursor-zoom-in rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-lg"
-    />
-  </a>
+                  <div className="mt-5 grid gap-5 md:grid-cols-2">
+                    <a
+                      href="/images/coin-ap.png"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src="/images/coin-ap.png"
+                        alt="AP radiograph demonstrating an esophageal coin"
+                        className="w-full cursor-zoom-in rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-lg"
+                      />
+                    </a>
 
-  <a
-    href={
-      showCoinAnnotations
-        ? "/images/coin-lateral-annotated.jpeg"
-        : "/images/coin-lateral.jpeg"
-    }
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <img
-      src={
-        showCoinAnnotations
-          ? "/images/coin-lateral-annotated.jpeg"
-          : "/images/coin-lateral.jpeg"
-      }
-      alt="Lateral radiograph demonstrating an esophageal coin"
-      className="w-full cursor-zoom-in rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-lg"
-    />
-  </a>
-</div>
+                    <a
+                      href={
+                        showCoinAnnotations
+                          ? "/images/coin-lateral-annotated.jpeg"
+                          : "/images/coin-lateral.jpeg"
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img
+                        src={
+                          showCoinAnnotations
+                            ? "/images/coin-lateral-annotated.jpeg"
+                            : "/images/coin-lateral.jpeg"
+                        }
+                        alt="Lateral radiograph demonstrating an esophageal coin"
+                        className="w-full cursor-zoom-in rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-lg"
+                      />
+                    </a>
+                  </div>
 
-  <button
-    onClick={() => setShowCoinAnnotations(!showCoinAnnotations)}
-    className="mt-4 text-sm font-semibold text-blue-700 hover:text-blue-900"
-  >
-    👁 {showCoinAnnotations ? "Hide" : "Show"} annotations
-  </button>
+                  <button
+                    onClick={() => setShowCoinAnnotations(!showCoinAnnotations)}
+                    className="mt-4 text-sm font-semibold text-blue-700 hover:text-blue-900"
+                  >
+                    👁 {showCoinAnnotations ? "Hide" : "Show"} annotations
+                  </button>
 
-<p className="mt-2 text-xs text-slate-500">
-  🔍 Click either image to view the full-resolution radiograph.
-</p>
+                  <p className="mt-2 text-xs text-slate-500">
+                    🔍 Click either image to view the full-resolution radiograph.
+                  </p>
 
-  <p className="mt-3 text-sm text-slate-500">
-    Radiopaedia Case:{" "}
-    <a
-      href="https://radiopaedia.org/cases/oesophageal-foreign-body-coin?lang=us"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-blue-700 hover:underline"
-    >
-      Oesophageal Foreign Body – Coin
-    </a>
-    . Licensed under CC BY-NC-SA.
-  </p>
+                  <p className="mt-3 text-sm text-slate-500">
+                    Radiopaedia Case:{" "}
+                    <a
+                      href="https://radiopaedia.org/cases/oesophageal-foreign-body-coin?lang=us"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-700 hover:underline"
+                    >
+                      Oesophageal Foreign Body – Coin
+                    </a>
+                    . Licensed under CC BY-NC-SA.
+                  </p>
 
-  <div className="mt-6 rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-5">
-    <h4 className="font-semibold text-amber-900">
-      Clinical Pearl
-    </h4>
+                  <div className="mt-6 rounded-2xl border-l-4 border-amber-400 bg-amber-50 p-5">
+                    <h4 className="font-semibold text-amber-900">
+                      Clinical Pearl
+                    </h4>
 
-    <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
-      <li>
-        On the <strong>AP radiograph</strong>, esophageal coins are usually seen
-        <strong> en face</strong> (round), whereas tracheal coins more commonly
-        appear edge-on.
-      </li>
+                    <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
+                      <li>
+                        On the <strong>AP radiograph</strong>, esophageal coins are usually seen
+                        <strong> en face</strong> (round), whereas tracheal coins more commonly
+                        appear edge-on.
+                      </li>
 
-      <li>
-        The <strong>lateral radiograph</strong> confirms the coin is
-        <strong> posterior to the trachea</strong>, supporting an esophageal
-        location.
-      </li>
+                      <li>
+                        The <strong>lateral radiograph</strong> confirms the coin is
+                        <strong> posterior to the trachea</strong>, supporting an esophageal
+                        location.
+                      </li>
 
-      <li>
-        Always distinguish a coin from a <strong>button battery</strong>, which
-        requires emergent removal because of the risk of caustic injury.
-      </li>
-    </ul>
-  </div>
-</div>
+                      <li>
+                        Always distinguish a coin from a <strong>button battery</strong>, which
+                        requires emergent removal because of the risk of caustic injury.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
 
-  </div>
+              </div>
 
-</div>
+            </div>
             <div className="mt-7 rounded-2xl border border-rose-200 bg-rose-50 p-6">
               <h3 className="text-xl font-bold text-rose-950">
                 Bronchoscopy is the definitive diagnostic test
@@ -1040,13 +1040,12 @@ export default function ForeignBodyAspirationPage() {
                   key={answer}
                   type="button"
                   onClick={() => setSelectedAnswer(answer)}
-                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${
-                    selectedAnswer === answer
-                      ? answer === correctAnswer
-                        ? "border-green-500 bg-green-100 text-green-950"
-                        : "border-red-500 bg-red-100 text-red-950"
-                      : "border-purple-200 bg-white text-purple-950 hover:border-purple-400 hover:bg-purple-100"
-                  }`}
+                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${selectedAnswer === answer
+                    ? answer === correctAnswer
+                      ? "border-green-500 bg-green-100 text-green-950"
+                      : "border-red-500 bg-red-100 text-red-950"
+                    : "border-purple-200 bg-white text-purple-950 hover:border-purple-400 hover:bg-purple-100"
+                    }`}
                 >
                   {answer}
                 </button>
