@@ -12,6 +12,9 @@ import {
   type Reference,
 } from "@/components/disease";
 
+import CroupAnatomyFigure from "@/components/disease/figures/CroupAnatomyFigure";
+import CroupSteepleModal from "@/components/disease/figures/CroupSteepleModal";
+
 /* =========================================================
    QUIZ DATA
 ========================================================= */
@@ -413,7 +416,7 @@ export default function CroupPage() {
             </div>
           </DiseaseSection>
 
-          {/* =================================================
+      {/* =================================================
               ANATOMY & LOCALIZATION
           ================================================== */}
 
@@ -423,6 +426,8 @@ export default function CroupPage() {
             title="Croup localizes to the larynx and subglottic airway"
             description="The characteristic sound and cough make sense once the level of obstruction is identified."
           >
+            <CroupAnatomyFigure />
+
             <div className="grid gap-6 md:grid-cols-2">
               <InfoCard
                 title="Supraglottic airway"
@@ -441,32 +446,13 @@ export default function CroupPage() {
                 tone="blue"
               >
                 <p>
-                  Croup predominantly involves the larynx and subglottic
-                  region immediately below the vocal cords. Inflammation here
-                  narrows the airway and creates turbulent airflow during
-                  inspiration.
+                Croup predominantly involves the larynx and subglottic
+                region immediately below the vocal cords. This localization
+                explains the characteristic combination of barking cough,
+                hoarseness, and inspiratory stridor.
                 </p>
               </InfoCard>
             </div>
-
-            <Callout
-              label="Pediatric Anatomy Pearl"
-              title="A few millimeters matter"
-              tone="blue"
-            >
-              <p>
-                Young children begin with a much smaller subglottic airway
-                diameter than older children or adults. Circumferential
-                mucosal edema therefore consumes a proportionally larger
-                fraction of the available airway lumen.
-              </p>
-
-              <p className="mt-3">
-                Because resistance rises dramatically as airway radius
-                decreases (Poiseuille's law), seemingly modest swelling can produce substantial
-                work of breathing and audible stridor.
-              </p>
-            </Callout>
 
             <div className="grid gap-6 md:grid-cols-3">
               <InfoCard
@@ -516,7 +502,7 @@ export default function CroupPage() {
             </Callout>
           </DiseaseSection>
 
-          {/* =================================================
+      {/* =================================================
               PATHOPHYSIOLOGY
           ================================================== */}
 
@@ -542,7 +528,7 @@ export default function CroupPage() {
               <ProcessStep
                 number="3"
                 title="Subglottic edema"
-                description="Circumferential swelling reduces the radius of the already narrow pediatric subglottic airway and markedly increases resistance to airflow."
+                description="Circumferential mucosal edema narrows the already small pediatric subglottic lumen, creating the characteristic site of obstruction in croup."
               />
 
               <ProcessStep
@@ -551,6 +537,38 @@ export default function CroupPage() {
                 description="Increasing airflow velocity through the narrowed extrathoracic airway generates inspiratory stridor, retractions, and increased work of breathing."
               />
             </div>
+
+            <Callout
+              label="Airway Physics"
+              title="Why a few millimeters matter"
+              tone="blue"
+>
+              <p>
+              Airway resistance is extremely sensitive to airway radius. Under
+              laminar-flow conditions, Poiseuille&apos;s law predicts that resistance
+              varies inversely with the fourth power of the radius:
+              </p>
+
+              <div className="my-6 rounded-2xl border border-blue-200 bg-white p-6 text-center">
+              <p className="text-3xl font-bold tracking-wide text-blue-950">
+              R ∝ 1 / r⁴
+              </p>
+              </div>
+
+              <p>
+              This means that even a modest decrease in airway radius can produce a
+              disproportionately large increase in resistance. Because young children
+              begin with a relatively small subglottic airway, circumferential mucosal
+              edema can rapidly consume a clinically important fraction of the
+              available lumen.
+              </p>
+
+              <p className="mt-4">
+              Actual airflow through a narrowed croup airway may become turbulent, so
+              Poiseuille&apos;s law is best used here as a conceptual model rather than
+              an exact description of airflow during croup.
+              </p>
+            </Callout>
 
             <Callout
               label="Why agitation matters"
@@ -579,7 +597,7 @@ export default function CroupPage() {
             </InfoCard>
           </DiseaseSection>
 
-          {/* =================================================
+      {/* =================================================
               HISTORY & PHYSICAL
           ================================================== */}
 
@@ -685,7 +703,7 @@ export default function CroupPage() {
             </Callout>
           </DiseaseSection>
 
-                {/* =================================================
+   {/* =================================================
           DIFFERENTIAL DIAGNOSIS
       ================================================== */}
 
@@ -810,7 +828,7 @@ export default function CroupPage() {
             >
               <p>
                 An anteroposterior neck radiograph may demonstrate tapering
-                subglottic narrowing known as the <strong>steeple sign</strong>.
+                subglottic narrowing known as the <CroupSteepleModal />.
                 However, the finding is neither sufficiently sensitive nor
                 specific to justify routine imaging when the clinical
                 presentation is classic.
