@@ -14,13 +14,167 @@ import {
 } from "@/components/disease";
 
 import { MobileSectionNav } from "@/components";
+import EpiglottitisThumbSign from "@/components/disease/figures/EpiglottitisThumbSign";
 
 /* =========================================================
    QUIZ DATA
 ========================================================= */
 
 const quizQuestions: QuizQuestion[] = [
-  // We will build these after the clinical content is finished.
+  {
+    question:
+      "A 4-year-old child presents with abrupt high fever, severe sore throat, drooling, a muffled voice, and refusal to lie down. He has inspiratory stridor but no barking cough. Which diagnosis should be most strongly suspected?",
+    answers: [
+      {
+        text: "Croup",
+        correct: false,
+        feedback:
+          "Not quite. Croup commonly causes barking cough, hoarseness, and stridor after a viral prodrome. Prominent drooling, severe sore throat, muffled voice, and refusal to lie down should shift concern toward supraglottic disease.",
+      },
+      {
+        text: "Epiglottitis",
+        correct: true,
+        feedback:
+          "Correct. The combination of abrupt high fever, severe sore throat, dysphagia or drooling, muffled voice, tripod or upright positioning, and stridor is classic for epiglottitis.",
+      },
+      {
+        text: "Bronchiolitis",
+        correct: false,
+        feedback:
+          "Incorrect. Bronchiolitis is a lower-airway disease that typically presents with rhinorrhea, cough, wheezing or crackles, and increased work of breathing rather than drooling and muffled voice.",
+      },
+      {
+        text: "Foreign body aspiration",
+        correct: false,
+        feedback:
+          "Not the best answer. Foreign body aspiration can cause acute stridor, but the high fever, severe sore throat, drooling, and progressive infectious presentation strongly favor epiglottitis.",
+      },
+    ],
+  },
+
+  {
+    question:
+      "The child remains upright on his caregiver's lap, appears anxious, and has inspiratory stridor with difficulty handling secretions. Which action should be avoided?",
+    answers: [
+      {
+        text: "Allowing the child to remain in a position of comfort",
+        correct: false,
+        feedback:
+          "Incorrect. Allowing the child to remain upright and minimizing agitation are important parts of initial management.",
+      },
+      {
+        text: "Early involvement of an experienced pediatric airway team",
+        correct: false,
+        feedback:
+          "Incorrect. Early airway planning is appropriate because epiglottitis can progress rapidly to complete obstruction.",
+      },
+      {
+        text: "Forceful examination of the oropharynx with a tongue depressor",
+        correct: true,
+        feedback:
+          "Correct. Forced visualization of the pharynx can agitate a child with a tenuous airway and may worsen obstruction. Airway safety takes priority over confirming the diagnosis at the bedside.",
+      },
+      {
+        text: "Close monitoring for worsening respiratory distress",
+        correct: false,
+        feedback:
+          "Incorrect. Frequent reassessment is essential because upper-airway obstruction may progress quickly.",
+      },
+    ],
+  },
+
+  {
+    question:
+      "A child with suspected epiglottitis is clinically stable and the diagnosis remains uncertain. If imaging is obtained, which finding would support the diagnosis?",
+    answers: [
+      {
+        text: "Steeple sign on an AP neck radiograph",
+        correct: false,
+        feedback:
+          "Incorrect. The steeple sign represents tapered subglottic narrowing and is associated with croup.",
+      },
+      {
+        text: "Thumb sign on a lateral neck radiograph",
+        correct: true,
+        feedback:
+          "Correct. Marked swelling of the epiglottis may produce the classic thumb sign on a lateral neck radiograph. Imaging should only be pursued when it can be obtained safely and should never delay airway management.",
+      },
+      {
+        text: "Peribronchial cuffing on chest radiograph",
+        correct: false,
+        feedback:
+          "Incorrect. Peribronchial findings are associated with lower-airway processes and do not identify supraglottic inflammation.",
+      },
+      {
+        text: "Unilateral hyperinflation on expiratory chest radiograph",
+        correct: false,
+        feedback:
+          "Incorrect. Unilateral air trapping would raise concern for lower-airway foreign body aspiration rather than epiglottitis.",
+      },
+    ],
+  },
+
+  {
+    question:
+      "A child with epiglottitis develops progressively worsening stridor, increasing respiratory distress, and decreasing air entry. What is the most important next step?",
+    answers: [
+      {
+        text: "Obtain a lateral neck radiograph before deciding on treatment",
+        correct: false,
+        feedback:
+          "Incorrect. Diagnostic imaging should not delay airway management in a child with progressive obstruction.",
+      },
+      {
+        text: "Perform a bedside throat examination to confirm epiglottic swelling",
+        correct: false,
+        feedback:
+          "Incorrect. Manipulating the airway of a deteriorating child may worsen obstruction and should not precede definitive airway planning.",
+      },
+      {
+        text: "Arrange controlled airway management with experienced pediatric airway clinicians",
+        correct: true,
+        feedback:
+          "Correct. Progressive upper-airway obstruction requires early definitive airway planning in a controlled setting with experienced airway personnel and rescue capability.",
+      },
+      {
+        text: "Give nebulized albuterol and reassess",
+        correct: false,
+        feedback:
+          "Incorrect. Epiglottitis causes supraglottic obstruction from inflammatory edema, not lower-airway bronchospasm.",
+      },
+    ],
+  },
+
+  {
+    question:
+      "A fully vaccinated child is recovering from confirmed invasive Haemophilus influenzae type b disease. Which additional consideration is most appropriate?",
+    answers: [
+      {
+        text: "Assume the diagnosis must be incorrect because Hib vaccination is completely protective",
+        correct: false,
+        feedback:
+          "Incorrect. Hib vaccination dramatically reduces the risk of invasive disease but does not provide absolute protection.",
+      },
+      {
+        text: "Automatically repeat the entire childhood vaccine series in every patient",
+        correct: false,
+        feedback:
+          "Incorrect. Additional Hib vaccination recommendations depend on the child's age, prior immunization history, underlying condition, and treatment history.",
+      },
+      {
+        text: "Review the immunization record and consider whether a high-risk condition could be contributing to susceptibility",
+        correct: true,
+        feedback:
+          "Correct. Unexpected invasive Hib disease despite apparently appropriate immunization should prompt careful review of vaccine history and consideration of underlying risk factors such as selected immunodeficiencies or other high-risk conditions.",
+      },
+      {
+        text: "No additional review is necessary once antibiotic treatment is complete",
+        correct: false,
+        feedback:
+          "Incorrect. Confirmed invasive Hib disease has preventive and public-health implications beyond completion of antimicrobial therapy.",
+      },
+    ],
+  },
 ];
 
 /* =========================================================
@@ -28,7 +182,24 @@ const quizQuestions: QuizQuestion[] = [
 ========================================================= */
 
 const references: Reference[] = [
-  // We will add the vetted Epiglottitis references here.
+  {
+    title: "American Academy of Pediatrics — Croup and Epiglottitis",
+    href: "https://publications.aap.org/pediatricsinreview/article/46/7/366/202407/Croup-and-Epiglottitis",
+    description:
+      "Contemporary Pediatrics in Review article covering the epidemiology, pathogenesis, differential diagnosis, clinical evaluation, and management of pediatric epiglottitis, including airway-safety principles and the changing microbiology of disease in the Hib vaccine era.",
+  },
+  {
+    title: "CDC Pink Book — Haemophilus influenzae",
+    href: "https://www.cdc.gov/pinkbook/hcp/table-of-contents/chapter-8-haemophilus-influenzae.html",
+    description:
+      "CDC reference for invasive Haemophilus influenzae disease, Hib epidemiology, clinical manifestations, vaccination, and populations at increased risk for invasive disease.",
+  },
+  {
+    title: "JAMA Patient Page — Epiglottitis",
+    href: "https://jamanetwork.com/journals/jama/fullarticle/2733178",
+    description:
+      "Clinical overview of pediatric epiglottitis describing the classic presentation, risk of rapid airway obstruction, initial airway-safety principles, antimicrobial treatment, and the impact of Hib vaccination.",
+  },
 ];
 
 /* =========================================================
@@ -639,9 +810,15 @@ export default function EpiglottitisPage() {
               <p>
                 When lateral neck radiography can be obtained safely, marked
                 swelling of the epiglottis may produce the classic{" "}
-                <strong>thumb sign</strong>. Imaging is supportive rather than a
-                prerequisite for treatment and should not delay airway
-                management in a child with significant obstruction.
+                <FigureModal
+                  trigger="thumb sign (click to view)"
+                  title="Thumb sign in epiglottitis"
+                >
+                  <EpiglottitisThumbSign />
+                </FigureModal>
+                . Imaging is supportive rather than a prerequisite for treatment
+                and should not delay airway management in a child with
+                significant obstruction.
               </p>
             </Callout>
 
@@ -849,7 +1026,6 @@ export default function EpiglottitisPage() {
               </p>
             </Callout>
           </DiseaseSection>
-
           {/* =================================================
         DISPOSITION
     ================================================== */}
@@ -1048,22 +1224,118 @@ export default function EpiglottitisPage() {
               </p>
             </Callout>
           </DiseaseSection>
-
           {/* =================================================
         CLINICAL PEARLS
     ================================================== */}
+          <DiseaseSection
+            id="pearls"
+            label="Clinical Pearls"
+            title="High-yield takeaways"
+            description="The bedside patterns and safety principles worth carrying forward."
+          >
+            <div className="grid gap-5 md:grid-cols-2">
+              <PearlCard
+                number={1}
+                title="The cough and the swallow help localize the disease"
+              >
+                Barking cough and hoarseness favor croup, while severe sore
+                throat, dysphagia, drooling, and a muffled voice should raise
+                concern for a supraglottic process such as epiglottitis.
+              </PearlCard>
 
+              <PearlCard
+                number={2}
+                title="A child who refuses to lie down may be protecting their airway"
+              >
+                Tripod positioning, neck extension, and insistence on remaining
+                upright are physiologic attempts to maintain airway patency. Do
+                not force the child supine for a routine examination.
+              </PearlCard>
+
+              <PearlCard number={3} title="Do not provoke a threatened airway">
+                When epiglottitis is strongly suspected, avoid forced
+                oropharyngeal examination, unnecessary painful procedures, and
+                other interventions likely to cause agitation before an airway
+                plan is established.
+              </PearlCard>
+
+              <PearlCard
+                number={4}
+                title="The thumb sign is supportive — not required"
+              >
+                A lateral neck radiograph may demonstrate an enlarged epiglottis
+                with the classic thumb sign in a stable patient, but imaging
+                should never delay airway management or require transporting an
+                unstable child away from an airway-capable setting.
+              </PearlCard>
+
+              <PearlCard
+                number={5}
+                title="A controlled airway is better than a crash airway"
+              >
+                Progressive obstruction should prompt early involvement of
+                experienced pediatric airway clinicians. Waiting for hypoxemia,
+                exhaustion, or respiratory collapse can turn a difficult airway
+                into an emergency.
+              </PearlCard>
+
+              <PearlCard
+                number={6}
+                title="Hib vaccination changed epiglottitis — it did not eliminate it"
+              >
+                Widespread Hib vaccination dramatically reduced invasive Hib
+                disease and classic pediatric epiglottitis, but other pathogens
+                can still cause epiglottitis in appropriately vaccinated
+                children.
+              </PearlCard>
+            </div>
+
+            <Callout
+              label="One-Sentence Summary"
+              title="Recognize it, respect the airway, and don't make it worse"
+              tone="blue"
+            >
+              <p>
+                In a febrile child with severe sore throat, drooling, muffled
+                voice, tripod positioning, or stridor, consider epiglottitis
+                early, minimize agitation, and prioritize airway safety over
+                diagnostic confirmation.
+              </p>
+            </Callout>
+          </DiseaseSection>
           {/* =================================================
         QUIZ
     ================================================== */}
-
+          <DiseaseSection
+            id="quiz"
+            label="Knowledge Check"
+            title="Apply what you learned"
+            description="Work through each question in sequence. Select an answer, review the explanation, then continue."
+          >
+            <ProgressiveQuiz questions={quizQuestions} />
+          </DiseaseSection>
           {/* =================================================
         EVIDENCE BASE
     ================================================== */}
-
+          <EvidenceBase references={references} />
           {/* =================================================
         BOTTOM NAVIGATION
     ================================================== */}
+          <div className="flex flex-col gap-4 border-t border-slate-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
+            <Link
+              href="/respiratory/upper-airway"
+              className="font-semibold text-blue-700 hover:text-blue-900"
+            >
+              ← Upper Airway Library
+            </Link>
+
+            <a
+              href="#vignette"
+              className="font-semibold text-blue-700 hover:text-blue-900"
+            >
+              Back to top ↑
+            </a>
+          </div>
         </div>
       </div>
     </main>
