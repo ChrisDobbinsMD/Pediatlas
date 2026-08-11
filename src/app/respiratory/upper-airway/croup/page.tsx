@@ -15,6 +15,7 @@ import {
 
 import CroupAnatomyFigure from "@/components/disease/figures/CroupAnatomyFigure";
 import CroupSteepleSign from "@/components/disease/figures/CroupSteepleSign";
+import MobileSectionNav from "@/components/MobileSectionNav";
 
 /* =========================================================
    QUIZ DATA
@@ -369,6 +370,25 @@ export default function CroupPage() {
           </nav>
         </aside>
 
+       {/* =====================================================
+          Mobile Section Navigation
+      ====================================================== */} 
+      <MobileSectionNav
+        title="Croup"
+        sections={[
+          { id: "overview", label: "Overview" },
+          { id: "anatomy", label: "Anatomy & Localization" },
+          { id: "history-physical", label: "History & Physical" },
+          { id: "severity", label: "Severity" },
+          { id: "diagnostic-workup", label: "Diagnostic Workup" },
+          { id: "management", label: "Management" },
+          { id: "disposition", label: "Disposition" },
+          { id: "clinical-pearls", label: "Clinical Pearls" },
+          { id: "evidence-base", label: "Evidence Base" },
+        ]}
+      />
+
+      {/* rest of your Croup page */}
         {/* ===================================================
             MAIN CONTENT
         ==================================================== */}
