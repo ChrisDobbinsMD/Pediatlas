@@ -45,38 +45,18 @@ export default function MobileSectionNav({
     };
   }, []);
 
-  function goToSection(id: string) {
-  const element = document.getElementById(id);
-
-  if (!element) {
-    console.warn(`Section "${id}" was not found.`);
-    return;
-  }
-
-  setOpen(false);
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    });
-  });
-}
-
   function goToTop() {
-  setOpen(false);
+    setOpen(false);
 
-  requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
+      requestAnimationFrame(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       });
     });
-  });
-}
+  }
 
   return (
     <>
@@ -88,20 +68,20 @@ export default function MobileSectionNav({
         type="button"
         onClick={() => setOpen(true)}
         className="
-    fixed left-4 z-40
-    bottom-[calc(1rem+env(safe-area-inset-bottom))]
-    flex items-center gap-2
-    rounded-full
-    border border-slate-200
-    bg-white/95
-    px-4 py-3
-    text-sm font-semibold text-slate-800
-    shadow-lg
-    backdrop-blur
-    transition
-    hover:bg-slate-50
-    active:scale-95
-    md:hidden
+         fixed left-4 z-40
+         bottom-[calc(1rem+env(safe-area-inset-bottom))]
+         flex items-center gap-2
+         rounded-full
+         border border-slate-200
+         bg-white/95
+         px-4 py-3
+         text-sm font-semibold text-slate-800
+         shadow-lg
+         backdrop-blur
+         transition
+         hover:bg-slate-50
+         active:scale-95
+         md:hidden
   "
         aria-label="Open page sections"
         aria-expanded={open}
@@ -179,10 +159,10 @@ export default function MobileSectionNav({
 
             <nav className="max-h-[60vh] overflow-y-auto px-3 py-3">
               {sections.map((section, index) => (
-                <button
+                <a
                   key={section.id}
-                  type="button"
-                  onClick={() => goToSection(section.id)}
+                  href={`#${section.id}`}
+                  onClick={() => setOpen(false)}
                   className="
                     flex w-full
                     items-center gap-3
@@ -213,7 +193,7 @@ export default function MobileSectionNav({
                   </span>
 
                   <span className="ml-auto text-slate-400">›</span>
-                </button>
+                </a>
               ))}
 
               {/* Back to top */}

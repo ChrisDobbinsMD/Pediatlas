@@ -186,32 +186,25 @@ const references: Reference[] = [
   {
     title:
       "American Academy of Pediatrics — Croup (Acute Laryngotracheobronchitis)",
-    href:
-      "https://publications.aap.org/pediatriccare/article/doi/10.1542/aap.ppcqr.396247/134/Croup-Acute-Laryngotracheobronchitis",
+    href: "https://publications.aap.org/pediatriccare/article/doi/10.1542/aap.ppcqr.396247/134/Croup-Acute-Laryngotracheobronchitis",
     description:
       "AAP Pediatric Care Online review covering epidemiology, upper-airway anatomy, clinical diagnosis, differential diagnosis, severity assessment, corticosteroid therapy, nebulized epinephrine, and disposition.",
   },
   {
-    title:
-      "American Family Physician — Croup: Diagnosis and Management",
-    href:
-      "https://www.aafp.org/pubs/afp/issues/2018/0501/p575.html",
+    title: "American Family Physician — Croup: Diagnosis and Management",
+    href: "https://www.aafp.org/pubs/afp/issues/2018/0501/p575.html",
     description:
       "Evidence-based review addressing clinical diagnosis, differential diagnosis, Westley severity scoring, corticosteroid therapy, nebulized epinephrine dosing, observation, and outpatient management.",
   },
   {
-    title:
-      "AAP Pediatrics in Review — Croup and Epiglottitis",
-    href:
-      "https://publications.aap.org/pediatricsinreview/article/46/7/366/202407/Croup-and-Epiglottitis",
+    title: "AAP Pediatrics in Review — Croup and Epiglottitis",
+    href: "https://publications.aap.org/pediatricsinreview/article/46/7/366/202407/Croup-and-Epiglottitis",
     description:
       "Contemporary AAP review of croup and epiglottitis including epidemiology, pathogenesis, differential diagnosis, and modern management principles.",
   },
   {
-    title:
-      "Cochrane Review — Glucocorticoids for Croup in Children",
-    href:
-      "https://pubmed.ncbi.nlm.nih.gov/36626194/",
+    title: "Cochrane Review — Glucocorticoids for Croup in Children",
+    href: "https://pubmed.ncbi.nlm.nih.gov/36626194/",
     description:
       "Updated systematic review supporting glucocorticoid therapy for croup, including improvement in symptoms and reductions in hospital stay and return visits.",
   },
@@ -224,21 +217,16 @@ const references: Reference[] = [
 export default function CroupPage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
-
       {/* =====================================================
           HERO
       ====================================================== */}
 
       <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 via-sky-50/70 to-white px-6 py-14">
         <div className="mx-auto max-w-6xl">
-
           {/* Breadcrumb */}
 
           <nav className="flex flex-wrap gap-3 text-sm font-semibold">
-            <Link
-              href="/"
-              className="text-blue-800 hover:text-blue-600"
-            >
+            <Link href="/" className="text-blue-800 hover:text-blue-600">
               PediAtlas
             </Link>
 
@@ -262,9 +250,7 @@ export default function CroupPage() {
 
             <span className="text-slate-400">/</span>
 
-            <span className="text-slate-600">
-              Croup
-            </span>
+            <span className="text-slate-600">Croup</span>
           </nav>
 
           <div className="mt-9 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
@@ -279,10 +265,9 @@ export default function CroupPage() {
 
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
                 Croup, or acute viral laryngotracheitis, is an upper-airway
-                illness characterized by inflammation and edema of the
-                larynx and subglottic airway, producing the classic
-                combination of a barking cough, hoarseness, and inspiratory
-                stridor.
+                illness characterized by inflammation and edema of the larynx
+                and subglottic airway, producing the classic combination of a
+                barking cough, hoarseness, and inspiratory stridor.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
@@ -304,10 +289,7 @@ export default function CroupPage() {
               </div>
             </div>
 
-            <div
-              className="text-8xl"
-              aria-hidden="true"
-            >
+            <div className="text-8xl" aria-hidden="true">
               🦭🗣️
             </div>
           </div>
@@ -319,7 +301,6 @@ export default function CroupPage() {
       ====================================================== */}
 
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-14 lg:grid-cols-[220px_1fr]">
-
         {/* ===================================================
             SIDEBAR
         ==================================================== */}
@@ -332,69 +313,51 @@ export default function CroupPage() {
           <nav className="mt-4 flex flex-col gap-3 text-sm font-semibold text-blue-800">
             <a href="#vignette">Clinical vignette</a>
 
-            <a href="#localization">
-              Anatomy &amp; Localization
-            </a>
+            <a href="#localization">Anatomy &amp; Localization</a>
 
-            <a href="#pathophysiology">
-              Pathophysiology
-            </a>
+            <a href="#pathophysiology">Pathophysiology</a>
 
-            <a href="#assessment">
-              History &amp; Physical
-            </a>
+            <a href="#assessment">History &amp; Physical</a>
 
-            <a href="#differential">
-              Differential Diagnosis
-            </a>
+            <a href="#differential">Differential Diagnosis</a>
 
-            <a href="#workup">
-              Diagnostic Workup
-            </a>
+            <a href="#workup">Diagnostic Workup</a>
 
-            <a href="#management">
-              Management
-            </a>
+            <a href="#management">Management</a>
 
-            <a href="#disposition">
-              Disposition
-            </a>
+            <a href="#disposition">Disposition</a>
 
-            <a href="#pearls">
-              Clinical Pearls
-            </a>
+            <a href="#pearls">Clinical Pearls</a>
 
-            <a href="#quiz">
-              Quiz
-            </a>
+            <a href="#quiz">Quiz</a>
           </nav>
         </aside>
 
-       {/* =====================================================
+        {/* =====================================================
           Mobile Section Navigation
-      ====================================================== */} 
-      <MobileSectionNav
-  title="Croup"
-  sections={[
-    { id: "anatomy", label: "Anatomy & Localization" },
-    { id: "history", label: "History & Physical" },
-    { id: "severity", label: "Severity" },
-    { id: "differential", label: "Differential Diagnosis" },
-    { id: "workup", label: "Diagnostic Workup" },
-    { id: "management", label: "Management" },
-    { id: "disposition", label: "Disposition" },
-    { id: "pearls", label: "Clinical Pearls" },
-    { id: "quiz", label: "Quiz" },
-  ]}
-/>
+      ====================================================== */}
+        <MobileSectionNav
+          title="Croup"
+          sections={[
+            { id: "vignette", label: "Clinical Vignette" },
+            { id: "localization", label: "Anatomy & Localization" },
+            { id: "pathophysiology", label: "Pathophysiology" },
+            { id: "assessment", label: "History & Physical" },
+            { id: "differential", label: "Differential Diagnosis" },
+            { id: "workup", label: "Diagnostic Workup" },
+            { id: "management", label: "Management" },
+            { id: "disposition", label: "Disposition" },
+            { id: "pearls", label: "Clinical Pearls" },
+            { id: "quiz", label: "Quiz" },
+          ]}
+        />
 
-      {/* rest of your Croup page */}
+        {/* rest of your Croup page */}
         {/* ===================================================
             MAIN CONTENT
         ==================================================== */}
 
         <div className="space-y-14">
-
           {/* =================================================
               CLINICAL VIGNETTE
           ================================================== */}
@@ -408,19 +371,19 @@ export default function CroupPage() {
             <div className="rounded-3xl bg-blue-950 p-7 text-white">
               <p className="text-lg leading-8 text-blue-50">
                 A previously healthy 20-month-old boy is brought to the
-                emergency department late at night after developing
-                increasingly noisy breathing. His parents report two days of
-                rhinorrhea and nasal congestion followed by a harsh,
-                &quot;barky&quot; cough and hoarse voice.
+                emergency department late at night after developing increasingly
+                noisy breathing. His parents report two days of rhinorrhea and
+                nasal congestion followed by a harsh, &quot;barky&quot; cough
+                and hoarse voice.
               </p>
 
               <p className="mt-5 text-lg leading-8 text-blue-50">
-                Temperature is 38.2°C/100.8°F. He is alert but anxious. When sitting
-                quietly in his parent&apos;s lap, a high-pitched inspiratory
-                sound is audible without a stethoscope. Mild suprasternal
-                retractions are present. He is drooling normally for age,
-                swallows without difficulty, and has no urticaria or history
-                of choking.
+                Temperature is 38.2°C/100.8°F. He is alert but anxious. When
+                sitting quietly in his parent&apos;s lap, a high-pitched
+                inspiratory sound is audible without a stethoscope. Mild
+                suprasternal retractions are present. He is drooling normally
+                for age, swallows without difficulty, and has no urticaria or
+                history of choking.
               </p>
 
               <div className="mt-7 rounded-2xl bg-white/10 p-5">
@@ -429,9 +392,9 @@ export default function CroupPage() {
                 </p>
 
                 <p className="mt-2 leading-7 text-blue-50">
-                  Localize the obstruction, determine the likely diagnosis,
-                  and decide whether this child has findings that require
-                  treatment beyond corticosteroid therapy alone.
+                  Localize the obstruction, determine the likely diagnosis, and
+                  decide whether this child has findings that require treatment
+                  beyond corticosteroid therapy alone.
                 </p>
               </div>
             </div>
@@ -450,10 +413,7 @@ export default function CroupPage() {
             <CroupAnatomyFigure />
 
             <div className="grid gap-6 md:grid-cols-2">
-              <InfoCard
-                title="Supraglottic airway"
-                tone="slate"
-              >
+              <InfoCard title="Supraglottic airway" tone="slate">
                 <p>
                   Structures above the vocal cords include the epiglottis,
                   aryepiglottic folds, and surrounding pharyngeal tissues.
@@ -462,48 +422,35 @@ export default function CroupPage() {
                 </p>
               </InfoCard>
 
-              <InfoCard
-                title="Glottic & subglottic airway"
-                tone="blue"
-              >
+              <InfoCard title="Glottic & subglottic airway" tone="blue">
                 <p>
-                  Croup predominantly involves the larynx and subglottic
-                  region immediately below the vocal cords. This localization
-                  explains the characteristic combination of barking cough,
-                  hoarseness, and inspiratory stridor.
+                  Croup predominantly involves the larynx and subglottic region
+                  immediately below the vocal cords. This localization explains
+                  the characteristic combination of barking cough, hoarseness,
+                  and inspiratory stridor.
                 </p>
               </InfoCard>
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
-              <InfoCard
-                title="Barking cough"
-                tone="blue"
-              >
+              <InfoCard title="Barking cough" tone="blue">
                 <p>
                   Inflammation involving the larynx and proximal trachea
                   produces the characteristic harsh, seal-like cough.
                 </p>
               </InfoCard>
 
-              <InfoCard
-                title="Hoarseness"
-                tone="blue"
-              >
+              <InfoCard title="Hoarseness" tone="blue">
                 <p>
-                  Laryngeal inflammation affects phonation, producing a raspy
-                  or hoarse voice.
+                  Laryngeal inflammation affects phonation, producing a raspy or
+                  hoarse voice.
                 </p>
               </InfoCard>
 
-              <InfoCard
-                title="Inspiratory stridor"
-                tone="blue"
-              >
+              <InfoCard title="Inspiratory stridor" tone="blue">
                 <p>
                   Narrowing of the extrathoracic upper airway generates
-                  turbulent airflow that is most prominent during
-                  inspiration.
+                  turbulent airflow that is most prominent during inspiration.
                 </p>
               </InfoCard>
             </div>
@@ -516,9 +463,9 @@ export default function CroupPage() {
               <p>
                 Stridor generally points toward obstruction of the upper or
                 central airway. Wheezing usually reflects intrathoracic
-                lower-airway narrowing. Substantial wheezing in a child
-                presumed to have croup should prompt consideration of another
-                or additional diagnosis.
+                lower-airway narrowing. Substantial wheezing in a child presumed
+                to have croup should prompt consideration of another or
+                additional diagnosis.
               </p>
             </Callout>
           </DiseaseSection>
@@ -566,8 +513,8 @@ export default function CroupPage() {
             >
               <p>
                 Airway resistance is extremely sensitive to airway radius. Under
-                laminar-flow conditions, Poiseuille&apos;s law predicts that resistance
-                varies inversely with the fourth power of the radius:
+                laminar-flow conditions, Poiseuille&apos;s law predicts that
+                resistance varies inversely with the fourth power of the radius:
               </p>
 
               <div className="my-6 rounded-2xl border border-blue-200 bg-white p-6 text-center">
@@ -577,17 +524,18 @@ export default function CroupPage() {
               </div>
 
               <p>
-                This means that even a modest decrease in airway radius can produce a
-                disproportionately large increase in resistance. Because young children
-                begin with a relatively small subglottic airway, circumferential mucosal
-                edema can rapidly consume a clinically important fraction of the
-                available lumen.
+                This means that even a modest decrease in airway radius can
+                produce a disproportionately large increase in resistance.
+                Because young children begin with a relatively small subglottic
+                airway, circumferential mucosal edema can rapidly consume a
+                clinically important fraction of the available lumen.
               </p>
 
               <p className="mt-4">
-                Actual airflow through a narrowed croup airway may become turbulent, so
-                Poiseuille&apos;s law is best used here as a conceptual model rather than
-                an exact description of airflow during croup.
+                Actual airflow through a narrowed croup airway may become
+                turbulent, so Poiseuille&apos;s law is best used here as a
+                conceptual model rather than an exact description of airflow
+                during croup.
               </p>
             </Callout>
 
@@ -604,16 +552,13 @@ export default function CroupPage() {
               </p>
             </Callout>
 
-            <InfoCard
-              title="Natural history"
-              tone="slate"
-            >
+            <InfoCard title="Natural history" tone="slate">
               <p>
                 Croup commonly begins with several hours to a few days of
-                nonspecific upper-respiratory symptoms before the barking
-                cough, hoarseness, and stridor become prominent. Symptoms are
-                often worse at night and typically peak early in the illness.
-                Most uncomplicated cases improve over several days.
+                nonspecific upper-respiratory symptoms before the barking cough,
+                hoarseness, and stridor become prominent. Symptoms are often
+                worse at night and typically peak early in the illness. Most
+                uncomplicated cases improve over several days.
               </p>
             </InfoCard>
           </DiseaseSection>
@@ -629,10 +574,7 @@ export default function CroupPage() {
             description="The most useful examination asks whether obstruction is present only with agitation or persists while the child is calm."
           >
             <div className="grid gap-6 md:grid-cols-2">
-              <InfoCard
-                title="Classic history"
-                tone="blue"
-              >
+              <InfoCard title="Classic history" tone="blue">
                 <ul className="space-y-3">
                   <li>• Age commonly 6 months to 3 years</li>
                   <li>• Preceding rhinorrhea or other URI symptoms</li>
@@ -644,10 +586,7 @@ export default function CroupPage() {
                 </ul>
               </InfoCard>
 
-              <InfoCard
-                title="Physical examination"
-                tone="blue"
-              >
+              <InfoCard title="Physical examination" tone="blue">
                 <ul className="space-y-3">
                   <li>• Inspiratory stridor</li>
                   <li>• Suprasternal or intercostal retractions</li>
@@ -655,7 +594,9 @@ export default function CroupPage() {
                   <li>• Hoarse cry or voice</li>
                   <li>• Reduced air entry as obstruction worsens</li>
                   <li>• Hypoxemia or cyanosis in severe disease</li>
-                  <li>• Altered mental status or fatigue as late warning signs</li>
+                  <li>
+                    • Altered mental status or fatigue as late warning signs
+                  </li>
                 </ul>
               </InfoCard>
             </div>
@@ -668,10 +609,7 @@ export default function CroupPage() {
               </p>
 
               <div className="mt-4 grid gap-5 lg:grid-cols-3">
-                <InfoCard
-                  title="Mild"
-                  tone="emerald"
-                >
+                <InfoCard title="Mild" tone="emerald">
                   <ul className="space-y-2">
                     <li>• Barking cough</li>
                     <li>• Hoarseness</li>
@@ -681,10 +619,7 @@ export default function CroupPage() {
                   </ul>
                 </InfoCard>
 
-                <InfoCard
-                  title="Moderate"
-                  tone="amber"
-                >
+                <InfoCard title="Moderate" tone="amber">
                   <ul className="space-y-2">
                     <li>• Frequent barking cough</li>
                     <li>• Easily audible stridor at rest</li>
@@ -693,10 +628,7 @@ export default function CroupPage() {
                   </ul>
                 </InfoCard>
 
-                <InfoCard
-                  title="Severe / impending failure"
-                  tone="rose"
-                >
+                <InfoCard title="Severe / impending failure" tone="rose">
                   <ul className="space-y-2">
                     <li>• Prominent or persistent stridor at rest</li>
                     <li>• Severe retractions or respiratory distress</li>
@@ -759,16 +691,13 @@ export default function CroupPage() {
               ].map((item, index) => (
                 <div
                   key={item.diagnosis}
-                  className={`grid gap-3 p-5 md:grid-cols-[200px_1fr] ${index !== 3 ? "border-b border-slate-200" : ""
-                    }`}
+                  className={`grid gap-3 p-5 md:grid-cols-[200px_1fr] ${
+                    index !== 3 ? "border-b border-slate-200" : ""
+                  }`}
                 >
-                  <p className="font-bold text-slate-900">
-                    {item.diagnosis}
-                  </p>
+                  <p className="font-bold text-slate-900">{item.diagnosis}</p>
 
-                  <p className="leading-7 text-slate-600">
-                    {item.clues}
-                  </p>
+                  <p className="leading-7 text-slate-600">{item.clues}</p>
                 </div>
               ))}
             </div>
@@ -811,10 +740,7 @@ export default function CroupPage() {
             </Callout>
 
             <div className="grid gap-6 md:grid-cols-2">
-              <InfoCard
-                title="Usually unnecessary"
-                tone="slate"
-              >
+              <InfoCard title="Usually unnecessary" tone="slate">
                 <ul className="space-y-3">
                   <li>• Routine CBC</li>
                   <li>• Routine inflammatory markers</li>
@@ -836,7 +762,9 @@ export default function CroupPage() {
                   <li>• Disease progresses unexpectedly</li>
                   <li>• Response to appropriate treatment is poor</li>
                   <li>• A foreign body or deep-neck infection is suspected</li>
-                  <li>• Recurrent episodes suggest structural airway disease</li>
+                  <li>
+                    • Recurrent episodes suggest structural airway disease
+                  </li>
                 </ul>
               </InfoCard>
             </div>
@@ -855,8 +783,9 @@ export default function CroupPage() {
                 >
                   <CroupSteepleSign />
                 </FigureModal>
-                . The finding is supportive rather than diagnostic, and routine imaging
-                is unnecessary when the clinical presentation is classic.
+                . The finding is supportive rather than diagnostic, and routine
+                imaging is unnecessary when the clinical presentation is
+                classic.
               </p>
             </Callout>
 
@@ -908,15 +837,12 @@ export default function CroupPage() {
 
             {/* DEXAMETHASONE */}
 
-            <InfoCard
-              title="Dexamethasone — first-line therapy"
-              tone="emerald"
-            >
+            <InfoCard title="Dexamethasone — first-line therapy" tone="emerald">
               <p>
-                A single dose of dexamethasone is recommended for children
-                with croup regardless of severity. Oral administration is
-                generally preferred when tolerated, although intramuscular or
-                intravenous administration may be used when necessary.
+                A single dose of dexamethasone is recommended for children with
+                croup regardless of severity. Oral administration is generally
+                preferred when tolerated, although intramuscular or intravenous
+                administration may be used when necessary.
               </p>
 
               <div className="mt-5 rounded-xl border border-emerald-200 bg-white/70 p-4">
@@ -932,8 +858,8 @@ export default function CroupPage() {
               <p className="mt-4">
                 Lower doses such as 0.15 mg/kg are used in some clinical
                 pathways and may be similarly effective in many children, but
-                evidence establishing equivalence across all severities is
-                less certain. Follow local pediatric dosing guidance.
+                evidence establishing equivalence across all severities is less
+                certain. Follow local pediatric dosing guidance.
               </p>
             </InfoCard>
 
@@ -944,11 +870,11 @@ export default function CroupPage() {
               tone="amber"
             >
               <p>
-                Nebulized epinephrine produces alpha-adrenergic
-                vasoconstriction of upper-airway mucosa, rapidly decreasing
-                edema. Its clinical effect begins quickly but is temporary, so
-                it should be paired with corticosteroid therapy rather than
-                used as definitive treatment alone.
+                Nebulized epinephrine produces alpha-adrenergic vasoconstriction
+                of upper-airway mucosa, rapidly decreasing edema. Its clinical
+                effect begins quickly but is temporary, so it should be paired
+                with corticosteroid therapy rather than used as definitive
+                treatment alone.
               </p>
 
               <div className="mt-5 grid gap-4 md:grid-cols-2">
@@ -961,9 +887,7 @@ export default function CroupPage() {
                     <strong>0.05 mL/kg nebulized</strong>
                   </p>
 
-                  <p className="mt-1">
-                    Maximum 0.5 mL
-                  </p>
+                  <p className="mt-1">Maximum 0.5 mL</p>
                 </div>
 
                 <div className="rounded-xl border border-amber-200 bg-white/70 p-4">
@@ -975,9 +899,7 @@ export default function CroupPage() {
                     <strong>0.5 mL/kg nebulized</strong>
                   </p>
 
-                  <p className="mt-1">
-                    Maximum 5 mL
-                  </p>
+                  <p className="mt-1">Maximum 5 mL</p>
                 </div>
               </div>
 
@@ -1005,23 +927,19 @@ export default function CroupPage() {
             {/* SUPPORTIVE */}
 
             <div className="grid gap-6 md:grid-cols-2">
-              <InfoCard
-                title="Supportive care"
-                tone="blue"
-              >
+              <InfoCard title="Supportive care" tone="blue">
                 <ul className="space-y-3">
                   <li>• Keep the child calm and with the caregiver</li>
                   <li>• Encourage fluids if safely tolerated</li>
                   <li>• Treat fever or discomfort when appropriate</li>
                   <li>• Give supplemental oxygen for hypoxemia</li>
-                  <li>• Reassess respiratory effort and air entry frequently</li>
+                  <li>
+                    • Reassess respiratory effort and air entry frequently
+                  </li>
                 </ul>
               </InfoCard>
 
-              <InfoCard
-                title="Not routinely recommended"
-                tone="slate"
-              >
+              <InfoCard title="Not routinely recommended" tone="slate">
                 <ul className="space-y-3">
                   <li>• Antibiotics for uncomplicated viral croup</li>
                   <li>• Albuterol unless separate bronchospasm is present</li>
@@ -1040,17 +958,17 @@ export default function CroupPage() {
               tone="rose"
             >
               <p>
-                Progressive fatigue, altered mental status, cyanosis,
-                hypoxemia, markedly decreased air entry, or worsening
-                obstruction despite appropriate therapy should trigger
-                immediate airway and critical-care escalation.
+                Progressive fatigue, altered mental status, cyanosis, hypoxemia,
+                markedly decreased air entry, or worsening obstruction despite
+                appropriate therapy should trigger immediate airway and
+                critical-care escalation.
               </p>
 
               <p className="mt-3">
                 In severe upper-airway obstruction, involve experienced airway
-                clinicians early. Avoid repeated nonessential interventions
-                that agitate the child while definitive airway management is
-                being prepared.
+                clinicians early. Avoid repeated nonessential interventions that
+                agitate the child while definitive airway management is being
+                prepared.
               </p>
             </Callout>
           </DiseaseSection>
@@ -1066,10 +984,7 @@ export default function CroupPage() {
             description="The child should remain clinically stable after treatment before the care setting is de-escalated."
           >
             <div className="grid gap-6 lg:grid-cols-3">
-              <InfoCard
-                title="Discharge / outpatient care"
-                tone="emerald"
-              >
+              <InfoCard title="Discharge / outpatient care" tone="emerald">
                 <ul className="space-y-3">
                   <li>• No stridor at rest</li>
                   <li>• Minimal or resolved retractions</li>
@@ -1080,10 +995,7 @@ export default function CroupPage() {
                 </ul>
               </InfoCard>
 
-              <InfoCard
-                title="Hospital admission"
-                tone="amber"
-              >
+              <InfoCard title="Hospital admission" tone="amber">
                 <ul className="space-y-3">
                   <li>• Persistent stridor at rest</li>
                   <li>• Ongoing moderate respiratory distress</li>
@@ -1094,10 +1006,7 @@ export default function CroupPage() {
                 </ul>
               </InfoCard>
 
-              <InfoCard
-                title="PICU / airway escalation"
-                tone="rose"
-              >
+              <InfoCard title="PICU / airway escalation" tone="rose">
                 <ul className="space-y-3">
                   <li>• Severe or rapidly progressive obstruction</li>
                   <li>• Markedly decreased air entry</li>
@@ -1128,10 +1037,7 @@ export default function CroupPage() {
               </p>
             </Callout>
 
-            <InfoCard
-              title="Recurrent or atypical croup"
-              tone="purple"
-            >
+            <InfoCard title="Recurrent or atypical croup" tone="purple">
               <p>
                 Repeated episodes, onset outside the usual age range,
                 persistently severe symptoms, poor treatment response, or an
@@ -1153,14 +1059,11 @@ export default function CroupPage() {
             description="These are the distinctions worth carrying from the page to the bedside."
           >
             <div className="grid gap-5 md:grid-cols-2">
-              <PearlCard
-                number={1}
-                title="Stridor at rest changes management"
-              >
+              <PearlCard number={1} title="Stridor at rest changes management">
                 A child who only develops stridor while crying generally has
                 milder obstruction than a child with persistent stridor while
-                calm. Stridor at rest is an important trigger for escalation
-                to nebulized epinephrine.
+                calm. Stridor at rest is an important trigger for escalation to
+                nebulized epinephrine.
               </PearlCard>
 
               <PearlCard
@@ -1172,10 +1075,7 @@ export default function CroupPage() {
                 children with severe stridor.
               </PearlCard>
 
-              <PearlCard
-                number={3}
-                title="Do not chase the steeple sign"
-              >
+              <PearlCard number={3} title="Do not chase the steeple sign">
                 Croup is a clinical diagnosis. A neck radiograph is not needed
                 merely to demonstrate subglottic narrowing in an otherwise
                 classic presentation.
@@ -1194,8 +1094,8 @@ export default function CroupPage() {
                 number={5}
                 title="Toxic appearance should make you reconsider croup"
               >
-                High fever, toxicity, purulent secretions, rapid progression,
-                or poor response to standard therapy should raise concern for
+                High fever, toxicity, purulent secretions, rapid progression, or
+                poor response to standard therapy should raise concern for
                 bacterial tracheitis or another dangerous alternative.
               </PearlCard>
 
@@ -1208,23 +1108,16 @@ export default function CroupPage() {
                 pathology such as epiglottitis or an abscess.
               </PearlCard>
 
-              <PearlCard
-                number={7}
-                title="Keep the child calm"
-              >
+              <PearlCard number={7} title="Keep the child calm">
                 Crying increases airflow demand and can significantly worsen
                 dynamic upper-airway obstruction. The caregiver&apos;s lap is
                 often the best examination table.
               </PearlCard>
 
-              <PearlCard
-                number={8}
-                title="Quiet stridor can be ominous"
-              >
+              <PearlCard number={8} title="Quiet stridor can be ominous">
                 If a tiring child develops poor air entry and less audible
-                stridor, do not assume improvement. Reduced airflow can make
-                the airway sound quieter immediately before respiratory
-                failure.
+                stridor, do not assume improvement. Reduced airflow can make the
+                airway sound quieter immediately before respiratory failure.
               </PearlCard>
             </div>
 
@@ -1234,11 +1127,11 @@ export default function CroupPage() {
               tone="blue"
             >
               <p>
-                Typical croup is diagnosed clinically. Give dexamethasone,
-                add nebulized epinephrine when significant stridor or distress
-                is present, minimize agitation, and reconsider the diagnosis
-                when the child looks toxic or behaves unlike uncomplicated
-                viral croup.
+                Typical croup is diagnosed clinically. Give dexamethasone, add
+                nebulized epinephrine when significant stridor or distress is
+                present, minimize agitation, and reconsider the diagnosis when
+                the child looks toxic or behaves unlike uncomplicated viral
+                croup.
               </p>
             </Callout>
           </DiseaseSection>
@@ -1284,7 +1177,6 @@ export default function CroupPage() {
               Back to top ↑
             </a>
           </div>
-
         </div>
       </div>
     </main>
