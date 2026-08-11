@@ -1,144 +1,148 @@
 # PediAtlas Project Roadmap
 
-# PediAtlas Development Philosophy
+> Build the medicine first. Abstract repeated patterns. Keep the interface
+> consistent. Optimize after the experience works.
 
-1. Education first.
-2. Understand before memorizing.
-3. Build reusable components whenever repetition appears.
-4. Finish features before optimizing.
-5. Keep the UI clean, consistent, and approachable.
-
-Last Updated: July 2026
+Last Updated: August 2026
 
 ---
 
-# Current Status
+# 🔨 NOW
 
-## Completed ✅
+Current work actively being built.
 
-### Infrastructure
+## Respiratory — Upper Airway
 
-- [x] Next.js project initialized
-- [x] Vercel deployment
+- [x] Croup
+- [ ] Epiglottitis
+  - [x] Hero
+  - [x] Clinical Vignette
+  - [x] Anatomy & Localization
+  - [x] Pathophysiology
+  - [x] History & Physical
+  - [x] Differential Diagnosis
+  - [ ] Diagnostic Workup
+  - [ ] Find reusable/open-license thumb-sign radiograph
+  - [ ] Management
+  - [ ] Disposition
+  - [ ] Clinical Pearls
+  - [ ] Quiz
+  - [ ] Evidence Base
+
+---
+
+# ⏭️ NEXT
+
+Likely next work after the current disease.
+
+## Upper Airway
+
+- [ ] Bacterial Tracheitis
+- [ ] Viral URI
+- [ ] Sinusitis
+- [ ] Retropharyngeal Abscess
+- [ ] Peritonsillar Abscess
+- [ ] Upper Airway Foreign Body
+
+## PediAtlas Body Map
+
+After several additional upper-airway diseases:
+
+- [ ] Prototype 2D pediatric body map
+- [ ] Clickable organ-system regions
+- [ ] Respiratory anatomy drill-down
+- [ ] Test desktop + mobile interaction
+- [ ] Evaluate transition to 3D model
+
+---
+
+# 💡 LATER
+
+Ideas worth keeping without distracting from current development.
+
+## Respiratory
+
+- [ ] Pleural diseases
+- [ ] Pulmonary vascular diseases
+- [ ] Neonatal respiratory diseases
+
+## Site Features
+
+- [ ] Search
+- [ ] User accounts
+- [ ] Notes
+- [ ] Progress tracking
+- [ ] Additional interactive quizzes
+- [ ] Image gallery
+- [ ] Zoomable radiology
+- [ ] More interactive anatomy
+- [ ] 3D pediatric anatomy model
+
+## Future Expansion
+
+- [ ] Cardiology
+- [ ] Neurology
+- [ ] Gastroenterology
+- [ ] Hematology / Oncology
+- [ ] Adult Atlas concept
+
+## Architecture — revisit when needed
+
+- [ ] Consider moving reference arrays into `/references`
+- [ ] Review component architecture after more disease modules
+- [ ] Optimize image loading / performance
+- [ ] Review accessibility
+- [ ] Review SEO / metadata
+
+---
+
+# ✅ DONE
+
+## Infrastructure
+
+- [x] Next.js + TypeScript + Tailwind
 - [x] GitHub repository
-- [x] Responsive layout
-- [x] Sidebar navigation
+- [x] Vercel deployment
+- [x] Responsive disease-page layout
+- [x] Desktop sticky navigation
+- [x] Mobile section navigation
 - [x] Breadcrumb navigation
+- [x] PediAtlas.org connected
+- [x] PediAtlas.com secured and redirected
 
-### Reusable Components
+## Reusable Components
 
-- [x] Section
+- [x] DiseaseSection
 - [x] InfoCard
-- [x] ImageCard
+- [x] Callout
 - [x] ProcessStep
+- [x] PearlCard
+- [x] ProgressiveQuiz
 - [x] EvidenceBase
-- [x] Created Master Disease Template
+- [x] FigureModal
+- [x] MobileSectionNav
+- [x] InteractiveImage
+- [x] Master Disease Page Template
 
-### Respiratory Diseases
+## Respiratory — Lower Airway
 
 - [x] Bronchiolitis
 - [x] Asthma
 - [x] Pneumonia
 - [x] Pertussis
+- [x] Pulmonary Aspiration
+- [x] Foreign Body Aspiration
+
+## Respiratory — Upper Airway
+
+- [x] Upper Airway Library
+- [x] Croup
 
 ---
 
-# Current Priorities
+# 🅿️ IDEA PARKING LOT
 
-- [ ] Complete Epiglotttis
-- [ ] Find open source lateral neck x-ray
-
-## High Priority
-
-- [ ] Finish lower respiratory pathologies
-- [ ] Continue Respiratory section
-
----
-
-# Future Component Ideas
-
-## Medium Priority
-
-- [ ] DiseaseQuiz component
-- [ ] ClinicalPearls component
-- [ ] AnatomyLocalization component
-- [ ] DiagnosticWorkup component (evaluate after more diseases)
-- [ ] Component for InteractiveImage (annotations on Imagings)
-
----
-
-# Future Architecture Improvements
-
-## When ~10 Diseases Exist
-
-- [ ] Move references into `/references`
-- [ ] Store reference arrays separately from page components
-- [ ] Review EvidenceBase component if needed
-
-Example:
-
-references/
-
-- asthma.ts
-- bronchiolitis.ts
-- pneumonia.ts
-
----
-
-# Image Improvements
-
-- [ ] Click-to-expand images
-- [ ] Image gallery component
-- [ ] Optional image annotations
-- [ ] Zoomable radiology images
-
----
-
-# Educational Improvements
-
-- [ ] Add direct article links where possible
-- [ ] Add DOI/PubMed links when appropriate
-- [ ] Review all references for highest-quality sources
-
----
-
-# Design Standards (Do Not Change Without Discussion)
-
-## Disease Page Order
-
-1. Clinical Vignette
-2. Anatomy Localization
-3. Pathophysiology
-4. History & Physical
-5. Differential Diagnosis
-6. Diagnostic Workup
-7. Management
-8. Disposition
-9. Clinical Pearls
-10. Quiz
-11. Evidence Base (NOT included in sidebar)
-
----
-
-## Sidebar Rules
-
-- Evidence Base is NOT shown in "On This Page".
-- Sidebar is educational navigation only.
-
----
-
-## EvidenceBase Standards
-
-- Use reusable component.
-- Standard disclaimer.
-- Clinical References heading.
-- Optional Secondary Educational Sources.
-
----
-
-# Ideas Parking Lot
-
-Use this section to save ideas without interrupting development.
+Drop random ideas here without reorganizing the roadmap.
 
 - Adult Atlas version
 - 3D anatomy integration
