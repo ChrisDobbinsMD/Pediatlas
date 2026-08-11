@@ -26,8 +26,8 @@ const diseases = [
     name: "Epiglottitis",
     description:
       "Rapidly progressive inflammation of the epiglottis and supraglottic airway that can cause life-threatening airway obstruction.",
-    age: "Can occur at any age; less common after routine Hib vaccination",
-    status: "Coming soon",
+    age: "Now uncommon in vaccinated children; can occur across age groups",
+    status: "In Progress",
   },
   {
     name: "Bacterial Tracheitis",
@@ -65,10 +65,7 @@ export default function UpperAirwayPage() {
       <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 via-sky-50/70 to-white px-6 py-12">
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-wrap items-center gap-3 text-sm font-medium">
-            <Link
-              href="/"
-              className="text-blue-800 hover:text-blue-600"
-            >
+            <Link href="/" className="text-blue-800 hover:text-blue-600">
               PediAtlas
             </Link>
 
@@ -97,8 +94,8 @@ export default function UpperAirwayPage() {
               </h1>
 
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-                Explore diseases affecting the nose, pharynx, larynx,
-                and proximal trachea.
+                Explore diseases affecting the nose, pharynx, larynx, and
+                proximal trachea.
               </p>
             </div>
 
@@ -116,9 +113,7 @@ export default function UpperAirwayPage() {
               Disease Library
             </p>
 
-            <h2 className="mt-2 text-3xl font-bold">
-              Upper-airway conditions
-            </h2>
+            <h2 className="mt-2 text-3xl font-bold">Upper-airway conditions</h2>
 
             <p className="mt-3 max-w-2xl text-lg text-slate-600">
               Each condition will eventually include a vignette,
@@ -131,25 +126,28 @@ export default function UpperAirwayPage() {
               .sort((a, b) => a.name.localeCompare(b.name))
               .map((disease) => {
                 const isAvailable = disease.status === "Available!";
+                const isInProgress = disease.status === "In Progress";
 
                 return (
                   <article
                     key={disease.name}
-                    className={`flex h-full flex-col rounded-3xl border bg-white p-7 shadow-sm transition ${isAvailable
+                    className={`flex h-full flex-col rounded-3xl border bg-white p-7 shadow-sm transition ${
+                      isAvailable || isInProgress
                         ? "border-sky-300 hover:-translate-y-1 hover:shadow-lg"
                         : "border-slate-200"
-                      }`}
+                    }`}
                   >
                     <div className="flex items-start justify-between gap-4">
-                      <h3 className="text-2xl font-bold">
-                        {disease.name}
-                      </h3>
+                      <h3 className="text-2xl font-bold">{disease.name}</h3>
 
                       <span
-                        className={`rounded-full px-3 py-1 text-xs font-semibold ${isAvailable
+                        className={`rounded-full px-3 py-1 text-xs font-semibold ${
+                          isAvailable
                             ? "bg-emerald-100 text-emerald-700"
-                            : "bg-slate-100 text-slate-500"
-                          }`}
+                            : isInProgress
+                              ? "bg-amber-100 text-amber-700"
+                              : "bg-slate-100 text-slate-500"
+                        }`}
                       >
                         {disease.status}
                       </span>
@@ -176,6 +174,13 @@ export default function UpperAirwayPage() {
                           className="font-semibold text-blue-700 hover:text-blue-900"
                         >
                           Open croup →
+                        </Link>
+                      ) : disease.name === "Epiglottitis" ? (
+                        <Link
+                          href="/respiratory/upper-airway/epiglottitis"
+                          className="font-semibold text-blue-700 hover:text-blue-900"
+                        >
+                          Open epiglottitis →
                         </Link>
                       ) : (
                         <span className="font-semibold text-slate-400">

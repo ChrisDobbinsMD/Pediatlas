@@ -15,13 +15,9 @@ export default function ProcessStep({
         {number}
       </div>
 
-      <h3 className="mt-4 font-bold text-slate-950">
-        {title}
-      </h3>
+      <h3 className="mt-4 font-bold text-slate-950">{title}</h3>
 
-      <p className="mt-2 leading-7 text-slate-700">
-        {description}
-      </p>
+      <p className="mt-2 leading-7 text-slate-700">{description}</p>
     </div>
   );
 }

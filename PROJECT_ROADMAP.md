@@ -17,6 +17,7 @@ Last Updated: July 2026
 ## Completed ✅
 
 ### Infrastructure
+
 - [x] Next.js project initialized
 - [x] Vercel deployment
 - [x] GitHub repository
@@ -25,14 +26,16 @@ Last Updated: July 2026
 - [x] Breadcrumb navigation
 
 ### Reusable Components
+
 - [x] Section
 - [x] InfoCard
 - [x] ImageCard
 - [x] ProcessStep
 - [x] EvidenceBase
-- [x] Created Master Disease Template 
+- [x] Created Master Disease Template
 
 ### Respiratory Diseases
+
 - [x] Bronchiolitis
 - [x] Asthma
 - [x] Pneumonia
@@ -41,6 +44,9 @@ Last Updated: July 2026
 ---
 
 # Current Priorities
+
+- [ ] Complete Epiglotttis
+- [ ] Find open source lateral neck x-ray
 
 ## High Priority
 
@@ -72,6 +78,7 @@ Last Updated: July 2026
 Example:
 
 references/
+
 - asthma.ts
 - bronchiolitis.ts
 - pneumonia.ts
