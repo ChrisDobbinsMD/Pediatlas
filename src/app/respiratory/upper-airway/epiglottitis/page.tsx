@@ -137,6 +137,7 @@ export default function EpiglottitisPage() {
             <a href="#workup">Diagnostic Workup</a>
             <a href="#management">Management</a>
             <a href="#disposition">Disposition</a>
+            <a href="#prevention">Prevention</a>
             <a href="#pearls">Clinical Pearls</a>
             <a href="#quiz">Quiz</a>
           </nav>
@@ -157,6 +158,7 @@ export default function EpiglottitisPage() {
             { id: "workup", label: "Diagnostic Workup" },
             { id: "management", label: "Management" },
             { id: "disposition", label: "Disposition" },
+            { id: "prevention", label: "Prevention" },
             { id: "pearls", label: "Clinical Pearls" },
             { id: "quiz", label: "Quiz" },
           ]}
@@ -678,10 +680,374 @@ export default function EpiglottitisPage() {
           {/* =================================================
         MANAGEMENT
     ================================================== */}
+          <DiseaseSection
+            id="management"
+            label="Management"
+            title="Protect the airway first, then treat the infection"
+            description="Suspected epiglottitis requires a calm environment, early airway planning, and prompt antimicrobial therapy without allowing routine interventions to destabilize the child."
+          >
+            {/* INITIAL APPROACH */}
+
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              <ProcessStep
+                number="1"
+                title="Keep the child calm"
+                description="Allow the child to remain upright with a caregiver in their preferred position. Avoid unnecessary examination, painful procedures, or forced repositioning."
+              />
+
+              <ProcessStep
+                number="2"
+                title="Mobilize airway expertise"
+                description="Early involvement of experienced pediatric airway clinicians is essential when significant obstruction is suspected. Anesthesia, critical care, and ENT support may be required."
+              />
+
+              <ProcessStep
+                number="3"
+                title="Secure a threatened airway"
+                description="Progressive obstruction or significant respiratory compromise requires definitive airway management in a controlled setting with personnel and equipment prepared for a difficult airway."
+              />
+
+              <ProcessStep
+                number="4"
+                title="Treat the infection"
+                description="Begin parenteral antimicrobial therapy directed against likely bacterial pathogens once immediate airway safety has been addressed."
+              />
+            </div>
+
+            {/* KEEP CALM */}
+
+            <Callout
+              label="First Priority"
+              title="The safest initial intervention may be doing less"
+              tone="rose"
+            >
+              <p>
+                Do not force the child to lie down, separate them unnecessarily
+                from a caregiver, or perform a routine throat examination. A
+                child maintaining airway patency through position and
+                respiratory effort can deteriorate rapidly when frightened or
+                agitated.
+              </p>
+            </Callout>
+
+            {/* AIRWAY */}
+
+            <InfoCard title="When airway intervention is needed" tone="rose">
+              <p>
+                Airway management should be strongly considered when there is
+                evidence of significant or progressive obstruction rather than
+                waiting for respiratory collapse.
+              </p>
+
+              <ul className="mt-4 space-y-3">
+                <li>• Increasing respiratory distress or work of breathing</li>
+                <li>• Progressive or severe stridor</li>
+                <li>• Inability to handle secretions</li>
+                <li>• Hypoxemia or cyanosis</li>
+                <li>• Decreasing air entry</li>
+                <li>• Fatigue or altered mental status</li>
+                <li>• Rapid clinical deterioration</li>
+              </ul>
+            </InfoCard>
+
+            <Callout
+              label="Airway Planning"
+              title="A controlled airway is safer than a crash airway"
+              tone="amber"
+            >
+              <p>
+                When definitive airway management is required, it should ideally
+                occur in a controlled environment with clinicians experienced in
+                pediatric airway management and immediate access to rescue
+                airway techniques. Preparation should account for the
+                possibility that severe supraglottic edema may make intubation
+                difficult.
+              </p>
+            </Callout>
+
+            {/* ANTIBIOTICS */}
+
+            <InfoCard title="Empiric antimicrobial therapy" tone="blue">
+              <p>
+                Epiglottitis is treated with parenteral antibiotics that provide
+                coverage for likely invasive bacterial pathogens. A
+                third-generation cephalosporin such as{" "}
+                <strong>ceftriaxone</strong> or <strong>cefotaxime</strong> is a
+                common foundation of therapy.
+              </p>
+
+              <p className="mt-4">
+                Additional antistaphylococcal coverage, including MRSA coverage
+                when clinically appropriate, may be added based on illness
+                severity, local epidemiology, microbiologic data, and
+                institutional guidance.
+              </p>
+
+              <p className="mt-4">
+                Once culture and susceptibility results are available,
+                antimicrobial therapy should be narrowed to the identified
+                pathogen when possible.
+              </p>
+            </InfoCard>
+
+            <Callout
+              label="Hib"
+              title="Think beyond the individual patient when Hib is identified"
+              tone="purple"
+            >
+              <p>
+                Confirmed invasive Haemophilus influenzae type b disease has
+                public-health implications in addition to treatment of the
+                child. Vaccination status should be reviewed, and appropriate
+                infection-control and contact prophylaxis recommendations should
+                be addressed according to current public-health guidance.
+              </p>
+            </Callout>
+
+            {/* SUPPORTIVE CARE */}
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <InfoCard title="Supportive care" tone="emerald">
+                <ul className="space-y-3">
+                  <li>• Continuous cardiorespiratory and airway observation</li>
+                  <li>• Supplemental oxygen when needed and tolerated</li>
+                  <li>
+                    • IV fluids after vascular access can be obtained safely
+                  </li>
+                  <li>• Antipyretics and analgesia when appropriate</li>
+                  <li>
+                    • Frequent reassessment for progression of obstruction
+                  </li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard title="Avoid unnecessary interventions" tone="slate">
+                <ul className="space-y-3">
+                  <li>• Forced throat examination</li>
+                  <li>• Unnecessary separation from the caregiver</li>
+                  <li>• Forcing the child into a supine position</li>
+                  <li>• Delaying airway management for diagnostic testing</li>
+                  <li>
+                    • Procedures that provoke agitation without changing
+                    immediate care
+                  </li>
+                </ul>
+              </InfoCard>
+            </div>
+
+            <Callout
+              label="Bottom Line"
+              title="Airway before everything else"
+              tone="blue"
+            >
+              <p>
+                In suspected epiglottitis, minimize agitation and assess whether
+                the airway can remain safely patent. Escalate early when
+                obstruction is progressing, secure a threatened airway in a
+                controlled setting, and then provide appropriate antimicrobial
+                and supportive therapy.
+              </p>
+            </Callout>
+          </DiseaseSection>
 
           {/* =================================================
         DISPOSITION
     ================================================== */}
+          <DiseaseSection
+            id="disposition"
+            label="Disposition / Care Setting"
+            title="Suspected pediatric epiglottitis belongs in an airway-capable hospital"
+            description="Disposition is driven by the risk of rapid upper-airway deterioration, not simply by the child's appearance at a single moment."
+          >
+            <div className="grid gap-6 lg:grid-cols-3">
+              <InfoCard title="PICU / airway-capable setting" tone="rose">
+                <p className="font-semibold">
+                  Appropriate for children with significant or progressive
+                  airway compromise.
+                </p>
+
+                <ul className="mt-4 space-y-3">
+                  <li>• Stridor with increasing respiratory distress</li>
+                  <li>• Progressive inability to handle secretions</li>
+                  <li>• Hypoxemia or cyanosis</li>
+                  <li>• Decreasing air entry</li>
+                  <li>• Fatigue or altered mental status</li>
+                  <li>• Rapid clinical deterioration</li>
+                  <li>• Definitive airway already secured</li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard
+                title="Closely monitored inpatient observation"
+                tone="amber"
+              >
+                <p className="font-semibold">
+                  Selected clinically stable patients may not immediately
+                  require intubation but still require close airway observation.
+                </p>
+
+                <ul className="mt-4 space-y-3">
+                  <li>
+                    • Maintaining airway patency without progressive distress
+                  </li>
+                  <li>• Stable oxygenation and ventilation</li>
+                  <li>• No evidence of rapidly worsening obstruction</li>
+                  <li>• Immediate access to experienced airway clinicians</li>
+                  <li>
+                    • Ability to escalate rapidly if the clinical course changes
+                  </li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard title="Step-down & discharge readiness" tone="emerald">
+                <p className="font-semibold">
+                  Discharge comes only after the acute airway risk and infection
+                  have clearly improved.
+                </p>
+
+                <ul className="mt-4 space-y-3">
+                  <li>
+                    • Stable airway without stridor or progressive obstruction
+                  </li>
+                  <li>
+                    • Comfortable breathing without significant respiratory
+                    distress
+                  </li>
+                  <li>• Able to handle oral secretions</li>
+                  <li>• Adequate oral intake and hydration</li>
+                  <li>• Appropriate antimicrobial plan established</li>
+                  <li>
+                    • Hib/public-health considerations addressed when applicable
+                  </li>
+                </ul>
+              </InfoCard>
+            </div>
+
+            <Callout
+              label="Disposition Pearl"
+              title="Not intubated does not mean ready for discharge"
+              tone="amber"
+            >
+              <p>
+                Some patients with epiglottitis can be managed without placement
+                of an artificial airway, particularly older patients with larger
+                airways. Observation without intubation still requires an
+                environment where deterioration can be recognized immediately
+                and definitive airway management can be performed without delay.
+              </p>
+            </Callout>
+
+            <Callout
+              label="Transfer Safety"
+              title="Do not send a threatened airway somewhere that cannot rescue it"
+              tone="rose"
+            >
+              <p>
+                If the presenting facility cannot provide pediatric airway
+                management, anesthesia, otolaryngology or surgical backup, and
+                critical-care support, early transfer to an appropriate center
+                should be coordinated while the child remains closely monitored
+                and minimally agitated.
+              </p>
+            </Callout>
+          </DiseaseSection>
+          {/* =================================================
+        Prevention
+    ================================================== */}
+          <DiseaseSection
+            id="prevention"
+            label="Prevention"
+            title="Vaccination transformed the epidemiology of pediatric epiglottitis"
+            description="Routine Hib vaccination dramatically reduced invasive Haemophilus influenzae type b disease, but prevention also requires recognizing children with special risk factors and addressing close contacts when invasive Hib disease occurs."
+          >
+            <InfoCard title="Routine Hib vaccination" tone="blue">
+              <p>
+                Haemophilus influenzae type b was historically the leading cause
+                of pediatric epiglottitis. Widespread use of Hib conjugate
+                vaccines has dramatically reduced invasive Hib disease and made
+                classic Hib epiglottitis much less common in vaccinated
+                children.
+              </p>
+
+              <p className="mt-4">
+                Routine Hib vaccination according to the current childhood
+                immunization schedule remains the primary strategy for
+                preventing invasive Hib disease.
+              </p>
+            </InfoCard>
+
+            <Callout
+              label="Important Distinction"
+              title="Hib vaccination does not eliminate epiglottitis"
+              tone="amber"
+            >
+              <p>
+                Epiglottitis is an anatomic and clinical syndrome, not a disease
+                caused exclusively by Hib. Other bacterial pathogens can cause
+                supraglottic infection, so appropriate Hib vaccination lowers
+                the risk of invasive Hib disease but does not make epiglottitis
+                impossible.
+              </p>
+            </Callout>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <InfoCard title="When invasive Hib is confirmed" tone="purple">
+                <p>
+                  Confirmed invasive Hib disease should prompt review of the
+                  child&apos;s immunization history and consideration of
+                  public-health measures for close contacts.
+                </p>
+
+                <p className="mt-4">
+                  Rifampin chemoprophylaxis may be recommended for certain
+                  household or child-care contacts depending on vaccination
+                  status, age, and other risk factors. Follow current
+                  public-health guidance when determining who requires
+                  prophylaxis.
+                </p>
+              </InfoCard>
+
+              <InfoCard title="Special populations" tone="purple">
+                <p>
+                  Some children have increased susceptibility to invasive Hib
+                  disease or may require Hib vaccination outside the routine
+                  childhood schedule. Examples include selected patients with
+                  altered immunity or loss of prior vaccine protection.
+                </p>
+
+                <ul className="mt-4 space-y-2">
+                  <li>• Hematopoietic stem-cell transplant recipients</li>
+                  <li>
+                    • Children receiving chemotherapy or radiation therapy
+                  </li>
+                  <li>• Children with anatomic or functional asplenia</li>
+                  <li>• Selected children with immunodeficiency</li>
+                </ul>
+
+                <p className="mt-4">
+                  Recommendations vary by the underlying condition and prior
+                  immunization history, so the current CDC immunization schedule
+                  should be reviewed rather than applying a single
+                  additional-dose rule to all immunocompromised children.
+                </p>
+              </InfoCard>
+            </div>
+
+            <Callout
+              label="Clinical Pearl"
+              title="Unexpected invasive Hib disease deserves a second look"
+              tone="blue"
+            >
+              <p>
+                When invasive Hib disease occurs in a child who appears
+                appropriately vaccinated, carefully review the immunization
+                record and consider whether an underlying high-risk condition
+                could be contributing to susceptibility. The presence of
+                epiglottitis alone, however, does not automatically imply an
+                immunodeficiency.
+              </p>
+            </Callout>
+          </DiseaseSection>
 
           {/* =================================================
         CLINICAL PEARLS
