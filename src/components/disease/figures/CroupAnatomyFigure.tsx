@@ -14,6 +14,154 @@ export default function CroupAnatomyFigure() {
             priority
             className="object-contain"
           />
+
+          {/* =================================================
+              MOBILE ANATOMY OVERLAY
+              Keeps localization markers on the image while the
+              full explanatory cards remain below on small screens.
+          ================================================= */}
+
+          <div className="pointer-events-none absolute inset-0 md:hidden" aria-hidden="true">
+            <svg
+              viewBox="0 0 1000 667"
+              className="absolute inset-0 h-full w-full"
+            >
+              {/* ================= LARYNX ================= */}
+
+              <path
+                d="
+                  M 385 275
+                  L 405 275
+                  M 385 275
+                  L 385 360
+                  M 385 360
+                  L 405 360
+                "
+                fill="none"
+                stroke="#334155"
+                strokeWidth="5"
+                strokeLinecap="round"
+              />
+
+              <line
+                x1="250"
+                y1="318"
+                x2="385"
+                y2="318"
+                stroke="#334155"
+                strokeWidth="4"
+                strokeLinecap="round"
+              />
+
+              <rect
+                x="92"
+                y="282"
+                width="170"
+                height="72"
+                rx="24"
+                fill="white"
+                fillOpacity="0.94"
+                stroke="#cbd5e1"
+                strokeWidth="2"
+              />
+              <text
+                x="177"
+                y="326"
+                textAnchor="middle"
+                fontSize="30"
+                fontWeight="700"
+                fill="#0f172a"
+              >
+                Larynx
+              </text>
+
+              {/* ================= SUBGLOTTIC AIRWAY ================= */}
+
+              <ellipse
+                cx="467"
+                cy="350"
+                rx="20"
+                ry="28"
+                fill="#2563eb"
+                fillOpacity="0.12"
+                stroke="#2563eb"
+                strokeWidth="5"
+              />
+
+              <circle cx="467" cy="350" r="7" fill="#2563eb" />
+
+              <line
+                x1="487"
+                y1="350"
+                x2="690"
+                y2="350"
+                stroke="#2563eb"
+                strokeWidth="5"
+                strokeLinecap="round"
+              />
+
+              <rect
+                x="685"
+                y="311"
+                width="270"
+                height="78"
+                rx="24"
+                fill="#eff6ff"
+                fillOpacity="0.96"
+                stroke="#93c5fd"
+                strokeWidth="2"
+              />
+              <text
+                x="820"
+                y="358"
+                textAnchor="middle"
+                fontSize="27"
+                fontWeight="700"
+                fill="#1e3a8a"
+              >
+                Subglottic airway
+              </text>
+
+              {/* ================= TRACHEA ================= */}
+
+              <circle cx="484" cy="435" r="7" fill="#334155" />
+
+              <path
+                d="
+                  M 491 440
+                  L 550 500
+                  L 705 500
+                "
+                fill="none"
+                stroke="#334155"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+
+              <rect
+                x="700"
+                y="463"
+                width="190"
+                height="74"
+                rx="24"
+                fill="white"
+                fillOpacity="0.94"
+                stroke="#cbd5e1"
+                strokeWidth="2"
+              />
+              <text
+                x="795"
+                y="509"
+                textAnchor="middle"
+                fontSize="29"
+                fontWeight="700"
+                fill="#0f172a"
+              >
+                Trachea
+              </text>
+            </svg>
+          </div>
         {/* =================================================
             DESKTOP ANATOMY OVERLAY
         ================================================= */}
