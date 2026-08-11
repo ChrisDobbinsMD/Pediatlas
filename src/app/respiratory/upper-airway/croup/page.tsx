@@ -374,19 +374,19 @@ export default function CroupPage() {
           Mobile Section Navigation
       ====================================================== */} 
       <MobileSectionNav
-        title="Croup"
-        sections={[
-          { id: "overview", label: "Overview" },
-          { id: "anatomy", label: "Anatomy & Localization" },
-          { id: "history-physical", label: "History & Physical" },
-          { id: "severity", label: "Severity" },
-          { id: "diagnostic-workup", label: "Diagnostic Workup" },
-          { id: "management", label: "Management" },
-          { id: "disposition", label: "Disposition" },
-          { id: "clinical-pearls", label: "Clinical Pearls" },
-          { id: "evidence-base", label: "Evidence Base" },
-        ]}
-      />
+  title="Croup"
+  sections={[
+    { id: "anatomy", label: "Anatomy & Localization" },
+    { id: "history", label: "History & Physical" },
+    { id: "severity", label: "Severity" },
+    { id: "differential", label: "Differential Diagnosis" },
+    { id: "workup", label: "Diagnostic Workup" },
+    { id: "management", label: "Management" },
+    { id: "disposition", label: "Disposition" },
+    { id: "pearls", label: "Clinical Pearls" },
+    { id: "quiz", label: "Quiz" },
+  ]}
+/>
 
       {/* rest of your Croup page */}
         {/* ===================================================

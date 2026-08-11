@@ -46,31 +46,37 @@ export default function MobileSectionNav({
   }, []);
 
   function goToSection(id: string) {
-    setOpen(false);
+  const element = document.getElementById(id);
 
-    // Give the menu a moment to close before scrolling.
-    window.setTimeout(() => {
-      const element = document.getElementById(id);
+  if (!element) {
+    console.warn(`Section "${id}" was not found.`);
+    return;
+  }
 
-      if (!element) return;
+  setOpen(false);
 
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
       element.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
-    }, 100);
-  }
+    });
+  });
+}
 
   function goToTop() {
-    setOpen(false);
+  setOpen(false);
 
-    window.setTimeout(() => {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
-    }, 100);
-  }
+    });
+  });
+}
 
   return (
     <>
@@ -82,20 +88,21 @@ export default function MobileSectionNav({
         type="button"
         onClick={() => setOpen(true)}
         className="
-          fixed bottom-5 left-4 z-40
-          flex items-center gap-2
-          rounded-full
-          border border-slate-200
-          bg-white/95
-          px-4 py-3
-          text-sm font-semibold text-slate-800
-          shadow-lg
-          backdrop-blur
-          transition
-          hover:bg-slate-50
-          active:scale-95
-          md:hidden
-        "
+    fixed left-4 z-40
+    bottom-[calc(1rem+env(safe-area-inset-bottom))]
+    flex items-center gap-2
+    rounded-full
+    border border-slate-200
+    bg-white/95
+    px-4 py-3
+    text-sm font-semibold text-slate-800
+    shadow-lg
+    backdrop-blur
+    transition
+    hover:bg-slate-50
+    active:scale-95
+    md:hidden
+  "
         aria-label="Open page sections"
         aria-expanded={open}
       >
@@ -239,7 +246,6 @@ export default function MobileSectionNav({
                 >
                   ↑
                 </span>
-
                 Back to top
               </button>
             </nav>
