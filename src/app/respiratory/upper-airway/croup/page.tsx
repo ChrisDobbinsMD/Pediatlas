@@ -15,7 +15,7 @@ import {
 
 import CroupAnatomyFigure from "@/components/disease/figures/CroupAnatomyFigure";
 import CroupSteepleSign from "@/components/disease/figures/CroupSteepleSign";
-import MobileSectionNav from "@/components/MobileSectionNav";
+import { MobileSectionNav } from "@/components";
 
 /* =========================================================
    QUIZ DATA
