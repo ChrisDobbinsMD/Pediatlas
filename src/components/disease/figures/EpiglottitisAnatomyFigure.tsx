@@ -35,10 +35,10 @@ export default function EpiglottitisAnatomyFigure() {
 
               <path
                 d="
-    M 475 275
-    L 550 275
-    L 665 225
-  "
+                M 475 275
+                L 550 275
+                L 665 225
+                "
                 fill="none"
                 stroke="#2563eb"
                 strokeWidth="5"
@@ -73,13 +73,13 @@ export default function EpiglottitisAnatomyFigure() {
 
               <path
                 d="
-    M 385 275
-    L 405 275
-    M 385 275
-    L 385 340
-    M 385 340
-    L 405 340
-  "
+                M 385 275
+                L 405 275
+                M 385 275
+                L 385 340
+                M 385 340
+                L 405 340
+                "
                 fill="none"
                 stroke="#2563eb"
                 strokeWidth="5"
@@ -97,9 +97,9 @@ export default function EpiglottitisAnatomyFigure() {
               />
 
               <rect
-                x="45"
+                x="20"
                 y="270"
-                width="215"
+                width="270"
                 height="80"
                 rx="24"
                 fill="#eff6ff"
