@@ -14,6 +14,7 @@ import {
 } from "@/components/disease";
 
 import { MobileSectionNav } from "@/components";
+import EpiglottitisAnatomyFigure from "@/components/disease/figures/EpiglottitisAnatomyFigure";
 import EpiglottitisThumbSign from "@/components/disease/figures/EpiglottitisThumbSign";
 
 /* =========================================================
@@ -398,6 +399,8 @@ export default function EpiglottitisPage() {
             title="Epiglottitis is a supraglottic airway disease"
             description="The level of inflammation explains the drooling, muffled voice, dysphagia, and rapid risk of airway obstruction."
           >
+            <EpiglottitisAnatomyFigure />
+
             <div className="grid gap-6 md:grid-cols-2">
               <InfoCard title="Epiglottis & supraglottic airway" tone="blue">
                 <p>
