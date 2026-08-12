@@ -14,20 +14,21 @@ Current work actively being built.
 ## Respiratory — Upper Airway
 
 - [x] Croup
-- [ ] Epiglottitis
+- [x] Epiglottitis
   - [x] Hero
   - [x] Clinical Vignette
   - [x] Anatomy & Localization
   - [x] Pathophysiology
   - [x] History & Physical
   - [x] Differential Diagnosis
-  - [ ] Diagnostic Workup
-  - [ ] Find reusable/open-license thumb-sign radiograph
-  - [ ] Management
-  - [ ] Disposition
-  - [ ] Clinical Pearls
-  - [ ] Quiz
-  - [ ] Evidence Base
+  - [x] Diagnostic Workup
+  - [x] Find reusable/open-license thumb-sign radiograph
+  - [x] Management
+  - [x] Disposition
+  - [x] Clinical Pearls
+  - [x] Quiz
+  - [x] Evidence Base
+- [ ] Bacterial Tracheitis
 
 ---
 
