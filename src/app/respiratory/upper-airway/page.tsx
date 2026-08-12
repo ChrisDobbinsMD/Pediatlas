@@ -27,7 +27,7 @@ const diseases = [
     description:
       "Rapidly progressive inflammation of the epiglottis and supraglottic airway that can cause life-threatening airway obstruction.",
     age: "Now uncommon in vaccinated children; can occur across age groups",
-    status: "In Progress",
+    status: "Available!",
   },
   {
     name: "Bacterial Tracheitis",

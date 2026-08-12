@@ -470,7 +470,7 @@ export default function EpiglottitisPage() {
               <ProcessStep
                 number="1"
                 title="Supraglottic infection"
-                description="Bacterial infection involves the epiglottis and adjacent supraglottic tissues. Historically, Haemophilus influenzae type b was the dominant pediatric cause, but other bacterial pathogens are now increasingly recognized."
+                description="Bacterial infection involves the epiglottis and adjacent supraglottic tissues. Historically, Haemophilus influenzae type b was the dominant pediatric cause. However, in the Hib vaccine era, other bacterial pathogens account for a greater proportion of cases."
               />
 
               <ProcessStep
@@ -498,11 +498,11 @@ export default function EpiglottitisPage() {
               tone="blue"
             >
               <p>
-                In young children, the epiglottis is relatively flexible. When
-                it becomes markedly edematous, lying supine may allow the
-                swollen tissue to shift posteriorly and further narrow the
-                airway. Leaning forward can help move the epiglottis anteriorly
-                and preserve airflow.
+                Children with significant supraglottic obstruction may
+                instinctively sit upright, lean forward, and extend the neck
+                while attempting to maximize airflow. A child who strongly
+                prefers this position should be allowed to remain there rather
+                than being forced supine for examination.
               </p>
             </Callout>
 
@@ -1011,20 +1011,6 @@ export default function EpiglottitisPage() {
                 </ul>
               </InfoCard>
             </div>
-
-            <Callout
-              label="Bottom Line"
-              title="Airway before everything else"
-              tone="blue"
-            >
-              <p>
-                In suspected epiglottitis, minimize agitation and assess whether
-                the airway can remain safely patent. Escalate early when
-                obstruction is progressing, secure a threatened airway in a
-                controlled setting, and then provide appropriate antimicrobial
-                and supportive therapy.
-              </p>
-            </Callout>
           </DiseaseSection>
           {/* =================================================
         DISPOSITION
