@@ -130,64 +130,6 @@ export default function EpiglottitisAnatomyFigure() {
               className="pointer-events-none absolute inset-0 h-full w-full"
               aria-hidden="true"
             >
-              {/* TEMPORARY COORDINATE GRID */}
-
-              {Array.from({ length: 11 }).map((_, i) => {
-                const x = i * 100;
-
-                return (
-                  <g key={`x-${x}`}>
-                    <line
-                      x1={x}
-                      y1="0"
-                      x2={x}
-                      y2="667"
-                      stroke="#ef4444"
-                      strokeWidth="3"
-                      opacity="0.8"
-                    />
-
-                    <text
-                      x={x + 8}
-                      y="32"
-                      fill="#ef4444"
-                      fontSize="28"
-                      fontWeight="900"
-                    >
-                      {x}
-                    </text>
-                  </g>
-                );
-              })}
-
-              {Array.from({ length: 7 }).map((_, i) => {
-                const y = i * 100;
-
-                return (
-                  <g key={`y-${y}`}>
-                    <line
-                      x1="0"
-                      y1={y}
-                      x2="1000"
-                      y2={y}
-                      stroke="#0ea5e9"
-                      strokeWidth="3"
-                      opacity="0.8"
-                    />
-
-                    <text
-                      x="8"
-                      y={y + 32}
-                      fill="#0ea5e9"
-                      fontSize="28"
-                      fontWeight="900"
-                    >
-                      {y}
-                    </text>
-                  </g>
-                );
-              })}
-
               {/* ================= Supraglottis region ================= */}
 
               <path
