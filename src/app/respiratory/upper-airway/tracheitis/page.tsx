@@ -14,7 +14,7 @@ import {
 } from "@/components/disease";
 
 import { MobileSectionNav } from "@/components";
-import BacterialTracheitisAnatomyFigure from "@/components/disease/figures/TracheitisAnatomyFigure";
+import TracheitisAnatomyFigure from "@/components/disease/figures/TracheitisAnatomyFigure";
 
 /* =========================================================
    QUIZ DATA
@@ -228,7 +228,7 @@ export default function BacterialTracheitisPage() {
             title="Bacterial tracheitis obstructs the airway from within the trachea"
             description="The disease centers on the tracheal mucosa, where inflammation, edema, and thick adherent secretions can progressively narrow the airway."
           >
-            <BacterialTracheitisAnatomyFigure />
+            <TracheitisAnatomyFigure />
 
             <div className="grid gap-6 md:grid-cols-2">
               <InfoCard title="Tracheal airway" tone="blue">
