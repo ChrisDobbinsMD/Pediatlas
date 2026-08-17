@@ -7,6 +7,7 @@ export { default as ProgressiveQuiz } from "./ProgressiveQuiz";
 export { default as EvidenceBase } from "./EvidenceBase";
 export type { Reference } from "./EvidenceBase";
 export { default as FigureModal } from "./FigureModal";
+export { default as ExpandableSection } from "./ExpandableSection";
 
 export type { CardTone } from "./InfoCard";
 export type {

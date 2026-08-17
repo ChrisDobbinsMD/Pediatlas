@@ -9,6 +9,7 @@ import {
   ProgressiveQuiz,
   EvidenceBase,
   FigureModal,
+  ExpandableSection,
   type QuizQuestion,
   type Reference,
 } from "@/components/disease";
@@ -290,6 +291,472 @@ export default function BacterialTracheitisPage() {
                 alone.
               </p>
             </Callout>
+          </DiseaseSection>
+
+          {/* =================================================
+    PATHOPHYSIOLOGY
+================================================= */}
+
+          <DiseaseSection
+            id="pathophysiology"
+            label="Pathophysiology"
+            title="Inflammation narrows the airway — secretions obstruct it from within"
+            description="Bacterial tracheitis often follows viral injury to the tracheal mucosa, then adds bacterial inflammation and thick intraluminal debris to an already narrowed airway."
+          >
+            <div className="grid gap-5 md:grid-cols-2">
+              <ProcessStep
+                number="1"
+                title="Viral injury primes the airway"
+                description="A preceding viral respiratory infection can injure the tracheal mucosa and impair normal mucociliary defenses, creating a surface more susceptible to secondary bacterial infection."
+              />
+
+              <ProcessStep
+                number="2"
+                title="Bacterial superinfection develops"
+                description="Bacteria invade the injured tracheal mucosa and trigger intense local inflammation, producing erythema, edema, ulceration, and purulent inflammation."
+              />
+
+              <ProcessStep
+                number="3"
+                title="Secretions and debris accumulate"
+                description="Thick mucopurulent secretions combine with sloughed inflamed mucosa to form tenacious intraluminal material and, in some cases, adherent pseudomembranous debris."
+              />
+
+              <ProcessStep
+                number="4"
+                title="Mechanical obstruction progresses"
+                description="Mucosal edema narrows the airway from the outside inward while secretions and debris occupy the lumen from within, progressively increasing resistance to airflow."
+              />
+            </div>
+
+            <Callout
+              label="Clinical Connection"
+              title="Why doesn't this behave like uncomplicated croup?"
+              tone="amber"
+            >
+              <p>
+                Croup predominantly produces subglottic narrowing from mucosal
+                edema. Bacterial tracheitis adds thick, tenacious secretions and
+                inflammatory debris within the airway lumen. A child who appears
+                increasingly toxic and continues to worsen despite appropriate
+                croup therapy should prompt reconsideration of the diagnosis.
+              </p>
+            </Callout>
+          </DiseaseSection>
+
+          {/* =================================================
+    HISTORY & PHYSICAL
+================================================= */}
+
+          <DiseaseSection
+            id="history-physical"
+            label="History & Physical"
+            title="The child who was sick — then suddenly gets much sicker"
+            description="The clinical course often provides the first clue: a viral or croup-like illness is followed by high fever, toxic appearance, and rapidly progressive upper-airway obstruction."
+          >
+            {/* CLINICAL EVOLUTION */}
+            <div className="grid gap-5 md:grid-cols-3">
+              <InfoCard title="1. Viral prodrome" tone="blue">
+                <p>
+                  The illness often begins with several days of symptoms
+                  resembling a viral upper respiratory infection, including
+                  cough, rhinorrhea, sore throat, and fever.
+                </p>
+              </InfoCard>
+
+              <InfoCard title="2. Acute deterioration" tone="amber">
+                <p>
+                  The child then develops higher fever with worsening
+                  respiratory symptoms over hours, rather than following the
+                  expected improvement of an uncomplicated viral illness.
+                </p>
+              </InfoCard>
+
+              <InfoCard title="3. Toxic upper-airway disease" tone="rose">
+                <p>
+                  Stridor, hoarseness, respiratory distress, thick secretions,
+                  and a toxic or ill appearance should raise concern for
+                  bacterial tracheitis and impending airway obstruction.
+                </p>
+              </InfoCard>
+            </div>
+
+            {/* KEY FINDINGS */}
+            <div className="mt-6 grid gap-5 md:grid-cols-2">
+              <InfoCard title="History clues" tone="slate">
+                <ul className="space-y-2">
+                  <li>• Several-day viral or croup-like prodrome</li>
+                  <li>• Abrupt worsening rather than expected recovery</li>
+                  <li>• High fever</li>
+                  <li>• Increasing cough and respiratory distress</li>
+                  <li>
+                    • Poor or incomplete response to standard croup therapy
+                  </li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard title="Physical examination" tone="slate">
+                <ul className="space-y-2">
+                  <li>• Toxic or markedly ill appearance</li>
+                  <li>• Inspiratory or biphasic stridor</li>
+                  <li>• Hoarseness or harsh cough</li>
+                  <li>• Increased work of breathing</li>
+                  <li>• Thick or mucopurulent airway secretions</li>
+                  <li>
+                    • Hypoxemia or altered mental status in severe obstruction
+                  </li>
+                </ul>
+              </InfoCard>
+            </div>
+
+            {/* SPECIAL POPULATION */}
+            <div className="mt-6 rounded-2xl border border-violet-200 bg-violet-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-wide text-violet-700">
+                Special population
+              </p>
+
+              <h3 className="mt-2 text-xl font-bold text-slate-950">
+                Children with tracheostomies or artificial airways
+              </h3>
+
+              <p className="mt-3 leading-7 text-slate-700">
+                Tracheostomy- and ventilator-associated tracheitis may present
+                more indolently than disease in a child with an intact airway.
+                Look for a meaningful change from the child&apos;s respiratory
+                baseline rather than relying on the classic croup-like
+                presentation.
+              </p>
+
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-xl border border-violet-100 bg-white p-4">
+                  <p className="font-semibold text-slate-950">
+                    Secretions & suctioning
+                  </p>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">
+                    Increasing purulent secretions, changes in color, viscosity,
+                    or odor, or a new need for more frequent airway suctioning.
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-violet-100 bg-white p-4">
+                  <p className="font-semibold text-slate-950">
+                    Respiratory support
+                  </p>
+                  <p className="mt-1 text-sm leading-6 text-slate-600">
+                    Falling oxygen saturations or increasing ventilator
+                    requirements can signal clinically important airway
+                    infection.
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-violet-900">
+                We&apos;ll revisit this population during diagnostic workup,
+                where distinguishing chronic airway colonization from active
+                infection becomes especially important.
+              </p>
+            </div>
+          </DiseaseSection>
+
+          {/* =================================================
+    DIFFERENTIAL DIAGNOSIS
+================================================= */}
+
+          <DiseaseSection
+            id="differential"
+            label="Differential Diagnosis"
+            title="Stridor tells you where — the clinical pattern helps tell you why"
+            description="Bacterial tracheitis overlaps with several causes of upper-airway obstruction. Fever, toxicity, secretion handling, illness trajectory, and response to therapy help separate the major mimics."
+          >
+            <div className="overflow-hidden rounded-2xl border border-slate-200">
+              {[
+                {
+                  diagnosis: "Croup",
+                  clues:
+                    "Barking cough, hoarseness, and stridor usually follow a viral prodrome. Children generally appear less toxic and often improve after nebulized epinephrine and corticosteroid therapy.",
+                },
+                {
+                  diagnosis: "Epiglottitis",
+                  clues:
+                    "High fever and toxic appearance may overlap, but prominent dysphagia, drooling, muffled voice, tripod positioning, and refusal to lie down favor supraglottic disease.",
+                },
+                {
+                  diagnosis: "Retropharyngeal / deep-neck infection",
+                  clues:
+                    "Fever with neck pain or stiffness, limited neck movement, dysphagia, drooling, muffled voice, or neck swelling should raise concern for a deep-neck space process.",
+                },
+                {
+                  diagnosis: "Foreign body aspiration",
+                  clues:
+                    "Usually has abrupt onset after choking or eating, without a preceding febrile viral illness. Fever and progressive toxic appearance are less typical early in the course.",
+                },
+                {
+                  diagnosis: "Anaphylaxis / angioedema",
+                  clues:
+                    "Rapid airway swelling may cause stridor but is usually accompanied by allergic features such as urticaria, lip or tongue swelling, gastrointestinal symptoms, hypotension, or a recent exposure.",
+                },
+                {
+                  diagnosis: "Diphtheria",
+                  clues:
+                    "Consider in an incompletely immunized child or relevant exposure setting. Pharyngeal pseudomembrane and systemic toxicity distinguish it from typical bacterial tracheitis.",
+                },
+              ].map((item, index) => (
+                <div
+                  key={item.diagnosis}
+                  className={`grid gap-3 p-5 md:grid-cols-[220px_1fr] ${
+                    index !== 5 ? "border-b border-slate-200" : ""
+                  }`}
+                >
+                  <p className="font-bold text-slate-900">{item.diagnosis}</p>
+
+                  <p className="leading-7 text-slate-600">{item.clues}</p>
+                </div>
+              ))}
+            </div>
+
+            <Callout
+              label="Highest-Yield Comparison"
+              title="Croup vs bacterial tracheitis"
+              tone="amber"
+            >
+              <div className="grid gap-5 md:grid-cols-2">
+                <div>
+                  <p className="font-bold text-slate-950">
+                    Think uncomplicated croup
+                  </p>
+
+                  <ul className="mt-3 space-y-2">
+                    <li>• Barking cough and hoarseness dominate</li>
+                    <li>• Viral prodrome</li>
+                    <li>• Usually less toxic appearing</li>
+                    <li>• Lower or more modest fever is typical</li>
+                    <li>• Improves with standard croup therapy</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="font-bold text-slate-950">
+                    Think bacterial tracheitis
+                  </p>
+
+                  <ul className="mt-3 space-y-2">
+                    <li>
+                      • Viral or croup-like prodrome followed by deterioration
+                    </li>
+                    <li>• High fever</li>
+                    <li>• Toxic or markedly ill appearance</li>
+                    <li>• Progressive stridor and respiratory distress</li>
+                    <li>• Thick or purulent airway secretions</li>
+                    <li>• Little or incomplete response to croup therapy</li>
+                  </ul>
+                </div>
+              </div>
+            </Callout>
+          </DiseaseSection>
+          {/* =================================================
+    DIAGNOSTIC WORKUP
+================================================= */}
+
+          <DiseaseSection
+            id="workup"
+            label="Diagnostic Workup"
+            title="The airway comes before the workup"
+            description="Bacterial tracheitis is primarily a clinical diagnosis. Testing should support the diagnosis without delaying stabilization of a threatened airway."
+          >
+            {/* AIRWAY FIRST */}
+            <div className="grid gap-5 md:grid-cols-2">
+              <InfoCard title="Threatened or unstable airway" tone="rose">
+                <p>
+                  Prioritize airway stabilization. Do not delay airway
+                  management for laboratory testing or imaging in a child with
+                  severe respiratory distress, hypoxemia, altered mental status,
+                  or rapidly progressive obstruction.
+                </p>
+              </InfoCard>
+
+              <InfoCard title="Stable enough for evaluation" tone="blue">
+                <p>
+                  When the airway is stable, focused laboratory studies and
+                  imaging can support the diagnosis, identify complications, and
+                  help distinguish bacterial tracheitis from competing
+                  diagnoses.
+                </p>
+              </InfoCard>
+            </div>
+
+            {/* LABS */}
+            <div className="mt-6 grid gap-5 md:grid-cols-2">
+              <InfoCard title="Laboratory studies" tone="slate">
+                <ul className="space-y-2">
+                  <li>
+                    • CBC may demonstrate leukocytosis or leukopenia but is
+                    nonspecific
+                  </li>
+                  <li>
+                    • CRP and ESR may be elevated but do not establish the
+                    diagnosis
+                  </li>
+                  <li>• Blood cultures have a low diagnostic yield</li>
+                  <li>
+                    • Obtain blood cultures when sepsis is suspected or the
+                    child is immunocompromised
+                  </li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard title="Airway cultures" tone="purple">
+                <p>
+                  Tracheal secretions or exudates obtained during airway
+                  evaluation can be sent for Gram stain and bacterial culture.
+                  Results can identify the causative organism and guide
+                  narrowing of antimicrobial therapy.
+                </p>
+              </InfoCard>
+            </div>
+
+            {/* IMAGING */}
+            <ExpandableSection
+              title="Imaging findings"
+              description="Expand for supportive radiographic findings. Imaging should only be obtained when the airway is sufficiently stable."
+            >
+              <div className="grid gap-5 md:grid-cols-2">
+                <div>
+                  <p className="font-semibold text-slate-950">
+                    Neck radiograph
+                  </p>
+
+                  <p className="mt-2 leading-7 text-slate-600">
+                    AP or lateral neck imaging may demonstrate subglottic or
+                    tracheal narrowing. Irregularity or haziness of the tracheal
+                    air column may also occur. These findings are supportive
+                    rather than required for diagnosis.
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-semibold text-slate-950">
+                    Chest radiograph
+                  </p>
+
+                  <p className="mt-2 leading-7 text-slate-600">
+                    Chest imaging is not diagnostic of bacterial tracheitis
+                    itself but can identify concurrent pneumonia or other
+                    lower-respiratory involvement.
+                  </p>
+                </div>
+              </div>
+            </ExpandableSection>
+
+            <Callout
+              label="Airway Safety"
+              title="Never send a deteriorating child to imaging just to prove the diagnosis"
+              tone="rose"
+            >
+              <p>
+                Radiographs are adjuncts. If significant airway compromise is
+                present, stabilization and definitive airway assessment take
+                priority over obtaining a neck or chest image.
+              </p>
+            </Callout>
+
+            {/* DIRECT VISUALIZATION */}
+            <div className="mt-6 rounded-2xl border border-blue-200 bg-blue-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">
+                Direct airway evaluation
+              </p>
+
+              <h3 className="mt-2 text-xl font-bold text-slate-950">
+                Bronchoscopy can diagnose and treat the obstruction
+              </h3>
+
+              <p className="mt-3 leading-7 text-slate-700">
+                Direct visualization may demonstrate an erythematous, edematous
+                trachea containing thick mucopurulent secretions or adherent
+                pseudomembranous debris, while the epiglottis is normal or only
+                mildly erythematous.
+              </p>
+
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
+                <div className="rounded-xl border border-blue-100 bg-white p-4">
+                  <p className="font-semibold text-slate-950">
+                    Diagnostic role
+                  </p>
+
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Directly demonstrates the abnormal tracheal mucosa and
+                    intraluminal secretions and allows specimens to be obtained
+                    for microbiologic testing.
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-blue-100 bg-white p-4">
+                  <p className="font-semibold text-slate-950">
+                    Therapeutic role
+                  </p>
+
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Rigid bronchoscopy can permit suctioning and removal of
+                    thick secretions or adherent debris that are contributing
+                    directly to airway obstruction.
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm leading-6 text-blue-900">
+                Direct visualization is not required in every clinically
+                suspected case. The decision to perform bronchoscopy depends on
+                disease severity and the need for airway intervention.
+              </p>
+            </div>
+
+            {/* TRACHEOSTOMY POPULATION */}
+            <div className="mt-6 rounded-2xl border border-violet-200 bg-violet-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-wide text-violet-700">
+                Tracheostomy Pearl
+              </p>
+
+              <h3 className="mt-2 text-xl font-bold text-slate-950">
+                A positive tracheal culture does not automatically mean
+                infection
+              </h3>
+
+              <p className="mt-3 leading-7 text-slate-700">
+                Artificial airways are readily colonized by bacteria and can
+                develop biofilms. Interpret tracheal cultures in the context of
+                a meaningful clinical change rather than treating culture
+                positivity alone.
+              </p>
+
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-xl border border-violet-100 bg-white p-4">
+                  <p className="font-semibold text-slate-950">
+                    Findings supporting active disease
+                  </p>
+
+                  <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-600">
+                    <li>• New or increasingly purulent secretions</li>
+                    <li>• Increased suctioning requirement</li>
+                    <li>• Change in secretion color, viscosity, or odor</li>
+                    <li>• Fever or other systemic signs of illness</li>
+                    <li>• Worsening oxygenation or ventilatory requirements</li>
+                  </ul>
+                </div>
+
+                <div className="rounded-xl border border-violet-100 bg-white p-4">
+                  <p className="font-semibold text-slate-950">
+                    Also evaluate for lower-airway disease
+                  </p>
+
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Isolated tracheitis is uncommon in children with artificial
+                    airways. Concurrent bronchial or pulmonary infection may be
+                    present, so chest imaging and the overall respiratory
+                    picture can help distinguish isolated tracheitis from
+                    pneumonia.
+                  </p>
+                </div>
+              </div>
+            </div>
           </DiseaseSection>
         </div>
       </div>
