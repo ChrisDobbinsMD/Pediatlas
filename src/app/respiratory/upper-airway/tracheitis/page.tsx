@@ -471,11 +471,6 @@ export default function BacterialTracheitisPage() {
             <div className="overflow-hidden rounded-2xl border border-slate-200">
               {[
                 {
-                  diagnosis: "Croup",
-                  clues:
-                    "Barking cough, hoarseness, and stridor usually follow a viral prodrome. Children generally appear less toxic and often improve after nebulized epinephrine and corticosteroid therapy.",
-                },
-                {
                   diagnosis: "Epiglottitis",
                   clues:
                     "High fever and toxic appearance may overlap, but prominent dysphagia, drooling, muffled voice, tripod positioning, and refusal to lie down favor supraglottic disease.",
@@ -504,7 +499,7 @@ export default function BacterialTracheitisPage() {
                 <div
                   key={item.diagnosis}
                   className={`grid gap-3 p-5 md:grid-cols-[220px_1fr] ${
-                    index !== 5 ? "border-b border-slate-200" : ""
+                    index !== 4 ? "border-b border-slate-200" : ""
                   }`}
                 >
                   <p className="font-bold text-slate-900">{item.diagnosis}</p>
@@ -757,6 +752,230 @@ export default function BacterialTracheitisPage() {
                 </div>
               </div>
             </div>
+          </DiseaseSection>
+          {/* =================================================
+    MANAGEMENT
+================================================= */}
+
+          <DiseaseSection
+            id="management"
+            label="Management"
+            title="Protect the airway, clear the obstruction, and treat the infection"
+            description="Management is driven by the severity of airway obstruction. Children with progressive disease may require definitive airway control and removal of thick tracheal secretions in addition to antimicrobial therapy."
+          >
+            {/* INITIAL PRIORITIES */}
+
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              <ProcessStep
+                number="1"
+                title="Assess airway severity"
+                description="Closely monitor stridor, work of breathing, air entry, oxygenation, mental status, and the child's ability to sustain respiratory effort."
+              />
+
+              <ProcessStep
+                number="2"
+                title="Secure a threatened airway"
+                description="Progressive obstruction, hypoxemia, fatigue, altered mental status, or severe respiratory distress should prompt early definitive airway planning with experienced pediatric airway clinicians."
+              />
+
+              <ProcessStep
+                number="3"
+                title="Clear secretions and debris"
+                description="Thick tracheal secretions may require frequent suctioning or bronchoscopic removal because intraluminal material contributes directly to airway obstruction."
+              />
+
+              <ProcessStep
+                number="4"
+                title="Start antimicrobial therapy"
+                description="Begin empiric parenteral antibiotics directed against the major bacterial pathogens, including Staphylococcus aureus, then narrow therapy when culture and susceptibility data are available."
+              />
+            </div>
+
+            {/* AIRWAY */}
+
+            <InfoCard title="When airway intervention is needed" tone="rose">
+              <p>
+                Do not wait for respiratory arrest before escalating airway
+                management. Children with significant bacterial tracheitis can
+                deteriorate rapidly as mucosal edema and thick secretions
+                progressively narrow the tracheal lumen.
+              </p>
+
+              <ul className="mt-4 space-y-3">
+                <li>• Severe or progressively worsening stridor</li>
+                <li>• Increasing work of breathing or retractions</li>
+                <li>• Decreasing air entry</li>
+                <li>• Hypoxemia or cyanosis</li>
+                <li>• Fatigue or altered mental status</li>
+                <li>
+                  • Inability to effectively clear thick airway secretions
+                </li>
+                <li>
+                  • Rapid clinical deterioration despite supportive therapy
+                </li>
+              </ul>
+            </InfoCard>
+
+            <Callout
+              label="Airway Pearl"
+              title="The endotracheal tube does not remove the disease"
+              tone="amber"
+            >
+              <p>
+                Even after intubation, thick secretions and sloughed
+                inflammatory material may continue to obstruct the airway or the
+                endotracheal tube. Frequent suctioning, airway humidification,
+                and repeated assessment of tube patency may be necessary.
+              </p>
+            </Callout>
+
+            {/* SECRETIONS / BRONCHOSCOPY */}
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <InfoCard title="Airway clearance" tone="blue">
+                <ul className="space-y-3">
+                  <li>• Humidified oxygen when needed and tolerated</li>
+                  <li>• Frequent suctioning of thick airway secretions</li>
+                  <li>• Close monitoring for recurrent obstruction</li>
+                  <li>
+                    • Reassessment of airway patency if respiratory status
+                    suddenly worsens
+                  </li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard title="Role of bronchoscopy" tone="blue">
+                <p>
+                  Bronchoscopy may be both diagnostic and therapeutic. Thick
+                  mucopurulent secretions and adherent pseudomembranous debris
+                  can be suctioned or mechanically removed when they are
+                  contributing to obstruction.
+                </p>
+
+                <p className="mt-4">
+                  The need for bronchoscopy depends on disease severity, the
+                  degree of obstruction, and whether adequate airway clearance
+                  can otherwise be achieved.
+                </p>
+              </InfoCard>
+            </div>
+
+            {/* ANTIBIOTICS */}
+
+            <InfoCard title="Empiric antimicrobial therapy" tone="purple">
+              <p>
+                Initial parenteral therapy should cover the major bacterial
+                causes of tracheitis, particularly{" "}
+                <strong>Staphylococcus aureus</strong>, while also providing
+                coverage for other common respiratory pathogens.
+              </p>
+
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
+                <div className="rounded-xl border border-purple-100 bg-white p-4">
+                  <p className="font-semibold text-slate-950">
+                    Typical empiric approach
+                  </p>
+
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    A third-generation cephalosporin such as ceftriaxone or
+                    cefotaxime is commonly paired with antistaphylococcal
+                    therapy. MRSA-active coverage should be selected according
+                    to local susceptibility patterns and illness severity.
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-purple-100 bg-white p-4">
+                  <p className="font-semibold text-slate-950">
+                    Once cultures return
+                  </p>
+
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    Narrow antimicrobial therapy to the identified organism and
+                    susceptibility profile whenever possible.
+                  </p>
+                </div>
+              </div>
+            </InfoCard>
+
+            <Callout
+              label="Antibiotic Safety"
+              title="Local resistance patterns matter"
+              tone="blue"
+            >
+              <p>
+                Because <strong>S. aureus</strong> is an important cause of
+                bacterial tracheitis, empiric therapy must account for local
+                MRSA prevalence and susceptibility patterns rather than relying
+                on a single universal regimen.
+              </p>
+            </Callout>
+
+            {/* SUPPORTIVE CARE */}
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <InfoCard title="Supportive care" tone="emerald">
+                <ul className="space-y-3">
+                  <li>
+                    • Continuous cardiorespiratory and pulse-oximetry monitoring
+                  </li>
+                  <li>• Supplemental oxygen when indicated</li>
+                  <li>• IV fluids when oral intake is inadequate</li>
+                  <li>• Antipyretics and analgesia as appropriate</li>
+                  <li>• Frequent reassessment of respiratory status</li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard title="What about standard croup therapy?" tone="slate">
+                <p>
+                  Nebulized epinephrine and corticosteroids may have been given
+                  initially when the presentation was thought to represent
+                  croup, but persistent obstruction in bacterial tracheitis is
+                  driven by bacterial inflammation and intraluminal secretions.
+                </p>
+
+                <p className="mt-4">
+                  Failure to improve should prompt airway reassessment and
+                  treatment of bacterial tracheitis rather than repeated
+                  reliance on croup therapy alone.
+                </p>
+              </InfoCard>
+            </div>
+
+            {/* SPECIAL POPULATION */}
+
+            <ExpandableSection
+              title="Management considerations with a tracheostomy"
+              description="Expand for additional considerations in children with artificial airways."
+            >
+              <div className="space-y-4 text-slate-700">
+                <p>
+                  Children with tracheostomies may require increased suctioning,
+                  airway clearance, humidification, and respiratory support
+                  during acute infection.
+                </p>
+
+                <p>
+                  Because chronic colonization is common, antimicrobial
+                  decisions should integrate the child&apos;s clinical change,
+                  prior airway cultures, previous resistant organisms, and
+                  current microbiologic data rather than treating a positive
+                  culture in isolation.
+                </p>
+              </div>
+            </ExpandableSection>
+
+            <Callout
+              label="One-Sentence Management"
+              title="Think airway + source control + antibiotics"
+              tone="rose"
+            >
+              <p>
+                Severe bacterial tracheitis requires more than antibiotics
+                alone: stabilize the airway, remove obstructing secretions when
+                necessary, and treat the bacterial infection while continuing
+                close respiratory monitoring.
+              </p>
+            </Callout>
           </DiseaseSection>
         </div>
       </div>
