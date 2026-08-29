@@ -34,7 +34,7 @@ const diseases = [
     description:
       "Bacterial infection of the trachea causing mucosal inflammation, thick secretions, and potentially severe upper-airway obstruction.",
     age: "Most common in young children",
-    status: "Coming soon",
+    status: "Available!",
   },
   {
     name: "Retropharyngeal Abscess",
@@ -181,6 +181,13 @@ export default function UpperAirwayPage() {
                           className="font-semibold text-blue-700 hover:text-blue-900"
                         >
                           Open epiglottitis →
+                        </Link>
+                      ) : disease.name === "Bacterial Tracheitis" ? (
+                        <Link
+                          href="/respiratory/upper-airway/bacterial-tracheitis"
+                          className="font-semibold text-blue-700 hover:text-blue-900"
+                        >
+                          Open bacterial tracheitis →
                         </Link>
                       ) : (
                         <span className="font-semibold text-slate-400">

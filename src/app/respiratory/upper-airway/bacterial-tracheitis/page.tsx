@@ -21,13 +21,204 @@ import TracheitisAnatomyFigure from "@/components/disease/figures/TracheitisAnat
    QUIZ DATA
 ========================================================= */
 
-const quizQuestions: QuizQuestion[] = [];
+const quizQuestions: QuizQuestion[] = [
+  {
+    question:
+      "A 4-year-old has had 3 days of rhinorrhea, cough, and low-grade fever. He now develops high fever, worsening stridor, increased work of breathing, and a toxic appearance. Nebulized epinephrine produces little improvement. Which diagnosis is most likely?",
+    answers: [
+      {
+        text: "Viral croup",
+        correct: false,
+        feedback:
+          "Uncomplicated croup usually causes a barking cough, hoarseness, and stridor but generally does not produce this combination of high fever, toxic appearance, rapid deterioration, and poor response to croup therapy.",
+      },
+      {
+        text: "Bacterial tracheitis",
+        correct: true,
+        feedback:
+          "This course is characteristic of bacterial tracheitis: a viral or croup-like prodrome followed by high fever, toxic appearance, worsening airway obstruction, and poor response to standard croup therapy.",
+      },
+      {
+        text: "Epiglottitis",
+        correct: false,
+        feedback:
+          "Epiglottitis can cause high fever, toxicity, and stridor, but prominent drooling, dysphagia, muffled voice, and difficulty handling secretions would be more typical.",
+      },
+      {
+        text: "Foreign body aspiration",
+        correct: false,
+        feedback:
+          "Foreign body aspiration usually presents abruptly after a choking event rather than after several days of viral symptoms followed by high fever and progressive toxic appearance.",
+      },
+    ],
+  },
+
+  {
+    question:
+      "Which feature most directly explains why airway obstruction in bacterial tracheitis may continue to worsen despite treatment directed at mucosal edema?",
+    answers: [
+      {
+        text: "Bronchial smooth-muscle constriction",
+        correct: false,
+        feedback:
+          "Bronchospasm is a lower-airway process and does not explain the characteristic intratracheal obstruction of bacterial tracheitis.",
+      },
+      {
+        text: "Loss of pulmonary surfactant",
+        correct: false,
+        feedback:
+          "Surfactant deficiency affects alveolar mechanics rather than producing the obstructing tracheal process seen in bacterial tracheitis.",
+      },
+      {
+        text: "Thick intraluminal secretions and inflammatory debris",
+        correct: true,
+        feedback:
+          "Bacterial tracheitis produces both mucosal edema and thick mucopurulent secretions, sloughed mucosa, or pseudomembranous debris within the tracheal lumen, creating a mechanical component of obstruction.",
+      },
+      {
+        text: "Isolated swelling of the epiglottis",
+        correct: false,
+        feedback:
+          "Isolated epiglottic swelling localizes to the supraglottic airway and is more consistent with epiglottitis.",
+      },
+    ],
+  },
+
+  {
+    question:
+      "Which additional finding would shift concern away from bacterial tracheitis and more strongly toward epiglottitis?",
+    answers: [
+      {
+        text: "Inspiratory stridor",
+        correct: false,
+        feedback:
+          "Inspiratory stridor can occur with both bacterial tracheitis and epiglottitis, so it does not reliably distinguish the two.",
+      },
+      {
+        text: "High fever",
+        correct: false,
+        feedback:
+          "High fever can occur in both bacterial tracheitis and epiglottitis.",
+      },
+      {
+        text: "Toxic appearance",
+        correct: false,
+        feedback:
+          "A toxic appearance may occur in either serious bacterial upper-airway infection.",
+      },
+      {
+        text: "Prominent drooling and difficulty swallowing",
+        correct: true,
+        feedback:
+          "Prominent drooling and dysphagia suggest impaired handling of oral secretions and favor supraglottic disease such as epiglottitis.",
+      },
+    ],
+  },
+
+  {
+    question:
+      "A child with suspected bacterial tracheitis develops worsening stridor, marked retractions, decreasing air entry, and increasing fatigue. What is the most appropriate next step?",
+    answers: [
+      {
+        text: "Obtain AP and lateral neck radiographs before further intervention",
+        correct: false,
+        feedback:
+          "Radiographs are supportive tests and should not delay airway stabilization in a child showing signs of progressive obstruction.",
+      },
+      {
+        text: "Obtain inflammatory markers and await the results",
+        correct: false,
+        feedback:
+          "Laboratory studies are nonspecific and should not delay treatment of a threatened airway.",
+      },
+      {
+        text: "Prioritize definitive airway assessment and stabilization",
+        correct: true,
+        feedback:
+          "Progressive stridor, decreasing air entry, marked work of breathing, and fatigue indicate a threatened airway. Airway stabilization takes priority over diagnostic testing.",
+      },
+      {
+        text: "Repeat nebulized epinephrine until the stridor resolves",
+        correct: false,
+        feedback:
+          "Persistent deterioration despite croup-directed therapy should prompt airway reassessment and treatment of bacterial tracheitis rather than repeated reliance on nebulized epinephrine.",
+      },
+    ],
+  },
+
+  {
+    question:
+      "After the airway is secured, thick purulent secretions continue to obstruct the trachea and repeatedly require suctioning. Which management strategy best addresses the underlying disease?",
+    answers: [
+      {
+        text: "Corticosteroids alone until tracheal edema resolves",
+        correct: false,
+        feedback:
+          "Bacterial tracheitis involves bacterial infection and intraluminal obstructing secretions, so corticosteroids alone do not address the underlying process.",
+      },
+      {
+        text: "Airway clearance with removal of obstructing debris plus empiric parenteral antibiotics",
+        correct: true,
+        feedback:
+          "Management must address both components of disease: mechanical obstruction from thick secretions or debris and the underlying bacterial infection.",
+      },
+      {
+        text: "Observation because intubation has eliminated the risk of further obstruction",
+        correct: false,
+        feedback:
+          "Intubation secures the airway but does not eliminate thick secretions or debris, which can continue to obstruct the trachea or endotracheal tube.",
+      },
+      {
+        text: "Bronchodilator therapy directed at lower-airway smooth muscle",
+        correct: false,
+        feedback:
+          "Bronchodilators target lower-airway bronchospasm and do not treat the tracheal inflammation, secretions, and bacterial infection responsible for this disease.",
+      },
+    ],
+  },
+];
 
 /* =========================================================
    REFERENCES
 ========================================================= */
 
-const references: Reference[] = [];
+const references: Reference[] = [
+  {
+    title:
+      "American Academy of Pediatrics — Pediatrics in Review: Bacterial Tracheitis",
+    description:
+      "Pediatric-focused review of presentation, airway obstruction, diagnosis, antimicrobial therapy, disposition, and bacterial tracheitis in children with artificial airways.",
+    href: "https://publications.aap.org/pediatricsinreview/article/35/11/497/32548/Bacterial-Tracheitis",
+  },
+  {
+    title:
+      "Bacterial Tracheitis in Children: Approach to Diagnosis and Treatment",
+    description:
+      "Peer-reviewed clinical review addressing pathophysiology, differentiation from croup and epiglottitis, bronchoscopy, airway management, antimicrobial therapy, and prognosis.",
+    href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC2719512/",
+  },
+  {
+    title:
+      "Pediatric Bacterial Tracheitis — A Variable Entity: Case Series with Literature Review",
+    description:
+      "Contemporary pediatric case series describing presenting features, viral coinfection, microbiology, PICU admission, intubation, and clinical outcomes.",
+    href: "https://pubmed.ncbi.nlm.nih.gov/30348058/",
+  },
+  {
+    title:
+      "Acute Pediatric Tracheitis: Distinguishing the Disease by Tracheostomy Status",
+    description:
+      "Large pediatric database study highlighting important differences in presentation and management between children with and without preexisting tracheostomies.",
+    href: "https://pubmed.ncbi.nlm.nih.gov/31884048/",
+  },
+  {
+    title:
+      "Care Variations and Outcomes for Children Hospitalized With Bacterial Tracheostomy-Associated Respiratory Infections",
+    description:
+      "Multicenter pediatric study examining diagnostic testing, antimicrobial practice variation, length of stay, and outcomes in children with tracheostomies hospitalized with bacterial respiratory infections.",
+    href: "https://publications.aap.org/hospitalpediatrics/article/7/1/16/26405/Care-Variations-and-Outcomes-for-Children",
+  },
+];
 
 /* =========================================================
    PAGE
@@ -640,6 +831,42 @@ export default function BacterialTracheitisPage() {
                   </p>
                 </div>
               </div>
+              <div className="mt-6">
+                <p className="font-semibold text-slate-950">Bronchoscopy</p>
+
+                <p className="mt-2 leading-7 text-slate-600">
+                  Bronchoscopy may demonstrate an inflamed tracheal mucosa with
+                  thick, adherent purulent secretions and intraluminal debris.
+                  It can be both diagnostic and therapeutic by allowing direct
+                  visualization, secretion sampling, and airway clearance.
+                </p>
+
+                <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-white">
+                  <img
+                    src="/images/bacterial-tracheitis-bronchoscopy.png"
+                    alt="Bronchoscopic appearance of bacterial tracheitis showing inflamed tracheal mucosa and adherent purulent secretions"
+                    className="w-full object-contain"
+                  />
+
+                  <div className="border-t border-slate-200 p-4">
+                    <p className="text-sm font-semibold text-slate-900">
+                      Bronchoscopic appearance of bacterial tracheitis
+                    </p>
+
+                    <p className="mt-1 text-sm leading-6 text-slate-600">
+                      Bronchoscopy demonstrates inflamed tracheal mucosa with
+                      adherent purulent secretions near the tracheal
+                      bifurcation. Thick secretions and inflammatory debris can
+                      contribute to clinically significant airway obstruction.
+                    </p>
+
+                    <p className="mt-2 text-xs leading-5 text-slate-500">
+                      Image: Kano K, et al. <em>Pediatrics International</em>.
+                      2025. Licensed under CC BY 4.0.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </ExpandableSection>
 
             <Callout
@@ -791,74 +1018,57 @@ export default function BacterialTracheitisPage() {
               />
             </div>
 
-            {/* AIRWAY */}
-
-            <InfoCard title="When airway intervention is needed" tone="rose">
-              <p>
-                Do not wait for respiratory arrest before escalating airway
-                management. Children with significant bacterial tracheitis can
-                deteriorate rapidly as mucosal edema and thick secretions
-                progressively narrow the tracheal lumen.
-              </p>
-
-              <ul className="mt-4 space-y-3">
-                <li>• Severe or progressively worsening stridor</li>
-                <li>• Increasing work of breathing or retractions</li>
-                <li>• Decreasing air entry</li>
-                <li>• Hypoxemia or cyanosis</li>
-                <li>• Fatigue or altered mental status</li>
-                <li>
-                  • Inability to effectively clear thick airway secretions
-                </li>
-                <li>
-                  • Rapid clinical deterioration despite supportive therapy
-                </li>
-              </ul>
-            </InfoCard>
-
-            <Callout
-              label="Airway Pearl"
-              title="The endotracheal tube does not remove the disease"
-              tone="amber"
-            >
-              <p>
-                Even after intubation, thick secretions and sloughed
-                inflammatory material may continue to obstruct the airway or the
-                endotracheal tube. Frequent suctioning, airway humidification,
-                and repeated assessment of tube patency may be necessary.
-              </p>
-            </Callout>
-
-            {/* SECRETIONS / BRONCHOSCOPY */}
+            {/* AIRWAY MANAGEMENT */}
 
             <div className="grid gap-6 md:grid-cols-2">
-              <InfoCard title="Airway clearance" tone="blue">
-                <ul className="space-y-3">
-                  <li>• Humidified oxygen when needed and tolerated</li>
-                  <li>• Frequent suctioning of thick airway secretions</li>
-                  <li>• Close monitoring for recurrent obstruction</li>
+              <InfoCard title="When airway intervention is needed" tone="rose">
+                <p>
+                  Do not wait for respiratory arrest before escalating airway
+                  management. Progressive bacterial tracheitis can deteriorate
+                  rapidly as edema and thick secretions increasingly narrow the
+                  tracheal lumen.
+                </p>
+
+                <ul className="mt-4 space-y-2">
+                  <li>• Severe or progressively worsening stridor</li>
                   <li>
-                    • Reassessment of airway patency if respiratory status
-                    suddenly worsens
+                    • Increasing work of breathing or decreasing air entry
                   </li>
+                  <li>• Hypoxemia or cyanosis</li>
+                  <li>• Fatigue or altered mental status</li>
+                  <li>• Inability to effectively clear thick secretions</li>
+                  <li>• Rapid clinical deterioration</li>
                 </ul>
               </InfoCard>
 
-              <InfoCard title="Role of bronchoscopy" tone="blue">
+              <InfoCard title="Airway clearance & bronchoscopy" tone="blue">
                 <p>
-                  Bronchoscopy may be both diagnostic and therapeutic. Thick
-                  mucopurulent secretions and adherent pseudomembranous debris
-                  can be suctioned or mechanically removed when they are
-                  contributing to obstruction.
+                  Thick secretions require aggressive airway clearance with
+                  suctioning and humidification. When secretions or adherent
+                  debris cannot be adequately cleared, bronchoscopy can directly
+                  remove obstructing material.
                 </p>
 
                 <p className="mt-4">
-                  The need for bronchoscopy depends on disease severity, the
-                  degree of obstruction, and whether adequate airway clearance
-                  can otherwise be achieved.
+                  Bronchoscopy may therefore be therapeutic in addition to its
+                  diagnostic role, particularly in children with significant
+                  intraluminal obstruction.
                 </p>
               </InfoCard>
             </div>
+
+            <Callout
+              label="Airway Pearl"
+              title="Intubation secures the airway — it does not clear the disease"
+              tone="amber"
+            >
+              <p>
+                Thick secretions and sloughed inflammatory material can continue
+                to obstruct the trachea or the endotracheal tube after
+                intubation. Frequent suctioning, humidification, and repeated
+                assessment of tube patency may still be necessary.
+              </p>
+            </Callout>
 
             {/* ANTIBIOTICS */}
 
@@ -897,49 +1107,19 @@ export default function BacterialTracheitisPage() {
               </div>
             </InfoCard>
 
-            <Callout
-              label="Antibiotic Safety"
-              title="Local resistance patterns matter"
-              tone="blue"
-            >
-              <p>
-                Because <strong>S. aureus</strong> is an important cause of
-                bacterial tracheitis, empiric therapy must account for local
-                MRSA prevalence and susceptibility patterns rather than relying
-                on a single universal regimen.
-              </p>
-            </Callout>
-
             {/* SUPPORTIVE CARE */}
 
-            <div className="grid gap-6 md:grid-cols-2">
-              <InfoCard title="Supportive care" tone="emerald">
-                <ul className="space-y-3">
-                  <li>
-                    • Continuous cardiorespiratory and pulse-oximetry monitoring
-                  </li>
-                  <li>• Supplemental oxygen when indicated</li>
-                  <li>• IV fluids when oral intake is inadequate</li>
-                  <li>• Antipyretics and analgesia as appropriate</li>
-                  <li>• Frequent reassessment of respiratory status</li>
-                </ul>
-              </InfoCard>
-
-              <InfoCard title="What about standard croup therapy?" tone="slate">
-                <p>
-                  Nebulized epinephrine and corticosteroids may have been given
-                  initially when the presentation was thought to represent
-                  croup, but persistent obstruction in bacterial tracheitis is
-                  driven by bacterial inflammation and intraluminal secretions.
-                </p>
-
-                <p className="mt-4">
-                  Failure to improve should prompt airway reassessment and
-                  treatment of bacterial tracheitis rather than repeated
-                  reliance on croup therapy alone.
-                </p>
-              </InfoCard>
-            </div>
+            <InfoCard title="Supportive care" tone="emerald">
+              <ul className="space-y-3">
+                <li>
+                  • Continuous cardiorespiratory and pulse-oximetry monitoring
+                </li>
+                <li>• Supplemental oxygen when indicated</li>
+                <li>• IV fluids when oral intake is inadequate</li>
+                <li>• Antipyretics and analgesia as appropriate</li>
+                <li>• Frequent reassessment of respiratory status</li>
+              </ul>
+            </InfoCard>
 
             {/* SPECIAL POPULATION */}
 
@@ -963,21 +1143,226 @@ export default function BacterialTracheitisPage() {
                 </p>
               </div>
             </ExpandableSection>
+          </DiseaseSection>
+          {/* =================================================
+    DISPOSITION
+================================================= */}
+
+          <DiseaseSection
+            id="disposition"
+            label="Disposition"
+            title="Admission is the rule — level of care follows the airway"
+            description="Bacterial tracheitis can deteriorate rapidly. Disposition should reflect the degree of airway compromise, need for respiratory support, and ability to provide immediate airway intervention if the child worsens."
+          >
+            <div className="grid gap-6 md:grid-cols-2">
+              <InfoCard title="PICU / higher-acuity care" tone="rose">
+                <p>
+                  Children with significant or progressive airway obstruction
+                  require intensive monitoring and immediate access to
+                  experienced pediatric airway management.
+                </p>
+
+                <ul className="mt-4 space-y-2">
+                  <li>• Endotracheal intubation or mechanical ventilation</li>
+                  <li>• Progressive stridor or respiratory distress</li>
+                  <li>• Hypoxemia or increasing respiratory support</li>
+                  <li>
+                    • Fatigue, altered mental status, or decreasing air entry
+                  </li>
+                  <li>
+                    • Frequent suctioning for thick obstructing secretions
+                  </li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard title="Stable but not intubated" tone="amber">
+                <p>
+                  Children who do not require intubation still need admission
+                  and close observation in a setting where deterioration can be
+                  recognized quickly and the airway can be secured if necessary.
+                </p>
+
+                <p className="mt-4">
+                  If appropriate pediatric airway expertise is not available
+                  locally, transfer to a higher-level or tertiary-care center
+                  should be considered.
+                </p>
+              </InfoCard>
+            </div>
 
             <Callout
-              label="One-Sentence Management"
-              title="Think airway + source control + antibiotics"
-              tone="rose"
+              label="Extubation Readiness"
+              title="Improvement means more than a better oxygen saturation"
+              tone="blue"
             >
               <p>
-                Severe bacterial tracheitis requires more than antibiotics
-                alone: stabilize the airway, remove obstructing secretions when
-                necessary, and treat the bacterial infection while continuing
-                close respiratory monitoring.
+                Extubation is individualized but should follow clear clinical
+                improvement: fever and toxic appearance are resolving, tracheal
+                secretions have substantially decreased, respiratory status has
+                stabilized, and an air leak around the endotracheal tube
+                supports improvement in airway edema.
+              </p>
+            </Callout>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <InfoCard title="After extubation" tone="emerald">
+                <p>
+                  Continue close observation after extubation for recurrent
+                  obstruction while oxygen therapy, airway clearance, and
+                  antimicrobial treatment are continued as clinically indicated.
+                </p>
+              </InfoCard>
+
+              <InfoCard title="Discharge readiness" tone="slate">
+                <ul className="space-y-2">
+                  <li>
+                    • Stable airway without recurrent significant obstruction
+                  </li>
+                  <li>• No ongoing need for intensive respiratory support</li>
+                  <li>
+                    • Secretions manageable without intensive airway
+                    intervention
+                  </li>
+                  <li>
+                    • Adequate hydration and ability to tolerate enteral therapy
+                  </li>
+                  <li>
+                    • Appropriate antimicrobial plan established for completion
+                  </li>
+                </ul>
+              </InfoCard>
+            </div>
+
+            <Callout
+              label="Expected Course"
+              title="Most children recover completely with appropriate treatment"
+              tone="emerald"
+            >
+              <p>
+                Improvement is generally expected over several days with
+                effective airway management and antimicrobial therapy. Reported
+                intubation duration is commonly a few days, although
+                hospitalization may be longer depending on disease severity and
+                associated lower-respiratory involvement.
               </p>
             </Callout>
           </DiseaseSection>
         </div>
+        {/* =================================================
+    CLINICAL PEARLS
+================================================= */}
+
+        <DiseaseSection
+          id="pearls"
+          label="Clinical Pearls"
+          title="The high-yield takeaways"
+          description="Keep these principles in mind when evaluating a child with suspected bacterial tracheitis."
+        >
+          <div className="grid gap-5 md:grid-cols-2">
+            <PearlCard
+              number={1}
+              title="Think bacterial tracheitis when croup stops behaving like croup"
+            >
+              <p>
+                A viral or croup-like prodrome followed by high fever, toxic
+                appearance, progressive respiratory distress, and poor response
+                to standard croup therapy should prompt reconsideration of the
+                diagnosis.
+              </p>
+            </PearlCard>
+
+            <PearlCard
+              number={2}
+              title="The obstruction is both edema and debris"
+            >
+              <p>
+                Unlike uncomplicated croup, bacterial tracheitis can obstruct
+                the airway with thick mucopurulent secretions and sloughed or
+                pseudomembranous material in addition to mucosal edema.
+              </p>
+            </PearlCard>
+
+            <PearlCard
+              number={3}
+              title="Drooling should make you reconsider the localization"
+            >
+              <p>
+                Children with bacterial tracheitis usually remain able to handle
+                their oral secretions. Prominent drooling, dysphagia, muffled
+                voice, or tripod positioning should increase concern for
+                supraglottic disease such as epiglottitis.
+              </p>
+            </PearlCard>
+
+            <PearlCard
+              number={4}
+              title="The airway comes before the diagnostic workup"
+            >
+              <p>
+                Imaging and laboratory testing are supportive. A child with
+                progressive airway compromise should undergo stabilization and
+                definitive airway assessment rather than being sent for testing
+                simply to confirm the diagnosis.
+              </p>
+            </PearlCard>
+
+            <PearlCard number={5} title="Bronchoscopy can diagnose and treat">
+              <p>
+                Direct airway visualization can demonstrate the inflamed
+                trachea, obtain microbiologic specimens, and permit removal of
+                thick secretions or adherent debris contributing to obstruction.
+              </p>
+            </PearlCard>
+
+            <PearlCard
+              number={6}
+              title="A positive trach culture is not the same as infection"
+            >
+              <p>
+                Children with tracheostomies commonly have airway colonization.
+                Interpret cultures alongside meaningful clinical changes such as
+                new purulent secretions, increased suctioning, fever, or
+                worsening respiratory support requirements.
+              </p>
+            </PearlCard>
+          </div>
+
+          <Callout
+            label="Remember the Management Framework"
+            title="Airway → clearance → antibiotics"
+            tone="blue"
+          >
+            <p>
+              Protect a threatened airway, remove obstructing secretions and
+              debris when necessary, and begin empiric parenteral antimicrobial
+              therapy with appropriate coverage for{" "}
+              <strong>Staphylococcus aureus</strong> and other likely
+              respiratory pathogens.
+            </p>
+          </Callout>
+        </DiseaseSection>
+
+        {/* =================================================
+    PROGRESSIVE QUIZ
+================================================= */}
+
+        <DiseaseSection
+          id="quiz"
+          label="Progressive Quiz"
+          title="Can you manage the deteriorating airway?"
+          description="Follow the case as it evolves from a croup-like illness to progressive bacterial tracheal obstruction."
+        >
+          <ProgressiveQuiz questions={quizQuestions} />
+        </DiseaseSection>
+
+        {/* =================================================
+    EVIDENCE BASE
+================================================= */}
+
+        <EvidenceBase
+          references={references}
+          secondarySources="Nelson Textbook of Pediatrics and StatPearls were used as additional educational references for clinical organization, cross-checking, and consistency."
+        />
       </div>
     </main>
   );
