@@ -8,7 +8,7 @@ export { default as EvidenceBase } from "./EvidenceBase";
 export type { Reference } from "./EvidenceBase";
 export { default as FigureModal } from "./FigureModal";
 export { default as ExpandableSection } from "./ExpandableSection";
-
+export { default as AnkiDeck } from "./AnkiDeck";
 export type { CardTone } from "./InfoCard";
 export type {
   QuizAnswer,

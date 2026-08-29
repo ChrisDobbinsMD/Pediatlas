@@ -10,6 +10,7 @@ import {
   EvidenceBase,
   FigureModal,
   ExpandableSection,
+  AnkiDeck,
   type QuizQuestion,
   type Reference,
 } from "@/components/disease";
@@ -1353,6 +1354,22 @@ export default function BacterialTracheitisPage() {
           description="Follow the case as it evolves from a croup-like illness to progressive bacterial tracheal obstruction."
         >
           <ProgressiveQuiz questions={quizQuestions} />
+        </DiseaseSection>
+
+        {/* =========================================================
+    ANKI DECK
+========================================================= */}
+        <DiseaseSection
+          id="anki"
+          label="Spaced Repetition"
+          title="Keep the high-yield concepts fresh"
+          description="Review the core bacterial tracheitis concepts from this module with a focused Anki deck."
+        >
+          <AnkiDeck
+            title="Bacterial Tracheitis"
+            cardCount={12}
+            downloadHref="/Anki/bacterial-tracheitis.apkg"
+          />
         </DiseaseSection>
 
         {/* =================================================
