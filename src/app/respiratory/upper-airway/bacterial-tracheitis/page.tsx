@@ -325,7 +325,7 @@ export default function BacterialTracheitisPage() {
             <a href="#vignette">Clinical vignette</a>
             <a href="#localization">Anatomy &amp; Localization</a>
             <a href="#pathophysiology">Pathophysiology</a>
-            <a href="#assessment">History &amp; Physical</a>
+            <a href="#history-physical">History &amp; Physical</a>
             <a href="#differential">Differential Diagnosis</a>
             <a href="#workup">Diagnostic Workup</a>
             <a href="#management">Management</a>
@@ -345,7 +345,7 @@ export default function BacterialTracheitisPage() {
             { id: "vignette", label: "Clinical Vignette" },
             { id: "localization", label: "Anatomy & Localization" },
             { id: "pathophysiology", label: "Pathophysiology" },
-            { id: "assessment", label: "History & Physical" },
+            { id: "history-physical", label: "History & Physical" },
             { id: "differential", label: "Differential Diagnosis" },
             { id: "workup", label: "Diagnostic Workup" },
             { id: "management", label: "Management" },
