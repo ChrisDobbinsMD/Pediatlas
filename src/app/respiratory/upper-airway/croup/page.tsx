@@ -1155,8 +1155,8 @@ export default function CroupPage() {
 
           <AnkiDeck
             title="Croup Anki Deck"
-            href="/Anki/croup.apkg"
             cardCount={16}
+            downloadHref="/Anki/croup.apkg"
           />
           {/* =================================================
               EVIDENCE BASE
