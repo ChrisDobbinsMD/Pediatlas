@@ -9,6 +9,7 @@ import {
   ProgressiveQuiz,
   EvidenceBase,
   FigureModal,
+  AnkiDeck,
   type QuizQuestion,
   type Reference,
 } from "@/components/disease";
@@ -1303,6 +1304,16 @@ export default function EpiglottitisPage() {
           >
             <ProgressiveQuiz questions={quizQuestions} />
           </DiseaseSection>
+
+          {/* =================================================
+    ANKI DECK
+================================================== */}
+
+          <AnkiDeck
+            title="Epiglottitis Anki Deck"
+            cardCount={16}
+            downloadHref="/Anki/epiglottitis.apkg"
+          />
           {/* =================================================
         EVIDENCE BASE
     ================================================== */}
