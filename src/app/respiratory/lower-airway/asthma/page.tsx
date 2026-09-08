@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { EvidenceBase } from "@/components/disease";
+import { AnkiDeck, EvidenceBase } from "@/components/disease";
 
 const pathophysiology = [
   {
@@ -18,8 +18,7 @@ const pathophysiology = [
   },
   {
     title: "Mucus production",
-    description:
-      "Increased secretions further narrow the airway lumen.",
+    description: "Increased secretions further narrow the airway lumen.",
   },
   {
     title: "Air trapping",
@@ -223,15 +222,13 @@ export default function AsthmaPage() {
             </div>
 
             <div className="mt-8 rounded-2xl bg-slate-50 p-6">
-              <h3 className="text-xl font-bold">
-                Clinical implication
-              </h3>
+              <h3 className="text-xl font-bold">Clinical implication</h3>
 
               <p className="mt-3 leading-7 text-slate-600">
-                Because asthma affects the conducting airways rather than the alveoli,
-                patients typically present with wheezing, prolonged expiration,
-                chest tightness, and airflow obstruction rather than focal crackles
-                or consolidation.
+                Because asthma affects the conducting airways rather than the
+                alveoli, patients typically present with wheezing, prolonged
+                expiration, chest tightness, and airflow obstruction rather than
+                focal crackles or consolidation.
               </p>
             </div>
           </section>
@@ -293,10 +290,16 @@ export default function AsthmaPage() {
                 <ul className="mt-4 space-y-3 leading-7 text-slate-600">
                   <li>• Episodic wheeze, cough, dyspnea, or chest tightness</li>
                   <li>• Nighttime or early-morning symptoms</li>
-                  <li>• Exercise, viral, allergen, smoke, or weather triggers</li>
-                  <li>• Prior emergency visits, hospitalization, or intubation</li>
+                  <li>
+                    • Exercise, viral, allergen, smoke, or weather triggers
+                  </li>
+                  <li>
+                    • Prior emergency visits, hospitalization, or intubation
+                  </li>
                   <li>• Controller adherence and inhaler technique</li>
-                  <li>• Atopy, eczema, allergic rhinitis, and family history</li>
+                  <li>
+                    • Atopy, eczema, allergic rhinitis, and family history
+                  </li>
                 </ul>
               </div>
 
@@ -351,9 +354,7 @@ export default function AsthmaPage() {
                   className="rounded-2xl border border-amber-200 bg-white p-5"
                 >
                   <h3 className="font-bold text-amber-950">{title}</h3>
-                  <p className="mt-2 leading-7 text-amber-900">
-                    {description}
-                  </p>
+                  <p className="mt-2 leading-7 text-amber-900">{description}</p>
                 </div>
               ))}
             </div>
@@ -402,9 +403,9 @@ export default function AsthmaPage() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Asthma is diagnosed by a characteristic pattern of variable respiratory
-              symptoms together with objective evidence of variable expiratory airflow
-              limitation when testing is feasible.
+              Asthma is diagnosed by a characteristic pattern of variable
+              respiratory symptoms together with objective evidence of variable
+              expiratory airflow limitation when testing is feasible.
             </p>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -418,7 +419,9 @@ export default function AsthmaPage() {
                   <li>• Prior exacerbations and response to treatment</li>
                   <li>• Physical examination and oxygen saturation</li>
                   <li>• Assessment of atopy and relevant comorbidities</li>
-                  <li>• Review of inhaler technique and medication adherence</li>
+                  <li>
+                    • Review of inhaler technique and medication adherence
+                  </li>
                 </ul>
               </div>
 
@@ -429,17 +432,20 @@ export default function AsthmaPage() {
 
                 <ul className="mt-4 space-y-3 leading-7 text-blue-900">
                   <li>
-                    • Perform spirometry with bronchodilator testing when the child is
-                    developmentally able
+                    • Perform spirometry with bronchodilator testing when the
+                    child is developmentally able
                   </li>
-                  <li>• Look for reduced expiratory airflow before treatment</li>
+                  <li>
+                    • Look for reduced expiratory airflow before treatment
+                  </li>
                   <li>• Repeat testing after an inhaled bronchodilator</li>
                   <li>
-                    • Improvement in airflow supports variable, reversible obstruction
+                    • Improvement in airflow supports variable, reversible
+                    obstruction
                   </li>
                   <li>
-                    • Normal spirometry between episodes does not completely exclude
-                    asthma
+                    • Normal spirometry between episodes does not completely
+                    exclude asthma
                   </li>
                 </ul>
               </div>
@@ -470,9 +476,10 @@ export default function AsthmaPage() {
                   </h4>
 
                   <p className="mt-3 leading-7 text-purple-900">
-                    FeNO may support the diagnosis of type 2 airway inflammation when
-                    asthma remains uncertain, but it should be interpreted as an adjunct
-                    rather than used alone to diagnose or exclude asthma.
+                    FeNO may support the diagnosis of type 2 airway inflammation
+                    when asthma remains uncertain, but it should be interpreted
+                    as an adjunct rather than used alone to diagnose or exclude
+                    asthma.
                   </p>
                 </div>
               </div>
@@ -503,9 +510,13 @@ export default function AsthmaPage() {
                   <li>• Findings are focal or markedly asymmetric</li>
                   <li>• Foreign body aspiration is possible</li>
                   <li>• Pneumonia or pneumothorax is suspected</li>
-                  <li>• The diagnosis is uncertain or the course is atypical</li>
+                  <li>
+                    • The diagnosis is uncertain or the course is atypical
+                  </li>
                   <li>• The child fails to improve as expected</li>
-                  <li>• Respiratory failure or another complication is suspected</li>
+                  <li>
+                    • Respiratory failure or another complication is suspected
+                  </li>
                 </ul>
               </div>
             </div>
@@ -520,15 +531,15 @@ export default function AsthmaPage() {
               </h3>
 
               <p className="mt-4 leading-7 text-slate-200">
-                Early in an asthma exacerbation, children commonly hyperventilate and
-                lower their carbon dioxide level. In a child with severe distress, a
-                normalizing or rising carbon dioxide level may indicate worsening
-                fatigue and inadequate ventilation.
+                Early in an asthma exacerbation, children commonly
+                hyperventilate and lower their carbon dioxide level. In a child
+                with severe distress, a normalizing or rising carbon dioxide
+                level may indicate worsening fatigue and inadequate ventilation.
               </p>
 
               <p className="mt-4 font-semibold text-amber-300">
-                Decreasing wheeze with worsening air movement may represent a silent
-                chest—not clinical improvement.
+                Decreasing wheeze with worsening air movement may represent a
+                silent chest—not clinical improvement.
               </p>
             </div>
           </section>
@@ -569,9 +580,7 @@ export default function AsthmaPage() {
                   className="rounded-2xl border border-slate-200 p-6"
                 >
                   <h3 className="text-xl font-bold">{title}</h3>
-                  <p className="mt-3 leading-7 text-slate-600">
-                    {description}
-                  </p>
+                  <p className="mt-3 leading-7 text-slate-600">{description}</p>
                 </div>
               ))}
             </div>
@@ -582,10 +591,10 @@ export default function AsthmaPage() {
               </h3>
 
               <p className="mt-3 leading-7 text-blue-900">
-                Asthma management should include an inhaled corticosteroid-containing
-                strategy, assessment of symptom control and future risk, inhaler
-                technique, adherence, trigger reduction, and a written asthma
-                action plan.
+                Asthma management should include an inhaled
+                corticosteroid-containing strategy, assessment of symptom
+                control and future risk, inhaler technique, adherence, trigger
+                reduction, and a written asthma action plan.
               </p>
             </div>
           </section>
@@ -603,10 +612,10 @@ export default function AsthmaPage() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Disposition depends on the child&apos;s clinical response after initial
-              treatment, oxygen requirement, work of breathing, air movement, ability to
-              speak or feed, prior high-risk history, and the safety of outpatient
-              follow-up.
+              Disposition depends on the child&apos;s clinical response after
+              initial treatment, oxygen requirement, work of breathing, air
+              movement, ability to speak or feed, prior high-risk history, and
+              the safety of outpatient follow-up.
             </p>
 
             <div className="mt-8 grid gap-6 lg:grid-cols-3">
@@ -616,13 +625,23 @@ export default function AsthmaPage() {
                 </h3>
 
                 <ul className="mt-4 space-y-3 leading-7 text-emerald-900">
-                  <li>• Symptoms and work of breathing are substantially improved</li>
+                  <li>
+                    • Symptoms and work of breathing are substantially improved
+                  </li>
                   <li>• Air movement is good without concerning fatigue</li>
                   <li>• Oxygenation is stable on room air</li>
-                  <li>• Bronchodilator treatments can be spaced appropriately</li>
-                  <li>• The child can speak, drink, and ambulate near baseline</li>
-                  <li>• Caregivers understand treatment and return precautions</li>
-                  <li>• Reliable follow-up and access to medications are available</li>
+                  <li>
+                    • Bronchodilator treatments can be spaced appropriately
+                  </li>
+                  <li>
+                    • The child can speak, drink, and ambulate near baseline
+                  </li>
+                  <li>
+                    • Caregivers understand treatment and return precautions
+                  </li>
+                  <li>
+                    • Reliable follow-up and access to medications are available
+                  </li>
                 </ul>
               </div>
 
@@ -634,9 +653,16 @@ export default function AsthmaPage() {
                 <ul className="mt-4 space-y-3 leading-7 text-amber-900">
                   <li>• Persistent moderate or severe respiratory distress</li>
                   <li>• Continued oxygen requirement or recurrent hypoxemia</li>
-                  <li>• Need for frequent or continuous bronchodilator therapy</li>
-                  <li>• Incomplete or short-lived response to initial treatment</li>
-                  <li>• Poor oral intake, dehydration, or inability to manage at home</li>
+                  <li>
+                    • Need for frequent or continuous bronchodilator therapy
+                  </li>
+                  <li>
+                    • Incomplete or short-lived response to initial treatment
+                  </li>
+                  <li>
+                    • Poor oral intake, dehydration, or inability to manage at
+                    home
+                  </li>
                   <li>• High-risk history or significant comorbidity</li>
                   <li>• Unsafe social situation or unreliable follow-up</li>
                 </ul>
@@ -652,8 +678,13 @@ export default function AsthmaPage() {
                   <li>• Markedly reduced air movement or silent chest</li>
                   <li>• Exhaustion, confusion, drowsiness, or agitation</li>
                   <li>• Persistent or worsening hypoxemia</li>
-                  <li>• Rising carbon dioxide or evidence of ventilatory failure</li>
-                  <li>• Need for advanced or rapidly escalating respiratory support</li>
+                  <li>
+                    • Rising carbon dioxide or evidence of ventilatory failure
+                  </li>
+                  <li>
+                    • Need for advanced or rapidly escalating respiratory
+                    support
+                  </li>
                   <li>• Concern for impending respiratory arrest</li>
                 </ul>
               </div>
@@ -696,17 +727,18 @@ export default function AsthmaPage() {
               </p>
 
               <p className="mt-3 leading-7 text-slate-200">
-                Prior intensive-care admission, previous intubation, recent emergency
-                visits or systemic corticosteroid courses, poor controller adherence,
-                medication-access barriers, and psychosocial concerns should lower the
-                threshold for observation, admission, or specialist involvement.
+                Prior intensive-care admission, previous intubation, recent
+                emergency visits or systemic corticosteroid courses, poor
+                controller adherence, medication-access barriers, and
+                psychosocial concerns should lower the threshold for
+                observation, admission, or specialist involvement.
               </p>
             </div>
 
             <p className="mt-6 text-sm leading-6 text-slate-500">
-              Exact admission, oxygen, and bronchodilator-spacing criteria vary by
-              institution. Apply the local pediatric asthma pathway when making clinical
-              decisions.
+              Exact admission, oxygen, and bronchodilator-spacing criteria vary
+              by institution. Apply the local pediatric asthma pathway when
+              making clinical decisions.
             </p>
           </section>
 
@@ -769,9 +801,7 @@ export default function AsthmaPage() {
                   </span>
 
                   <div>
-                    <h3 className="font-bold text-slate-900">
-                      {pearl.title}
-                    </h3>
+                    <h3 className="font-bold text-slate-900">{pearl.title}</h3>
 
                     <p className="mt-2 leading-7 text-slate-700">
                       {pearl.description}
@@ -791,8 +821,8 @@ export default function AsthmaPage() {
               </p>
 
               <p className="mt-3 leading-7 text-slate-200">
-                Always interpret wheezing together with air entry, respiratory effort,
-                speech, oxygenation, fatigue, and mental status.
+                Always interpret wheezing together with air entry, respiratory
+                effort, speech, oxygenation, fatigue, and mental status.
               </p>
             </div>
           </section>
@@ -826,13 +856,14 @@ export default function AsthmaPage() {
                 <button
                   key={answer}
                   onClick={() => setSelectedAnswer(answer)}
-                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${selectedAnswer === answer
+                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${
+                    selectedAnswer === answer
                       ? answer ===
                         "Give inhaled albuterol, oxygen, and systemic corticosteroid"
                         ? "border-green-500 bg-green-100 text-green-950"
                         : "border-red-500 bg-red-100 text-red-950"
                       : "border-purple-200 bg-white text-purple-950 hover:border-purple-400 hover:bg-purple-100"
-                    }`}
+                  }`}
                 >
                   {answer}
                 </button>
@@ -842,58 +873,75 @@ export default function AsthmaPage() {
             {selectedAnswer && (
               <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
                 {selectedAnswer ===
-                  "Give inhaled albuterol, oxygen, and systemic corticosteroid" ? (
+                "Give inhaled albuterol, oxygen, and systemic corticosteroid" ? (
                   <>
-                    <h3 className="text-xl font-bold text-green-700">Correct!</h3>
+                    <h3 className="text-xl font-bold text-green-700">
+                      Correct!
+                    </h3>
 
                     <p className="mt-4 leading-7 text-slate-700">
-                      This child has a moderate-to-severe asthma exacerbation with
-                      hypoxemia and impaired speech. Immediate treatment should target
-                      bronchoconstriction, oxygenation, and airway inflammation.
+                      This child has a moderate-to-severe asthma exacerbation
+                      with hypoxemia and impaired speech. Immediate treatment
+                      should target bronchoconstriction, oxygenation, and airway
+                      inflammation.
                     </p>
                   </>
                 ) : (
                   <>
-                    <h3 className="text-xl font-bold text-red-700">Not quite.</h3>
+                    <h3 className="text-xl font-bold text-red-700">
+                      Not quite.
+                    </h3>
 
                     <p className="mt-4 leading-7 text-slate-700">
                       The best answer is:
                     </p>
 
                     <p className="mt-2 font-bold text-green-700">
-                      Give inhaled albuterol, oxygen, and systemic corticosteroid.
+                      Give inhaled albuterol, oxygen, and systemic
+                      corticosteroid.
                     </p>
 
-                    {selectedAnswer === "Obtain a chest radiograph before treatment" && (
+                    {selectedAnswer ===
+                      "Obtain a chest radiograph before treatment" && (
                       <p className="mt-4 leading-7 text-slate-700">
-                        A typical asthma exacerbation is treated clinically. Routine chest
-                        radiography is not required before starting therapy and should not delay
-                        bronchodilator treatment, oxygen, or corticosteroids.
+                        A typical asthma exacerbation is treated clinically.
+                        Routine chest radiography is not required before
+                        starting therapy and should not delay bronchodilator
+                        treatment, oxygen, or corticosteroids.
                       </p>
                     )}
 
-                    {selectedAnswer === "Start antibiotics for presumed pneumonia" && (
+                    {selectedAnswer ===
+                      "Start antibiotics for presumed pneumonia" && (
                       <p className="mt-4 leading-7 text-slate-700">
-                        This presentation is most consistent with an acute asthma exacerbation,
-                        not bacterial pneumonia. Antibiotics are reserved for findings that
-                        suggest bacterial infection, such as focal lung findings, persistent
-                        fever, or another convincing source.
+                        This presentation is most consistent with an acute
+                        asthma exacerbation, not bacterial pneumonia.
+                        Antibiotics are reserved for findings that suggest
+                        bacterial infection, such as focal lung findings,
+                        persistent fever, or another convincing source.
                       </p>
                     )}
 
                     {selectedAnswer ===
                       "Observe without treatment because wheezing is expected" && (
-                        <p className="mt-4 leading-7 text-slate-700">
-                          This child has hypoxemia, moderate retractions, and impaired speech,
-                          indicating a moderate-to-severe exacerbation. Observation alone is unsafe;
-                          treatment should begin immediately.
-                        </p>
-                      )}
+                      <p className="mt-4 leading-7 text-slate-700">
+                        This child has hypoxemia, moderate retractions, and
+                        impaired speech, indicating a moderate-to-severe
+                        exacerbation. Observation alone is unsafe; treatment
+                        should begin immediately.
+                      </p>
+                    )}
                   </>
                 )}
               </div>
             )}
           </section>
+
+          <AnkiDeck
+            title="Asthma"
+            cardCount={16}
+            downloadHref="/Anki/asthma.apkg"
+          />
 
           <EvidenceBase
             references={[
@@ -911,7 +959,6 @@ export default function AsthmaPage() {
               },
             ]}
           />
-
         </div>
       </div>
     </main>

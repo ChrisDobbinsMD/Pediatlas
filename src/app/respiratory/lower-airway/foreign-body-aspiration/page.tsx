@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { EvidenceBase } from "@/components/disease";
+import { AnkiDeck, EvidenceBase } from "@/components/disease";
 
 const obstructionPatterns = [
   {
@@ -79,8 +79,7 @@ const correctAnswer =
 
 function getIncorrectFeedback(answer: string) {
   if (
-    answer ===
-    "A normal chest radiograph excludes an aspirated foreign body"
+    answer === "A normal chest radiograph excludes an aspirated foreign body"
   ) {
     return "Many aspirated objects are radiolucent, and chest radiographs can be normal. A concerning choking history with persistent focal findings should not be dismissed because imaging is unrevealing.";
   }
@@ -137,9 +136,7 @@ export default function ForeignBodyAspirationPage() {
 
             <span className="text-slate-400">/</span>
 
-            <span className="text-slate-600">
-              Foreign Body Aspiration
-            </span>
+            <span className="text-slate-600">Foreign Body Aspiration</span>
           </nav>
 
           <div className="mt-9 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
@@ -153,11 +150,10 @@ export default function ForeignBodyAspirationPage() {
               </h1>
 
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-                Entry of food or another object into the larynx,
-                trachea, or bronchial tree can cause complete
-                obstruction, focal air trapping, atelectasis, or
-                delayed recurrent pulmonary disease. A child may
-                appear well after the initial choking event despite a
+                Entry of food or another object into the larynx, trachea, or
+                bronchial tree can cause complete obstruction, focal air
+                trapping, atelectasis, or delayed recurrent pulmonary disease. A
+                child may appear well after the initial choking event despite a
                 retained airway foreign body.
               </p>
 
@@ -217,14 +213,13 @@ export default function ForeignBodyAspirationPage() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-blue-50">
-              A previously healthy 22-month-old boy is brought to the
-              emergency department after suddenly coughing and choking
-              while eating peanuts. His parents report that he briefly
-              became cyanotic but quickly recovered. Since the event, he
-              has continued to cough intermittently. Examination reveals
-              mild tachypnea, decreased breath sounds, and an expiratory
-              wheeze over the right lung field. Oxygen saturation is 97%
-              on room air.
+              A previously healthy 22-month-old boy is brought to the emergency
+              department after suddenly coughing and choking while eating
+              peanuts. His parents report that he briefly became cyanotic but
+              quickly recovered. Since the event, he has continued to cough
+              intermittently. Examination reveals mild tachypnea, decreased
+              breath sounds, and an expiratory wheeze over the right lung field.
+              Oxygen saturation is 97% on room air.
             </p>
 
             <div className="mt-7 rounded-2xl bg-white/10 p-5">
@@ -234,9 +229,9 @@ export default function ForeignBodyAspirationPage() {
 
               <p className="mt-2 leading-7 text-blue-50">
                 Determine whether the object entered the airway or the
-                esophagus, assess for current airway compromise, and
-                recognize that normal oxygenation does not exclude a
-                retained bronchial foreign body.
+                esophagus, assess for current airway compromise, and recognize
+                that normal oxygenation does not exclude a retained bronchial
+                foreign body.
               </p>
             </div>
           </section>
@@ -249,16 +244,13 @@ export default function ForeignBodyAspirationPage() {
               Anatomy &amp; localization
             </p>
 
-            <h2 className="mt-2 text-3xl font-bold">
-              Airway or esophagus?
-            </h2>
+            <h2 className="mt-2 text-3xl font-bold">Airway or esophagus?</h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              After passing through the oropharynx, an object may enter
-              the anterior laryngeal inlet and tracheobronchial tree or
-              pass posteriorly into the esophagus. Symptoms depend on
-              both the pathway taken and the level at which the object
-              becomes lodged.
+              After passing through the oropharynx, an object may enter the
+              anterior laryngeal inlet and tracheobronchial tree or pass
+              posteriorly into the esophagus. Symptoms depend on both the
+              pathway taken and the level at which the object becomes lodged.
             </p>
             <Image
               src="/images/aspiration-ingestion-pthwy.png"
@@ -343,13 +335,9 @@ export default function ForeignBodyAspirationPage() {
                     key={item.region}
                     className="grid gap-2 rounded-2xl border border-amber-100 bg-white p-5 md:grid-cols-[190px_1fr]"
                   >
-                    <h4 className="font-bold text-amber-950">
-                      {item.region}
-                    </h4>
+                    <h4 className="font-bold text-amber-950">{item.region}</h4>
 
-                    <p className="leading-7 text-slate-700">
-                      {item.findings}
-                    </p>
+                    <p className="leading-7 text-slate-700">{item.findings}</p>
                   </div>
                 ))}
               </div>
@@ -361,11 +349,10 @@ export default function ForeignBodyAspirationPage() {
               </p>
 
               <p className="mt-3 leading-7 text-slate-200">
-                Do not assume every pediatric foreign body enters the
-                right mainstem bronchus. Unlike adults, young children
-                have less pronounced differences between the right and
-                left mainstem bronchial angles, so either side may be
-                involved.
+                Do not assume every pediatric foreign body enters the right
+                mainstem bronchus. Unlike adults, young children have less
+                pronounced differences between the right and left mainstem
+                bronchial angles, so either side may be involved.
               </p>
             </div>
           </section>
@@ -383,9 +370,9 @@ export default function ForeignBodyAspirationPage() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              The physiologic consequences depend on the object&apos;s
-              size, shape, location, duration, and whether air can pass
-              around it during inspiration or expiration.
+              The physiologic consequences depend on the object&apos;s size,
+              shape, location, duration, and whether air can pass around it
+              during inspiration or expiration.
             </p>
 
             <div className="mt-8 grid gap-5 md:grid-cols-2">
@@ -411,10 +398,10 @@ export default function ForeignBodyAspirationPage() {
               </p>
 
               <p className="mt-3 leading-7 text-rose-900">
-                The dramatic choking episode may stop once the object
-                moves distally. This apparent recovery does not confirm
-                expulsion—the child may enter a quieter interval despite
-                persistent bronchial obstruction.
+                The dramatic choking episode may stop once the object moves
+                distally. This apparent recovery does not confirm expulsion—the
+                child may enter a quieter interval despite persistent bronchial
+                obstruction.
               </p>
             </div>
           </section>
@@ -458,7 +445,9 @@ export default function ForeignBodyAspirationPage() {
                   <li>• Unilateral wheeze or asymmetric air entry</li>
                   <li>• Focal crackles or signs of atelectasis</li>
                   <li>• Drooling and ability to manage secretions</li>
-                  <li>• Signs of exhaustion or impending respiratory failure</li>
+                  <li>
+                    • Signs of exhaustion or impending respiratory failure
+                  </li>
                 </ul>
               </div>
             </div>
@@ -469,11 +458,11 @@ export default function ForeignBodyAspirationPage() {
               </h3>
 
               <p className="mt-3 leading-7 text-amber-900">
-                Children with a retained foreign body may appear
-                comfortable between episodes and may have normal oxygen
-                saturation, no audible wheeze, or subtle findings.
-                Clinical suspicion must incorporate the history rather
-                than relying on one reassuring examination.
+                Children with a retained foreign body may appear comfortable
+                between episodes and may have normal oxygen saturation, no
+                audible wheeze, or subtle findings. Clinical suspicion must
+                incorporate the history rather than relying on one reassuring
+                examination.
               </p>
             </div>
           </section>
@@ -498,9 +487,7 @@ export default function ForeignBodyAspirationPage() {
                 >
                   <p className="font-bold">{item.diagnosis}</p>
 
-                  <p className="leading-7 text-slate-600">
-                    {item.clue}
-                  </p>
+                  <p className="leading-7 text-slate-600">{item.clue}</p>
                 </div>
               ))}
             </div>
@@ -526,10 +513,9 @@ export default function ForeignBodyAspirationPage() {
 
                 <p className="mt-3 leading-7 text-blue-900">
                   Obtain 2-view chest radiographs when the child is stable.
-                  Imaging may directly show a radiopaque object or
-                  indirectly demonstrate unilateral hyperinflation,
-                  mediastinal shift, atelectasis, consolidation, or
-                  pneumothorax.
+                  Imaging may directly show a radiopaque object or indirectly
+                  demonstrate unilateral hyperinflation, mediastinal shift,
+                  atelectasis, consolidation, or pneumothorax.
                 </p>
               </div>
 
@@ -539,11 +525,12 @@ export default function ForeignBodyAspirationPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-purple-900">
-                  Standard frontal and lateral chest radiographs remain the initial
-                  imaging study for suspected foreign body aspiration.
-                  Inspiratory-expiratory or lateral decubitus views have historically
-                  been used to demonstrate unilateral air trapping, but their diagnostic
-                  performance is limited and they are no longer routinely recommended in many centers.
+                  Standard frontal and lateral chest radiographs remain the
+                  initial imaging study for suspected foreign body aspiration.
+                  Inspiratory-expiratory or lateral decubitus views have
+                  historically been used to demonstrate unilateral air trapping,
+                  but their diagnostic performance is limited and they are no
+                  longer routinely recommended in many centers.
                 </p>
               </div>
 
@@ -553,11 +540,10 @@ export default function ForeignBodyAspirationPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-emerald-900">
-                  When the pathway or object is uncertain, imaging may
-                  need to include the neck, chest, and abdomen. Coins,
-                  button batteries, magnets, sharp objects, and other
-                  high-risk ingestions require object-specific urgent
-                  management.
+                  When the pathway or object is uncertain, imaging may need to
+                  include the neck, chest, and abdomen. Coins, button batteries,
+                  magnets, sharp objects, and other high-risk ingestions require
+                  object-specific urgent management.
                 </p>
               </div>
 
@@ -567,19 +553,19 @@ export default function ForeignBodyAspirationPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-amber-900">
-                  Most aspirated foreign bodies are radiolucent, and normal chest
-                  radiographs do not exclude aspiration. When suspicion remains
-                  high despite unrevealing radiographs, further evaluation should
-                  not be delayed. Depending on institutional practice and resource
-                  availability, patients may proceed directly to bronchoscopy or
-                  undergo low-dose noncontrast chest CT when the diagnosis remains uncertain.
+                  Most aspirated foreign bodies are radiolucent, and normal
+                  chest radiographs do not exclude aspiration. When suspicion
+                  remains high despite unrevealing radiographs, further
+                  evaluation should not be delayed. Depending on institutional
+                  practice and resource availability, patients may proceed
+                  directly to bronchoscopy or undergo low-dose noncontrast chest
+                  CT when the diagnosis remains uncertain.
                 </p>
               </div>
             </div>
             {/* Imaging Examples */}
 
             <div className="mt-8 rounded-3xl border border-slate-200 bg-slate-50 p-8">
-
               <h3 className="text-2xl font-bold text-slate-900">
                 Imaging Pearls
               </h3>
@@ -590,16 +576,11 @@ export default function ForeignBodyAspirationPage() {
               </p>
 
               <div className="mt-8 space-y-12">
-
                 {/* Airway Foreign Body */}
 
                 <div>
-
                   <div className="flex items-center justify-between">
-
-                    <h4 className="text-xl font-bold">
-                      Airway Foreign Body
-                    </h4>
+                    <h4 className="text-xl font-bold">Airway Foreign Body</h4>
 
                     <button
                       onClick={() =>
@@ -611,7 +592,6 @@ export default function ForeignBodyAspirationPage() {
                         ? "👁 Hide annotations"
                         : "👁 Show annotations"}
                     </button>
-
                   </div>
 
                   <a
@@ -641,25 +621,21 @@ export default function ForeignBodyAspirationPage() {
                       rel="noopener noreferrer"
                       className="text-blue-700 hover:underline"
                     >
-                      Foreign Body Aspiration Chest Radiograph (Hellerhoff, 2022)
+                      Foreign Body Aspiration Chest Radiograph (Hellerhoff,
+                      2022)
                     </a>{" "}
                     · CC BY-SA 4.0
                   </p>
                   <div className="mt-5 rounded-xl border border-sky-200 bg-sky-50 p-5">
-
-                    <p className="font-semibold text-sky-900">
-                      Clinical Pearl
-                    </p>
+                    <p className="font-semibold text-sky-900">Clinical Pearl</p>
 
                     <p className="mt-2 leading-7 text-sky-900">
                       Most aspirated foreign bodies are radiolucent and are not
-                      directly visible on chest radiographs. Diagnosis often relies
-                      on indirect findings such as unilateral hyperinflation,
-                      air trapping, and mediastinal shift.
+                      directly visible on chest radiographs. Diagnosis often
+                      relies on indirect findings such as unilateral
+                      hyperinflation, air trapping, and mediastinal shift.
                     </p>
-
                   </div>
-
                 </div>
 
                 {/* Esophageal Coin */}
@@ -670,9 +646,10 @@ export default function ForeignBodyAspirationPage() {
                         Esophageal Coin
                       </h3>
                       <p className="mt-2 text-slate-600">
-                        AP and lateral radiographs demonstrate the typical appearance of an
-                        esophageal foreign body. The lateral view confirms that the coin lies
-                        posterior to the trachea.
+                        AP and lateral radiographs demonstrate the typical
+                        appearance of an esophageal foreign body. The lateral
+                        view confirms that the coin lies posterior to the
+                        trachea.
                       </p>
                     </div>
                   </div>
@@ -719,7 +696,8 @@ export default function ForeignBodyAspirationPage() {
                   </button>
 
                   <p className="mt-2 text-xs text-slate-500">
-                    🔍 Click either image to view the full-resolution radiograph.
+                    🔍 Click either image to view the full-resolution
+                    radiograph.
                   </p>
 
                   <p className="mt-3 text-sm text-slate-500">
@@ -742,27 +720,28 @@ export default function ForeignBodyAspirationPage() {
 
                     <ul className="mt-3 list-disc space-y-2 pl-5 text-slate-700">
                       <li>
-                        On the <strong>AP radiograph</strong>, esophageal coins are usually seen
-                        <strong> en face</strong> (round), whereas tracheal coins more commonly
-                        appear edge-on.
+                        On the <strong>AP radiograph</strong>, esophageal coins
+                        are usually seen
+                        <strong> en face</strong> (round), whereas tracheal
+                        coins more commonly appear edge-on.
                       </li>
 
                       <li>
-                        The <strong>lateral radiograph</strong> confirms the coin is
-                        <strong> posterior to the trachea</strong>, supporting an esophageal
-                        location.
+                        The <strong>lateral radiograph</strong> confirms the
+                        coin is
+                        <strong> posterior to the trachea</strong>, supporting
+                        an esophageal location.
                       </li>
 
                       <li>
-                        Always distinguish a coin from a <strong>button battery</strong>, which
-                        requires emergent removal because of the risk of caustic injury.
+                        Always distinguish a coin from a{" "}
+                        <strong>button battery</strong>, which requires emergent
+                        removal because of the risk of caustic injury.
                       </li>
                     </ul>
                   </div>
                 </div>
-
               </div>
-
             </div>
             <div className="mt-7 rounded-2xl border border-rose-200 bg-rose-50 p-6">
               <h3 className="text-xl font-bold text-rose-950">
@@ -770,10 +749,10 @@ export default function ForeignBodyAspirationPage() {
               </h3>
 
               <p className="mt-3 leading-7 text-rose-900">
-                If clinical suspicion remains high, urgent consultation
-                for bronchoscopy is appropriate even when radiographs
-                are normal. Bronchoscopy allows direct airway
-                visualization and removal during the same procedure.
+                If clinical suspicion remains high, urgent consultation for
+                bronchoscopy is appropriate even when radiographs are normal.
+                Bronchoscopy allows direct airway visualization and removal
+                during the same procedure.
               </p>
             </div>
           </section>
@@ -802,17 +781,17 @@ export default function ForeignBodyAspirationPage() {
                     • Allow coughing when the cough remains strong and effective
                   </li>
                   <li>
-                    • For an infant: cycles of 5 back blows and 5 chest thrusts (heel-of-hand technique)
+                    • For an infant: cycles of 5 back blows and 5 chest thrusts
+                    (heel-of-hand technique)
                   </li>
                   <li>
-                    • For a child: cycles of 5 back blows and 5 abdominal thrusts
+                    • For a child: cycles of 5 back blows and 5 abdominal
+                    thrusts
                   </li>
                   <li>
                     • If unresponsive, begin CPR starting with compressions
                   </li>
-                  <li>
-                    • Remove an object only when it is clearly visible
-                  </li>
+                  <li>• Remove an object only when it is clearly visible</li>
                   <li>• Do not perform a blind finger sweep</li>
                 </ul>
               </div>
@@ -828,7 +807,9 @@ export default function ForeignBodyAspirationPage() {
                   <li>• Maintain continuous clinical observation</li>
                   <li>• Keep the child NPO</li>
                   <li>• Avoid unnecessary airway manipulation</li>
-                  <li>• Obtain appropriate imaging if it will not delay care</li>
+                  <li>
+                    • Obtain appropriate imaging if it will not delay care
+                  </li>
                   <li>
                     • Consult the local airway team urgently for bronchoscopy
                   </li>
@@ -842,12 +823,11 @@ export default function ForeignBodyAspirationPage() {
               </h3>
 
               <p className="mt-3 leading-7 text-purple-900">
-                Rigid bronchoscopy under general anesthesia is commonly
-                used because it provides airway control, ventilation,
-                direct visualization, and access for extraction
-                instruments. The exact procedural team varies by
-                institution and may include otolaryngology, pediatric
-                surgery, pulmonology, and anesthesia.
+                Rigid bronchoscopy under general anesthesia is commonly used
+                because it provides airway control, ventilation, direct
+                visualization, and access for extraction instruments. The exact
+                procedural team varies by institution and may include
+                otolaryngology, pediatric surgery, pulmonology, and anesthesia.
               </p>
             </div>
 
@@ -857,10 +837,10 @@ export default function ForeignBodyAspirationPage() {
               </p>
 
               <p className="mt-3 leading-7 text-slate-200">
-                A partially obstructing object can move and suddenly
-                produce complete obstruction. Do not leave the child
-                unobserved or create unnecessary distress while awaiting
-                definitive evaluation.
+                A partially obstructing object can move and suddenly produce
+                complete obstruction. Do not leave the child unobserved or
+                create unnecessary distress while awaiting definitive
+                evaluation.
               </p>
             </div>
           </section>
@@ -906,7 +886,9 @@ export default function ForeignBodyAspirationPage() {
                   <li>• Procedure planned but not immediately performed</li>
                   <li>• Persistent cough, wheeze, or asymmetric examination</li>
                   <li>• Oxygen requirement or increased work of breathing</li>
-                  <li>• Atelectasis, pneumonia, or other pulmonary complication</li>
+                  <li>
+                    • Atelectasis, pneumonia, or other pulmonary complication
+                  </li>
                   <li>• Post-bronchoscopy monitoring is indicated</li>
                 </ul>
               </div>
@@ -934,10 +916,9 @@ export default function ForeignBodyAspirationPage() {
 
               <p className="mt-3 leading-7 text-blue-900">
                 Reassess respiratory symptoms and examination findings.
-                Depending on the duration and complexity of impaction,
-                evaluate for residual fragments, airway edema, bleeding,
-                granulation tissue, pneumothorax, atelectasis, or
-                secondary infection.
+                Depending on the duration and complexity of impaction, evaluate
+                for residual fragments, airway edema, bleeding, granulation
+                tissue, pneumothorax, atelectasis, or secondary infection.
               </p>
             </div>
           </section>
@@ -1001,9 +982,7 @@ export default function ForeignBodyAspirationPage() {
                   </span>
 
                   <div>
-                    <h3 className="font-bold text-slate-900">
-                      {pearl.title}
-                    </h3>
+                    <h3 className="font-bold text-slate-900">{pearl.title}</h3>
 
                     <p className="mt-2 leading-7 text-slate-700">
                       {pearl.description}
@@ -1027,11 +1006,11 @@ export default function ForeignBodyAspirationPage() {
             </h2>
 
             <p className="mt-5 leading-8 text-purple-900">
-              A 2-year-old suddenly choked while eating nuts. He now
-              appears comfortable with an oxygen saturation of 98%, but
-              has persistent unilateral wheezing. Chest radiographs show
-              no visible foreign body and no definite abnormality. What
-              is the most appropriate next step?
+              A 2-year-old suddenly choked while eating nuts. He now appears
+              comfortable with an oxygen saturation of 98%, but has persistent
+              unilateral wheezing. Chest radiographs show no visible foreign
+              body and no definite abnormality. What is the most appropriate
+              next step?
             </p>
 
             <div className="mt-6 grid gap-3">
@@ -1040,12 +1019,13 @@ export default function ForeignBodyAspirationPage() {
                   key={answer}
                   type="button"
                   onClick={() => setSelectedAnswer(answer)}
-                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${selectedAnswer === answer
-                    ? answer === correctAnswer
-                      ? "border-green-500 bg-green-100 text-green-950"
-                      : "border-red-500 bg-red-100 text-red-950"
-                    : "border-purple-200 bg-white text-purple-950 hover:border-purple-400 hover:bg-purple-100"
-                    }`}
+                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${
+                    selectedAnswer === answer
+                      ? answer === correctAnswer
+                        ? "border-green-500 bg-green-100 text-green-950"
+                        : "border-red-500 bg-red-100 text-red-950"
+                      : "border-purple-200 bg-white text-purple-950 hover:border-purple-400 hover:bg-purple-100"
+                  }`}
                 >
                   {answer}
                 </button>
@@ -1061,12 +1041,11 @@ export default function ForeignBodyAspirationPage() {
                     </h3>
 
                     <p className="mt-4 leading-7 text-slate-700">
-                      A classic choking event followed by persistent
-                      focal respiratory findings creates a high
-                      suspicion for a retained bronchial foreign body.
-                      Normal oxygenation and radiographs do not exclude
-                      aspiration. The child needs urgent specialty
-                      evaluation for bronchoscopy.
+                      A classic choking event followed by persistent focal
+                      respiratory findings creates a high suspicion for a
+                      retained bronchial foreign body. Normal oxygenation and
+                      radiographs do not exclude aspiration. The child needs
+                      urgent specialty evaluation for bronchoscopy.
                     </p>
                   </>
                 ) : (
@@ -1092,37 +1071,39 @@ export default function ForeignBodyAspirationPage() {
             )}
           </section>
 
+          <AnkiDeck
+            title="Foreign Body Aspiration"
+            cardCount={16}
+            downloadHref="/Anki/foreign-body-aspiration.apkg"
+          />
+
           <EvidenceBase
             references={[
               {
                 title:
                   "American Academy of Pediatrics — Foreign Body Ingestion and Aspiration",
-                href:
-                  "https://publications.aap.org/pediatricsinreview/article/47/6/352/207798/Foreign-Body-Ingestion-and-Aspiration",
+                href: "https://publications.aap.org/pediatricsinreview/article/47/6/352/207798/Foreign-Body-Ingestion-and-Aspiration",
                 description:
                   "Current Pediatrics in Review discussion of the presentation, evaluation, and management of ingested and aspirated foreign bodies in children.",
               },
               {
                 title:
                   "American Heart Association — Pediatric Basic Life Support",
-                href:
-                  "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/pediatric-basic-life-support",
+                href: "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/pediatric-basic-life-support",
                 description:
                   "2025 pediatric basic life support guidance, including management of severe foreign-body airway obstruction in infants and children.",
               },
               {
                 title:
                   "Royal Children’s Hospital Melbourne — Foreign Bodies Inhaled",
-                href:
-                  "https://www.rch.org.au/clinicalguide/guideline_index/Foreign_bodies_inhaled/",
+                href: "https://www.rch.org.au/clinicalguide/guideline_index/Foreign_bodies_inhaled/",
                 description:
                   "Clinical guidance for recognition, investigation, observation, consultation, and management of inhaled foreign bodies.",
               },
               {
                 title:
                   "Children’s Hospital of Philadelphia — Foreign Body Aspiration",
-                href:
-                  "https://www.chop.edu/conditions-diseases/foreign-body-aspiration",
+                href: "https://www.chop.edu/conditions-diseases/foreign-body-aspiration",
                 description:
                   "Overview of pediatric foreign body aspiration and bronchoscopic removal using a rigid ventilating bronchoscope.",
               },

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { EvidenceBase } from "@/components/disease";
+import { AnkiDeck, EvidenceBase } from "@/components/disease";
 
 const clinicalPearls = [
   "Bronchiolitis is primarily a clinical diagnosis.",
@@ -568,6 +568,13 @@ export default function BronchiolitisPage() {
               )}
             </div>
           </section>
+
+          <AnkiDeck
+            title="Bronchiolitis"
+            cardCount={16}
+            downloadHref="/Anki/bronchiolitis.apkg"
+          />
+
           <EvidenceBase
             references={[
               {

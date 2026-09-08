@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { EvidenceBase } from "@/components/disease";
+import { AnkiDeck, EvidenceBase } from "@/components/disease";
 
 const aspirationSyndromes = [
   {
@@ -16,28 +16,23 @@ const aspirationSyndromes = [
     details: [
       {
         label: "Mechanism",
-        text:
-          "Direct chemical injury after aspiration of acidic gastric contents or another irritating substance.",
+        text: "Direct chemical injury after aspiration of acidic gastric contents or another irritating substance.",
       },
       {
         label: "Typical timing",
-        text:
-          "Abrupt symptoms developing within minutes to hours of a witnessed or strongly suspected aspiration event.",
+        text: "Abrupt symptoms developing within minutes to hours of a witnessed or strongly suspected aspiration event.",
       },
       {
         label: "Clinical findings",
-        text:
-          "Cough, tachypnea, hypoxemia, increased work of breathing, wheezing, or diffuse crackles. Fever and leukocytosis may occur from inflammation alone.",
+        text: "Cough, tachypnea, hypoxemia, increased work of breathing, wheezing, or diffuse crackles. Fever and leukocytosis may occur from inflammation alone.",
       },
       {
         label: "Imaging",
-        text:
-          "Dependent or multifocal airspace opacities may appear, although early chest radiographs can be normal.",
+        text: "Dependent or multifocal airspace opacities may appear, although early chest radiographs can be normal.",
       },
       {
         label: "Treatment",
-        text:
-          "Supportive respiratory care. Antibiotics are not routinely indicated unless a bacterial infection subsequently becomes likely.",
+        text: "Supportive respiratory care. Antibiotics are not routinely indicated unless a bacterial infection subsequently becomes likely.",
       },
     ],
   },
@@ -51,28 +46,23 @@ const aspirationSyndromes = [
     details: [
       {
         label: "Mechanism",
-        text:
-          "Aspiration of bacteria-containing oropharyngeal or gastric material followed by infection of the pulmonary parenchyma.",
+        text: "Aspiration of bacteria-containing oropharyngeal or gastric material followed by infection of the pulmonary parenchyma.",
       },
       {
         label: "Typical timing",
-        text:
-          "Symptoms generally evolve over hours to days rather than immediately after a single aspiration event.",
+        text: "Symptoms generally evolve over hours to days rather than immediately after a single aspiration event.",
       },
       {
         label: "Clinical findings",
-        text:
-          "Persistent or worsening fever, cough, respiratory distress, focal crackles, hypoxemia, and systemic signs of infection.",
+        text: "Persistent or worsening fever, cough, respiratory distress, focal crackles, hypoxemia, and systemic signs of infection.",
       },
       {
         label: "Imaging",
-        text:
-          "Focal or multifocal infiltrates, often involving dependent lung segments based on the child's position during aspiration.",
+        text: "Focal or multifocal infiltrates, often involving dependent lung segments based on the child's position during aspiration.",
       },
       {
         label: "Treatment",
-        text:
-          "Antibiotic therapy directed toward likely community or hospital pathogens, guided by the clinical setting and local recommendations.",
+        text: "Antibiotic therapy directed toward likely community or hospital pathogens, guided by the clinical setting and local recommendations.",
       },
     ],
   },
@@ -86,28 +76,23 @@ const aspirationSyndromes = [
     details: [
       {
         label: "Mechanism",
-        text:
-          "Repeated aspiration caused by swallowing dysfunction, impaired airway protection, reflux, structural abnormalities, or ineffective clearance.",
+        text: "Repeated aspiration caused by swallowing dysfunction, impaired airway protection, reflux, structural abnormalities, or ineffective clearance.",
       },
       {
         label: "Typical timing",
-        text:
-          "A recurrent or progressive course over weeks to months, often without one dramatic aspiration event.",
+        text: "A recurrent or progressive course over weeks to months, often without one dramatic aspiration event.",
       },
       {
         label: "Clinical findings",
-        text:
-          "Coughing or choking with feeds, wet respirations, recurrent pneumonia, chronic cough, wheezing, poor growth, or persistent oxygen requirement.",
+        text: "Coughing or choking with feeds, wet respirations, recurrent pneumonia, chronic cough, wheezing, poor growth, or persistent oxygen requirement.",
       },
       {
         label: "Imaging",
-        text:
-          "Recurrent dependent opacities, atelectasis, airway wall thickening, bronchiectasis, or chronic inflammatory changes.",
+        text: "Recurrent dependent opacities, atelectasis, airway wall thickening, bronchiectasis, or chronic inflammatory changes.",
       },
       {
         label: "Treatment",
-        text:
-          "Identify and address the source of aspiration, optimize feeding safety and airway clearance, and treat acute infections or chronic lung complications when present.",
+        text: "Identify and address the source of aspiration, optimize feeding safety and airway clearance, and treat acute infections or chronic lung complications when present.",
       },
     ],
   },
@@ -277,29 +262,20 @@ export default function PulmonaryAspirationPage() {
 
   const [visibleQuestionCount, setVisibleQuestionCount] = useState(1);
 
-  const [showVFSSAnnotations, setShowVFSSAnnotations] =
-    useState(false);
+  const [showVFSSAnnotations, setShowVFSSAnnotations] = useState(false);
 
-  const [showXRAnnotations, setShowXRAnnotations] =
-    useState(false);
+  const [showXRAnnotations, setShowXRAnnotations] = useState(false);
 
   const [showAntibiotics, setShowAntibiotics] = useState(false);
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
-
       {/* ================= HERO ================= */}
 
       <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 to-white px-6 py-14">
-
         <div className="mx-auto max-w-6xl">
-
           <nav className="flex flex-wrap gap-3 text-sm font-semibold">
-
-            <Link
-              href="/"
-              className="text-blue-800 hover:text-blue-600"
-            >
+            <Link href="/" className="text-blue-800 hover:text-blue-600">
               PediAtlas
             </Link>
 
@@ -323,16 +299,11 @@ export default function PulmonaryAspirationPage() {
 
             <span className="text-slate-400">/</span>
 
-            <span className="text-slate-600">
-              Pulmonary Aspiration
-            </span>
-
+            <span className="text-slate-600">Pulmonary Aspiration</span>
           </nav>
 
           <div className="mt-9 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-
             <div>
-
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
                 Airway Protection & Swallowing Disorders
               </p>
@@ -342,15 +313,14 @@ export default function PulmonaryAspirationPage() {
               </h1>
 
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-                Pulmonary aspiration occurs when material from the
-                oropharynx or stomach enters the lower respiratory tract.
-                The clinical presentation ranges from acute chemical lung
-                injury to bacterial pneumonia and chronic recurrent
-                aspiration resulting in progressive lung disease.
+                Pulmonary aspiration occurs when material from the oropharynx or
+                stomach enters the lower respiratory tract. The clinical
+                presentation ranges from acute chemical lung injury to bacterial
+                pneumonia and chronic recurrent aspiration resulting in
+                progressive lung disease.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
-
                 <span className="rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-800">
                   Chemical Injury
                 </span>
@@ -362,85 +332,54 @@ export default function PulmonaryAspirationPage() {
                 <span className="rounded-full bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-800">
                   Chronic Aspiration
                 </span>
-
               </div>
-
             </div>
 
-            <div
-              className="text-8xl"
-              aria-hidden="true"
-            >
+            <div className="text-8xl" aria-hidden="true">
               🫁🥛
             </div>
-
           </div>
-
         </div>
-
       </header>
 
       {/* ================= PAGE ================= */}
 
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-14 lg:grid-cols-[220px_1fr]">
-
         {/* Sidebar */}
 
         <aside className="h-fit rounded-3xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-6">
-
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
             On this page
           </p>
 
           <nav className="mt-4 flex flex-col gap-3 text-sm font-semibold text-blue-800">
-
             <a href="#vignette">Clinical vignette</a>
 
-            <a href="#localization">
-              Anatomy & Localization
-            </a>
+            <a href="#localization">Anatomy & Localization</a>
 
-            <a href="#pathophysiology">
-              Pathophysiology
-            </a>
+            <a href="#pathophysiology">Pathophysiology</a>
 
-            <a href="#assessment">
-              History & Physical
-            </a>
+            <a href="#assessment">History & Physical</a>
 
-            <a href="#workup">
-              Diagnostic Workup
-            </a>
+            <a href="#workup">Diagnostic Workup</a>
 
-            <a href="#management">
-              Management
-            </a>
+            <a href="#management">Management</a>
 
-            <a href="#disposition">
-              Disposition
-            </a>
+            <a href="#disposition">Disposition</a>
 
-            <a href="#pearls">
-              Clinical Pearls
-            </a>
+            <a href="#pearls">Clinical Pearls</a>
 
-            <a href="#quiz">
-              Quiz
-            </a>
-
+            <a href="#quiz">Quiz</a>
           </nav>
-
         </aside>
 
         <div className="space-y-8">
-
           {/* ================= CLINICAL VIGNETTE ================= */}
 
           <section
             id="vignette"
             className="rounded-3xl border border-blue-200 bg-blue-950 p-8 text-white shadow-sm"
           >
-
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
               Clinical vignette
             </p>
@@ -450,31 +389,26 @@ export default function PulmonaryAspirationPage() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-blue-50">
-              A 5-month-old infant presents with recurrent coughing,
-              choking, and oxygen desaturations during bottle feeds.
-              Parents report frequent respiratory illnesses and poor
-              weight gain. Chest radiographs demonstrate recurrent
-              right lower lobe infiltrates. The clinical team becomes
-              concerned for pulmonary aspiration caused by impaired
-              swallowing.
+              A 5-month-old infant presents with recurrent coughing, choking,
+              and oxygen desaturations during bottle feeds. Parents report
+              frequent respiratory illnesses and poor weight gain. Chest
+              radiographs demonstrate recurrent right lower lobe infiltrates.
+              The clinical team becomes concerned for pulmonary aspiration
+              caused by impaired swallowing.
             </p>
 
             <div className="mt-7 rounded-2xl bg-white/10 p-5">
-
               <p className="font-semibold text-sky-200">
                 Your first clinical task
               </p>
 
               <p className="mt-2 leading-7 text-blue-50">
-                Determine whether aspiration is acute or chronic,
-                identify the source of aspirated material,
-                evaluate swallowing safety, and recognize which
-                aspiration syndrome best explains the child's
+                Determine whether aspiration is acute or chronic, identify the
+                source of aspirated material, evaluate swallowing safety, and
+                recognize which aspiration syndrome best explains the child's
                 presentation.
               </p>
-
             </div>
-
           </section>
 
           {/* ================= ANATOMY ================= */}
@@ -492,11 +426,11 @@ export default function PulmonaryAspirationPage() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              During normal swallowing, multiple protective mechanisms
-              prevent food, liquid, and gastric contents from entering
-              the lower respiratory tract. Pulmonary aspiration occurs
-              when these defenses fail, allowing material to pass
-              through the larynx and into the tracheobronchial tree.
+              During normal swallowing, multiple protective mechanisms prevent
+              food, liquid, and gastric contents from entering the lower
+              respiratory tract. Pulmonary aspiration occurs when these defenses
+              fail, allowing material to pass through the larynx and into the
+              tracheobronchial tree.
             </p>
 
             <div className="mt-8 flex justify-center">
@@ -511,9 +445,7 @@ export default function PulmonaryAspirationPage() {
             </div>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2">
-
               <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
-
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
                   Normal Swallowing
                 </p>
@@ -530,11 +462,9 @@ export default function PulmonaryAspirationPage() {
                   <li>• Upper esophageal sphincter relaxation</li>
                   <li>• Effective cough clears minor aspiration events</li>
                 </ul>
-
               </div>
 
               <div className="rounded-2xl border border-rose-200 bg-rose-50 p-6">
-
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-rose-700">
                   Pulmonary Aspiration
                 </p>
@@ -551,62 +481,46 @@ export default function PulmonaryAspirationPage() {
                   <li>• Infection develops when bacteria proliferate</li>
                   <li>• Long-term injury may lead to bronchiectasis</li>
                 </ul>
-
               </div>
-
             </div>
 
             <div className="mt-7 rounded-2xl border border-amber-200 bg-amber-50 p-6">
-
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
                 Common causes of aspiration
               </p>
 
               <div className="mt-5 grid gap-4">
-
                 {[
                   {
                     title: "Swallowing dysfunction",
-                    text:
-                      "Neurologic disease, developmental delay, craniofacial abnormalities, and immature feeding coordination impair normal swallowing.",
+                    text: "Neurologic disease, developmental delay, craniofacial abnormalities, and immature feeding coordination impair normal swallowing.",
                   },
                   {
                     title: "Reduced airway protection",
-                    text:
-                      "Altered mental status, seizures, sedation, anesthesia, or intoxication reduce protective airway reflexes.",
+                    text: "Altered mental status, seizures, sedation, anesthesia, or intoxication reduce protective airway reflexes.",
                   },
                   {
                     title: "Gastroesophageal reflux",
-                    text:
-                      "Refluxed gastric contents may reach the pharynx and be aspirated, particularly in children with impaired airway clearance.",
+                    text: "Refluxed gastric contents may reach the pharynx and be aspirated, particularly in children with impaired airway clearance.",
                   },
                   {
                     title: "Structural abnormalities",
-                    text:
-                      "Laryngeal cleft, tracheoesophageal fistula, vocal cord paralysis, and other congenital lesions predispose to recurrent aspiration.",
+                    text: "Laryngeal cleft, tracheoesophageal fistula, vocal cord paralysis, and other congenital lesions predispose to recurrent aspiration.",
                   },
                 ].map((item) => (
                   <div
                     key={item.title}
                     className="grid gap-2 rounded-2xl border border-amber-100 bg-white p-5 md:grid-cols-[220px_1fr]"
                   >
-                    <h4 className="font-bold text-amber-950">
-                      {item.title}
-                    </h4>
+                    <h4 className="font-bold text-amber-950">{item.title}</h4>
 
-                    <p className="leading-7 text-slate-700">
-                      {item.text}
-                    </p>
-
+                    <p className="leading-7 text-slate-700">{item.text}</p>
                   </div>
                 ))}
-
               </div>
-
             </div>
 
             <div className="mt-7 rounded-2xl bg-slate-950 p-6 text-white">
-
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
                 Pediatric Anatomy Pearl
               </p>
@@ -615,13 +529,11 @@ export default function PulmonaryAspirationPage() {
                 Healthy children frequently experience small episodes of
                 physiologic microaspiration during sleep that are rapidly
                 cleared by normal cough and mucociliary function. Disease
-                develops when aspiration is large-volume, recurrent, or
-                occurs in children with impaired airway protection or
-                ineffective clearance mechanisms.
+                develops when aspiration is large-volume, recurrent, or occurs
+                in children with impaired airway protection or ineffective
+                clearance mechanisms.
               </p>
-
             </div>
-
           </section>
 
           {/* ================= PATHOPHYSIOLOGY ================= */}
@@ -639,12 +551,12 @@ export default function PulmonaryAspirationPage() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              The pulmonary response depends on the type of material
-              aspirated, the volume and frequency of aspiration, the
-              bacterial burden, and the child&apos;s ability to protect
-              and clear the airway. Distinguishing these syndromes helps
-              determine whether treatment should emphasize supportive
-              care, antibiotics, or prevention of recurrent aspiration.
+              The pulmonary response depends on the type of material aspirated,
+              the volume and frequency of aspiration, the bacterial burden, and
+              the child&apos;s ability to protect and clear the airway.
+              Distinguishing these syndromes helps determine whether treatment
+              should emphasize supportive care, antibiotics, or prevention of
+              recurrent aspiration.
             </p>
 
             <div className="mt-8 space-y-6">
@@ -673,15 +585,11 @@ export default function PulmonaryAspirationPage() {
                         key={detail.label}
                         className="grid gap-2 p-5 md:grid-cols-[170px_1fr]"
                       >
-                        <p
-                          className={`font-bold ${syndrome.titleClass}`}
-                        >
+                        <p className={`font-bold ${syndrome.titleClass}`}>
                           {detail.label}
                         </p>
 
-                        <p
-                          className={`leading-7 ${syndrome.textClass}`}
-                        >
+                        <p className={`leading-7 ${syndrome.textClass}`}>
                           {detail.text}
                         </p>
                       </div>
@@ -697,12 +605,11 @@ export default function PulmonaryAspirationPage() {
               </p>
 
               <p className="mt-3 leading-7 text-slate-200">
-                Immediate respiratory deterioration after a clear
-                aspiration event favors pneumonitis. Persistent or
-                progressive infectious findings over the following days
-                favor aspiration pneumonia. Recurrent feeding-associated
-                symptoms and repeated focal lung disease suggest chronic
-                pulmonary aspiration.
+                Immediate respiratory deterioration after a clear aspiration
+                event favors pneumonitis. Persistent or progressive infectious
+                findings over the following days favor aspiration pneumonia.
+                Recurrent feeding-associated symptoms and repeated focal lung
+                disease suggest chronic pulmonary aspiration.
               </p>
             </div>
           </section>
@@ -718,14 +625,15 @@ export default function PulmonaryAspirationPage() {
             </p>
 
             <h2 className="mt-2 text-3xl font-bold">
-              Look for acute events, feeding symptoms, and evidence of chronic lung injury
+              Look for acute events, feeding symptoms, and evidence of chronic
+              lung injury
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
               Aspiration may present as an abrupt respiratory event or as
               recurrent, subtle symptoms associated with feeding. A focused
-              history and examination should identify the likely timing,
-              source, severity, and underlying risk factors.
+              history and examination should identify the likely timing, source,
+              severity, and underlying risk factors.
             </p>
 
             <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -765,7 +673,9 @@ export default function PulmonaryAspirationPage() {
                       <li>• Coughing, choking, or gagging during feeds</li>
                       <li>• Wet voice or wet respirations after feeding</li>
                       <li>• Prolonged or stressful feeding sessions</li>
-                      <li>• Recurrent pneumonia or bronchiolitis-like illness</li>
+                      <li>
+                        • Recurrent pneumonia or bronchiolitis-like illness
+                      </li>
                       <li>• Chronic cough or persistent wheezing</li>
                       <li>• Feeding refusal, fatigue, or poor weight gain</li>
                     </ul>
@@ -808,7 +718,9 @@ export default function PulmonaryAspirationPage() {
                       <li>• Coughing or choking during observed feeds</li>
                       <li>• Drooling or difficulty managing secretions</li>
                       <li>• Wet vocal quality after swallowing</li>
-                      <li>• Poor coordination of suck, swallow, and breathing</li>
+                      <li>
+                        • Poor coordination of suck, swallow, and breathing
+                      </li>
                       <li>• Growth faltering or malnutrition</li>
                       <li>• Digital clubbing in advanced chronic disease</li>
                     </ul>
@@ -877,11 +789,19 @@ export default function PulmonaryAspirationPage() {
                   <li>• Apnea, cyanosis, or altered mental status</li>
                   <li>• Severe hypoxemia or rapidly increasing oxygen need</li>
                   <li>• Marked respiratory distress or exhaustion</li>
-                  <li>• Inability to protect the airway or manage secretions</li>
-                  <li>• Recurrent aspiration despite current feeding precautions</li>
-                  <li>• Failure to thrive with significant feeding intolerance</li>
+                  <li>
+                    • Inability to protect the airway or manage secretions
+                  </li>
+                  <li>
+                    • Recurrent aspiration despite current feeding precautions
+                  </li>
+                  <li>
+                    • Failure to thrive with significant feeding intolerance
+                  </li>
                   <li>• Recurrent pneumonia in the same dependent region</li>
-                  <li>• Concern for sepsis, abscess, or complicated pneumonia</li>
+                  <li>
+                    • Concern for sepsis, abscess, or complicated pneumonia
+                  </li>
                 </ul>
               </div>
             </div>
@@ -898,8 +818,8 @@ export default function PulmonaryAspirationPage() {
               <p className="mt-3 leading-7 text-purple-900">
                 Children with neurologic impairment, reduced laryngeal
                 sensation, or weak cough may aspirate without obvious choking.
-                Recurrent respiratory disease, feeding difficulty, or unexplained
-                oxygen desaturation may be the only clues.
+                Recurrent respiratory disease, feeding difficulty, or
+                unexplained oxygen desaturation may be the only clues.
               </p>
             </div>
           </section>
@@ -953,13 +873,14 @@ export default function PulmonaryAspirationPage() {
 
                   <div>
                     <h4 className="font-bold text-blue-950">
-                      Videofluoroscopic swallow study (VFSS)/Modified Barium Swallow Study (MBSS)
+                      Videofluoroscopic swallow study (VFSS)/Modified Barium
+                      Swallow Study (MBSS)
                     </h4>
 
                     <p className="mt-2 leading-7 text-blue-900">
                       VFSS/MBSS evaluates the oral and pharyngeal phases of
-                      swallowing using contrast-containing liquids and foods.
-                      It can identify penetration, aspiration, timing
+                      swallowing using contrast-containing liquids and foods. It
+                      can identify penetration, aspiration, timing
                       abnormalities, and potentially safer consistencies or
                       feeding strategies.
                     </p>
@@ -1023,8 +944,8 @@ export default function PulmonaryAspirationPage() {
 
                     <p className="mt-2 leading-7 text-amber-900">
                       CBC, inflammatory markers, blood gas, cultures, or
-                      metabolic testing should be guided by illness severity
-                      and concern for infection, respiratory failure, or an
+                      metabolic testing should be guided by illness severity and
+                      concern for infection, respiratory failure, or an
                       underlying acute event.
                     </p>
                   </div>
@@ -1056,9 +977,7 @@ export default function PulmonaryAspirationPage() {
                   </div>
 
                   <div>
-                    <h4 className="font-bold text-emerald-950">
-                      Chest CT
-                    </h4>
+                    <h4 className="font-bold text-emerald-950">Chest CT</h4>
 
                     <p className="mt-2 leading-7 text-emerald-900">
                       Consider when symptoms are persistent, complications are
@@ -1069,9 +988,7 @@ export default function PulmonaryAspirationPage() {
                   </div>
 
                   <div>
-                    <h4 className="font-bold text-emerald-950">
-                      Bronchoscopy
-                    </h4>
+                    <h4 className="font-bold text-emerald-950">Bronchoscopy</h4>
 
                     <p className="mt-2 leading-7 text-emerald-900">
                       May be used to evaluate airway anatomy, retained material,
@@ -1138,7 +1055,8 @@ export default function PulmonaryAspirationPage() {
                     </p>
 
                     <h3 className="mt-2 text-2xl font-bold">
-                      Videofluoroscopic swallow study (VFSS)/Modified Barium Swallow Study (MBSS)
+                      Videofluoroscopic swallow study (VFSS)/Modified Barium
+                      Swallow Study (MBSS)
                     </h3>
                   </div>
 
@@ -1257,9 +1175,9 @@ export default function PulmonaryAspirationPage() {
 
               <p className="mt-3 leading-7 text-rose-900">
                 Aspiration may vary by consistency, fatigue, positioning,
-                illness, feeding technique, and level of alertness. Test
-                results must be interpreted alongside the child&apos;s usual
-                feeding history and respiratory course.
+                illness, feeding technique, and level of alertness. Test results
+                must be interpreted alongside the child&apos;s usual feeding
+                history and respiratory course.
               </p>
             </div>
           </section>
@@ -1281,8 +1199,8 @@ export default function PulmonaryAspirationPage() {
             <p className="mt-5 text-lg leading-8 text-slate-600">
               Initial management focuses on airway protection and respiratory
               support. Subsequent treatment depends on whether the child has
-              aspiration pneumonitis, aspiration pneumonia, or chronic
-              pulmonary aspiration requiring long-term intervention.
+              aspiration pneumonitis, aspiration pneumonia, or chronic pulmonary
+              aspiration requiring long-term intervention.
             </p>
 
             {/* ================= ALGORITHM ================= */}
@@ -1293,7 +1211,6 @@ export default function PulmonaryAspirationPage() {
               </h3>
 
               <div className="mt-8 flex flex-col items-center space-y-4">
-
                 <div className="rounded-xl bg-sky-100 border border-sky-300 px-6 py-4 font-semibold text-center">
                   Child with suspected pulmonary aspiration
                 </div>
@@ -1307,7 +1224,6 @@ export default function PulmonaryAspirationPage() {
                 <div className="text-3xl">↓</div>
 
                 <div className="grid md:grid-cols-2 gap-8 w-full">
-
                   <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
                     <h4 className="text-xl font-bold text-red-900">
                       Unstable Patient
@@ -1335,7 +1251,6 @@ export default function PulmonaryAspirationPage() {
                       <li>• Identify underlying cause</li>
                     </ul>
                   </div>
-
                 </div>
 
                 <div className="text-3xl">↓</div>
@@ -1401,9 +1316,7 @@ export default function PulmonaryAspirationPage() {
                   <li>• Escalate respiratory support as needed</li>
                   <li>• IV fluids when oral intake is inadequate</li>
                   <li>• Bronchodilators only if bronchospasm is present</li>
-                  <li>
-                    • Continuous reassessment for clinical deterioration
-                  </li>
+                  <li>• Continuous reassessment for clinical deterioration</li>
                 </ul>
               </div>
 
@@ -1463,7 +1376,8 @@ export default function PulmonaryAspirationPage() {
               </p>
 
               <h3 className="mt-2 text-xl font-bold text-sky-950">
-                The underlying cause is just as important as treating the acute event
+                The underlying cause is just as important as treating the acute
+                event
               </h3>
 
               <p className="mt-3 leading-7 text-sky-900">
@@ -1495,14 +1409,16 @@ export default function PulmonaryAspirationPage() {
                   </h3>
 
                   <p className="mt-2 text-sm leading-6 text-blue-800">
-                    Common IV and oral approaches for pediatric aspiration pneumonia
+                    Common IV and oral approaches for pediatric aspiration
+                    pneumonia
                   </p>
                 </div>
 
                 <span
                   aria-hidden="true"
-                  className={`shrink-0 text-2xl font-semibold text-blue-800 transition-transform duration-200 ${showAntibiotics ? "rotate-180" : ""
-                    }`}
+                  className={`shrink-0 text-2xl font-semibold text-blue-800 transition-transform duration-200 ${
+                    showAntibiotics ? "rotate-180" : ""
+                  }`}
                 >
                   ⌄
                 </span>
@@ -1519,11 +1435,12 @@ export default function PulmonaryAspirationPage() {
                     </p>
 
                     <p className="mt-3 leading-7 text-slate-700">
-                      PIDS/IDSA pediatric community-acquired pneumonia guidelines do not
-                      provide a separate empiric regimen specifically for aspiration
-                      pneumonia. In practice, antibiotic selection generally follows
-                      pediatric pneumonia principles while accounting for aspiration risk,
-                      illness severity, prior cultures, healthcare exposure, and local
+                      PIDS/IDSA pediatric community-acquired pneumonia
+                      guidelines do not provide a separate empiric regimen
+                      specifically for aspiration pneumonia. In practice,
+                      antibiotic selection generally follows pediatric pneumonia
+                      principles while accounting for aspiration risk, illness
+                      severity, prior cultures, healthcare exposure, and local
                       antimicrobial guidance.
                     </p>
                   </div>
@@ -1549,7 +1466,8 @@ export default function PulmonaryAspirationPage() {
                       <tbody className="divide-y divide-slate-200">
                         <tr className="align-top">
                           <td className="px-4 py-5 font-semibold text-slate-900">
-                            Community-onset aspiration pneumonia requiring IV therapy
+                            Community-onset aspiration pneumonia requiring IV
+                            therapy
                           </td>
 
                           <td className="px-4 py-5 text-slate-700">
@@ -1558,22 +1476,23 @@ export default function PulmonaryAspirationPage() {
                             </p>
 
                             <p className="mt-2">
-                              Commonly used when bacterial aspiration pneumonia is suspected
-                              and parenteral therapy is appropriate.
+                              Commonly used when bacterial aspiration pneumonia
+                              is suspected and parenteral therapy is
+                              appropriate.
                             </p>
                           </td>
 
                           <td className="px-4 py-5 leading-7 text-slate-700">
-                            Provides coverage for typical respiratory pathogens together
-                            with oral flora. Dose according to local pediatric antimicrobial
-                            guidance and renal function.
+                            Provides coverage for typical respiratory pathogens
+                            together with oral flora. Dose according to local
+                            pediatric antimicrobial guidance and renal function.
                           </td>
                         </tr>
 
                         <tr className="align-top">
                           <td className="px-4 py-5 font-semibold text-slate-900">
-                            Community-onset aspiration pneumonia appropriate for oral therapy
-                            or IV-to-PO transition
+                            Community-onset aspiration pneumonia appropriate for
+                            oral therapy or IV-to-PO transition
                           </td>
 
                           <td className="px-4 py-5 text-slate-700">
@@ -1582,14 +1501,15 @@ export default function PulmonaryAspirationPage() {
                             </p>
 
                             <p className="mt-2">
-                              Common enteral option for a clinically stable child.
+                              Common enteral option for a clinically stable
+                              child.
                             </p>
                           </td>
 
                           <td className="px-4 py-5 leading-7 text-slate-700">
-                            Dose using the amoxicillin component according to age,
-                            indication, formulation, renal function, and local pediatric
-                            guidance.
+                            Dose using the amoxicillin component according to
+                            age, indication, formulation, renal function, and
+                            local pediatric guidance.
                           </td>
                         </tr>
 
@@ -1604,21 +1524,23 @@ export default function PulmonaryAspirationPage() {
                             </p>
 
                             <p className="mt-2">
-                              Clindamycin may be considered in selected patients depending
-                              on the allergy phenotype, likely organisms, and local
-                              susceptibility patterns.
+                              Clindamycin may be considered in selected patients
+                              depending on the allergy phenotype, likely
+                              organisms, and local susceptibility patterns.
                             </p>
                           </td>
 
                           <td className="px-4 py-5 leading-7 text-slate-700">
-                            Use institution-specific pediatric antimicrobial stewardship
-                            guidance rather than a single universal substitute.
+                            Use institution-specific pediatric antimicrobial
+                            stewardship guidance rather than a single universal
+                            substitute.
                           </td>
                         </tr>
 
                         <tr className="align-top">
                           <td className="px-4 py-5 font-semibold text-slate-900">
-                            Healthcare-associated disease or significant resistant-organism risk
+                            Healthcare-associated disease or significant
+                            resistant-organism risk
                           </td>
 
                           <td className="px-4 py-5 text-slate-700">
@@ -1627,13 +1549,15 @@ export default function PulmonaryAspirationPage() {
                             </p>
 
                             <p className="mt-2">
-                              Broader gram-negative and/or MRSA coverage may be required.
+                              Broader gram-negative and/or MRSA coverage may be
+                              required.
                             </p>
                           </td>
 
                           <td className="px-4 py-5 leading-7 text-slate-700">
-                            Prior cultures, recent antibiotics, devices, local resistance
-                            patterns, and illness severity should guide escalation.
+                            Prior cultures, recent antibiotics, devices, local
+                            resistance patterns, and illness severity should
+                            guide escalation.
                           </td>
                         </tr>
                       </tbody>
@@ -1646,14 +1570,16 @@ export default function PulmonaryAspirationPage() {
                     </p>
 
                     <h4 className="mt-2 text-xl font-bold text-amber-950">
-                      Aspiration pneumonitis does not require routine antibiotics
+                      Aspiration pneumonitis does not require routine
+                      antibiotics
                     </h4>
 
                     <p className="mt-3 leading-7 text-amber-900">
-                      Fever, leukocytosis, and pulmonary infiltrates may occur after an
-                      aspiration event from inflammation alone. Antibiotics should be
-                      reserved for patients whose clinical course supports bacterial
-                      aspiration pneumonia rather than given automatically after aspiration.
+                      Fever, leukocytosis, and pulmonary infiltrates may occur
+                      after an aspiration event from inflammation alone.
+                      Antibiotics should be reserved for patients whose clinical
+                      course supports bacterial aspiration pneumonia rather than
+                      given automatically after aspiration.
                     </p>
                   </div>
 
@@ -1667,12 +1593,13 @@ export default function PulmonaryAspirationPage() {
                     </h4>
 
                     <p className="mt-3 leading-7 text-blue-900">
-                      Ampicillin-sulbactam and amoxicillin-clavulanate already provide
-                      activity against oral anaerobes. Routine addition of metronidazole or
-                      another dedicated anaerobic agent is generally unnecessary for
-                      uncomplicated aspiration pneumonia. Complicated infection such as lung
-                      abscess, empyema, or necrotizing disease should be managed according to
-                      the specific complication and local guidance.
+                      Ampicillin-sulbactam and amoxicillin-clavulanate already
+                      provide activity against oral anaerobes. Routine addition
+                      of metronidazole or another dedicated anaerobic agent is
+                      generally unnecessary for uncomplicated aspiration
+                      pneumonia. Complicated infection such as lung abscess,
+                      empyema, or necrotizing disease should be managed
+                      according to the specific complication and local guidance.
                     </p>
                   </div>
 
@@ -1682,16 +1609,15 @@ export default function PulmonaryAspirationPage() {
                     </p>
 
                     <p className="mt-2 leading-7 text-slate-700">
-                      The PIDS/IDSA pediatric CAP guideline provides the broader framework
-                      for empiric pneumonia treatment but does not issue a dedicated
-                      aspiration-pneumonia regimen. Keep this distinction explicit when
-                      interpreting the evidence.
+                      The PIDS/IDSA pediatric CAP guideline provides the broader
+                      framework for empiric pneumonia treatment but does not
+                      issue a dedicated aspiration-pneumonia regimen. Keep this
+                      distinction explicit when interpreting the evidence.
                     </p>
                   </div>
                 </div>
               )}
             </div>
-
           </section>
 
           {/* ================= CARE SETTING & FOLLOW-UP ================= */}
@@ -1705,15 +1631,17 @@ export default function PulmonaryAspirationPage() {
             </p>
 
             <h2 className="mt-2 text-3xl font-bold">
-              Match the care plan to respiratory severity, feeding safety, and recurrence risk
+              Match the care plan to respiratory severity, feeding safety, and
+              recurrence risk
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Children with pulmonary aspiration may be managed in the outpatient
-              setting, admitted for acute respiratory support or feeding evaluation,
-              or require intensive care when airway protection and ventilation are
-              compromised. Long-term follow-up should focus on preventing recurrent
-              aspiration and chronic lung injury.
+              Children with pulmonary aspiration may be managed in the
+              outpatient setting, admitted for acute respiratory support or
+              feeding evaluation, or require intensive care when airway
+              protection and ventilation are compromised. Long-term follow-up
+              should focus on preventing recurrent aspiration and chronic lung
+              injury.
             </p>
 
             <div className="mt-8 grid gap-6 lg:grid-cols-3">
@@ -1729,11 +1657,24 @@ export default function PulmonaryAspirationPage() {
                 </h3>
 
                 <ul className="mt-5 space-y-3 leading-7 text-emerald-900">
-                  <li>• Stable oxygenation without significant respiratory distress</li>
-                  <li>• Safe feeding plan or reliable alternative nutrition plan</li>
-                  <li>• No evidence of progressive respiratory deterioration</li>
-                  <li>• Caregivers understand feeding precautions and warning signs</li>
-                  <li>• Timely primary care and subspecialty follow-up can be arranged</li>
+                  <li>
+                    • Stable oxygenation without significant respiratory
+                    distress
+                  </li>
+                  <li>
+                    • Safe feeding plan or reliable alternative nutrition plan
+                  </li>
+                  <li>
+                    • No evidence of progressive respiratory deterioration
+                  </li>
+                  <li>
+                    • Caregivers understand feeding precautions and warning
+                    signs
+                  </li>
+                  <li>
+                    • Timely primary care and subspecialty follow-up can be
+                    arranged
+                  </li>
                 </ul>
               </div>
 
@@ -1749,12 +1690,26 @@ export default function PulmonaryAspirationPage() {
                 </h3>
 
                 <ul className="mt-5 space-y-3 leading-7 text-amber-900">
-                  <li>• Persistent oxygen requirement or moderate respiratory distress</li>
-                  <li>• Need for IV fluids, enteral support, or feeding restriction</li>
+                  <li>
+                    • Persistent oxygen requirement or moderate respiratory
+                    distress
+                  </li>
+                  <li>
+                    • Need for IV fluids, enteral support, or feeding
+                    restriction
+                  </li>
                   <li>• Aspiration pneumonia requiring inpatient therapy</li>
-                  <li>• Need for swallow evaluation or feeding-plan development</li>
-                  <li>• Recurrent events requiring coordinated diagnostic evaluation</li>
-                  <li>• Inability to maintain hydration, nutrition, or secretion control</li>
+                  <li>
+                    • Need for swallow evaluation or feeding-plan development
+                  </li>
+                  <li>
+                    • Recurrent events requiring coordinated diagnostic
+                    evaluation
+                  </li>
+                  <li>
+                    • Inability to maintain hydration, nutrition, or secretion
+                    control
+                  </li>
                 </ul>
               </div>
 
@@ -1770,11 +1725,19 @@ export default function PulmonaryAspirationPage() {
                 </h3>
 
                 <ul className="mt-5 space-y-3 leading-7 text-red-900">
-                  <li>• Respiratory failure or rapidly worsening gas exchange</li>
-                  <li>• Need for noninvasive or invasive ventilatory support</li>
-                  <li>• Inability to protect the airway or manage secretions</li>
+                  <li>
+                    • Respiratory failure or rapidly worsening gas exchange
+                  </li>
+                  <li>
+                    • Need for noninvasive or invasive ventilatory support
+                  </li>
+                  <li>
+                    • Inability to protect the airway or manage secretions
+                  </li>
                   <li>• Recurrent apnea, cyanosis, or altered mental status</li>
-                  <li>• Hemodynamic instability or concern for severe sepsis</li>
+                  <li>
+                    • Hemodynamic instability or concern for severe sepsis
+                  </li>
                 </ul>
               </div>
             </div>
@@ -1785,14 +1748,15 @@ export default function PulmonaryAspirationPage() {
               </p>
 
               <h3 className="mt-2 text-xl font-bold text-purple-950">
-                Follow-up should address both lung disease and the source of aspiration
+                Follow-up should address both lung disease and the source of
+                aspiration
               </h3>
 
               <p className="mt-3 leading-7 text-purple-900">
-                Depending on the underlying disorder, children may require coordinated
-                care involving Primary Care, Speech-Language Pathology, Pulmonology,
-                Gastroenterology, Otolaryngology, Nutrition, Neurology, Surgery, and an
-                aerodigestive program.
+                Depending on the underlying disorder, children may require
+                coordinated care involving Primary Care, Speech-Language
+                Pathology, Pulmonology, Gastroenterology, Otolaryngology,
+                Nutrition, Neurology, Surgery, and an aerodigestive program.
               </p>
 
               <div className="mt-5 grid gap-4 md:grid-cols-2">
@@ -1805,7 +1769,9 @@ export default function PulmonaryAspirationPage() {
                     <li>• Recurrent pneumonia or wheezing</li>
                     <li>• Oxygen requirement</li>
                     <li>• Airway-clearance needs</li>
-                    <li>• Development of bronchiectasis or chronic lung disease</li>
+                    <li>
+                      • Development of bronchiectasis or chronic lung disease
+                    </li>
                   </ul>
                 </div>
 
@@ -1835,26 +1801,25 @@ export default function PulmonaryAspirationPage() {
               Clinical Pearls
             </p>
 
-            <h2 className="mt-2 text-3xl font-bold">
-              High-yield takeaways
-            </h2>
+            <h2 className="mt-2 text-3xl font-bold">High-yield takeaways</h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              These are the practical distinctions that matter most when evaluating
-              and managing children with suspected pulmonary aspiration.
+              These are the practical distinctions that matter most when
+              evaluating and managing children with suspected pulmonary
+              aspiration.
             </p>
 
             <div className="mt-8 grid gap-5 md:grid-cols-2">
-
               <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
                 <h3 className="font-bold text-amber-950">
                   1. Aspiration pneumonitis is not aspiration pneumonia
                 </h3>
 
                 <p className="mt-3 leading-7 text-amber-900">
-                  Pneumonitis is primarily a chemical inflammatory injury, whereas
-                  aspiration pneumonia is a bacterial infection. The distinction
-                  directly affects whether antibiotics are indicated.
+                  Pneumonitis is primarily a chemical inflammatory injury,
+                  whereas aspiration pneumonia is a bacterial infection. The
+                  distinction directly affects whether antibiotics are
+                  indicated.
                 </p>
               </div>
 
@@ -1864,9 +1829,9 @@ export default function PulmonaryAspirationPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-blue-900">
-                  Abrupt cough, hypoxemia, wheezing, or respiratory distress shortly
-                  after a witnessed aspiration event is more consistent with chemical
-                  injury than bacterial pneumonia.
+                  Abrupt cough, hypoxemia, wheezing, or respiratory distress
+                  shortly after a witnessed aspiration event is more consistent
+                  with chemical injury than bacterial pneumonia.
                 </p>
               </div>
 
@@ -1876,9 +1841,9 @@ export default function PulmonaryAspirationPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-rose-900">
-                  Fever and leukocytosis may occur after aspiration from inflammation
-                  alone. The overall clinical trajectory is more useful than any single
-                  finding.
+                  Fever and leukocytosis may occur after aspiration from
+                  inflammation alone. The overall clinical trajectory is more
+                  useful than any single finding.
                 </p>
               </div>
 
@@ -1888,20 +1853,22 @@ export default function PulmonaryAspirationPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-purple-900">
-                  Children with neurologic impairment, poor laryngeal sensation, or
-                  weak cough may aspirate without obvious choking or coughing.
+                  Children with neurologic impairment, poor laryngeal sensation,
+                  or weak cough may aspirate without obvious choking or
+                  coughing.
                 </p>
               </div>
 
               <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
                 <h3 className="font-bold text-emerald-950">
-                  5. Recurrent respiratory disease should trigger a feeding history
+                  5. Recurrent respiratory disease should trigger a feeding
+                  history
                 </h3>
 
                 <p className="mt-3 leading-7 text-emerald-900">
-                  Recurrent pneumonia, chronic wet cough, persistent wheezing, or poor
-                  growth should prompt questions about coughing, choking, fatigue,
-                  congestion, or desaturation during feeds.
+                  Recurrent pneumonia, chronic wet cough, persistent wheezing,
+                  or poor growth should prompt questions about coughing,
+                  choking, fatigue, congestion, or desaturation during feeds.
                 </p>
               </div>
 
@@ -1911,8 +1878,8 @@ export default function PulmonaryAspirationPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-sky-900">
-                  Early radiographs may be normal, and intermittent aspiration may not
-                  produce consistent imaging abnormalities.
+                  Early radiographs may be normal, and intermittent aspiration
+                  may not produce consistent imaging abnormalities.
                 </p>
               </div>
 
@@ -1922,9 +1889,9 @@ export default function PulmonaryAspirationPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-indigo-900">
-                  VFSS evaluates swallowing mechanics across oral and pharyngeal phases,
-                  while FEES directly evaluates laryngeal anatomy, secretion management,
-                  and airway protection.
+                  VFSS evaluates swallowing mechanics across oral and pharyngeal
+                  phases, while FEES directly evaluates laryngeal anatomy,
+                  secretion management, and airway protection.
                 </p>
               </div>
 
@@ -1934,9 +1901,10 @@ export default function PulmonaryAspirationPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-amber-900">
-                  Aspiration often affects dependent lung regions, but laterality varies
-                  with body position and pediatric airway anatomy. Right-sided disease
-                  is not a universal rule in children.
+                  Aspiration often affects dependent lung regions, but
+                  laterality varies with body position and pediatric airway
+                  anatomy. Right-sided disease is not a universal rule in
+                  children.
                 </p>
               </div>
 
@@ -1946,9 +1914,9 @@ export default function PulmonaryAspirationPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-blue-900">
-                  Recurrent aspiration requires evaluation for swallowing dysfunction,
-                  neurologic disease, airway abnormalities, esophageal disease, reflux,
-                  and impaired secretion clearance.
+                  Recurrent aspiration requires evaluation for swallowing
+                  dysfunction, neurologic disease, airway abnormalities,
+                  esophageal disease, reflux, and impaired secretion clearance.
                 </p>
               </div>
 
@@ -1958,12 +1926,11 @@ export default function PulmonaryAspirationPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-emerald-900">
-                  Feeding modifications, therapy, airway clearance, nutritional support,
-                  and multidisciplinary care may be more important long term than
-                  treating individual aspiration events.
+                  Feeding modifications, therapy, airway clearance, nutritional
+                  support, and multidisciplinary care may be more important long
+                  term than treating individual aspiration events.
                 </p>
               </div>
-
             </div>
 
             <div className="mt-8 rounded-2xl bg-blue-950 p-6 text-white">
@@ -1972,14 +1939,15 @@ export default function PulmonaryAspirationPage() {
               </p>
 
               <h3 className="mt-2 text-xl font-bold">
-                Aspiration is an event; the syndrome that follows determines the treatment
+                Aspiration is an event; the syndrome that follows determines the
+                treatment
               </h3>
 
               <p className="mt-3 leading-7 text-blue-100">
-                Think in three categories: chemical pneumonitis, bacterial aspiration
-                pneumonia, and chronic recurrent aspiration. Then tailor evaluation and
-                management to the child&apos;s physiology, feeding safety, and underlying
-                disease.
+                Think in three categories: chemical pneumonitis, bacterial
+                aspiration pneumonia, and chronic recurrent aspiration. Then
+                tailor evaluation and management to the child&apos;s physiology,
+                feeding safety, and underlying disease.
               </p>
             </div>
           </section>
@@ -1994,13 +1962,11 @@ export default function PulmonaryAspirationPage() {
               Knowledge Check
             </p>
 
-            <h2 className="mt-2 text-3xl font-bold">
-              Apply what you learned
-            </h2>
+            <h2 className="mt-2 text-3xl font-bold">Apply what you learned</h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Work through each question in sequence. Select an answer, review the
-              explanation, then continue to the next question.
+              Work through each question in sequence. Select an answer, review
+              the explanation, then continue to the next question.
             </p>
 
             <div className="mt-8 space-y-8">
@@ -2029,10 +1995,11 @@ export default function PulmonaryAspirationPage() {
 
                         {hasAnswered && (
                           <span
-                            className={`rounded-full px-3 py-1 text-sm font-semibold ${isCorrect
+                            className={`rounded-full px-3 py-1 text-sm font-semibold ${
+                              isCorrect
                                 ? "bg-emerald-100 text-emerald-800"
                                 : "bg-rose-100 text-rose-800"
-                              }`}
+                            }`}
                           >
                             {isCorrect ? "Correct" : "Review"}
                           </span>
@@ -2056,11 +2023,7 @@ export default function PulmonaryAspirationPage() {
                               "border-emerald-400 bg-emerald-50 text-emerald-950";
                           }
 
-                          if (
-                            hasAnswered &&
-                            isSelected &&
-                            !answer.correct
-                          ) {
+                          if (hasAnswered && isSelected && !answer.correct) {
                             answerClass =
                               "border-rose-400 bg-rose-50 text-rose-950";
                           }
@@ -2076,10 +2039,11 @@ export default function PulmonaryAspirationPage() {
                                   [questionIndex]: answerIndex,
                                 }))
                               }
-                              className={`w-full rounded-2xl border px-5 py-4 text-left font-medium transition ${answerClass} ${hasAnswered
+                              className={`w-full rounded-2xl border px-5 py-4 text-left font-medium transition ${answerClass} ${
+                                hasAnswered
                                   ? "cursor-default"
                                   : "cursor-pointer"
-                                }`}
+                              }`}
                             >
                               <span className="mr-3 font-bold">
                                 {String.fromCharCode(65 + answerIndex)}.
@@ -2093,25 +2057,24 @@ export default function PulmonaryAspirationPage() {
 
                       {hasAnswered && selectedAnswer && (
                         <div
-                          className={`mt-6 rounded-2xl border p-6 ${isCorrect
+                          className={`mt-6 rounded-2xl border p-6 ${
+                            isCorrect
                               ? "border-emerald-200 bg-emerald-50"
                               : "border-amber-200 bg-amber-50"
-                            }`}
+                          }`}
                         >
                           <p
-                            className={`font-bold ${isCorrect
-                                ? "text-emerald-950"
-                                : "text-amber-950"
-                              }`}
+                            className={`font-bold ${
+                              isCorrect ? "text-emerald-950" : "text-amber-950"
+                            }`}
                           >
                             {isCorrect ? "Correct" : "Not quite"}
                           </p>
 
                           <p
-                            className={`mt-3 leading-7 ${isCorrect
-                                ? "text-emerald-900"
-                                : "text-amber-900"
-                              }`}
+                            className={`mt-3 leading-7 ${
+                              isCorrect ? "text-emerald-900" : "text-amber-900"
+                            }`}
                           >
                             {selectedAnswer.feedback}
                           </p>
@@ -2146,8 +2109,9 @@ export default function PulmonaryAspirationPage() {
                     {
                       Object.entries(selectedAnswers).filter(
                         ([questionIndex, answerIndex]) =>
-                          quizQuestions[Number(questionIndex)].answers[answerIndex]
-                            .correct
+                          quizQuestions[Number(questionIndex)].answers[
+                            answerIndex
+                          ].correct,
                       ).length
                     }{" "}
                     / {quizQuestions.length} correct
@@ -2171,6 +2135,14 @@ export default function PulmonaryAspirationPage() {
               )}
           </section>
 
+          {/* ================= ANKI DECK ================= */}
+
+          <AnkiDeck
+            title="Pulmonary Aspiration Anki Deck"
+            cardCount={16}
+            downloadHref="/Anki/pulmonary-aspiration.apkg"
+          />
+
           {/* ================= EVIDENCE BASE ================= */}
 
           <EvidenceBase
@@ -2178,23 +2150,20 @@ export default function PulmonaryAspirationPage() {
               {
                 title:
                   "Chronic Pulmonary Aspiration in Children: Diagnosis and Management",
-                href:
-                  "https://pubmed.ncbi.nlm.nih.gov/29571544/",
+                href: "https://pubmed.ncbi.nlm.nih.gov/29571544/",
                 description:
                   "Pediatric review outlining the causes, diagnostic evaluation, pulmonary complications, and multidisciplinary management of chronic pulmonary aspiration.",
               },
               {
                 title:
                   "The Management of Community-Acquired Pneumonia in Infants and Children Older Than 3 Months of Age",
-                href:
-                  "https://pmc.ncbi.nlm.nih.gov/articles/PMC7107838/",
+                href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7107838/",
                 description:
                   "PIDS/IDSA pediatric community-acquired pneumonia guideline providing the broader framework for empiric antibacterial therapy. It does not provide a separate pediatric aspiration-pneumonia regimen.",
               },
             ]}
             secondarySources="UpToDate and OpenEvidence were used for educational verification, comparison of recommendations, and consistency checks where appropriate."
           />
-
         </div>
       </div>
     </main>

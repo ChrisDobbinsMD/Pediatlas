@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { EvidenceBase } from "@/components/disease";
+import { AnkiDeck, EvidenceBase } from "@/components/disease";
 
 const pageSections = [
   { id: "clinical-vignette", label: "Clinical vignette" },
@@ -58,7 +58,6 @@ export default function PneumoniaPage() {
       <section className="border-b border-blue-100 bg-gradient-to-b from-sky-100 via-sky-50 to-white">
         <div className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-10 sm:px-8 sm:py-14 lg:grid-cols-[1fr_auto]">
           <div>
-
             <nav
               aria-label="Breadcrumb"
               className="mb-8 flex flex-wrap items-center gap-3 text-sm font-semibold"
@@ -133,7 +132,6 @@ export default function PneumoniaPage() {
           </div>
         </div>
       </section>
-
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
         <div className="grid items-start gap-8 lg:grid-cols-[220px_minmax(0,1fr)]">
           <aside className="lg:sticky lg:top-6 lg:self-start">
@@ -158,7 +156,6 @@ export default function PneumoniaPage() {
               </div>
             </nav>
           </aside>
-
           <div className="min-w-0 space-y-10">
             {/* Clinical vignette */}
             <section
@@ -174,16 +171,16 @@ export default function PneumoniaPage() {
               </h2>
 
               <p className="mt-5 leading-8 text-blue-50">
-                A previously healthy 4-year-old presents with 3 days of fever, cough,
-                decreased appetite, and progressively faster breathing. Temperature is
-                39.2°C, respiratory rate is 44 breaths/minute, and oxygen saturation is 95%
-                on room air.
+                A previously healthy 4-year-old presents with 3 days of fever,
+                cough, decreased appetite, and progressively faster breathing.
+                Temperature is 39.2°C, respiratory rate is 44 breaths/minute,
+                and oxygen saturation is 95% on room air.
               </p>
 
               <p className="mt-3 leading-8 text-blue-50">
-                The child is alert, drinking small amounts, and has mild subcostal
-                retractions. Auscultation reveals focal crackles and decreased breath sounds
-                over the right lower lung field.
+                The child is alert, drinking small amounts, and has mild
+                subcostal retractions. Auscultation reveals focal crackles and
+                decreased breath sounds over the right lower lung field.
               </p>
 
               <div className="mt-7 rounded-2xl bg-white/15 p-5">
@@ -192,9 +189,9 @@ export default function PneumoniaPage() {
                 </h3>
 
                 <p className="mt-2 leading-7 text-blue-50">
-                  Assess illness severity and determine whether this child can be treated
-                  safely as an outpatient while considering viral, typical bacterial, and
-                  atypical causes of pneumonia.
+                  Assess illness severity and determine whether this child can
+                  be treated safely as an outpatient while considering viral,
+                  typical bacterial, and atypical causes of pneumonia.
                 </p>
               </div>
             </section>
@@ -203,11 +200,13 @@ export default function PneumoniaPage() {
             <Section id="anatomy-localization" title="Anatomy localization">
               <p className="leading-7 text-slate-700">
                 Pneumonia primarily involves the{" "}
-                <strong>distal airways, alveoli, and pulmonary interstitium</strong>.
-                In bacterial pneumonia, inflammatory material may fill alveolar
-                spaces and produce consolidation. Viral infections more commonly
-                create diffuse or patchy inflammation, although clinical and
-                radiographic patterns frequently overlap.
+                <strong>
+                  distal airways, alveoli, and pulmonary interstitium
+                </strong>
+                . In bacterial pneumonia, inflammatory material may fill
+                alveolar spaces and produce consolidation. Viral infections more
+                commonly create diffuse or patchy inflammation, although
+                clinical and radiographic patterns frequently overlap.
               </p>
 
               <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -236,9 +235,7 @@ export default function PneumoniaPage() {
                 clearance, cough, airway immune responses, and alveolar
                 macrophages.
               </p>
-              <h3 className="mt-8 text-xl font-bold text-blue-950">
-
-              </h3>
+              <h3 className="mt-8 text-xl font-bold text-blue-950"></h3>
 
               <div className="mt-4 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
                 <Image
@@ -294,7 +291,10 @@ export default function PneumoniaPage() {
 
                   <ul className="mt-4 space-y-3 leading-7 text-slate-700">
                     <li>• Duration and progression of fever and cough</li>
-                    <li>• Breathing difficulty, chest pain, or exercise intolerance</li>
+                    <li>
+                      • Breathing difficulty, chest pain, or exercise
+                      intolerance
+                    </li>
                     <li>• Oral intake and urine output</li>
                     <li>• Vomiting, lethargy, or altered mental status</li>
                     <li>• Recent viral illness or sick contacts</li>
@@ -315,7 +315,9 @@ export default function PneumoniaPage() {
                     <li>• General appearance and interaction</li>
                     <li>• Respiratory rate measured while calm</li>
                     <li>• Pulse oximetry</li>
-                    <li>• Retractions, nasal flaring, grunting, or head bobbing</li>
+                    <li>
+                      • Retractions, nasal flaring, grunting, or head bobbing
+                    </li>
                     <li>• Focal crackles or bronchial breath sounds</li>
                     <li>• Decreased or asymmetric air entry</li>
                     <li>• Signs of dehydration</li>
@@ -326,9 +328,9 @@ export default function PneumoniaPage() {
 
               <ClinicalAlert title="Do not rely on auscultation alone">
                 Children may have pneumonia without classic focal crackles.
-                Respiratory rate, oxygen saturation, work of breathing, hydration,
-                and overall appearance are often more important for determining
-                severity.
+                Respiratory rate, oxygen saturation, work of breathing,
+                hydration, and overall appearance are often more important for
+                determining severity.
               </ClinicalAlert>
 
               <div className="mt-7 overflow-x-auto">
@@ -433,10 +435,10 @@ export default function PneumoniaPage() {
             {/* Diagnostic workup */}
             <Section id="diagnostic-workup" title="Diagnostic workup">
               <p className="leading-7 text-slate-700">
-                Pneumonia is often a <strong>clinical diagnosis</strong>. Testing
-                should be guided by disease severity, diagnostic uncertainty,
-                treatment failure, underlying conditions, and concern for
-                complications.
+                Pneumonia is often a <strong>clinical diagnosis</strong>.
+                Testing should be guided by disease severity, diagnostic
+                uncertainty, treatment failure, underlying conditions, and
+                concern for complications.
               </p>
 
               <div className="mt-6 grid gap-5 lg:grid-cols-2">
@@ -444,8 +446,12 @@ export default function PneumoniaPage() {
                   <ul className="space-y-2">
                     <li>• Measure vital signs and oxygen saturation</li>
                     <li>• Chest radiograph is usually unnecessary</li>
-                    <li>• Routine CBC, CRP, and blood culture are unnecessary</li>
-                    <li>• Viral testing may be useful when it changes management</li>
+                    <li>
+                      • Routine CBC, CRP, and blood culture are unnecessary
+                    </li>
+                    <li>
+                      • Viral testing may be useful when it changes management
+                    </li>
                   </ul>
                 </DecisionCard>
 
@@ -544,11 +550,16 @@ export default function PneumoniaPage() {
 
                 <DecisionCard title="Antibiotic principles">
                   <ul className="space-y-2">
-                    <li>• Avoid antibiotics when viral pneumonia is strongly favored</li>
+                    <li>
+                      • Avoid antibiotics when viral pneumonia is strongly
+                      favored
+                    </li>
                     <li>• Use the narrowest effective agent</li>
                     <li>• Transition from IV to oral therapy when improving</li>
                     <li>• Adjust therapy to cultures and local antibiogram</li>
-                    <li>• Reassess if improvement does not occur as expected</li>
+                    <li>
+                      • Reassess if improvement does not occur as expected
+                    </li>
                   </ul>
                 </DecisionCard>
               </div>
@@ -607,7 +618,8 @@ export default function PneumoniaPage() {
                 Many children with uncomplicated bacterial CAP who improve
                 promptly can be treated with a short antibiotic course. Final
                 agent, dose, and duration should follow the patient’s age,
-                severity, response, local antibiogram, and institutional pathway.
+                severity, response, local antibiogram, and institutional
+                pathway.
               </ClinicalAlert>
             </Section>
 
@@ -667,15 +679,15 @@ export default function PneumoniaPage() {
                 </h3>
 
                 <p className="mt-3 leading-7 text-slate-700">
-                  These examples demonstrate findings that may be seen with complicated
-                  pneumonia. Imaging findings are supportive rather than diagnostic in
-                  isolation because multiple pulmonary processes can produce similar
-                  appearances. Imaging should always be interpreted alongside the history,
-                  physical examination, laboratory findings, and clinical course.
+                  These examples demonstrate findings that may be seen with
+                  complicated pneumonia. Imaging findings are supportive rather
+                  than diagnostic in isolation because multiple pulmonary
+                  processes can produce similar appearances. Imaging should
+                  always be interpreted alongside the history, physical
+                  examination, laboratory findings, and clinical course.
                 </p>
 
                 <div className="mt-6 grid gap-6 lg:grid-cols-3">
-
                   <ImagingCard
                     src="/images/pleural-effusion-cxr.png"
                     alt="Chest radiograph demonstrating pleural effusion with blunting of the costophrenic angle and a meniscus sign."
@@ -702,7 +714,6 @@ export default function PneumoniaPage() {
                     description="Multiple cavities embedded within consolidated lung suggest pulmonary necrosis and destruction of normal architecture."
                     credit="Radiopaedia Case: Cavitating Pneumonia (Case 3)"
                   />
-
                 </div>
 
                 <div className="mt-6 rounded-2xl border border-amber-300 bg-amber-50 p-5">
@@ -711,10 +722,10 @@ export default function PneumoniaPage() {
                   </h4>
 
                   <p className="mt-2 leading-7 text-amber-900">
-                    Similar imaging findings may occur with infectious, inflammatory,
-                    congenital, and neoplastic processes. Imaging should be used to answer
-                    a focused clinical question and interpreted within the broader clinical
-                    context.
+                    Similar imaging findings may occur with infectious,
+                    inflammatory, congenital, and neoplastic processes. Imaging
+                    should be used to answer a focused clinical question and
+                    interpreted within the broader clinical context.
                   </p>
                 </div>
               </div>
@@ -726,10 +737,10 @@ export default function PneumoniaPage() {
                 <p className="mt-3 leading-7 text-slate-700">
                   Chest ultrasound is particularly useful for confirming pleural
                   fluid, estimating its size, and identifying septations or
-                  loculations. Management ranges from antibiotics and observation
-                  to drainage with a chest tube, fibrinolytic therapy, or surgery,
-                  depending on respiratory compromise and the character and size
-                  of the collection.
+                  loculations. Management ranges from antibiotics and
+                  observation to drainage with a chest tube, fibrinolytic
+                  therapy, or surgery, depending on respiratory compromise and
+                  the character and size of the collection.
                 </p>
               </div>
             </Section>
@@ -780,17 +791,19 @@ export default function PneumoniaPage() {
               </div>
 
               <div className="mt-7 rounded-2xl border border-sky-200 bg-sky-50 p-5">
-                <h3 className="font-bold text-sky-950">
-                  Return precautions
-                </h3>
+                <h3 className="font-bold text-sky-950">Return precautions</h3>
 
                 <ul className="mt-3 space-y-2 leading-7 text-slate-700">
                   <li>• Increasing work of breathing</li>
                   <li>• Cyanosis, apnea, or abnormal sleepiness</li>
-                  <li>• Inability to drink or markedly decreased urine output</li>
+                  <li>
+                    • Inability to drink or markedly decreased urine output
+                  </li>
                   <li>• Persistent vomiting</li>
                   <li>• Worsening fever or clinical condition</li>
-                  <li>• Failure to begin improving within the expected timeframe</li>
+                  <li>
+                    • Failure to begin improving within the expected timeframe
+                  </li>
                 </ul>
               </div>
             </Section>
@@ -799,8 +812,9 @@ export default function PneumoniaPage() {
             <Section id="clinical-pearls" title="Clinical pearls">
               <div className="grid gap-4 md:grid-cols-2">
                 <Pearl>
-                  Tachypnea, hypoxemia, work of breathing, hydration, and overall
-                  appearance are more useful than any single auscultatory finding.
+                  Tachypnea, hypoxemia, work of breathing, hydration, and
+                  overall appearance are more useful than any single
+                  auscultatory finding.
                 </Pearl>
 
                 <Pearl>
@@ -832,13 +846,14 @@ export default function PneumoniaPage() {
 
                 <Pearl>
                   Recurrent pneumonia in the same location raises concern for an
-                  anatomic obstruction, aspirated foreign body, congenital lesion,
-                  or localized airway abnormality.
+                  anatomic obstruction, aspirated foreign body, congenital
+                  lesion, or localized airway abnormality.
                 </Pearl>
 
                 <Pearl>
                   Avoid automatically escalating to broad-spectrum antibiotics
-                  without reassessing the diagnosis and looking for complications.
+                  without reassessing the diagnosis and looking for
+                  complications.
                 </Pearl>
               </div>
             </Section>
@@ -847,11 +862,11 @@ export default function PneumoniaPage() {
             <Section id="quiz" title="Interactive quiz">
               <div className="rounded-2xl border border-blue-200 bg-blue-50 p-5">
                 <p className="font-semibold leading-7 text-blue-950">
-                  A fully immunized 5-year-old has fever, cough, tachypnea, focal
-                  right-sided crackles, and mild retractions. Oxygen saturation is
-                  96% on room air. The child is drinking, alert, and has reliable
-                  follow-up. What is the most appropriate next step when bacterial
-                  community-acquired pneumonia is suspected?
+                  A fully immunized 5-year-old has fever, cough, tachypnea,
+                  focal right-sided crackles, and mild retractions. Oxygen
+                  saturation is 96% on room air. The child is drinking, alert,
+                  and has reliable follow-up. What is the most appropriate next
+                  step when bacterial community-acquired pneumonia is suspected?
                 </p>
               </div>
 
@@ -921,8 +936,9 @@ export default function PneumoniaPage() {
                 <QuizFeedback correct>
                   Correct. This child is stable for outpatient treatment. Oral
                   amoxicillin is commonly first-line therapy for uncomplicated
-                  suspected bacterial CAP, provided there are no patient-specific
-                  contraindications and reliable follow-up is available.
+                  suspected bacterial CAP, provided there are no
+                  patient-specific contraindications and reliable follow-up is
+                  available.
                 </QuizFeedback>
               )}
 
@@ -953,15 +969,18 @@ export default function PneumoniaPage() {
                 </QuizFeedback>
               )}
             </Section>
-
+            <AnkiDeck
+              title="Pneumonia Anki Deck"
+              cardCount={16}
+              downloadHref="/Anki/pneumonia.apkg"
+            />
             {/* Sources */}
             <EvidenceBase
               references={[
                 {
                   title:
                     "The Management of Community-Acquired Pneumonia in Infants and Children Older Than 3 Months of Age",
-                  href:
-                    "https://pmc.ncbi.nlm.nih.gov/articles/PMC7107838/",
+                  href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7107838/",
                   description:
                     "PIDS/IDSA pediatric community-acquired pneumonia guideline.",
                 },
@@ -980,14 +999,16 @@ export default function PneumoniaPage() {
                 {
                   title: "World Health Organization",
                   href: "https://www.who.int/news-room/fact-sheets/detail/pneumonia",
-                  description:
-                    "Global overview of pneumonia in children.",
+                  description: "Global overview of pneumonia in children.",
                 },
               ]}
             />
-          </div> {/* main content column */}
-        </div> {/* grid */}
-      </div> {/* max-width container */}
+          </div>{" "}
+          {/* main content column */}
+        </div>{" "}
+        {/* grid */}
+      </div>{" "}
+      {/* max-width container */}
     </main>
   );
 }
@@ -1006,9 +1027,7 @@ function Section({ id, title, children }: SectionProps) {
         {title}
       </h2>
 
-      <div className="mt-6">
-        {children}
-      </div>
+      <div className="mt-6">{children}</div>
     </section>
   );
 }
@@ -1063,11 +1082,7 @@ function ImagingCard({
   return (
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <div className="bg-black">
-        <a
-          href={src}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={src} target="_blank" rel="noreferrer">
           <img
             src={src}
             alt={alt}
@@ -1081,29 +1096,17 @@ function ImagingCard({
           {modality}
         </p>
 
-        <h4 className="mt-2 text-lg font-bold text-blue-950">
-          {title}
-        </h4>
+        <h4 className="mt-2 text-lg font-bold text-blue-950">{title}</h4>
 
-        <p className="mt-3 leading-7 text-slate-700">
-          {description}
-        </p>
+        <p className="mt-3 leading-7 text-slate-700">{description}</p>
 
-        <p className="mt-4 text-xs text-slate-500">
-          {credit}
-        </p>
+        <p className="mt-4 text-xs text-slate-500">{credit}</p>
       </div>
     </div>
   );
 }
 
-function ComparisonCard({
-  title,
-  items,
-}: {
-  title: string;
-  items: string[];
-}) {
+function ComparisonCard({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="rounded-2xl border border-violet-200 bg-violet-50 p-5">
       <h3 className="font-bold text-violet-950">{title}</h3>
@@ -1266,10 +1269,11 @@ function QuizFeedback({
 }) {
   return (
     <div
-      className={`mt-5 rounded-2xl border p-5 leading-7 ${correct
+      className={`mt-5 rounded-2xl border p-5 leading-7 ${
+        correct
           ? "border-emerald-300 bg-emerald-50 text-emerald-950"
           : "border-red-300 bg-red-50 text-red-950"
-        }`}
+      }`}
     >
       {children}
     </div>

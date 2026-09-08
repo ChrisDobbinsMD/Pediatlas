@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { EvidenceBase } from "@/components/disease";
+import { AnkiDeck, EvidenceBase } from "@/components/disease";
 
 const diseaseStages = [
   {
@@ -59,18 +59,14 @@ const quizAnswers = [
   "Inspiratory stridor with a barking cough",
 ];
 
-const correctAnswer =
-  "Post-tussive vomiting after repeated coughing spells";
+const correctAnswer = "Post-tussive vomiting after repeated coughing spells";
 
 function getIncorrectFeedback(answer: string) {
   if (answer === "High fever with focal crackles") {
     return "High fever and focal crackles are more suggestive of pneumonia. Pertussis commonly causes little or no fever, particularly early in the illness.";
   }
 
-  if (
-    answer ===
-    "Diffuse wheezing that improves immediately with albuterol"
-  ) {
+  if (answer === "Diffuse wheezing that improves immediately with albuterol") {
     return "Reversible diffuse wheezing is more consistent with asthma. Pertussis classically causes prolonged paroxysms of cough rather than bronchodilator-responsive obstruction.";
   }
 
@@ -190,12 +186,11 @@ export default function PertussisPage() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-blue-50">
-              A 2-month-old infant presents with 10 days of worsening cough.
-              The parents describe repeated coughing spells followed by
-              facial color change, gasping, and occasional vomiting. The
-              infant has had several brief pauses in breathing but little
-              fever. Between episodes, the lung examination is relatively
-              unremarkable.
+              A 2-month-old infant presents with 10 days of worsening cough. The
+              parents describe repeated coughing spells followed by facial color
+              change, gasping, and occasional vomiting. The infant has had
+              several brief pauses in breathing but little fever. Between
+              episodes, the lung examination is relatively unremarkable.
             </p>
 
             <div className="mt-7 rounded-2xl bg-white/10 p-5">
@@ -204,9 +199,9 @@ export default function PertussisPage() {
               </p>
 
               <p className="mt-2 leading-7 text-blue-50">
-                Recognize that young infants may have severe pertussis without
-                a classic whoop and may present primarily with apnea, cyanosis,
-                or feeding difficulty.
+                Recognize that young infants may have severe pertussis without a
+                classic whoop and may present primarily with apnea, cyanosis, or
+                feeding difficulty.
               </p>
             </div>
           </section>
@@ -224,11 +219,12 @@ export default function PertussisPage() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Bordetella pertussis attaches to ciliated respiratory epithelial cells,
-              particularly within the trachea, bronchi, and larger bronchioles. As the
-              airway becomes smaller, ciliated cells become progressively less abundant,
-              while club cells assume a greater role in epithelial protection,
-              secretion, detoxification, and repair.
+              Bordetella pertussis attaches to ciliated respiratory epithelial
+              cells, particularly within the trachea, bronchi, and larger
+              bronchioles. As the airway becomes smaller, ciliated cells become
+              progressively less abundant, while club cells assume a greater
+              role in epithelial protection, secretion, detoxification, and
+              repair.
             </p>
 
             <div className="mt-8 grid gap-5 md:grid-cols-2">
@@ -310,9 +306,7 @@ export default function PertussisPage() {
                     key={item.region}
                     className="grid gap-3 rounded-2xl border border-purple-100 bg-white p-5 md:grid-cols-[190px_1fr]"
                   >
-                    <h4 className="font-bold text-purple-950">
-                      {item.region}
-                    </h4>
+                    <h4 className="font-bold text-purple-950">{item.region}</h4>
 
                     <div>
                       <p className="leading-7 text-slate-700">
@@ -333,10 +327,10 @@ export default function PertussisPage() {
                 </p>
 
                 <p className="mt-2 leading-7 text-purple-900">
-                  Bordetella pertussis primarily attaches to ciliated respiratory
-                  epithelial cells. Damage to this mucociliary system impairs secretion
-                  clearance and contributes to retained mucus, airway irritation, and
-                  prolonged paroxysmal coughing.
+                  Bordetella pertussis primarily attaches to ciliated
+                  respiratory epithelial cells. Damage to this mucociliary
+                  system impairs secretion clearance and contributes to retained
+                  mucus, airway irritation, and prolonged paroxysmal coughing.
                 </p>
               </div>
             </div>
@@ -373,8 +367,9 @@ export default function PertussisPage() {
               </h3>
 
               <p className="mt-2 leading-7 text-slate-600">
-                The four steps below mirror the infographic and summarize the causal chain
-                from airway colonization to the characteristic clinical manifestations.
+                The four steps below mirror the infographic and summarize the
+                causal chain from airway colonization to the characteristic
+                clinical manifestations.
               </p>
 
               <div className="mt-6 space-y-4">
@@ -444,9 +439,10 @@ export default function PertussisPage() {
               </p>
 
               <p className="mt-3 leading-7 text-slate-200">
-                Young infants have limited respiratory reserve and may develop apnea,
-                bradycardia, cyanosis, feeding intolerance, or respiratory failure
-                without producing a classic inspiratory whoop.
+                Young infants have limited respiratory reserve and may develop
+                apnea, bradycardia, cyanosis, feeding intolerance, or
+                respiratory failure without producing a classic inspiratory
+                whoop.
               </p>
             </div>
           </section>
@@ -581,9 +577,7 @@ export default function PertussisPage() {
               </div>
 
               <div className="rounded-2xl border border-purple-200 bg-purple-50 p-6">
-                <h3 className="text-xl font-bold text-purple-950">
-                  Culture
-                </h3>
+                <h3 className="text-xl font-bold text-purple-950">Culture</h3>
 
                 <p className="mt-3 leading-7 text-purple-900">
                   Culture is highly specific and useful for public-health
@@ -593,14 +587,12 @@ export default function PertussisPage() {
               </div>
 
               <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
-                <h3 className="text-xl font-bold text-emerald-950">
-                  CBC
-                </h3>
+                <h3 className="text-xl font-bold text-emerald-950">CBC</h3>
 
                 <p className="mt-3 leading-7 text-emerald-900">
                   Leukocytosis with absolute lymphocytosis can support the
-                  diagnosis and may be pronounced in severe infant disease,
-                  but a normal CBC does not exclude pertussis.
+                  diagnosis and may be pronounced in severe infant disease, but
+                  a normal CBC does not exclude pertussis.
                 </p>
               </div>
 
@@ -624,10 +616,10 @@ export default function PertussisPage() {
               </h3>
 
               <p className="mt-3 leading-7 text-rose-900">
-                Begin treatment before test confirmation when clinical
-                suspicion is high and the patient is a young infant, pregnant,
-                severely ill, or likely to expose someone at high risk for
-                severe disease.
+                Begin treatment before test confirmation when clinical suspicion
+                is high and the patient is a young infant, pregnant, severely
+                ill, or likely to expose someone at high risk for severe
+                disease.
               </p>
             </div>
           </section>
@@ -666,10 +658,20 @@ export default function PertussisPage() {
                 </h3>
 
                 <ul className="mt-4 space-y-3 leading-7 text-emerald-900">
-                  <li>• Macrolides are the first-line antibiotics for pertussis.</li>
-                  <li>• Azithromycin is generally the preferred agent, particularly in infants.</li>
-                  <li>• Treat early (during the catarrhal phase) to reduce symptom severity and transmission.</li>
-                  <li>                  • Follow age-specific recommendations and local guidance
+                  <li>
+                    • Macrolides are the first-line antibiotics for pertussis.
+                  </li>
+                  <li>
+                    • Azithromycin is generally the preferred agent,
+                    particularly in infants.
+                  </li>
+                  <li>
+                    • Treat early (during the catarrhal phase) to reduce symptom
+                    severity and transmission.
+                  </li>
+                  <li>
+                    {" "}
+                    • Follow age-specific recommendations and local guidance
                   </li>
                 </ul>
               </div>
@@ -682,13 +684,17 @@ export default function PertussisPage() {
 
               <ul className="mt-4 space-y-3 leading-7 text-purple-900">
                 <li>• Use appropriate droplet precautions</li>
-                <li>• Notify infection prevention or public health as required</li>
+                <li>
+                  • Notify infection prevention or public health as required
+                </li>
                 <li>• Assess household and other close contacts</li>
                 <li>
                   • Prioritize post-exposure prophylaxis for people at high risk
                   and those likely to expose them
                 </li>
-                <li>• Review and update pertussis vaccination when indicated</li>
+                <li>
+                  • Review and update pertussis vaccination when indicated
+                </li>
               </ul>
             </div>
 
@@ -718,10 +724,11 @@ export default function PertussisPage() {
             </h2>
 
             <p className="mt-4 max-w-4xl leading-7 text-slate-600">
-              Disposition depends on age, respiratory stability, feeding, hydration,
-              comorbidities, and the caregiver&apos;s ability to recognize deterioration.
-              Infants younger than 3 months warrant particularly cautious assessment,
-              with the greatest risk occurring in those younger than 2 months.
+              Disposition depends on age, respiratory stability, feeding,
+              hydration, comorbidities, and the caregiver&apos;s ability to
+              recognize deterioration. Infants younger than 3 months warrant
+              particularly cautious assessment, with the greatest risk occurring
+              in those younger than 2 months.
             </p>
 
             <div className="mt-8 grid gap-6 lg:grid-cols-3">
@@ -732,28 +739,29 @@ export default function PertussisPage() {
 
                 <ul className="mt-5 space-y-4 leading-7 text-emerald-900">
                   <li>
-                    • Infant at least 3 months old or older child with mild disease
+                    • Infant at least 3 months old or older child with mild
+                    disease
                   </li>
                   <li>
                     • No apnea, cyanosis, bradycardia, or significant hypoxemia
                   </li>
                   <li>
-                    • No meaningful respiratory distress between coughing episodes
+                    • No meaningful respiratory distress between coughing
+                    episodes
                   </li>
-                  <li>
-                    • Adequate feeding and hydration
-                  </li>
+                  <li>• Adequate feeding and hydration</li>
                   <li>
                     • No high-risk comorbidity or concerning laboratory findings
                   </li>
                   <li>
-                    • Reliable caregivers, return precautions, and close follow-up
+                    • Reliable caregivers, return precautions, and close
+                    follow-up
                   </li>
                 </ul>
 
                 <p className="mt-5 rounded-xl bg-emerald-100 p-4 text-sm leading-6 text-emerald-950">
-                  Infants 3–6 months remain at increased risk. Age alone should not
-                  override concerning symptoms or an unreliable examination.
+                  Infants 3–6 months remain at increased risk. Age alone should
+                  not override concerning symptoms or an unreliable examination.
                 </p>
               </div>
 
@@ -764,29 +772,26 @@ export default function PertussisPage() {
 
                 <ul className="mt-5 space-y-4 leading-7 text-amber-900">
                   <li>
-                    • Age younger than 3 months, especially younger than 2 months
+                    • Age younger than 3 months, especially younger than 2
+                    months
                   </li>
                   <li>
-                    • Apnea, cyanosis, bradycardia, or post-tussive heart-rate decrease
+                    • Apnea, cyanosis, bradycardia, or post-tussive heart-rate
+                    decrease
                   </li>
-                  <li>
-                    • Feeding difficulty, weight loss, or dehydration
-                  </li>
+                  <li>• Feeding difficulty, weight loss, or dehydration</li>
                   <li>
                     • Hypoxemia, pneumonia, or significant respiratory distress
                   </li>
-                  <li>
-                    • Frequent, prolonged, or severe coughing paroxysms
-                  </li>
-                  <li>
-                    • Marked leukocytosis with lymphocytosis
-                  </li>
+                  <li>• Frequent, prolonged, or severe coughing paroxysms</li>
+                  <li>• Marked leukocytosis with lymphocytosis</li>
                   <li>
                     • Prematurity, cardiopulmonary disease, immunodeficiency, or
                     concerning viral coinfection
                   </li>
                   <li>
-                    • Unsafe home observation or inability to ensure close follow-up
+                    • Unsafe home observation or inability to ensure close
+                    follow-up
                   </li>
                 </ul>
               </div>
@@ -797,27 +802,16 @@ export default function PertussisPage() {
                 </h3>
 
                 <ul className="mt-5 space-y-4 leading-7 text-rose-900">
+                  <li>• Recurrent or prolonged apnea</li>
                   <li>
-                    • Recurrent or prolonged apnea
+                    • Respiratory failure or rapidly increasing respiratory
+                    support
                   </li>
-                  <li>
-                    • Respiratory failure or rapidly increasing respiratory support
-                  </li>
-                  <li>
-                    • Severe or recurrent hypoxemia
-                  </li>
-                  <li>
-                    • Hemodynamic instability
-                  </li>
-                  <li>
-                    • Pulmonary hypertension
-                  </li>
-                  <li>
-                    • Rapid clinical deterioration
-                  </li>
-                  <li>
-                    • Marked leukocytosis with critical infant disease
-                  </li>
+                  <li>• Severe or recurrent hypoxemia</li>
+                  <li>• Hemodynamic instability</li>
+                  <li>• Pulmonary hypertension</li>
+                  <li>• Rapid clinical deterioration</li>
+                  <li>• Marked leukocytosis with critical infant disease</li>
                 </ul>
               </div>
             </div>
@@ -828,11 +822,12 @@ export default function PertussisPage() {
               </p>
 
               <p className="mt-3 leading-7 text-slate-200">
-                Young infants with pertussis may initially appear deceptively well, with
-                only mild coryza or cough, before progressing to gagging, gasping,
-                bradycardia, cyanosis, or apnea. A reassuring appearance early in the
-                illness should not outweigh the patient&apos;s age, history, or observed
-                events when deciding disposition.
+                Young infants with pertussis may initially appear deceptively
+                well, with only mild coryza or cough, before progressing to
+                gagging, gasping, bradycardia, cyanosis, or apnea. A reassuring
+                appearance early in the illness should not outweigh the
+                patient&apos;s age, history, or observed events when deciding
+                disposition.
               </p>
             </div>
           </section>
@@ -891,9 +886,7 @@ export default function PertussisPage() {
                   </span>
 
                   <div>
-                    <h3 className="font-bold text-slate-900">
-                      {pearl.title}
-                    </h3>
+                    <h3 className="font-bold text-slate-900">{pearl.title}</h3>
 
                     <p className="mt-2 leading-7 text-slate-700">
                       {pearl.description}
@@ -928,12 +921,13 @@ export default function PertussisPage() {
                   key={answer}
                   type="button"
                   onClick={() => setSelectedAnswer(answer)}
-                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${selectedAnswer === answer
+                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${
+                    selectedAnswer === answer
                       ? answer === correctAnswer
                         ? "border-green-500 bg-green-100 text-green-950"
                         : "border-red-500 bg-red-100 text-red-950"
                       : "border-purple-200 bg-white text-purple-950 hover:border-purple-400 hover:bg-purple-100"
-                    }`}
+                  }`}
                 >
                   {answer}
                 </button>
@@ -976,6 +970,12 @@ export default function PertussisPage() {
               </div>
             )}
           </section>
+
+          <AnkiDeck
+            title="Pertussis Anki Deck"
+            cardCount={16}
+            downloadHref="/Anki/pertussis.apkg"
+          />
 
           <EvidenceBase
             references={[
