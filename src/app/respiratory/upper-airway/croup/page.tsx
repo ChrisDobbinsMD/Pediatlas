@@ -1155,7 +1155,6 @@ export default function CroupPage() {
 
           <AnkiDeck
             title="Croup Anki Deck"
-            description="Review the highest-yield Croup concepts from this module, including localization, severity assessment, dexamethasone, nebulized epinephrine, diagnostic reasoning, and disposition."
             href="/Anki/croup.apkg"
             cardCount={16}
           />
