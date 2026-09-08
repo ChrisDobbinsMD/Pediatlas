@@ -316,6 +316,57 @@ export default function AsthmaPage() {
                 </ul>
               </div>
             </div>
+
+            <div className="mt-7 rounded-2xl border border-amber-200 bg-amber-50 p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
+                Preschool wheeze
+              </p>
+
+              <h3 className="mt-2 text-xl font-bold text-amber-950">
+                What does “reactive airway disease” actually mean?
+              </h3>
+
+              <p className="mt-3 leading-7 text-amber-900">
+                Reactive airway disease (RAD) is a nonspecific clinical term,
+                not a defined diagnosis. It is sometimes used when a young child
+                has recurrent wheezing or apparent airway reactivity but the
+                underlying diagnosis has not yet been established.
+              </p>
+
+              <div className="mt-5 grid gap-4 md:grid-cols-2">
+                <div className="rounded-xl border border-amber-200 bg-white/70 p-4">
+                  <h4 className="font-bold text-amber-950">
+                    Viral-induced wheeze
+                  </h4>
+
+                  <p className="mt-2 text-sm leading-6 text-amber-900">
+                    Some preschool children wheeze primarily during viral
+                    respiratory illnesses and are well between episodes. Not
+                    every child with viral-associated wheezing will develop
+                    persistent asthma.
+                  </p>
+                </div>
+
+                <div className="rounded-xl border border-amber-200 bg-white/70 p-4">
+                  <h4 className="font-bold text-amber-950">
+                    Increasingly suggestive of asthma
+                  </h4>
+
+                  <p className="mt-2 text-sm leading-6 text-amber-900">
+                    Recurrent episodes, symptoms between illnesses, multiple
+                    triggers, atopy, family history, and a reproducible response
+                    to asthma therapy increase confidence in the diagnosis.
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-5 text-sm leading-6 text-amber-800">
+                <strong>Age alone does not determine the diagnosis.</strong>{" "}
+                Preschool children can be diagnosed with asthma when the
+                clinical pattern is convincing, even when they are too young to
+                perform reliable spirometry.
+              </p>
+            </div>
           </section>
 
           <section

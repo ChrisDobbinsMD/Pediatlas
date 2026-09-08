@@ -230,6 +230,34 @@ export default function BronchiolitisPage() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-7 rounded-2xl border border-amber-200 bg-amber-50 p-6">
+              <h3 className="text-xl font-bold text-amber-950">
+                Why does bronchiolitis wheeze if it is not asthma?
+              </h3>
+
+              <p className="mt-3 leading-7 text-amber-900">
+                Wheezing is a sign of narrowed airways, not a diagnosis of
+                bronchospasm. In bronchiolitis, small-airway obstruction is
+                driven predominantly by bronchiolar edema, mucus, and cellular
+                debris. These narrowed airways can generate expiratory wheezing
+                even without the reversible smooth-muscle bronchoconstriction
+                characteristic of asthma.
+              </p>
+
+              <div className="mt-5 rounded-xl border border-amber-200 bg-white/70 p-4">
+                <p className="font-semibold text-amber-950">
+                  Clinical connection
+                </p>
+
+                <p className="mt-2 text-sm leading-6 text-amber-900">
+                  Albuterol relaxes bronchial smooth muscle but does not
+                  directly remove mucus, cellular debris, or bronchiolar edema.
+                  This helps explain why bronchodilators are not routinely
+                  recommended for typical bronchiolitis.
+                </p>
+              </div>
+            </div>
           </section>
 
           <section
