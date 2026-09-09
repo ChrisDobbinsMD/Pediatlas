@@ -1248,138 +1248,140 @@ export default function BacterialTracheitisPage() {
               </p>
             </Callout>
           </DiseaseSection>
-        </div>
-        {/* =================================================
+
+          {/* =================================================
     CLINICAL PEARLS
 ================================================= */}
 
-        <DiseaseSection
-          id="pearls"
-          label="Clinical Pearls"
-          title="The high-yield takeaways"
-          description="Keep these principles in mind when evaluating a child with suspected bacterial tracheitis."
-        >
-          <div className="grid gap-5 md:grid-cols-2">
-            <PearlCard
-              number={1}
-              title="Think bacterial tracheitis when croup stops behaving like croup"
-            >
-              <p>
-                A viral or croup-like prodrome followed by high fever, toxic
-                appearance, progressive respiratory distress, and poor response
-                to standard croup therapy should prompt reconsideration of the
-                diagnosis.
-              </p>
-            </PearlCard>
-
-            <PearlCard
-              number={2}
-              title="The obstruction is both edema and debris"
-            >
-              <p>
-                Unlike uncomplicated croup, bacterial tracheitis can obstruct
-                the airway with thick mucopurulent secretions and sloughed or
-                pseudomembranous material in addition to mucosal edema.
-              </p>
-            </PearlCard>
-
-            <PearlCard
-              number={3}
-              title="Drooling should make you reconsider the localization"
-            >
-              <p>
-                Children with bacterial tracheitis usually remain able to handle
-                their oral secretions. Prominent drooling, dysphagia, muffled
-                voice, or tripod positioning should increase concern for
-                supraglottic disease such as epiglottitis.
-              </p>
-            </PearlCard>
-
-            <PearlCard
-              number={4}
-              title="The airway comes before the diagnostic workup"
-            >
-              <p>
-                Imaging and laboratory testing are supportive. A child with
-                progressive airway compromise should undergo stabilization and
-                definitive airway assessment rather than being sent for testing
-                simply to confirm the diagnosis.
-              </p>
-            </PearlCard>
-
-            <PearlCard number={5} title="Bronchoscopy can diagnose and treat">
-              <p>
-                Direct airway visualization can demonstrate the inflamed
-                trachea, obtain microbiologic specimens, and permit removal of
-                thick secretions or adherent debris contributing to obstruction.
-              </p>
-            </PearlCard>
-
-            <PearlCard
-              number={6}
-              title="A positive trach culture is not the same as infection"
-            >
-              <p>
-                Children with tracheostomies commonly have airway colonization.
-                Interpret cultures alongside meaningful clinical changes such as
-                new purulent secretions, increased suctioning, fever, or
-                worsening respiratory support requirements.
-              </p>
-            </PearlCard>
-          </div>
-
-          <Callout
-            label="Remember the Management Framework"
-            title="Airway → clearance → antibiotics"
-            tone="blue"
+          <DiseaseSection
+            id="pearls"
+            label="Clinical Pearls"
+            title="The high-yield takeaways"
+            description="Keep these principles in mind when evaluating a child with suspected bacterial tracheitis."
           >
-            <p>
-              Protect a threatened airway, remove obstructing secretions and
-              debris when necessary, and begin empiric parenteral antimicrobial
-              therapy with appropriate coverage for{" "}
-              <strong>Staphylococcus aureus</strong> and other likely
-              respiratory pathogens.
-            </p>
-          </Callout>
-        </DiseaseSection>
+            <div className="grid gap-5 md:grid-cols-2">
+              <PearlCard
+                number={1}
+                title="Think bacterial tracheitis when croup stops behaving like croup"
+              >
+                <p>
+                  A viral or croup-like prodrome followed by high fever, toxic
+                  appearance, progressive respiratory distress, and poor
+                  response to standard croup therapy should prompt
+                  reconsideration of the diagnosis.
+                </p>
+              </PearlCard>
 
-        {/* =================================================
+              <PearlCard
+                number={2}
+                title="The obstruction is both edema and debris"
+              >
+                <p>
+                  Unlike uncomplicated croup, bacterial tracheitis can obstruct
+                  the airway with thick mucopurulent secretions and sloughed or
+                  pseudomembranous material in addition to mucosal edema.
+                </p>
+              </PearlCard>
+
+              <PearlCard
+                number={3}
+                title="Drooling should make you reconsider the localization"
+              >
+                <p>
+                  Children with bacterial tracheitis usually remain able to
+                  handle their oral secretions. Prominent drooling, dysphagia,
+                  muffled voice, or tripod positioning should increase concern
+                  for supraglottic disease such as epiglottitis.
+                </p>
+              </PearlCard>
+
+              <PearlCard
+                number={4}
+                title="The airway comes before the diagnostic workup"
+              >
+                <p>
+                  Imaging and laboratory testing are supportive. A child with
+                  progressive airway compromise should undergo stabilization and
+                  definitive airway assessment rather than being sent for
+                  testing simply to confirm the diagnosis.
+                </p>
+              </PearlCard>
+
+              <PearlCard number={5} title="Bronchoscopy can diagnose and treat">
+                <p>
+                  Direct airway visualization can demonstrate the inflamed
+                  trachea, obtain microbiologic specimens, and permit removal of
+                  thick secretions or adherent debris contributing to
+                  obstruction.
+                </p>
+              </PearlCard>
+
+              <PearlCard
+                number={6}
+                title="A positive trach culture is not the same as infection"
+              >
+                <p>
+                  Children with tracheostomies commonly have airway
+                  colonization. Interpret cultures alongside meaningful clinical
+                  changes such as new purulent secretions, increased suctioning,
+                  fever, or worsening respiratory support requirements.
+                </p>
+              </PearlCard>
+            </div>
+
+            <Callout
+              label="Remember the Management Framework"
+              title="Airway → clearance → antibiotics"
+              tone="blue"
+            >
+              <p>
+                Protect a threatened airway, remove obstructing secretions and
+                debris when necessary, and begin empiric parenteral
+                antimicrobial therapy with appropriate coverage for{" "}
+                <strong>Staphylococcus aureus</strong> and other likely
+                respiratory pathogens.
+              </p>
+            </Callout>
+          </DiseaseSection>
+
+          {/* =================================================
     PROGRESSIVE QUIZ
 ================================================= */}
 
-        <DiseaseSection
-          id="quiz"
-          label="Progressive Quiz"
-          title="Can you manage the deteriorating airway?"
-          description="Follow the case as it evolves from a croup-like illness to progressive bacterial tracheal obstruction."
-        >
-          <ProgressiveQuiz questions={quizQuestions} />
-        </DiseaseSection>
+          <DiseaseSection
+            id="quiz"
+            label="Progressive Quiz"
+            title="Can you manage the deteriorating airway?"
+            description="Follow the case as it evolves from a croup-like illness to progressive bacterial tracheal obstruction."
+          >
+            <ProgressiveQuiz questions={quizQuestions} />
+          </DiseaseSection>
 
-        {/* =========================================================
+          {/* =========================================================
     ANKI DECK
 ========================================================= */}
-        <DiseaseSection
-          id="anki"
-          label="Spaced Repetition"
-          title="Keep the high-yield concepts fresh"
-          description="Review the core bacterial tracheitis concepts from this module with a focused Anki deck."
-        >
-          <AnkiDeck
-            title="Bacterial Tracheitis"
-            cardCount={12}
-            downloadHref="/Anki/bacterial-tracheitis.apkg"
-          />
-        </DiseaseSection>
+          <DiseaseSection
+            id="anki"
+            label="Spaced Repetition"
+            title="Keep the high-yield concepts fresh"
+            description="Review the core bacterial tracheitis concepts from this module with a focused Anki deck."
+          >
+            <AnkiDeck
+              title="Bacterial Tracheitis"
+              cardCount={12}
+              downloadHref="/Anki/bacterial-tracheitis.apkg"
+            />
+          </DiseaseSection>
 
-        {/* =================================================
+          {/* =================================================
     EVIDENCE BASE
 ================================================= */}
 
-        <EvidenceBase
-          references={references}
-          secondarySources="Nelson Textbook of Pediatrics and StatPearls were used as additional educational references for clinical organization, cross-checking, and consistency."
-        />
+          <EvidenceBase
+            references={references}
+            secondarySources="Nelson Textbook of Pediatrics and StatPearls were used as additional educational references for clinical organization, cross-checking, and consistency."
+          />
+        </div>
       </div>
     </main>
   );
