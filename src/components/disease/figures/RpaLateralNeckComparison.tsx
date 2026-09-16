@@ -228,7 +228,7 @@ export default function RpaLateralNeckComparison() {
 
           <div className="relative h-[420px] overflow-hidden bg-black">
             <img
-              src="/images/rpa-lat-xray.png"
+              src="/images/rpa-lat-xray2.jpg"
               alt="Lateral neck radiograph of a 14-month-old with retropharyngeal abscess"
               className="h-full w-full object-contain"
             />
@@ -239,24 +239,177 @@ export default function RpaLateralNeckComparison() {
                 className="pointer-events-none absolute inset-0 h-full w-full"
                 preserveAspectRatio="none"
               >
-                {/* Annotation coordinates added after visual calibration */}
+                {/*  C2 marker */}
+
+                <text
+                  x="480"
+                  y="350"
+                  fill="white"
+                  fontSize="36"
+                  fontWeight="700"
+                  stroke="#0f172a"
+                  strokeWidth="2"
+                  paintOrder="stroke"
+                >
+                  C2
+                </text>
+
+                {/* C3 marker */}
+                <text
+                  x="505"
+                  y="430"
+                  fill="white"
+                  fontSize="36"
+                  fontWeight="700"
+                  stroke="#0f172a"
+                  strokeWidth="2"
+                  paintOrder="stroke"
+                >
+                  C3
+                </text>
+
+                {/* C4 marker */}
+                <text
+                  x="520"
+                  y="510"
+                  fill="white"
+                  fontSize="36"
+                  fontWeight="700"
+                  stroke="#0f172a"
+                  strokeWidth="2"
+                  paintOrder="stroke"
+                >
+                  C4
+                </text>
+
+                {/* C5 marker */}
+                <text
+                  x="550"
+                  y="575"
+                  fill="white"
+                  fontSize="36"
+                  fontWeight="700"
+                  stroke="#0f172a"
+                  strokeWidth="2"
+                  paintOrder="stroke"
+                >
+                  C5
+                </text>
+
+                {/* C7 marker */}
+                <text
+                  x="630"
+                  y="700"
+                  fill="white"
+                  fontSize="36"
+                  fontWeight="700"
+                  stroke="#0f172a"
+                  strokeWidth="2"
+                  paintOrder="stroke"
+                >
+                  C7
+                </text>
+                {/* Widened prevertebral soft-tissue width at C6 */}
+                <line
+                  x1="425"
+                  y1="710"
+                  x2="570"
+                  y2="640"
+                  stroke="#facc15"
+                  strokeWidth="6"
+                />
+
+                {/* Anterior bracket */}
+                <line
+                  x1="415"
+                  y1="695"
+                  x2="430"
+                  y2="730"
+                  stroke="#facc15"
+                  strokeWidth="6"
+                />
+
+                {/* Posterior bracket */}
+                <line
+                  x1="560"
+                  y1="625"
+                  x2="580"
+                  y2="660"
+                  stroke="#facc15"
+                  strokeWidth="6"
+                />
+                {/* C6 vertebral-body AP width */}
+                <line
+                  x1="578"
+                  y1="640"
+                  x2="640"
+                  y2="600"
+                  stroke="#38bdf8"
+                  strokeWidth="6"
+                />
+
+                {/* Anterior bracket */}
+                <line
+                  x1="570"
+                  y1="625"
+                  x2="585"
+                  y2="655"
+                  stroke="#38bdf8"
+                  strokeWidth="6"
+                />
+
+                {/* Posterior bracket */}
+                <line
+                  x1="630"
+                  y1="585"
+                  x2="645"
+                  y2="615"
+                  stroke="#38bdf8"
+                  strokeWidth="6"
+                />
+                {/* Prevertebral soft-tissue label */}
+                <text
+                  x="205"
+                  y="615"
+                  fill="#facc15"
+                  fontSize="30"
+                  fontWeight="700"
+                  stroke="#0f172a"
+                  strokeWidth="2"
+                  paintOrder="stroke"
+                >
+                  Prevertebral soft tissue
+                </text>
+
+                {/* C6 body-width label */}
+                <text
+                  x="650"
+                  y="580"
+                  fill="#38bdf8"
+                  fontSize="30"
+                  fontWeight="700"
+                  stroke="#0f172a"
+                  strokeWidth="2"
+                  paintOrder="stroke"
+                >
+                  C6 body width
+                </text>
               </svg>
             )}
           </div>
 
           <div className="p-4 text-xs leading-5 text-slate-500">
-            14-month-old with retropharyngeal abscess demonstrating marked
-            retropharyngeal soft-tissue thickening and anterior displacement of
-            the airway.{" "}
+            Lateral airway radiograph demonstrating marked prevertebral
+            soft-tissue thickening in retropharyngeal abscess. Source:{" "}
             <a
-              href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5703170/"
+              href="https://pediatricimaging.org/diseases/retropharyngeal-abscess/"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-900"
             >
-              LeRiger MM et al., 2017
+              Pediatric Imaging
             </a>
-            . CC BY-NC 3.0.
+            . CC BY-NC-SA 4.0.
           </div>
         </div>
       </div>
@@ -284,6 +437,37 @@ export default function RpaLateralNeckComparison() {
           </button>
         </div>
 
+        <div className="rounded-xl border border-sky-200 bg-sky-50 p-4">
+          <p className="text-sm font-bold text-sky-950">
+            Pediatric prevertebral soft-tissue landmarks
+          </p>
+
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <div>
+              <p className="font-semibold text-slate-900">C2</p>
+              <p className="mt-1 text-sm leading-6 text-slate-700">
+                Prevertebral soft tissue &gt;7 mm is abnormal. At C1–C4, the
+                soft-tissue thickness should generally remain less than half the
+                AP width of the adjacent vertebral body.
+              </p>
+            </div>
+
+            <div>
+              <p className="font-semibold text-slate-900">C6</p>
+              <p className="mt-1 text-sm leading-6 text-slate-700">
+                Prevertebral soft tissue &gt;14 mm is abnormal. Below C4, the
+                normal soft-tissue shadow may be thicker because of the
+                esophagus.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-3 text-xs leading-5 text-slate-600">
+            C2 and C6 are commonly used reference levels. Assess the entire
+            prevertebral contour and radiographic technique rather than relying
+            on a single measurement.
+          </p>
+        </div>
         <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4">
           <p className="text-sm leading-6 text-amber-950">
             <strong>Technique matters:</strong> Neck flexion and expiratory
