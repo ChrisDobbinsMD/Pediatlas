@@ -29,7 +29,177 @@ export default function RpaLateralNeckComparison() {
                 className="pointer-events-none absolute inset-0 h-full w-full"
                 preserveAspectRatio="none"
               >
-                {/* Annotation coordinates added after visual calibration */}
+                <svg
+                  viewBox="0 0 1024 1024"
+                  className="pointer-events-none absolute inset-0 h-full w-full"
+                  preserveAspectRatio="none"
+                >
+                  {/* C2 label */}
+                  <text
+                    x="820"
+                    y="300"
+                    fill="white"
+                    fontSize="36"
+                    fontWeight="700"
+                    stroke="#0f172a"
+                    strokeWidth="2"
+                    paintOrder="stroke"
+                  >
+                    C2
+                  </text>
+                  {/* C3 label */}
+                  <text
+                    x="790"
+                    y="435"
+                    fill="white"
+                    fontSize="36"
+                    fontWeight="700"
+                    stroke="#0f172a"
+                    strokeWidth="2"
+                    paintOrder="stroke"
+                  >
+                    C3
+                  </text>
+                  {/* C4 label */}
+                  <text
+                    x="750"
+                    y="525"
+                    fill="white"
+                    fontSize="36"
+                    fontWeight="700"
+                    stroke="#0f172a"
+                    strokeWidth="2"
+                    paintOrder="stroke"
+                  >
+                    C4
+                  </text>
+                  {/* C5 label */}
+                  <text
+                    x="735"
+                    y="645"
+                    fill="white"
+                    fontSize="36"
+                    fontWeight="700"
+                    stroke="#0f172a"
+                    strokeWidth="2"
+                    paintOrder="stroke"
+                  >
+                    C5
+                  </text>
+
+                  {/* C6 label */}
+                  <text
+                    x="780"
+                    y="755"
+                    fill="white"
+                    fontSize="36"
+                    fontWeight="700"
+                    stroke="#0f172a"
+                    strokeWidth="2"
+                    paintOrder="stroke"
+                  >
+                    C6
+                  </text>
+
+                  {/* C7 label */}
+                  <text
+                    x="825"
+                    y="860"
+                    fill="white"
+                    fontSize="36"
+                    fontWeight="700"
+                    stroke="#0f172a"
+                    strokeWidth="2"
+                    paintOrder="stroke"
+                  >
+                    C7
+                  </text>
+                  {/* Normal prevertebral soft-tissue width at C2 */}
+                  <line
+                    x1="700"
+                    y1="290"
+                    x2="750"
+                    y2="300"
+                    stroke="#facc15"
+                    strokeWidth="6"
+                  />
+
+                  {/* Anterior bracket */}
+                  <line
+                    x1="700"
+                    y1="270"
+                    x2="690"
+                    y2="310"
+                    stroke="#facc15"
+                    strokeWidth="6"
+                  />
+
+                  {/* Posterior bracket */}
+                  <line
+                    x1="760"
+                    y1="280"
+                    x2="740"
+                    y2="320"
+                    stroke="#facc15"
+                    strokeWidth="6"
+                  />
+                  {/* C2 vertebral-body AP width */}
+                  <line
+                    x1="750"
+                    y1="305"
+                    x2="865"
+                    y2="340"
+                    stroke="#38bdf8"
+                    strokeWidth="6"
+                  />
+
+                  {/* Anterior cortex end cap */}
+                  <line
+                    x1="765"
+                    y1="280"
+                    x2="745"
+                    y2="325"
+                    stroke="#38bdf8"
+                    strokeWidth="6"
+                  />
+
+                  {/* Posterior cortex end cap */}
+                  <line
+                    x1="875"
+                    y1="320"
+                    x2="855"
+                    y2="360"
+                    stroke="#38bdf8"
+                    strokeWidth="6"
+                  />
+                  {/* Prevertebral soft-tissue label */}
+                  <text
+                    x="550"
+                    y="230"
+                    fill="#facc15"
+                    fontSize="30"
+                    fontWeight="700"
+                    stroke="#0f172a"
+                    strokeWidth="2"
+                    paintOrder="stroke"
+                  >
+                    Prevertebral soft tissue
+                  </text>
+
+                  {/* C2 body-width label */}
+                  <text
+                    x="600"
+                    y="365"
+                    fill="#38bdf8"
+                    fontSize="30"
+                    fontWeight="700"
+                    stroke="#0f172a"
+                    strokeWidth="2"
+                    paintOrder="stroke"
+                  >
+                    C2 body width
+                  </text>
+                </svg>
               </svg>
             )}
           </div>
