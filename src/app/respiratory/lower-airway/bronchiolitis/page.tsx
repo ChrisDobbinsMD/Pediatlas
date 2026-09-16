@@ -1,16 +1,43 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { AnkiDeck, EvidenceBase } from "@/components/disease";
+import MobileSectionNav from "@/components/MobileSectionNav";
+import {
+  AnkiDeck,
+  DiseaseSection,
+  EvidenceBase,
+  PearlCard,
+  ProcessStep,
+  ProgressiveQuiz,
+} from "@/components/disease";
 
 const clinicalPearls = [
-  "Bronchiolitis is primarily a clinical diagnosis.",
-  "Supportive care is the foundation of management.",
-  "Suctioning is most useful when nasal obstruction interferes with feeding or breathing.",
-  "Routine chest radiography and viral testing are usually unnecessary.",
-  "Routine albuterol, systemic corticosteroids, and antibiotics are not recommended.",
+  {
+    title: "Bronchiolitis is a clinical diagnosis",
+    description:
+      "Typical bronchiolitis is diagnosed from the history and physical examination rather than routine laboratory testing or imaging.",
+  },
+  {
+    title: "Supportive care is the foundation of treatment",
+    description:
+      "Management centers on respiratory assessment, hydration, nasal care, oxygen when indicated, and escalation of respiratory support when necessary.",
+  },
+  {
+    title: "Use suctioning when it solves a problem",
+    description:
+      "Nasal suctioning is most useful when upper-airway secretions interfere with feeding or breathing rather than as an automatic scheduled intervention.",
+  },
+  {
+    title: "Do not investigate a classic presentation routinely",
+    description:
+      "Chest radiography, respiratory viral testing, CBCs, and inflammatory markers are generally unnecessary in uncomplicated typical bronchiolitis.",
+  },
+  {
+    title: "Wheezing does not automatically mean bronchodilators",
+    description:
+      "Routine albuterol, systemic corticosteroids, and antibiotics are not recommended for typical bronchiolitis because the predominant obstruction is caused by edema, mucus, and cellular debris.",
+  },
 ];
 
 const avoidRoutineUse = [
@@ -24,9 +51,160 @@ const avoidRoutineUse = [
   "Chest physiotherapy",
 ];
 
-export default function BronchiolitisPage() {
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+const quizQuestions = [
+  {
+    question:
+      "A comfortable 8-month-old with typical bronchiolitis has mild retractions, adequate feeding, diffuse wheezing and crackles, and an oxygen saturation of 95% on room air. What is the most appropriate next step?",
+    answers: [
+      {
+        text: "Obtain a chest radiograph",
+        correct: false,
+        feedback:
+          "Routine chest radiography is not recommended in a child with a typical, uncomplicated presentation of bronchiolitis.",
+      },
+      {
+        text: "Administer routine albuterol",
+        correct: false,
+        feedback:
+          "Routine bronchodilator therapy is not recommended for typical bronchiolitis because airway obstruction is driven predominantly by edema, mucus, and cellular debris rather than reversible bronchospasm.",
+      },
+      {
+        text: "Provide supportive care and reassess",
+        correct: true,
+        feedback:
+          "Correct. This infant has adequate oxygenation and feeding with only mild work of breathing. Supportive care and reassessment are appropriate.",
+      },
+      {
+        text: "Start systemic corticosteroids",
+        correct: false,
+        feedback:
+          "Systemic corticosteroids are not routinely recommended for typical bronchiolitis.",
+      },
+    ],
+  },
+  {
+    question:
+      "An infant with bronchiolitis has diffuse expiratory wheezing. Which mechanism best explains the wheezing in typical bronchiolitis?",
+    answers: [
+      {
+        text: "Reversible bronchial smooth-muscle constriction is the primary abnormality",
+        correct: false,
+        feedback:
+          "That mechanism is more characteristic of asthma. Bronchiolitis primarily affects the small bronchioles through inflammation, edema, mucus, and cellular debris.",
+      },
+      {
+        text: "Bronchiolar edema, mucus, and cellular debris narrow the small airways",
+        correct: true,
+        feedback:
+          "Correct. Narrowing of the bronchioles from edema, mucus, and cellular debris can generate expiratory wheezing even without asthma-like reversible bronchospasm.",
+      },
+      {
+        text: "Pleural inflammation compresses the distal airways",
+        correct: false,
+        feedback:
+          "Bronchiolitis localizes to the bronchioles rather than the pleural space.",
+      },
+      {
+        text: "Pulmonary edema from left ventricular dysfunction narrows the bronchioles",
+        correct: false,
+        feedback:
+          "Cardiogenic pulmonary edema is not the typical mechanism of airway obstruction in bronchiolitis.",
+      },
+    ],
+  },
+  {
+    question:
+      "A 6-month-old has a classic presentation of bronchiolitis with rhinorrhea, cough, diffuse crackles and wheezing, mild retractions, and no focal examination findings. Which diagnostic strategy is most appropriate?",
+    answers: [
+      {
+        text: "Obtain a respiratory viral panel to confirm the diagnosis",
+        correct: false,
+        feedback:
+          "Routine viral testing is generally unnecessary because bronchiolitis is primarily a clinical diagnosis and identifying a specific virus usually does not change management.",
+      },
+      {
+        text: "Obtain a CBC and CRP to determine disease severity",
+        correct: false,
+        feedback:
+          "Routine laboratory testing is not needed to diagnose or determine the severity of typical uncomplicated bronchiolitis.",
+      },
+      {
+        text: "Obtain a chest radiograph to exclude pneumonia",
+        correct: false,
+        feedback:
+          "Routine chest radiography is unnecessary in a typical presentation without focal findings or another reason to suspect an alternative diagnosis.",
+      },
+      {
+        text: "Make a clinical diagnosis and assess respiratory and hydration status",
+        correct: true,
+        feedback:
+          "Correct. Typical bronchiolitis is a clinical diagnosis. Evaluation should focus on respiratory severity, oxygenation, hydration, feeding, and risk factors for deterioration.",
+      },
+    ],
+  },
+  {
+    question:
+      "A 5-month-old hospitalized with bronchiolitis has copious nasal secretions and is struggling to feed because of nasal obstruction. Which intervention is most appropriate?",
+    answers: [
+      {
+        text: "Targeted nasal suctioning before feeding",
+        correct: true,
+        feedback:
+          "Correct. Gentle, targeted suctioning can be useful when nasal secretions interfere with breathing or feeding.",
+      },
+      {
+        text: "Scheduled albuterol every 4 hours",
+        correct: false,
+        feedback:
+          "Routine albuterol is not recommended for typical bronchiolitis.",
+      },
+      {
+        text: "Systemic dexamethasone",
+        correct: false,
+        feedback:
+          "Systemic corticosteroids are not routinely recommended for bronchiolitis.",
+      },
+      {
+        text: "Empiric antibiotics",
+        correct: false,
+        feedback:
+          "Antibiotics are not indicated unless there is evidence of a concomitant bacterial infection.",
+      },
+    ],
+  },
+  {
+    question:
+      "Which finding would most strongly favor hospital admission rather than discharge in an infant with bronchiolitis?",
+    answers: [
+      {
+        text: "Diffuse wheezing with an oxygen saturation of 96% on room air and normal feeding",
+        correct: false,
+        feedback:
+          "Wheezing alone does not determine disposition. A child with adequate oxygenation, feeding, and stable respiratory effort may be appropriate for outpatient care.",
+      },
+      {
+        text: "Positive RSV testing with otherwise mild symptoms",
+        correct: false,
+        feedback:
+          "The specific virus does not by itself determine disposition. Clinical severity and the child's ability to maintain oxygenation and hydration are more important.",
+      },
+      {
+        text: "Persistent hypoxemia with worsening work of breathing and poor oral intake",
+        correct: true,
+        feedback:
+          "Correct. Persistent hypoxemia, increasing respiratory distress, and inadequate oral intake are important reasons to consider hospitalization and supportive therapy.",
+      },
+      {
+        text: "Cough and rhinorrhea for four days",
+        correct: false,
+        feedback:
+          "Duration of typical respiratory symptoms alone is not an indication for admission.",
+      },
+    ],
+  },
+];
 
+export default function BronchiolitisPage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 to-white px-6 py-14">
@@ -117,6 +295,21 @@ export default function BronchiolitisPage() {
           </nav>
         </aside>
 
+        <MobileSectionNav
+          sections={[
+            { id: "vignette", label: "Clinical vignette" },
+            { id: "localization", label: "Anatomy localization" },
+            { id: "pathophysiology", label: "Pathophysiology" },
+            { id: "assessment", label: "History and exam" },
+            { id: "differential", label: "Differential" },
+            { id: "workup", label: "Diagnostic workup" },
+            { id: "management", label: "Management" },
+            { id: "disposition", label: "Disposition" },
+            { id: "pearls", label: "Clinical pearls" },
+            { id: "quiz", label: "Quiz" },
+          ]}
+        />
+
         <div className="space-y-8">
           <section
             id="vignette"
@@ -151,16 +344,11 @@ export default function BronchiolitisPage() {
             </div>
           </section>
 
-          <section
+          <DiseaseSection
             id="localization"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Anatomy localization"
+            title="The bronchioles"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Anatomy localization
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">The bronchioles</h2>
-
             <p className="mt-5 leading-8 text-slate-600">
               The disease localizes to the small, non-cartilaginous airways.
               Their narrow baseline diameter makes infants particularly
@@ -184,19 +372,13 @@ export default function BronchiolitisPage() {
                 </div>
               ))}
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="pathophysiology"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Pathophysiology"
+            title="From viral infection to respiratory distress"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Pathophysiology
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              From viral infection to respiratory distress
-            </h2>
             <div className="mt-7 overflow-hidden rounded-2xl border border-slate-200 bg-white">
               <Image
                 src="/images/bronchiolitis-pathophysiology.png"
@@ -208,27 +390,36 @@ export default function BronchiolitisPage() {
               />
             </div>
 
-            <div className="mt-7 grid gap-4">
-              {[
-                "Viral infection of the respiratory epithelium",
-                "Inflammation, epithelial injury, and bronchiolar edema",
-                "Increased mucus and cellular debris",
-                "Partial or complete small-airway obstruction",
-                "Air trapping, atelectasis, ventilation-perfusion mismatch, and increased work of breathing",
-              ].map((step, index) => (
-                <div
-                  key={step}
-                  className="flex items-start gap-4 rounded-2xl bg-slate-50 p-5"
-                >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-900 font-bold text-white">
-                    {index + 1}
-                  </span>
+            <div className="mt-7 grid gap-4 md:grid-cols-2">
+              <ProcessStep
+                number="1"
+                title="Viral infection"
+                description="A respiratory virus infects the bronchiolar epithelium."
+              />
 
-                  <p className="pt-1 font-medium leading-7 text-slate-700">
-                    {step}
-                  </p>
-                </div>
-              ))}
+              <ProcessStep
+                number="2"
+                title="Inflammation and epithelial injury"
+                description="The infected airway develops epithelial injury, inflammation, and bronchiolar wall edema."
+              />
+
+              <ProcessStep
+                number="3"
+                title="Mucus and cellular debris"
+                description="Increased mucus production and sloughed epithelial cells further narrow the small-airway lumen."
+              />
+
+              <ProcessStep
+                number="4"
+                title="Small-airway obstruction"
+                description="Edema, mucus, and debris produce partial or complete bronchiolar obstruction."
+              />
+
+              <ProcessStep
+                number="5"
+                title="Impaired ventilation"
+                description="Air trapping, atelectasis, ventilation-perfusion mismatch, and increased work of breathing develop downstream."
+              />
             </div>
 
             <div className="mt-7 rounded-2xl border border-amber-200 bg-amber-50 p-6">
@@ -258,20 +449,13 @@ export default function BronchiolitisPage() {
                 </p>
               </div>
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="assessment"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="History and physical exam"
+            title="Assess severity, not just the diagnosis"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              History and physical exam
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Assess severity, not just the diagnosis
-            </h2>
-
             <div className="mt-7 grid gap-6 md:grid-cols-2">
               <div className="rounded-2xl bg-slate-50 p-6">
                 <h3 className="text-xl font-bold">History</h3>
@@ -299,20 +483,13 @@ export default function BronchiolitisPage() {
                 </ul>
               </div>
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="differential"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Differential diagnosis"
+            title="What else could look like this?"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Differential diagnosis
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              What else could look like this?
-            </h2>
-
             <div className="mt-7 overflow-hidden rounded-2xl border border-slate-200">
               {[
                 [
@@ -345,20 +522,13 @@ export default function BronchiolitisPage() {
                 </div>
               ))}
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="workup"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Diagnostic workup"
+            title="Typical bronchiolitis requires very little testing"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Diagnostic workup
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Typical bronchiolitis requires very little testing
-            </h2>
-
             <div className="mt-7 grid gap-6 md:grid-cols-2">
               <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
                 <h3 className="text-xl font-bold text-emerald-900">
@@ -391,18 +561,13 @@ export default function BronchiolitisPage() {
               severe, prolonged, focal, or when another diagnosis would change
               management.
             </p>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="management"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Management"
+            title="Supportive care first"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Management
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">Supportive care first</h2>
-
             <div className="mt-7 grid gap-5 md:grid-cols-2">
               {[
                 [
@@ -443,25 +608,20 @@ export default function BronchiolitisPage() {
                 but institutional policies and patient comorbidities may differ.
               </p>
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="disposition"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Disposition"
+            title="Admit the child, not the pulse oximeter"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Disposition
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Admit the child, not the pulse oximeter
-            </h2>
-
             <div className="mt-7 grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl bg-slate-50 p-6">
-                <h3 className="text-xl font-bold">Consider admission</h3>
+              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+                <h3 className="text-xl font-bold text-amber-950">
+                  Consider admission
+                </h3>
 
-                <ul className="mt-4 space-y-3 leading-7 text-slate-600">
+                <ul className="mt-4 space-y-3 leading-7 text-amber-900">
                   <li>• Persistent hypoxemia</li>
                   <li>• Moderate or severe work of breathing</li>
                   <li>• Apnea, exhaustion, or altered responsiveness</li>
@@ -471,10 +631,12 @@ export default function BronchiolitisPage() {
                 </ul>
               </div>
 
-              <div className="rounded-2xl bg-slate-50 p-6">
-                <h3 className="text-xl font-bold">Reasonable discharge</h3>
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+                <h3 className="text-xl font-bold text-emerald-950">
+                  Reasonable discharge
+                </h3>
 
-                <ul className="mt-4 space-y-3 leading-7 text-slate-600">
+                <ul className="mt-4 space-y-3 leading-7 text-emerald-900">
                   <li>• Stable or improving respiratory effort</li>
                   <li>• Adequate oxygenation on room air</li>
                   <li>• Sufficient oral intake</li>
@@ -484,118 +646,33 @@ export default function BronchiolitisPage() {
                 </ul>
               </div>
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="pearls"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Clinical pearls"
+            title="High-yield takeaways"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Clinical pearls
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">High-yield takeaways</h2>
-
             <div className="mt-7 grid gap-4">
-              {clinicalPearls.map((pearl) => (
-                <div
-                  key={pearl}
-                  className="flex gap-4 rounded-2xl bg-sky-50 p-5"
+              {clinicalPearls.map((pearl, index) => (
+                <PearlCard
+                  key={pearl.title}
+                  number={index + 1}
+                  title={pearl.title}
                 >
-                  <span className="font-bold text-sky-700">✓</span>
-                  <p className="leading-7 text-slate-700">{pearl}</p>
-                </div>
+                  {pearl.description}
+                </PearlCard>
               ))}
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="quiz"
-            className="rounded-3xl border border-purple-200 bg-purple-50 p-8 shadow-sm"
+            label="Knowledge check"
+            title="Test your bronchiolitis reasoning"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-700">
-              Knowledge check
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold text-purple-950">
-              What is the best next step?
-            </h2>
-
-            <p className="mt-5 leading-8 text-purple-900">
-              A comfortable 8-month-old with typical bronchiolitis has mild
-              retractions, adequate feeding, diffuse wheezing and crackles, and
-              an oxygen saturation of 95% on room air. Which intervention is
-              most appropriate?
-            </p>
-
-            <div className="mt-6 grid gap-3">
-              {[
-                "Obtain a chest radiograph",
-                "Administer routine albuterol",
-                "Provide supportive care and reassess",
-                "Start systemic corticosteroids",
-              ].map((answer) => (
-                <button
-                  key={answer}
-                  onClick={() => setSelectedAnswer(answer)}
-                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition
-      ${
-        selectedAnswer === answer
-          ? answer === "Provide supportive care and reassess"
-            ? "border-green-500 bg-green-100"
-            : "border-red-500 bg-red-100"
-          : "border-purple-200 bg-white hover:border-purple-400 hover:bg-purple-100"
-      }`}
-                >
-                  {answer}
-                </button>
-              ))}
-              {selectedAnswer && (
-                <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
-                  {selectedAnswer === "Provide supportive care and reassess" ? (
-                    <>
-                      <h3 className="text-xl font-bold text-green-700">
-                        Correct!
-                      </h3>
-
-                      <p className="mt-4 leading-7 text-slate-700">
-                        This infant has uncomplicated bronchiolitis with
-                        adequate oxygenation, feeding, and only mild work of
-                        breathing. Supportive care and reassessment are
-                        appropriate.
-                      </p>
-
-                      <p className="mt-4 leading-7 text-slate-700">
-                        Routine chest radiography, bronchodilators, and
-                        corticosteroids are not recommended for typical
-                        bronchiolitis.
-                      </p>
-                    </>
-                  ) : (
-                    <>
-                      <h3 className="text-xl font-bold text-red-700">
-                        Not quite.
-                      </h3>
-
-                      <p className="mt-4 leading-7 text-slate-700">
-                        The best answer is:
-                      </p>
-
-                      <p className="mt-2 font-bold text-green-700">
-                        Provide supportive care and reassess.
-                      </p>
-
-                      <p className="mt-4 leading-7 text-slate-700">
-                        Bronchiolitis management focuses on supportive care and
-                        severity assessment rather than routine testing or
-                        medications.
-                      </p>
-                    </>
-                  )}
-                </div>
-              )}
-            </div>
-          </section>
+            <ProgressiveQuiz questions={quizQuestions} />
+          </DiseaseSection>
 
           <AnkiDeck
             title="Bronchiolitis"

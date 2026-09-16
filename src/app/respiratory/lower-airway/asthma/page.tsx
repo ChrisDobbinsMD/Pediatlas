@@ -1,9 +1,19 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { AnkiDeck, EvidenceBase } from "@/components/disease";
+import MobileSectionNav from "@/components/MobileSectionNav";
+import AsthmaSeverityTool from "@/components/disease/asthma/AsthmaSeverityTool";
+import AsthmaStepwiseTherapy from "@/components/disease/asthma/AsthmaStepwiseTherapy";
+import {
+  AnkiDeck,
+  DiseaseSection,
+  EvidenceBase,
+  PearlCard,
+  ProcessStep,
+  ProgressiveQuiz,
+  ExpandableSection,
+} from "@/components/disease";
 
 const pathophysiology = [
   {
@@ -50,9 +60,160 @@ const differential = [
   },
 ];
 
-export default function AsthmaPage() {
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+const quizQuestions = [
+  {
+    question:
+      "A 9-year-old with known asthma presents with diffuse wheezing, moderate intercostal retractions, difficulty speaking in full sentences, and an oxygen saturation of 91%. What is the most appropriate initial treatment?",
+    answers: [
+      {
+        text: "Inhaled albuterol, supplemental oxygen, and systemic corticosteroid",
+        correct: true,
+        feedback:
+          "Correct. This child has a significant asthma exacerbation with hypoxemia and increased work of breathing. Initial treatment should address bronchoconstriction, hypoxemia, and airway inflammation.",
+      },
+      {
+        text: "Chest radiograph before beginning treatment",
+        correct: false,
+        feedback:
+          "Routine chest radiography is not required before treating a typical asthma exacerbation and should not delay bronchodilator therapy.",
+      },
+      {
+        text: "Antibiotics and observation",
+        correct: false,
+        feedback:
+          "Asthma exacerbations do not routinely require antibiotics unless there is separate evidence of a bacterial infection.",
+      },
+      {
+        text: "Inhaled corticosteroid alone",
+        correct: false,
+        feedback:
+          "Controller therapy is important for long-term management, but inhaled corticosteroid alone does not provide the rapid bronchodilation needed during this acute exacerbation.",
+      },
+    ],
+  },
+  {
+    question:
+      "A child being treated for a severe asthma exacerbation has less audible wheezing, but air movement is markedly diminished and the child is becoming fatigued. How should this change be interpreted?",
+    answers: [
+      {
+        text: "The bronchospasm is resolving",
+        correct: false,
+        feedback:
+          "Less wheezing is reassuring only when accompanied by improved air movement and clinical status.",
+      },
+      {
+        text: "Critically limited airflow may be developing",
+        correct: true,
+        feedback:
+          "Correct. A quiet or silent chest with poor air movement and fatigue can indicate critically severe airflow obstruction and impending respiratory failure.",
+      },
+      {
+        text: "The child is developing pneumonia",
+        correct: false,
+        feedback:
+          "Pneumonia can coexist with asthma, but diminishing wheeze with worsening air movement specifically raises concern for severe airflow limitation.",
+      },
+      {
+        text: "No reassessment is necessary if oxygen saturation is unchanged",
+        correct: false,
+        feedback:
+          "Work of breathing, air entry, mental status, and fatigue are essential severity markers and require repeated reassessment.",
+      },
+    ],
+  },
+  {
+    question:
+      "Which test is most useful for objectively demonstrating variable expiratory airflow limitation in a developmentally able child with suspected asthma?",
+    answers: [
+      {
+        text: "Routine chest radiograph",
+        correct: false,
+        feedback:
+          "Chest radiography does not establish variable expiratory airflow limitation and is not routinely needed in a typical presentation.",
+      },
+      {
+        text: "Spirometry with bronchodilator assessment",
+        correct: true,
+        feedback:
+          "Correct. Spirometry can demonstrate airflow obstruction, and improvement after bronchodilator supports variable or reversible expiratory airflow limitation.",
+      },
+      {
+        text: "Complete blood count",
+        correct: false,
+        feedback:
+          "A CBC does not establish the physiologic airflow limitation characteristic of asthma.",
+      },
+      {
+        text: "Viral respiratory panel",
+        correct: false,
+        feedback:
+          "Viral infections can trigger asthma symptoms, but identifying a virus does not establish the diagnosis of asthma.",
+      },
+    ],
+  },
+  {
+    question:
+      "A preschool-aged child has recurrent wheezing primarily with viral infections. Which statement best reflects the diagnostic approach?",
+    answers: [
+      {
+        text: "Any wheezing before school age should automatically be diagnosed as asthma",
+        correct: false,
+        feedback:
+          "Preschool wheezing has several phenotypes, and age alone does not establish an asthma diagnosis.",
+      },
+      {
+        text: "Asthma cannot be diagnosed until the child is old enough for spirometry",
+        correct: false,
+        feedback:
+          "Spirometry may not be feasible in young children, but asthma can still be considered using the symptom pattern, risk factors, exclusion of alternatives, and response to treatment.",
+      },
+      {
+        text: "The pattern over time, interval symptoms, triggers, atopy, family history, and treatment response help determine whether asthma is likely",
+        correct: true,
+        feedback:
+          "Correct. Recurrent symptoms outside isolated viral illnesses, characteristic triggers, atopy, family history, and a consistent treatment response can strengthen the clinical diagnosis.",
+      },
+      {
+        text: "The term reactive airway disease confirms the diagnosis",
+        correct: false,
+        feedback:
+          "Reactive airway disease is a nonspecific description and should not substitute for determining the underlying diagnosis.",
+      },
+    ],
+  },
+  {
+    question:
+      "A child improves after treatment for an asthma exacerbation and is ready for discharge. Which approach best addresses future risk?",
+    answers: [
+      {
+        text: "Discharge once wheezing disappears, with no additional teaching",
+        correct: false,
+        feedback:
+          "Clinical improvement is only one part of discharge planning. Future exacerbation risk and home management also need to be addressed.",
+      },
+      {
+        text: "Provide only a rescue inhaler because controller therapy is unrelated to exacerbation risk",
+        correct: false,
+        feedback:
+          "Long-term anti-inflammatory treatment and assessment of asthma control are important components of reducing future risk.",
+      },
+      {
+        text: "Review controller therapy, reliever use, inhaler and spacer technique, triggers, follow-up, and a written asthma action plan",
+        correct: true,
+        feedback:
+          "Correct. Discharge is an opportunity to address both recovery from the current exacerbation and prevention of future exacerbations.",
+      },
+      {
+        text: "Arrange routine chest radiographs to document resolution",
+        correct: false,
+        feedback:
+          "Routine follow-up chest radiography is not required after an uncomplicated asthma exacerbation.",
+      },
+    ],
+  },
+];
 
+export default function AsthmaPage() {
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 to-white px-6 py-14">
@@ -133,15 +294,32 @@ export default function AsthmaPage() {
             <a href="#localization">Anatomy localization</a>
             <a href="#pathophysiology">Pathophysiology</a>
             <a href="#assessment">History and exam</a>
+            <a href="#severity">Acute severity</a>
             <a href="#differential">Differential</a>
             <a href="#workup">Diagnostic workup</a>
             <a href="#management">Management</a>
+            <a href="#chronic-management">Chronic management</a>
             <a href="#disposition">Disposition</a>
             <a href="#pearls">Clinical pearls</a>
             <a href="#quiz">Quiz</a>
           </nav>
         </aside>
-
+        <MobileSectionNav
+          sections={[
+            { id: "vignette", label: "Clinical vignette" },
+            { id: "localization", label: "Anatomy localization" },
+            { id: "pathophysiology", label: "Pathophysiology" },
+            { id: "assessment", label: "History and exam" },
+            { id: "severity", label: "Acute severity" },
+            { id: "differential", label: "Differential" },
+            { id: "workup", label: "Diagnostic workup" },
+            { id: "management", label: "Management" },
+            { id: "chronic-management", label: "Chronic management" },
+            { id: "disposition", label: "Disposition" },
+            { id: "pearls", label: "Clinical pearls" },
+            { id: "quiz", label: "Quiz" },
+          ]}
+        />
         <div className="space-y-8">
           <section
             id="vignette"
@@ -175,18 +353,11 @@ export default function AsthmaPage() {
             </div>
           </section>
 
-          <section
+          <DiseaseSection
             id="localization"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Anatomy localization"
+            title="Asthma is a disease of the conducting airways"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Anatomy localization
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Asthma is a disease of the conducting airways
-            </h2>
-
             <p className="mt-5 text-lg leading-8 text-slate-600">
               Asthma primarily affects the medium and small bronchi through
               inflammation, bronchial smooth muscle constriction, and mucus
@@ -207,12 +378,12 @@ export default function AsthmaPage() {
                 </ul>
               </div>
 
-              <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
-                <h3 className="text-xl font-bold text-red-950">
+              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <h3 className="text-xl font-bold text-slate-950">
                   Structures usually spared
                 </h3>
 
-                <ul className="mt-4 space-y-3 leading-7 text-red-900">
+                <ul className="mt-4 space-y-3 leading-7 text-slate-700">
                   <li>• Alveoli</li>
                   <li>• Pleural space</li>
                   <li>• Pulmonary vasculature</li>
@@ -231,19 +402,13 @@ export default function AsthmaPage() {
                 focal crackles or consolidation.
               </p>
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="pathophysiology"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Pathophysiology"
+            title="Inflammation plus reversible airway narrowing"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Pathophysiology
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Inflammation plus reversible airway narrowing
-            </h2>
             <div className="mt-7 overflow-hidden rounded-2xl border border-slate-200 bg-white">
               <Image
                 src="/images/asthma-pathophysiology.png"
@@ -255,34 +420,23 @@ export default function AsthmaPage() {
               />
             </div>
 
-            <div className="mt-7 grid gap-5 md:grid-cols-2">
-              {pathophysiology.map((item) => (
-                <div
+            <div className="mt-7 grid gap-4 md:grid-cols-2">
+              {pathophysiology.map((item, index) => (
+                <ProcessStep
                   key={item.title}
-                  className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
-                >
-                  <h3 className="text-xl font-bold">{item.title}</h3>
-
-                  <p className="mt-3 leading-7 text-slate-600">
-                    {item.description}
-                  </p>
-                </div>
+                  number={String(index + 1)}
+                  title={item.title}
+                  description={item.description}
+                />
               ))}
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="assessment"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="History and physical exam"
+            title="Confirm the pattern and identify risk"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              History and physical exam
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Confirm the pattern and identify risk
-            </h2>
-
             <div className="mt-7 grid gap-6 md:grid-cols-2">
               <div className="rounded-2xl bg-slate-50 p-6">
                 <h3 className="text-xl font-bold">History</h3>
@@ -367,67 +521,59 @@ export default function AsthmaPage() {
                 perform reliable spirometry.
               </p>
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="severity"
-            className="rounded-3xl border border-amber-200 bg-amber-50 p-8 shadow-sm"
+            label="Acute severity"
+            title="How sick is the child right now?"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
-              Acute severity
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold text-amber-950">
-              How sick is the child right now?
-            </h2>
-
             <div className="mt-7 grid gap-4 md:grid-cols-2">
-              {[
-                [
-                  "Mild",
-                  "Speaks normally, mild wheeze or retractions, good air movement.",
-                ],
-                [
-                  "Moderate",
-                  "Increased work of breathing, more persistent wheeze, reduced activity or speech.",
-                ],
-                [
-                  "Severe",
-                  "Marked retractions, difficulty speaking, poor air entry, agitation, or hypoxemia.",
-                ],
-                [
-                  "Impending respiratory failure",
-                  "Fatigue, altered mental status, cyanosis, silent chest, or worsening despite treatment.",
-                ],
-              ].map(([title, description]) => (
-                <div
-                  key={title}
-                  className="rounded-2xl border border-amber-200 bg-white p-5"
-                >
-                  <h3 className="font-bold text-amber-950">{title}</h3>
-                  <p className="mt-2 leading-7 text-amber-900">{description}</p>
-                </div>
-              ))}
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+                <h3 className="font-bold text-emerald-950">Mild</h3>
+                <p className="mt-2 leading-7 text-emerald-900">
+                  Speaks normally, mild wheeze or retractions, good air
+                  movement.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
+                <h3 className="font-bold text-amber-950">Moderate</h3>
+                <p className="mt-2 leading-7 text-amber-900">
+                  Increased work of breathing, more persistent wheeze, reduced
+                  activity or speech.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
+                <h3 className="font-bold text-rose-950">Severe</h3>
+                <p className="mt-2 leading-7 text-rose-900">
+                  Marked retractions, difficulty speaking, poor air entry,
+                  agitation, or hypoxemia.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-rose-300 bg-rose-100 p-5">
+                <h3 className="font-bold text-rose-950">
+                  Impending respiratory failure
+                </h3>
+                <p className="mt-2 leading-7 text-rose-950">
+                  Fatigue, altered mental status, cyanosis, silent chest, or
+                  worsening despite treatment.
+                </p>
+              </div>
             </div>
 
-            <p className="mt-6 text-sm leading-6 text-amber-900">
-              Future feature: an interactive severity tool using work of
-              breathing, speech, oxygenation, air entry, and mental status.
-            </p>
-          </section>
+            <div className="mt-7">
+              <AsthmaSeverityTool />
+            </div>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="differential"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Differential diagnosis"
+            title="Not every wheezing child has asthma"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Differential diagnosis
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Not every wheezing child has asthma
-            </h2>
-
             <div className="mt-7 overflow-hidden rounded-2xl border border-slate-200">
               {differential.map((item) => (
                 <div
@@ -439,20 +585,13 @@ export default function AsthmaPage() {
                 </div>
               ))}
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="workup"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Diagnostic workup"
+            title="Confirm variable airflow obstruction and avoid unnecessary testing"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Diagnostic workup
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Confirm variable airflow obstruction and avoid unnecessary testing
-            </h2>
-
             <p className="mt-5 text-lg leading-8 text-slate-600">
               Asthma is diagnosed by a characteristic pattern of variable
               respiratory symptoms together with objective evidence of variable
@@ -593,20 +732,13 @@ export default function AsthmaPage() {
                 silent chest—not clinical improvement.
               </p>
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="management"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Management overview"
+            title="Treat bronchoconstriction and inflammation"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Management overview
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Treat bronchoconstriction and inflammation
-            </h2>
-
             <div className="mt-7 grid gap-5 md:grid-cols-2">
               {[
                 [
@@ -648,20 +780,237 @@ export default function AsthmaPage() {
                 reduction, and a written asthma action plan.
               </p>
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
-            id="disposition"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+          <DiseaseSection
+            id="chronic-management"
+            label="Chronic management"
+            title="Control today, reduce risk tomorrow"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Disposition
+            <p className="text-lg leading-8 text-slate-600">
+              Long-term asthma management goes beyond treating acute wheezing.
+              Assess current symptom control and future exacerbation risk,
+              select an age-appropriate ICS-containing treatment strategy,
+              address modifiable factors, and reassess the response over time.
             </p>
 
-            <h2 className="mt-2 text-3xl font-bold">
-              Reassess the response—not just the initial appearance
-            </h2>
+            <div className="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+              <h3 className="text-xl font-bold text-sky-950">
+                Asthma control and asthma severity are different
+              </h3>
 
+              <div className="mt-5 grid gap-5 md:grid-cols-2">
+                <div className="rounded-xl bg-white p-5">
+                  <p className="font-bold text-sky-950">Control</p>
+
+                  <p className="mt-2 leading-7 text-slate-600">
+                    Describes how well symptoms are currently controlled and the
+                    patient&apos;s risk of future exacerbations or other adverse
+                    outcomes.
+                  </p>
+                </div>
+
+                <div className="rounded-xl bg-white p-5">
+                  <p className="font-bold text-sky-950">Severity</p>
+
+                  <p className="mt-2 leading-7 text-slate-600">
+                    Is assessed retrospectively by the level of treatment
+                    required to achieve and maintain good asthma control.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <AsthmaStepwiseTherapy />
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
+                Asthma action plan
+              </p>
+
+              <h3 className="mt-2 text-2xl font-bold text-slate-950">
+                Every patient needs a plan for what happens next
+              </h3>
+
+              <p className="mt-3 leading-7 text-slate-600">
+                A written asthma action plan helps patients and caregivers
+                recognize worsening asthma, understand which medications to use,
+                and know when to seek medical care. Review and update the plan
+                as treatment and asthma control change.
+              </p>
+
+              <div className="mt-6 grid gap-4 lg:grid-cols-3">
+                <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-emerald-700">
+                    Green zone
+                  </p>
+
+                  <h4 className="mt-2 text-lg font-bold text-emerald-950">
+                    Doing well
+                  </h4>
+
+                  <p className="mt-2 leading-7 text-emerald-900">
+                    No significant asthma symptoms, normal activity, and no
+                    nighttime awakening from asthma.
+                  </p>
+
+                  <p className="mt-4 text-sm font-semibold text-emerald-950">
+                    Follow the prescribed everyday controller and reliever
+                    strategy.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-amber-700">
+                    Yellow zone
+                  </p>
+
+                  <h4 className="mt-2 text-lg font-bold text-amber-950">
+                    Asthma is worsening
+                  </h4>
+
+                  <p className="mt-2 leading-7 text-amber-900">
+                    Increasing cough, wheeze, chest tightness, nighttime
+                    symptoms, or limitation of usual activity may signal
+                    worsening asthma.
+                  </p>
+
+                  <p className="mt-4 text-sm font-semibold text-amber-950">
+                    Follow the patient-specific reliever and escalation
+                    instructions in the written action plan.
+                  </p>
+                </div>
+
+                <div className="rounded-2xl border border-rose-200 bg-rose-50 p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-rose-700">
+                    Red zone
+                  </p>
+
+                  <h4 className="mt-2 text-lg font-bold text-rose-950">
+                    Medical alert
+                  </h4>
+
+                  <p className="mt-2 leading-7 text-rose-900">
+                    Severe breathlessness, difficulty speaking or walking,
+                    cyanosis, markedly reduced air movement, or inadequate
+                    response to reliever therapy are concerning findings.
+                  </p>
+
+                  <p className="mt-4 text-sm font-semibold text-rose-950">
+                    Follow the emergency instructions in the action plan and
+                    seek urgent medical care.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-5 rounded-xl bg-sky-50 p-5">
+                <p className="font-bold text-sky-950">
+                  Before the patient leaves
+                </p>
+
+                <p className="mt-2 leading-7 text-sky-900">
+                  Make sure the patient and caregiver understand the written
+                  plan, can demonstrate correct inhaler and spacer technique,
+                  know which medications are controllers and relievers, and
+                  understand when and where to seek additional care.
+                </p>
+              </div>
+            </div>
+            <ExpandableSection
+              title="Severe asthma & biologic therapy"
+              description="Advanced: phenotype-directed therapy for selected patients with severe asthma."
+            >
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-700">
+                  Severe asthma & biologic therapy
+                </p>
+
+                <h3 className="mt-2 text-2xl font-bold text-purple-950">
+                  Treat the phenotype, not just the symptoms
+                </h3>
+
+                <p className="mt-3 leading-7 text-slate-600">
+                  Biologic therapy is reserved for selected patients with severe
+                  asthma that remains uncontrolled despite optimized standard
+                  therapy. Before labeling asthma as severe, confirm the
+                  diagnosis and address adherence, inhaler technique, medication
+                  access, environmental exposures, and comorbidities.
+                </p>
+
+                <div className="mt-6 grid gap-4 md:grid-cols-3">
+                  <div className="rounded-xl border border-purple-200 bg-purple-50 p-5">
+                    <p className="text-sm font-semibold text-purple-700">IgE</p>
+
+                    <h4 className="mt-1 font-bold text-slate-950">
+                      Allergic asthma
+                    </h4>
+
+                    <p className="mt-2 leading-7 text-slate-600">
+                      Omalizumab targets IgE and may be considered in eligible
+                      patients with severe allergic asthma.
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl border border-purple-200 bg-purple-50 p-5">
+                    <p className="text-sm font-semibold text-purple-700">
+                      IL-5 pathway
+                    </p>
+
+                    <h4 className="mt-1 font-bold text-slate-950">
+                      Eosinophilic asthma
+                    </h4>
+
+                    <p className="mt-2 leading-7 text-slate-600">
+                      Mepolizumab targets IL-5 and may be considered in eligible
+                      patients with severe eosinophilic asthma.
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl border border-purple-200 bg-purple-50 p-5">
+                    <p className="text-sm font-semibold text-purple-700">
+                      IL-4 / IL-13 pathway
+                    </p>
+
+                    <h4 className="mt-1 font-bold text-slate-950">
+                      Type 2 asthma
+                    </h4>
+
+                    <p className="mt-2 leading-7 text-slate-600">
+                      Dupilumab blocks IL-4 receptor alpha signaling and may be
+                      considered in eligible patients with severe eosinophilic
+                      or Type 2 asthma.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-5 rounded-xl border border-purple-300 bg-purple-100 p-5">
+                  <p className="font-bold text-purple-950">
+                    The clinical reasoning sequence
+                  </p>
+
+                  <p className="mt-2 leading-7 text-purple-900">
+                    Uncontrolled asthma does not automatically mean severe
+                    asthma. First confirm the diagnosis and optimize
+                    conventional treatment. If asthma remains uncontrolled,
+                    specialist evaluation can identify the inflammatory
+                    phenotype and determine whether targeted add-on therapy is
+                    appropriate.
+                  </p>
+                </div>
+
+                <p className="mt-5 text-sm leading-6 text-slate-500">
+                  Biologic eligibility depends on age, asthma phenotype,
+                  biomarkers, exacerbation history, previous treatment,
+                  regulatory approval, and payer-specific criteria. Selection
+                  should be individualized with specialist involvement.
+                </p>
+              </div>
+            </ExpandableSection>
+          </DiseaseSection>
+
+          <DiseaseSection
+            id="disposition"
+            label="Disposition"
+            title="Reassess the response—not just the initial appearance"
+          >
             <p className="mt-5 text-lg leading-8 text-slate-600">
               Disposition depends on the child&apos;s clinical response after
               initial treatment, oxygen requirement, work of breathing, air
@@ -791,20 +1140,13 @@ export default function AsthmaPage() {
               by institution. Apply the local pediatric asthma pathway when
               making clinical decisions.
             </p>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="pearls"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Clinical pearls"
+            title="High-yield asthma takeaways"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Clinical pearls
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              High-yield asthma takeaways
-            </h2>
-
             <div className="mt-7 grid gap-4">
               {[
                 {
@@ -842,23 +1184,14 @@ export default function AsthmaPage() {
                   description:
                     "Discharge planning should address controller therapy, reliever use, trigger reduction, spacer technique, follow-up, and a written asthma action plan.",
                 },
-              ].map((pearl) => (
-                <div
+              ].map((pearl, index) => (
+                <PearlCard
                   key={pearl.title}
-                  className="flex gap-4 rounded-2xl border border-sky-100 bg-sky-50 p-5"
+                  number={index + 1}
+                  title={pearl.title}
                 >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-700 font-bold text-white">
-                    ✓
-                  </span>
-
-                  <div>
-                    <h3 className="font-bold text-slate-900">{pearl.title}</h3>
-
-                    <p className="mt-2 leading-7 text-slate-700">
-                      {pearl.description}
-                    </p>
-                  </div>
-                </div>
+                  {pearl.description}
+                </PearlCard>
               ))}
             </div>
 
@@ -876,117 +1209,15 @@ export default function AsthmaPage() {
                 effort, speech, oxygenation, fatigue, and mental status.
               </p>
             </div>
-          </section>
+          </DiseaseSection>
 
-          <section
+          <DiseaseSection
             id="quiz"
-            className="rounded-3xl border border-purple-200 bg-purple-50 p-8 shadow-sm"
+            label="Knowledge check"
+            title="Test your asthma reasoning"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-700">
-              Knowledge check
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold text-purple-950">
-              What is the best next step?
-            </h2>
-
-            <p className="mt-5 leading-8 text-purple-900">
-              A 9-year-old with known asthma presents with diffuse wheezing,
-              moderate intercostal retractions, and difficulty speaking in full
-              sentences. Oxygen saturation is 91% on room air. Which initial
-              treatment is most appropriate?
-            </p>
-
-            <div className="mt-6 grid gap-3">
-              {[
-                "Obtain a chest radiograph before treatment",
-                "Give inhaled albuterol, oxygen, and systemic corticosteroid",
-                "Start antibiotics for presumed pneumonia",
-                "Observe without treatment because wheezing is expected",
-              ].map((answer) => (
-                <button
-                  key={answer}
-                  onClick={() => setSelectedAnswer(answer)}
-                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${
-                    selectedAnswer === answer
-                      ? answer ===
-                        "Give inhaled albuterol, oxygen, and systemic corticosteroid"
-                        ? "border-green-500 bg-green-100 text-green-950"
-                        : "border-red-500 bg-red-100 text-red-950"
-                      : "border-purple-200 bg-white text-purple-950 hover:border-purple-400 hover:bg-purple-100"
-                  }`}
-                >
-                  {answer}
-                </button>
-              ))}
-            </div>
-
-            {selectedAnswer && (
-              <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
-                {selectedAnswer ===
-                "Give inhaled albuterol, oxygen, and systemic corticosteroid" ? (
-                  <>
-                    <h3 className="text-xl font-bold text-green-700">
-                      Correct!
-                    </h3>
-
-                    <p className="mt-4 leading-7 text-slate-700">
-                      This child has a moderate-to-severe asthma exacerbation
-                      with hypoxemia and impaired speech. Immediate treatment
-                      should target bronchoconstriction, oxygenation, and airway
-                      inflammation.
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <h3 className="text-xl font-bold text-red-700">
-                      Not quite.
-                    </h3>
-
-                    <p className="mt-4 leading-7 text-slate-700">
-                      The best answer is:
-                    </p>
-
-                    <p className="mt-2 font-bold text-green-700">
-                      Give inhaled albuterol, oxygen, and systemic
-                      corticosteroid.
-                    </p>
-
-                    {selectedAnswer ===
-                      "Obtain a chest radiograph before treatment" && (
-                      <p className="mt-4 leading-7 text-slate-700">
-                        A typical asthma exacerbation is treated clinically.
-                        Routine chest radiography is not required before
-                        starting therapy and should not delay bronchodilator
-                        treatment, oxygen, or corticosteroids.
-                      </p>
-                    )}
-
-                    {selectedAnswer ===
-                      "Start antibiotics for presumed pneumonia" && (
-                      <p className="mt-4 leading-7 text-slate-700">
-                        This presentation is most consistent with an acute
-                        asthma exacerbation, not bacterial pneumonia.
-                        Antibiotics are reserved for findings that suggest
-                        bacterial infection, such as focal lung findings,
-                        persistent fever, or another convincing source.
-                      </p>
-                    )}
-
-                    {selectedAnswer ===
-                      "Observe without treatment because wheezing is expected" && (
-                      <p className="mt-4 leading-7 text-slate-700">
-                        This child has hypoxemia, moderate retractions, and
-                        impaired speech, indicating a moderate-to-severe
-                        exacerbation. Observation alone is unsafe; treatment
-                        should begin immediately.
-                      </p>
-                    )}
-                  </>
-                )}
-              </div>
-            )}
-          </section>
+            <ProgressiveQuiz questions={quizQuestions} />
+          </DiseaseSection>
 
           <AnkiDeck
             title="Asthma"

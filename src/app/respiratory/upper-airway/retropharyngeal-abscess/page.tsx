@@ -14,6 +14,7 @@ import {
   type Reference,
 } from "@/components/disease";
 import { MobileSectionNav } from "@/components";
+import RpaLateralNeckComparison from "@/components/disease/figures/RpaLateralNeckComparison";
 
 /* =========================================================
    REFERENCES
@@ -891,6 +892,10 @@ export default function RetropharyngealAbscessPage() {
                   abscess.
                 </p>
               </InfoCard>
+            </div>
+
+            <div className="mt-6">
+              <RpaLateralNeckComparison />
             </div>
 
             <Callout
