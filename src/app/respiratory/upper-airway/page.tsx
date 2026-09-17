@@ -41,7 +41,7 @@ const diseases = [
     description:
       "Deep neck-space infection involving the retropharyngeal tissues, potentially causing dysphagia, neck stiffness, and airway compromise.",
     age: "Most common in children younger than 5 years",
-    status: "Coming soon",
+    status: "Available!",
   },
   {
     name: "Peritonsillar Abscess",
@@ -188,6 +188,13 @@ export default function UpperAirwayPage() {
                           className="font-semibold text-blue-700 hover:text-blue-900"
                         >
                           Open bacterial tracheitis →
+                        </Link>
+                      ) : disease.name === "Retropharyngeal Abscess" ? (
+                        <Link
+                          href="/respiratory/upper-airway/retropharyngeal-abscess"
+                          className="font-semibold text-blue-700 hover:text-blue-900"
+                        >
+                          Open retropharyngeal abscess →
                         </Link>
                       ) : (
                         <span className="font-semibold text-slate-400">

@@ -15,6 +15,7 @@ import {
 } from "@/components/disease";
 import { MobileSectionNav } from "@/components";
 import RpaLateralNeckComparison from "@/components/disease/figures/RpaLateralNeckComparison";
+import RpaCtFigure from "@/components/disease/figures/RpaCtFigure";
 
 /* =========================================================
    REFERENCES
@@ -897,21 +898,35 @@ export default function RetropharyngealAbscessPage() {
             <div className="mt-6">
               <RpaLateralNeckComparison />
             </div>
+            <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white">
+              <RpaCtFigure />
 
-            <Callout
-              label="Radiograph Pearl"
-              title="Technique can create a false retropharyngeal widening"
-              tone="amber"
-            >
-              <p>
-                Prevertebral soft tissues can appear falsely widened when the
-                neck is flexed or the image is obtained during expiration.
-                Whenever possible, a lateral neck radiograph should be obtained
-                with appropriate neck extension and during inspiration before
-                interpreting apparent prevertebral thickening as disease.
-              </p>
-            </Callout>
-
+              <div className="p-5">
+                <p className="text-sm leading-6 text-slate-700">
+                  <strong>A, sagittal:</strong> The retropharyngeal collection
+                  extends along the cervical spine posterior to the airway.{" "}
+                  <strong>B, axial:</strong> Contrast-enhanced CT better defines
+                  the collection, surrounding deep neck spaces, and associated
+                  mass effect.
+                </p>
+                <p className="mt-3 text-xs leading-5 text-slate-500">
+                  CT images adapted from{" "}
+                  <a
+                    href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12779289/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-900"
+                  >
+                    Alzayed S, AlOlaywi A. Management of a Massive
+                    Retropharyngeal Abscess Through an External Cervical
+                    Approach: A Case Report.
+                  </a>{" "}
+                  Cureus. 2025;17(12):e98740. CC BY 4.0. Original figure
+                  modified to remove source annotations; PediAtlas annotations
+                  added.
+                </p>
+              </div>
+            </div>
             <div className="rounded-2xl border border-sky-200 bg-sky-50 p-6">
               <p className="text-sm font-bold uppercase tracking-wide text-sky-700">
                 Reading the CT
