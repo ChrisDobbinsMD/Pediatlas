@@ -1,7 +1,19 @@
 "use client";
+
 import Image from "next/image";
 import { useState } from "react";
-import { AnkiDeck, EvidenceBase } from "@/components/disease";
+
+import MobileSectionNav from "@/components/MobileSectionNav";
+
+import {
+  AnkiDeck,
+  DiseaseSection,
+  EvidenceBase,
+  InfoCard,
+  PearlCard,
+  ProcessStep,
+  ProgressiveQuiz,
+} from "@/components/disease";
 
 const pageSections = [
   { id: "clinical-vignette", label: "Clinical vignette" },
@@ -17,22 +29,156 @@ const pageSections = [
   { id: "quiz", label: "Quiz" },
 ];
 
-const quizOptions = [
+const pneumoniaQuizQuestions = [
   {
-    id: "amoxicillin",
-    label: "Begin oral amoxicillin and discharge with close follow-up",
+    question:
+      "A previously healthy 4-year-old has fever, cough, focal crackles, mild increased work of breathing, oxygen saturation 95% on room air, and is drinking adequately. Bacterial community-acquired pneumonia is suspected. What is the most appropriate initial antibiotic?",
+    answers: [
+      {
+        text: "Oral amoxicillin",
+        correct: true,
+        feedback:
+          "Amoxicillin is appropriate first-line outpatient therapy for uncomplicated suspected bacterial community-acquired pneumonia in an otherwise healthy, appropriately immunized child.",
+      },
+      {
+        text: "Oral azithromycin",
+        correct: false,
+        feedback:
+          "Azithromycin is generally reserved when an atypical pathogen is suspected rather than as routine first-line treatment for typical bacterial pneumonia.",
+      },
+      {
+        text: "IV ceftriaxone",
+        correct: false,
+        feedback:
+          "This child is clinically stable, oxygenating adequately, and tolerating oral intake, so routine parenteral therapy is not necessary.",
+      },
+      {
+        text: "Oral clindamycin",
+        correct: false,
+        feedback:
+          "Clindamycin is not routine first-line therapy for uncomplicated outpatient community-acquired pneumonia.",
+      },
+    ],
   },
   {
-    id: "ceftriaxone",
-    label: "Give IV ceftriaxone and admit every child with pneumonia",
+    question:
+      "Which finding is most important when determining the severity and disposition of a child with pneumonia?",
+    answers: [
+      {
+        text: "Degree of respiratory distress and oxygenation",
+        correct: true,
+        feedback:
+          "Work of breathing and oxygenation directly reflect physiologic severity and are major factors in determining the appropriate care setting.",
+      },
+      {
+        text: "Presence of focal crackles",
+        correct: false,
+        feedback:
+          "Focal crackles may support the diagnosis but do not by themselves determine illness severity.",
+      },
+      {
+        text: "Presence of fever",
+        correct: false,
+        feedback:
+          "Fever is common in pneumonia but its presence alone does not determine the required level of care.",
+      },
+      {
+        text: "Whether the radiograph shows a lobar opacity",
+        correct: false,
+        feedback:
+          "Radiographic appearance should be interpreted with the clinical picture and does not replace physiologic severity assessment.",
+      },
+    ],
   },
   {
-    id: "ct",
-    label: "Obtain a CT scan of the chest before starting treatment",
+    question:
+      "A child being treated appropriately for pneumonia has persistent fever and worsening respiratory distress. What should this clinical trajectory prompt?",
+    answers: [
+      {
+        text: "Evaluation for complications or an alternative diagnosis",
+        correct: true,
+        feedback:
+          "Failure to improve should prompt reassessment for complications such as parapneumonic effusion, empyema, necrosis, or abscess, as well as resistant pathogens or an alternative diagnosis.",
+      },
+      {
+        text: "Automatic broadening of antibiotics without further evaluation",
+        correct: false,
+        feedback:
+          "Treatment failure should trigger diagnostic reassessment rather than reflexive broadening of antimicrobial coverage.",
+      },
+      {
+        text: "Reassurance that fever commonly persists regardless of treatment response",
+        correct: false,
+        feedback:
+          "Persistent fever together with worsening respiratory distress represents an abnormal trajectory that warrants reassessment.",
+      },
+      {
+        text: "Discontinuation of antimicrobial therapy",
+        correct: false,
+        feedback:
+          "Worsening illness requires reassessment of the diagnosis, treatment, and possible complications rather than simply stopping therapy.",
+      },
+    ],
   },
   {
-    id: "albuterol",
-    label: "Treat with scheduled albuterol alone",
+    question:
+      "What is an important limitation of chest radiography in pediatric pneumonia?",
+    answers: [
+      {
+        text: "It cannot reliably distinguish viral from bacterial pneumonia",
+        correct: true,
+        feedback:
+          "Radiographic patterns overlap substantially, so chest radiography cannot reliably determine whether pneumonia is viral or bacterial.",
+      },
+      {
+        text: "It cannot demonstrate pleural fluid",
+        correct: false,
+        feedback:
+          "Chest radiography can demonstrate findings suggesting pleural fluid, although ultrasound can characterize pleural collections better.",
+      },
+      {
+        text: "It cannot demonstrate focal air-space disease",
+        correct: false,
+        feedback:
+          "Focal air-space opacities and consolidation can be visible on chest radiographs.",
+      },
+      {
+        text: "It has no role when complications are suspected",
+        correct: false,
+        feedback:
+          "Imaging can be useful when severe or complicated pneumonia is suspected, although additional modalities may be needed to characterize complications.",
+      },
+    ],
+  },
+  {
+    question:
+      "A child has repeated episodes of pneumonia involving the same lung region. What should this pattern raise concern for?",
+    answers: [
+      {
+        text: "A localized structural or obstructive abnormality",
+        correct: true,
+        feedback:
+          "Recurrent pneumonia in the same location should raise concern for localized problems such as airway obstruction, an aspirated foreign body, or a congenital anatomic abnormality.",
+      },
+      {
+        text: "Normal susceptibility to sequential viral infections",
+        correct: false,
+        feedback:
+          "Repeated disease in the same anatomic location is more concerning for a localized predisposing process than ordinary sequential infections.",
+      },
+      {
+        text: "Atypical pneumonia as the sole explanation",
+        correct: false,
+        feedback:
+          "An atypical pathogen does not by itself explain recurrent pneumonia repeatedly localized to the same region.",
+      },
+      {
+        text: "Asthma as the only possible diagnosis",
+        correct: false,
+        feedback:
+          "Asthma can cause recurrent respiratory symptoms but does not adequately explain recurrent radiographically localized pneumonia without further evaluation.",
+      },
+    ],
   },
 ];
 
@@ -132,9 +278,10 @@ export default function PneumoniaPage() {
           </div>
         </div>
       </section>
+      <MobileSectionNav sections={pageSections} />
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
         <div className="grid items-start gap-8 lg:grid-cols-[220px_minmax(0,1fr)]">
-          <aside className="lg:sticky lg:top-6 lg:self-start">
+          <aside className="hidden lg:sticky lg:top-6 lg:block lg:self-start">
             <nav
               aria-label="Pneumonia page sections"
               className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm"
@@ -196,9 +343,14 @@ export default function PneumoniaPage() {
               </div>
             </section>
 
-            {/* Anatomy localization */}
-            <Section id="anatomy-localization" title="Anatomy localization">
-              <p className="leading-7 text-slate-700">
+            {/* Anatomy & Localization */}
+            <DiseaseSection
+              id="anatomy-localization"
+              label="Anatomy & Localization"
+              title="Pneumonia involves the distal airways and gas-exchanging lung"
+              description="Localize the infection to the lung parenchyma and understand how extension into adjacent structures produces complications."
+            >
+              <p className="text-lg leading-8 text-slate-600">
                 Pneumonia primarily involves the{" "}
                 <strong>
                   distal airways, alveoli, and pulmonary interstitium
@@ -208,36 +360,45 @@ export default function PneumoniaPage() {
                 commonly create diffuse or patchy inflammation, although
                 clinical and radiographic patterns frequently overlap.
               </p>
+              <div className="grid gap-4 md:grid-cols-3">
+                <InfoCard title="Alveoli" tone="blue">
+                  <p>
+                    Inflammatory cells, protein-rich fluid, and cellular debris
+                    may replace air within affected alveoli.
+                  </p>
+                </InfoCard>
 
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
-                <InfoCard
-                  title="Alveoli"
-                  text="Inflammatory cells, protein-rich fluid, and cellular debris may replace air within affected alveoli."
-                />
+                <InfoCard title="Interstitium" tone="blue">
+                  <p>
+                    Inflammation may involve the supporting tissue surrounding
+                    alveoli and small airways.
+                  </p>
+                </InfoCard>
 
-                <InfoCard
-                  title="Interstitium"
-                  text="Inflammation may involve the supporting tissue surrounding alveoli and small airways."
-                />
-
-                <InfoCard
-                  title="Pleural space"
-                  text="Extension beyond the lung parenchyma may produce a parapneumonic effusion or empyema."
-                />
+                <InfoCard title="Pleural space" tone="blue">
+                  <p>
+                    Extension beyond the lung parenchyma may produce a
+                    parapneumonic effusion or empyema.
+                  </p>
+                </InfoCard>
               </div>
-            </Section>
+            </DiseaseSection>
 
             {/* Pathophysiology */}
-            <Section id="pathophysiology" title="Pathophysiology">
+            <DiseaseSection
+              id="pathophysiology"
+              label="Pathophysiology"
+              title="Infection triggers inflammation, alveolar filling, and impaired gas exchange"
+              description="Follow the progression from pathogen entry to inflammatory injury and understand how viral, typical bacterial, and atypical pneumonia can overlap clinically."
+            >
               <p className="leading-7 text-slate-700">
                 Pneumonia develops when a pathogen reaches the lower respiratory
                 tract and overcomes normal host defenses, including mucociliary
                 clearance, cough, airway immune responses, and alveolar
                 macrophages.
               </p>
-              <h3 className="mt-8 text-xl font-bold text-blue-950"></h3>
 
-              <div className="mt-4 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+              <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
                 <Image
                   src="/images/pneumonia-pathophysiology.png"
                   alt="Pneumonia pathophysiology demonstrating progression from normal alveoli to alveolar inflammation, exudate formation, consolidation, and impaired gas exchange."
@@ -248,7 +409,56 @@ export default function PneumoniaPage() {
                 />
               </div>
 
-              <div className="mt-7 grid gap-4 md:grid-cols-3">
+              <div>
+                <h3 className="text-2xl font-bold text-slate-950">
+                  Pathophysiologic cascade
+                </h3>
+
+                <p className="mt-2 leading-7 text-slate-600">
+                  The bedside findings of pneumonia follow from inflammation and
+                  impaired ventilation of affected lung.
+                </p>
+              </div>
+
+              <div className="grid gap-5 md:grid-cols-2">
+                <ProcessStep
+                  number="1"
+                  title="Pathogen reaches the distal lung"
+                  description="Viruses or bacteria enter the lower respiratory tract and overcome local airway and alveolar host defenses."
+                />
+
+                <ProcessStep
+                  number="2"
+                  title="The inflammatory response begins"
+                  description="Resident immune cells recognize infection and recruit additional inflammatory cells, producing local edema and inflammatory injury."
+                />
+
+                <ProcessStep
+                  number="3"
+                  title="Air spaces become poorly ventilated"
+                  description="Inflammatory cells, fluid, and cellular debris can accumulate within affected alveoli. In bacterial pneumonia, extensive alveolar filling may produce consolidation."
+                />
+
+                <ProcessStep
+                  number="4"
+                  title="Gas exchange becomes impaired"
+                  description="Perfusion of poorly ventilated lung creates ventilation-perfusion mismatch, contributing to hypoxemia, tachypnea, and increased work of breathing."
+                />
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-slate-950">
+                  Etiologic patterns
+                </h3>
+
+                <p className="mt-2 leading-7 text-slate-600">
+                  These patterns can guide clinical reasoning, but substantial
+                  overlap prevents reliable determination of etiology from any
+                  single clinical or radiographic feature.
+                </p>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-3">
                 <ComparisonCard
                   title="Viral"
                   items={[
@@ -274,66 +484,104 @@ export default function PneumoniaPage() {
                   items={[
                     "More common in school-aged children and adolescents",
                     "Often associated with persistent cough",
-                    "Mycoplasma pneumoniae and Chalmydophilia pneumoniae are common consideration",
+                    "Mycoplasma pneumoniae and Chlamydia pneumoniae are common considerations",
                     "Clinical findings may be more diffuse",
                   ]}
                 />
               </div>
-            </Section>
+            </DiseaseSection>
 
             {/* History and examination */}
-            <Section id="history-and-exam" title="History and exam">
-              <div className="grid gap-6 lg:grid-cols-2">
-                <div>
-                  <h3 className="text-lg font-bold text-blue-950">
-                    Important history
-                  </h3>
-
-                  <ul className="mt-4 space-y-3 leading-7 text-slate-700">
-                    <li>• Duration and progression of fever and cough</li>
+            <DiseaseSection
+              id="history-and-exam"
+              label="History & Physical"
+              title="Assess the child before trying to name the pathogen"
+              description="Severity is driven by respiratory status, oxygenation, hydration, perfusion, mental status, and the overall clinical trajectory."
+            >
+              <div className="grid gap-5 md:grid-cols-2">
+                <InfoCard title="1. Does this fit pneumonia?" tone="blue">
+                  <ul className="space-y-2 leading-7">
+                    <li>• Fever and cough: onset, duration, and progression</li>
+                    <li>• Tachypnea or increasing work of breathing</li>
+                    <li>• Chest pain or exercise intolerance</li>
                     <li>
-                      • Breathing difficulty, chest pain, or exercise
-                      intolerance
+                      • Focal crackles, bronchial breath sounds, or decreased
+                      air entry
                     </li>
-                    <li>• Oral intake and urine output</li>
-                    <li>• Vomiting, lethargy, or altered mental status</li>
-                    <li>• Recent viral illness or sick contacts</li>
-                    <li>• Immunization status</li>
-                    <li>• Recent antibiotics or hospitalization</li>
-                    <li>• Aspiration risk or neurologic impairment</li>
-                    <li>• Tuberculosis exposure or travel history</li>
-                    <li>• Underlying cardiac, pulmonary, or immune disease</li>
+                    <li>
+                      • Remember that lower lobe disease may present with
+                      abdominal pain
+                    </li>
                   </ul>
-                </div>
+                </InfoCard>
 
-                <div>
-                  <h3 className="text-lg font-bold text-blue-950">
-                    Examination priorities
-                  </h3>
-
-                  <ul className="mt-4 space-y-3 leading-7 text-slate-700">
+                <InfoCard title="2. How sick is the child?" tone="rose">
+                  <ul className="space-y-2 leading-7">
                     <li>• General appearance and interaction</li>
                     <li>• Respiratory rate measured while calm</li>
                     <li>• Pulse oximetry</li>
                     <li>
                       • Retractions, nasal flaring, grunting, or head bobbing
                     </li>
-                    <li>• Focal crackles or bronchial breath sounds</li>
-                    <li>• Decreased or asymmetric air entry</li>
-                    <li>• Signs of dehydration</li>
+                    <li>• Oral intake, urine output, and hydration</li>
                     <li>• Perfusion and mental status</li>
                   </ul>
-                </div>
+                </InfoCard>
+
+                <InfoCard title="3. What changes the risk?" tone="amber">
+                  <ul className="space-y-2 leading-7">
+                    <li>• Age and immunization status</li>
+                    <li>• Recent viral illness or sick contacts</li>
+                    <li>• Recent antibiotics or hospitalization</li>
+                    <li>• Aspiration risk or neurologic impairment</li>
+                    <li>• Tuberculosis exposure or relevant travel</li>
+                    <li>• Underlying cardiac, pulmonary, or immune disease</li>
+                  </ul>
+                </InfoCard>
+
+                <InfoCard
+                  title="4. Could this already be complicated?"
+                  tone="rose"
+                >
+                  <ul className="space-y-2 leading-7">
+                    <li>• Significant or worsening respiratory distress</li>
+                    <li>• Markedly asymmetric or decreased breath sounds</li>
+                    <li>• Pleuritic chest pain</li>
+                    <li>
+                      • Persistent fever or worsening after initial improvement
+                    </li>
+                    <li>
+                      • Toxic appearance, poor perfusion, or altered mental
+                      status
+                    </li>
+                  </ul>
+                </InfoCard>
               </div>
 
-              <ClinicalAlert title="Do not rely on auscultation alone">
+              <ClinicalAlert
+                title="Do not rely on auscultation alone"
+                tone="amber"
+              >
                 Children may have pneumonia without classic focal crackles.
                 Respiratory rate, oxygen saturation, work of breathing,
-                hydration, and overall appearance are often more important for
-                determining severity.
+                hydration, perfusion, mental status, and overall appearance are
+                more important when determining physiologic severity.
               </ClinicalAlert>
 
-              <div className="mt-7 overflow-x-auto">
+              <div>
+                <h3 className="text-2xl font-bold text-slate-950">
+                  Etiologic clues
+                </h3>
+
+                <p className="mt-2 leading-7 text-slate-600">
+                  Age and clinical pattern can influence the differential, but
+                  substantial overlap means no single symptom, examination
+                  finding, or radiographic pattern reliably identifies the
+                  pathogen.
+                </p>
+              </div>
+
+              <div className="overflow-x-auto">
                 <table className="w-full min-w-[650px] border-collapse text-left">
                   <thead>
                     <tr className="border-b border-slate-200 bg-slate-100">
@@ -364,106 +612,176 @@ export default function PneumoniaPage() {
                         Higher fever, focal crackles, focal decreased air entry
                       </td>
                       <td className="p-4">
-                        No single symptom confirms bacterial disease
+                        No single symptom or examination finding confirms
+                        bacterial disease
                       </td>
                     </tr>
 
                     <tr>
                       <td className="p-4 font-semibold">Atypical</td>
                       <td className="p-4">
-                        School age, persistent dry cough, headache, malaise
+                        School age, persistent cough, headache, malaise
                       </td>
                       <td className="p-4">
-                        Presentation may overlap with viral disease
+                        Presentation may overlap substantially with viral
+                        disease
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-            </Section>
+            </DiseaseSection>
 
             {/* Differential */}
-            <Section id="differential" title="Differential diagnosis">
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                <InfoCard
-                  title="Viral bronchiolitis"
-                  text="Usually occurs in infants with diffuse crackles, wheezing, and upper respiratory symptoms."
-                />
-
-                <InfoCard
-                  title="Asthma exacerbation"
-                  text="Wheezing and prolonged expiration may predominate, often with a history of recurrent symptoms."
-                />
-
-                <InfoCard
-                  title="Foreign body aspiration"
-                  text="Consider with sudden onset, choking, unilateral wheezing, biphasic stridor, or asymmetric breath sounds."
-                />
-
-                <InfoCard
-                  title="Atelectasis"
-                  text="May produce focal opacity and reduced air entry, particularly with mucus plugging."
-                />
-
-                <InfoCard
-                  title="Pulmonary edema"
-                  text="Consider with cardiac disease, hepatomegaly, edema, or diffuse bilateral findings."
-                />
-
-                <InfoCard
-                  title="Tuberculosis"
-                  text="Consider with prolonged symptoms, weight loss, exposure history, or epidemiologic risk."
-                />
-
-                <InfoCard
-                  title="Pulmonary embolism"
-                  text="Uncommon in children but possible with thrombosis risk factors and pleuritic symptoms."
-                />
-
-                <InfoCard
-                  title="Malignancy or mass"
-                  text="Consider with recurrent focal pneumonia, persistent opacity, or systemic symptoms."
-                />
-
-                <InfoCard
-                  title="Aspiration"
-                  text="Consider with swallowing dysfunction, neurologic impairment, reflux, seizures, or altered consciousness."
-                />
+            <DiseaseSection
+              id="differential"
+              label="Differential Diagnosis"
+              title="Not every fever, cough, and focal lung finding is pneumonia"
+              description="Use the history, examination, age, risk factors, and illness trajectory to distinguish pneumonia from important mimics."
+            >
+              <div className="overflow-hidden rounded-2xl border border-slate-200">
+                {[
+                  {
+                    diagnosis: "Viral bronchiolitis",
+                    clues:
+                      "Young infant with a viral prodrome, diffuse crackles or wheezing, and more generalized rather than persistent focal lung findings.",
+                  },
+                  {
+                    diagnosis: "Asthma or viral-induced wheeze",
+                    clues:
+                      "Recurrent episodes, atopic history, prolonged expiration, diffuse wheezing, or previous improvement with bronchodilator therapy.",
+                  },
+                  {
+                    diagnosis: "Foreign body aspiration",
+                    clues:
+                      "Abrupt onset after choking with unilateral wheezing or asymmetric air entry should prompt reconsideration of an infectious diagnosis.",
+                  },
+                  {
+                    diagnosis: "Atelectasis",
+                    clues:
+                      "Can mimic focal pneumonia clinically and radiographically, particularly with mucus plugging or airway obstruction.",
+                  },
+                  {
+                    diagnosis: "Aspiration",
+                    clues:
+                      "Consider swallowing dysfunction, neurologic impairment, impaired airway protection, recurrent episodes, or a clear aspiration event.",
+                  },
+                  {
+                    diagnosis: "Pulmonary edema / heart failure",
+                    clues:
+                      "Cardiac disease, hepatomegaly, edema, feeding intolerance, poor growth, or diffuse bilateral pulmonary findings suggest a cardiogenic process.",
+                  },
+                  {
+                    diagnosis: "Tuberculosis",
+                    clues:
+                      "A prolonged course, weight loss, persistent cough, known exposure, travel, or other epidemiologic risk should broaden the infectious differential.",
+                  },
+                  {
+                    diagnosis: "Pulmonary embolism",
+                    clues:
+                      "Rare in children, but consider with pleuritic symptoms, unexplained hypoxemia, and important venous thromboembolism risk factors.",
+                  },
+                  {
+                    diagnosis: "Malignancy or structural lesion",
+                    clues:
+                      "Persistent focal opacity or recurrent pneumonia in the same anatomic location should prompt evaluation for an obstructing or structural process.",
+                  },
+                ].map(({ diagnosis, clues }) => (
+                  <div
+                    key={diagnosis}
+                    className="grid gap-2 border-b border-slate-200 p-5 last:border-b-0 md:grid-cols-[220px_1fr]"
+                  >
+                    <p className="font-bold text-slate-950">{diagnosis}</p>
+                    <p className="leading-7 text-slate-600">{clues}</p>
+                  </div>
+                ))}
               </div>
-            </Section>
+
+              <ClinicalAlert
+                title="Reconsider the diagnosis when the pattern does not fit"
+                tone="amber"
+              >
+                Abrupt onset, recurrent disease in the same location, persistent
+                focal abnormalities, an unexpected clinical trajectory, or
+                failure to improve should prompt reassessment for an alternative
+                diagnosis, an underlying predisposition, or a complication of
+                pneumonia.
+              </ClinicalAlert>
+            </DiseaseSection>
 
             {/* Diagnostic workup */}
-            <Section id="diagnostic-workup" title="Diagnostic workup">
-              <p className="leading-7 text-slate-700">
-                Pneumonia is often a <strong>clinical diagnosis</strong>.
-                Testing should be guided by disease severity, diagnostic
-                uncertainty, treatment failure, underlying conditions, and
-                concern for complications.
-              </p>
+            <DiseaseSection
+              id="diagnostic-workup"
+              label="Diagnostic Workup"
+              title="Testing should answer a clinical question"
+              description="Uncomplicated pneumonia is often a clinical diagnosis. Escalate testing when severity, uncertainty, treatment failure, underlying disease, or suspected complications make the result actionable."
+            >
+              <div className="grid gap-5 lg:grid-cols-2">
+                <InfoCard
+                  title="When less testing is usually more"
+                  tone="emerald"
+                >
+                  <p className="leading-7">
+                    A well-appearing child with uncomplicated suspected
+                    pneumonia who is oxygenating adequately and can be safely
+                    treated as an outpatient usually does not need extensive
+                    diagnostic testing.
+                  </p>
 
-              <div className="mt-6 grid gap-5 lg:grid-cols-2">
-                <DecisionCard title="Outpatient, uncomplicated disease">
-                  <ul className="space-y-2">
+                  <ul className="mt-4 space-y-2 leading-7">
                     <li>• Measure vital signs and oxygen saturation</li>
-                    <li>• Chest radiograph is usually unnecessary</li>
+                    <li>• Routine chest radiography is usually unnecessary</li>
                     <li>
-                      • Routine CBC, CRP, and blood culture are unnecessary
+                      • Routine CBC and inflammatory markers are usually
+                      unnecessary
                     </li>
                     <li>
-                      • Viral testing may be useful when it changes management
+                      • Routine blood culture has low yield in uncomplicated
+                      disease
+                    </li>
+                    <li>
+                      • Viral testing is most useful when the result changes
+                      management
                     </li>
                   </ul>
-                </DecisionCard>
+                </InfoCard>
 
-                <DecisionCard title="Hospitalized or complicated disease">
-                  <ul className="space-y-2">
-                    <li>• Consider chest radiography</li>
-                    <li>• Consider CBC and inflammatory markers</li>
-                    <li>• Obtain cultures when clinically appropriate</li>
-                    <li>• Evaluate for sepsis or organ dysfunction</li>
-                    <li>• Use ultrasound when pleural fluid is suspected</li>
+                <InfoCard
+                  title="When additional testing becomes useful"
+                  tone="amber"
+                >
+                  <p className="leading-7">
+                    Testing becomes more valuable when the result could change
+                    treatment, disposition, or the evaluation for complications.
+                  </p>
+
+                  <ul className="mt-4 space-y-2 leading-7">
+                    <li>• Hypoxemia or significant respiratory distress</li>
+                    <li>• Toxic appearance or concern for sepsis</li>
+                    <li>• Hospitalization or significant underlying disease</li>
+                    <li>• Diagnostic uncertainty</li>
+                    <li>• Failure to improve as expected</li>
+                    <li>• Suspected pleural or parenchymal complication</li>
                   </ul>
-                </DecisionCard>
+                </InfoCard>
+              </div>
+
+              <ClinicalAlert title="Diagnostic stewardship" tone="blue">
+                Do not ask whether a test is routinely obtained for pneumonia.
+                Ask what clinical question the test will answer and whether the
+                result could change management.
+              </ClinicalAlert>
+
+              <div>
+                <h3 className="text-2xl font-bold text-slate-950">
+                  Choosing the right test
+                </h3>
+
+                <p className="mt-2 leading-7 text-slate-600">
+                  Different tests answer different questions. None should be
+                  used in isolation to determine the microbial cause of
+                  pneumonia.
+                </p>
               </div>
 
               <div className="mt-7 overflow-x-auto">
@@ -520,48 +838,95 @@ export default function PneumoniaPage() {
                 </table>
               </div>
 
-              <ClinicalAlert title="Imaging pearl">
+              <ClinicalAlert title="Imaging pearl" tone="blue">
                 Do not obtain a chest radiograph solely to prove pneumonia in a
                 well-appearing child who can be safely treated as an outpatient.
                 Imaging becomes more valuable when the diagnosis is uncertain,
                 the child is significantly ill, or a complication is suspected.
               </ClinicalAlert>
-            </Section>
+            </DiseaseSection>
 
             {/* Management */}
-            <Section id="management" title="Management">
-              <p className="leading-7 text-slate-700">
-                Management depends on suspected etiology, age, illness severity,
-                immunization status, comorbidities, local resistance patterns,
-                and ability to tolerate oral therapy.
-              </p>
+            <DiseaseSection
+              id="management"
+              label="Management"
+              title="Treat the child, the likely pathogen, and the severity"
+              description="Supportive care and antimicrobial decisions should reflect suspected etiology, illness severity, immunization status, comorbidities, local resistance patterns, and the ability to tolerate oral therapy."
+            >
+              <div>
+                <h3 className="text-2xl font-bold text-slate-950">
+                  Start with physiology
+                </h3>
 
-              <div className="mt-6 grid gap-5 lg:grid-cols-2">
-                <DecisionCard title="Supportive care">
-                  <ul className="space-y-2">
-                    <li>• Oxygen when hypoxemic</li>
-                    <li>• Oral or IV hydration as needed</li>
-                    <li>• Antipyretics for comfort</li>
-                    <li>• Nasal suctioning in younger children when helpful</li>
-                    <li>• Respiratory support based on work of breathing</li>
-                    <li>• Frequent reassessment for deterioration</li>
+                <p className="mt-2 leading-7 text-slate-600">
+                  Stabilization comes before antimicrobial refinement. Address
+                  hypoxemia, respiratory distress, hydration, perfusion, and
+                  clinical deterioration while deciding whether bacterial
+                  infection is likely enough to warrant antibiotics.
+                </p>
+              </div>
+
+              <div className="grid gap-5 lg:grid-cols-2">
+                <InfoCard title="Support the child" tone="blue">
+                  <ul className="space-y-2 leading-7">
+                    <li>• Provide oxygen when hypoxemic</li>
+                    <li>
+                      • Escalate respiratory support based on work of breathing
+                    </li>
+                    <li>
+                      • Maintain hydration with oral or IV fluids as appropriate
+                    </li>
+                    <li>• Use antipyretics for comfort</li>
+                    <li>
+                      • Use nasal suctioning in younger children when helpful
+                    </li>
+                    <li>• Reassess frequently for clinical deterioration</li>
                   </ul>
-                </DecisionCard>
+                </InfoCard>
 
-                <DecisionCard title="Antibiotic principles">
-                  <ul className="space-y-2">
+                <InfoCard
+                  title="Decide whether antibiotics are needed"
+                  tone="amber"
+                >
+                  <ul className="space-y-2 leading-7">
                     <li>
                       • Avoid antibiotics when viral pneumonia is strongly
                       favored
                     </li>
-                    <li>• Use the narrowest effective agent</li>
-                    <li>• Transition from IV to oral therapy when improving</li>
-                    <li>• Adjust therapy to cultures and local antibiogram</li>
                     <li>
-                      • Reassess if improvement does not occur as expected
+                      • When bacterial CAP is suspected, use the narrowest
+                      effective agent
+                    </li>
+                    <li>
+                      • Consider age, immunization status, severity, and
+                      resistance risk
+                    </li>
+                    <li>
+                      • Adjust therapy when microbiologic data are clinically
+                      meaningful
+                    </li>
+                    <li>
+                      • Transition from IV to oral therapy when clinically
+                      appropriate
+                    </li>
+                    <li>
+                      • Reassess the diagnosis and complications when
+                      improvement does not occur as expected
                     </li>
                   </ul>
-                </DecisionCard>
+                </InfoCard>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-slate-950">
+                  Choose empiric therapy by clinical setting
+                </h3>
+
+                <p className="mt-2 leading-7 text-slate-600">
+                  The appropriate empiric regimen changes with the suspected
+                  etiology, severity of illness, treatment setting, and
+                  patient-specific risk factors.
+                </p>
               </div>
 
               <div className="mt-7 overflow-x-auto">
@@ -583,91 +948,141 @@ export default function PneumoniaPage() {
                   <tbody>
                     <ManagementRow
                       situation="Suspected viral CAP"
-                      approach="Supportive care"
-                      consideration="Antibiotics do not treat viral infection"
+                      approach="Supportive care without routine antibacterial therapy"
+                      consideration="Respiratory viruses cause most CAP in young children; antibiotics are not indicated when bacterial infection is not suspected"
                     />
 
                     <ManagementRow
                       situation="Uncomplicated outpatient bacterial CAP"
-                      approach="Oral amoxicillin is commonly first-line"
-                      consideration="Confirm allergy history, local pathway, and follow-up"
+                      approach="Oral amoxicillin"
+                      consideration="Provides narrow-spectrum therapy targeting S. pneumoniae; confirm allergy history, local guidance, and reliable follow-up"
                     />
 
                     <ManagementRow
                       situation="Hospitalized uncomplicated bacterial CAP"
-                      approach="IV ampicillin may be appropriate in a fully immunized child"
-                      consideration="Broaden based on severity, immunization status, or resistance risk"
-                    />
-
-                    <ManagementRow
-                      situation="Severe or complicated CAP"
-                      approach="Broader IV therapy with specialist and local-pathway guidance"
-                      consideration="Consider S. aureus coverage when clinically indicated"
+                      approach="IV ampicillin for most fully immunized children when local pneumococcal susceptibility supports its use"
+                      consideration="Avoid unnecessarily broad therapy; broaden when resistance risk, immunization status, severity, or other clinical factors warrant it"
                     />
 
                     <ManagementRow
                       situation="Suspected atypical pneumonia"
-                      approach="Consider a macrolide in the appropriate age and clinical setting"
-                      consideration="Do not use cough alone to diagnose Mycoplasma"
+                      approach="Add or use a macrolide when an atypical pathogen is clinically suspected"
+                      consideration="Most relevant in school-aged children and adolescents; clinical findings alone do not reliably establish Mycoplasma infection"
+                    />
+
+                    <ManagementRow
+                      situation="Concern for MRSA pneumonia"
+                      approach="Add MRSA-active therapy according to local guidance"
+                      consideration="Consider especially with severe disease, compatible complications, or S. aureus superinfection following influenza"
+                    />
+
+                    <ManagementRow
+                      situation="Complicated pneumonia"
+                      approach="IV antimicrobial therapy plus evaluation for source control when indicated"
+                      consideration="Effusion size, respiratory compromise, purulence, microbiology, and local pathways help determine whether pleural drainage is required"
                     />
                   </tbody>
                 </table>
               </div>
 
-              <ClinicalAlert title="Treatment duration">
-                Many children with uncomplicated bacterial CAP who improve
-                promptly can be treated with a short antibiotic course. Final
-                agent, dose, and duration should follow the patient’s age,
-                severity, response, local antibiogram, and institutional
-                pathway.
+              <ClinicalAlert title="Treatment duration" tone="amber">
+                Five days is appropriate for many children with uncomplicated
+                CAP who demonstrate clinical improvement, including resolution
+                of fever, tachypnea, and supplemental oxygen requirement. Longer
+                courses may be required for empyema, necrotizing pneumonia,
+                pulmonary abscess, or an inadequate clinical response. Final
+                agent, dose, route, and duration should follow patient-specific
+                factors, local susceptibility patterns, and institutional
+                guidance.
               </ClinicalAlert>
-            </Section>
+            </DiseaseSection>
 
             {/* Complications */}
-            <Section id="complications" title="Complications">
+            <DiseaseSection
+              id="complications"
+              label="Complications"
+              title="Failure to improve should trigger a search for complicated pneumonia"
+              description="Persistent fever, worsening respiratory status, significant unilateral findings, chest pain, or an unexpected clinical trajectory should prompt reassessment for pleural or parenchymal complications."
+            >
               <p className="leading-7 text-slate-700">
-                Suspect complicated pneumonia when a child has persistent or
-                worsening fever, escalating respiratory support, significant
-                unilateral findings, chest pain, toxic appearance, or failure to
-                improve after appropriate therapy.
+                Complicated pneumonia should move the learner from simply asking
+                &ldquo;Which antibiotic?&rdquo; to asking what has changed
+                anatomically. Pleural fluid, organized infection, and
+                parenchymal destruction can alter both imaging strategy and
+                management.
               </p>
 
-              <div className="mt-6 grid gap-5 lg:grid-cols-3">
+              <div className="grid gap-5 lg:grid-cols-3">
                 <ComplicationCard
                   title="Parapneumonic effusion"
-                  description="Fluid accumulates in the pleural space adjacent to pneumonia."
+                  description="Inflammatory fluid accumulates in the pleural space adjacent to pneumonia."
                   clues={[
+                    "Persistent or worsening fever",
                     "Decreased breath sounds",
                     "Dullness to percussion",
-                    "Persistent fever",
-                    "Blunting or fluid on imaging",
+                    "Increasing respiratory distress",
                   ]}
                 />
 
                 <ComplicationCard
                   title="Empyema"
-                  description="Purulent or infected inflammatory material accumulates in the pleural space."
+                  description="Pleural infection progresses to purulent or increasingly organized inflammatory material."
                   clues={[
-                    "Toxic appearance",
-                    "Loculated pleural fluid",
-                    "Persistent systemic inflammation",
-                    "Failure to improve",
+                    "Persistent systemic illness",
+                    "Loculated or septated pleural fluid",
+                    "Respiratory compromise",
+                    "Failure to improve with antibiotics alone",
                   ]}
                 />
 
                 <ComplicationCard
                   title="Necrotizing pneumonia"
-                  description="Inflammation and tissue injury produce areas of pulmonary necrosis and cavitation."
+                  description="Severe parenchymal inflammation causes tissue destruction, necrosis, and cavitation."
                   clues={[
                     "Severe or prolonged illness",
-                    "Persistent fever",
-                    "Cavitary changes",
-                    "Complicated pleural disease",
+                    "Persistent fever despite therapy",
+                    "Cavitary parenchymal changes",
+                    "Associated complicated pleural disease",
                   ]}
                 />
               </div>
 
-              {/* Add imaging gallery here */}
+              <div>
+                <h3 className="text-2xl font-bold text-slate-950">
+                  Choose imaging based on the question
+                </h3>
+
+                <p className="mt-2 leading-7 text-slate-600">
+                  Imaging should escalate with the clinical question rather than
+                  simply with disease severity.
+                </p>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-3">
+                <InfoCard title="Chest radiograph" tone="blue">
+                  <p className="leading-7">
+                    Useful for identifying air-space disease and suggesting a
+                    pleural effusion when complicated pneumonia is suspected.
+                  </p>
+                </InfoCard>
+
+                <InfoCard title="Chest ultrasound" tone="emerald">
+                  <p className="leading-7">
+                    Best suited to characterizing pleural fluid, including its
+                    size, complexity, septations, and loculations, without
+                    ionizing radiation.
+                  </p>
+                </InfoCard>
+
+                <InfoCard title="Chest CT" tone="amber">
+                  <p className="leading-7">
+                    Reserve for selected cases when detailed evaluation of
+                    parenchymal destruction, cavitation, anatomy, or another
+                    complication will change management.
+                  </p>
+                </InfoCard>
+              </div>
+
               {/* Complicated pneumonia imaging gallery */}
               <div className="mt-8">
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-sky-700">
@@ -698,7 +1113,7 @@ export default function PneumoniaPage() {
                   />
 
                   <ImagingCard
-                    src="/images/parapneumonic-effusion-us.png"
+                    src="/images/parapneumonic-effusion-us-fix.png"
                     alt="Chest ultrasound demonstrating septations and loculations within pleural fluid."
                     title="Complicated parapneumonic effusion / empyema"
                     modality="Chest ultrasound"
@@ -743,10 +1158,27 @@ export default function PneumoniaPage() {
                   the character and size of the collection.
                 </p>
               </div>
-            </Section>
+            </DiseaseSection>
 
             {/* Disposition */}
-            <Section id="disposition" title="Disposition">
+            <DiseaseSection
+              id="disposition"
+              label="Disposition"
+              title="Match the care setting to physiologic severity"
+              description="Oxygen requirement, work of breathing, hydration, perfusion, mental status, complications, underlying disease, and reliable follow-up determine where treatment can occur safely."
+            >
+              <div>
+                <h3 className="text-2xl font-bold text-slate-950">
+                  Think in terms of required support
+                </h3>
+
+                <p className="mt-2 leading-7 text-slate-600">
+                  Disposition is not determined by the diagnosis of pneumonia
+                  itself. Choose the care setting based on the respiratory,
+                  hydration, monitoring, and treatment support the child
+                  requires.
+                </p>
+              </div>
               <div className="grid gap-5 lg:grid-cols-3">
                 <DispositionCard
                   title="Consider discharge"
@@ -790,6 +1222,14 @@ export default function PneumoniaPage() {
                 />
               </div>
 
+              <ClinicalAlert title="Trajectory matters" tone="rose">
+                A single reassuring measurement should not outweigh a worsening
+                clinical course. Escalating oxygen requirement, increasing work
+                of breathing, worsening perfusion or mental status, inability to
+                maintain hydration, or progressive complications should prompt
+                reassessment of the level of care.
+              </ClinicalAlert>
+
               <div className="mt-7 rounded-2xl border border-sky-200 bg-sky-50 p-5">
                 <h3 className="font-bold text-sky-950">Return precautions</h3>
 
@@ -806,169 +1246,93 @@ export default function PneumoniaPage() {
                   </li>
                 </ul>
               </div>
-            </Section>
+            </DiseaseSection>
 
             {/* Clinical pearls */}
-            <Section id="clinical-pearls" title="Clinical pearls">
+            <DiseaseSection
+              id="clinical-pearls"
+              label="Clinical Pearls"
+              title="High-yield lessons to carry forward"
+            >
               <div className="grid gap-4 md:grid-cols-2">
-                <Pearl>
+                <PearlCard
+                  number={1}
+                  title="Severity beats a single exam finding"
+                >
                   Tachypnea, hypoxemia, work of breathing, hydration, and
                   overall appearance are more useful than any single
                   auscultatory finding.
-                </Pearl>
+                </PearlCard>
 
-                <Pearl>
+                <PearlCard
+                  number={2}
+                  title="The chest X-ray cannot name the pathogen"
+                >
                   A chest radiograph cannot reliably distinguish viral from
                   bacterial pneumonia.
-                </Pearl>
+                </PearlCard>
 
-                <Pearl>
+                <PearlCard
+                  number={3}
+                  title="Not every pneumonia needs antibiotics"
+                >
                   Preschool children commonly have viral pneumonia and may not
                   benefit from antibiotics when bacterial infection is not
                   suspected.
-                </Pearl>
+                </PearlCard>
 
-                <Pearl>
+                <PearlCard number={4} title="Remember the abdomen">
                   Focal abdominal pain can be the presenting complaint of lower
                   lobe pneumonia.
-                </Pearl>
+                </PearlCard>
 
-                <Pearl>
+                <PearlCard
+                  number={5}
+                  title="Wheezing does not exclude pneumonia"
+                >
                   Wheezing does not exclude pneumonia, especially with viral or
                   atypical infection.
-                </Pearl>
+                </PearlCard>
 
-                <Pearl>
+                <PearlCard
+                  number={6}
+                  title="Failure to improve is a diagnostic clue"
+                >
                   Persistent fever or respiratory distress despite appropriate
                   therapy should trigger evaluation for an effusion, empyema,
                   necrosis, abscess, resistant pathogen, or alternate diagnosis.
-                </Pearl>
+                </PearlCard>
 
-                <Pearl>
+                <PearlCard
+                  number={7}
+                  title="Location matters in recurrent pneumonia"
+                >
                   Recurrent pneumonia in the same location raises concern for an
                   anatomic obstruction, aspirated foreign body, congenital
                   lesion, or localized airway abnormality.
-                </Pearl>
+                </PearlCard>
 
-                <Pearl>
+                <PearlCard
+                  number={8}
+                  title="Reassess before broadening antibiotics"
+                >
                   Avoid automatically escalating to broad-spectrum antibiotics
                   without reassessing the diagnosis and looking for
                   complications.
-                </Pearl>
+                </PearlCard>
               </div>
-            </Section>
+            </DiseaseSection>
 
             {/* Quiz */}
-            <Section id="quiz" title="Interactive quiz">
-              <div className="rounded-2xl border border-blue-200 bg-blue-50 p-5">
-                <p className="font-semibold leading-7 text-blue-950">
-                  A fully immunized 5-year-old has fever, cough, tachypnea,
-                  focal right-sided crackles, and mild retractions. Oxygen
-                  saturation is 96% on room air. The child is drinking, alert,
-                  and has reliable follow-up. What is the most appropriate next
-                  step when bacterial community-acquired pneumonia is suspected?
-                </p>
-              </div>
+            <DiseaseSection
+              id="quiz"
+              label="Knowledge Check"
+              title="Can you manage the child—not just recognize pneumonia?"
+              description="Apply severity assessment, diagnostic stewardship, and antimicrobial reasoning to a child with suspected community-acquired pneumonia."
+            >
+              <ProgressiveQuiz questions={pneumoniaQuizQuestions} />
+            </DiseaseSection>
 
-              <fieldset className="mt-6 space-y-3">
-                <legend className="sr-only">Choose the best answer</legend>
-
-                {quizOptions.map((option) => {
-                  const isSelected = selectedAnswer === option.id;
-                  const isCorrect = option.id === correctAnswer;
-
-                  let answerStyle =
-                    "border-slate-200 bg-white hover:border-blue-300";
-
-                  if (showQuizAnswer && isCorrect) {
-                    answerStyle = "border-emerald-400 bg-emerald-50";
-                  } else if (showQuizAnswer && isSelected && !isCorrect) {
-                    answerStyle = "border-red-400 bg-red-50";
-                  } else if (isSelected) {
-                    answerStyle = "border-blue-500 bg-blue-50";
-                  }
-
-                  return (
-                    <label
-                      key={option.id}
-                      className={`flex cursor-pointer gap-3 rounded-2xl border p-4 transition ${answerStyle}`}
-                    >
-                      <input
-                        type="radio"
-                        name="pneumonia-quiz"
-                        value={option.id}
-                        checked={isSelected}
-                        onChange={() => {
-                          setSelectedAnswer(option.id);
-                          setShowQuizAnswer(false);
-                        }}
-                        className="mt-1"
-                      />
-
-                      <span className="font-medium text-slate-800">
-                        {option.label}
-                      </span>
-                    </label>
-                  );
-                })}
-              </fieldset>
-
-              <div className="mt-5 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={handleQuizSubmit}
-                  disabled={!selectedAnswer}
-                  className="rounded-xl bg-blue-700 px-5 py-3 font-semibold text-white transition hover:bg-blue-800 disabled:cursor-not-allowed disabled:bg-slate-300"
-                >
-                  Check answer
-                </button>
-
-                <button
-                  type="button"
-                  onClick={resetQuiz}
-                  className="rounded-xl border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-700 transition hover:bg-slate-100"
-                >
-                  Reset
-                </button>
-              </div>
-
-              {showQuizAnswer && selectedAnswer === "amoxicillin" && (
-                <QuizFeedback correct>
-                  Correct. This child is stable for outpatient treatment. Oral
-                  amoxicillin is commonly first-line therapy for uncomplicated
-                  suspected bacterial CAP, provided there are no
-                  patient-specific contraindications and reliable follow-up is
-                  available.
-                </QuizFeedback>
-              )}
-
-              {showQuizAnswer && selectedAnswer === "ceftriaxone" && (
-                <QuizFeedback>
-                  Not quite. IV ceftriaxone and admission are not required for
-                  every child with pneumonia. This child has normal oxygenation,
-                  mild work of breathing, adequate hydration, and reliable
-                  follow-up.
-                </QuizFeedback>
-              )}
-
-              {showQuizAnswer && selectedAnswer === "ct" && (
-                <QuizFeedback>
-                  Not quite. Chest CT is not part of the routine evaluation of
-                  uncomplicated CAP. It is reserved for selected cases involving
-                  complications, unclear anatomy, persistent disease, or another
-                  suspected process.
-                </QuizFeedback>
-              )}
-
-              {showQuizAnswer && selectedAnswer === "albuterol" && (
-                <QuizFeedback>
-                  Not quite. Albuterol may help concurrent bronchospasm, but it
-                  does not treat bacterial pneumonia and should not replace
-                  appropriate antimicrobial therapy when bacterial CAP is
-                  suspected.
-                </QuizFeedback>
-              )}
-            </Section>
             <AnkiDeck
               title="Pneumonia Anki Deck"
               cardCount={16}
@@ -979,27 +1343,43 @@ export default function PneumoniaPage() {
               references={[
                 {
                   title:
+                    "IDSA/PIDS 2026 Guidelines for the Management of Community-Acquired Pneumonia in Infants and Children Older Than 3 Months of Age",
+                  href: "https://www.idsociety.org/~/link/018511fd86374a4ca01c5a77e570757c.aspx",
+                  description:
+                    "Current PIDS/IDSA guideline update addressing pediatric pneumonia complicated by parapneumonic effusion or empyema, including imaging and drainage decisions.",
+                },
+                {
+                  title:
+                    "AAP Red Book 2024–2027: Systems-Based Treatment Table",
+                  href: "https://publications.aap.org/redbook/book/755/chapter/14074070/Systems-Based-Treatment-Table",
+                  description:
+                    "Current AAP antimicrobial guidance for pediatric community-acquired pneumonia, including empiric therapy, atypical and MRSA coverage, oral transition, and treatment duration.",
+                },
+                {
+                  title:
                     "The Management of Community-Acquired Pneumonia in Infants and Children Older Than 3 Months of Age",
                   href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7107838/",
                   description:
-                    "PIDS/IDSA pediatric community-acquired pneumonia guideline.",
+                    "Foundational 2011 PIDS/IDSA pediatric CAP guideline. Retained for topics not yet replaced by the focused 2026 guideline update.",
                 },
                 {
-                  title: "Texas Children's Hospital",
+                  title:
+                    "Texas Children's Hospital: Community-Acquired Pneumonia Guideline",
                   href: "https://www.texaschildrens.org/sites/tc/files/uploads/documents/outcomes/2024%20standards/CAP%20Guideline%20FINAL.pdf",
                   description:
-                    "Evidence-based guideline for pediatric community-acquired pneumonia.",
+                    "Institutional evidence-based guideline for the evaluation and management of pediatric community-acquired pneumonia.",
                 },
                 {
-                  title: "American Academy of Pediatrics",
+                  title: "American Academy of Pediatrics: Pneumonia",
                   href: "https://publications.aap.org/pediatriccare/article/doi/10.1542/aap.ppcqr.396216/97/Pneumonia",
                   description:
-                    "Pediatric Care Online clinical overview of pneumonia.",
+                    "AAP Pediatric Care Online clinical overview of pneumonia in children.",
                 },
                 {
-                  title: "World Health Organization",
+                  title: "World Health Organization: Pneumonia in Children",
                   href: "https://www.who.int/news-room/fact-sheets/detail/pneumonia",
-                  description: "Global overview of pneumonia in children.",
+                  description:
+                    "Global epidemiology, prevention, risk factors, and public-health overview of childhood pneumonia.",
                 },
               ]}
             />
@@ -1010,57 +1390,6 @@ export default function PneumoniaPage() {
       </div>{" "}
       {/* max-width container */}
     </main>
-  );
-}
-type SectionProps = {
-  id: string;
-  title: string;
-  children: React.ReactNode;
-};
-function Section({ id, title, children }: SectionProps) {
-  return (
-    <section
-      id={id}
-      className="scroll-mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
-    >
-      <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-        {title}
-      </h2>
-
-      <div className="mt-6">{children}</div>
-    </section>
-  );
-}
-
-function InfoCard({ title, text }: { title: string; text: string }) {
-  return (
-    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-      <h3 className="font-bold text-blue-950">{title}</h3>
-      <p className="mt-2 leading-7 text-slate-700">{text}</p>
-    </div>
-  );
-}
-
-function ProcessStep({
-  number,
-  title,
-  text,
-}: {
-  number: string;
-  title: string;
-  text: string;
-}) {
-  return (
-    <div className="flex gap-4 rounded-2xl border border-sky-200 bg-sky-50 p-5">
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-700 font-bold text-white">
-        {number}
-      </div>
-
-      <div>
-        <h3 className="font-bold text-blue-950">{title}</h3>
-        <p className="mt-1 leading-7 text-slate-700">{text}</p>
-      </div>
-    </div>
   );
 }
 
@@ -1131,29 +1460,36 @@ function QuestionPrompt({ children }: { children: React.ReactNode }) {
 function ClinicalAlert({
   title,
   children,
+  tone = "amber",
 }: {
   title: string;
   children: React.ReactNode;
+  tone?: "blue" | "amber" | "rose";
 }) {
-  return (
-    <div className="mt-7 rounded-2xl border border-red-200 bg-red-50 p-5">
-      <h3 className="font-bold text-red-900">{title}</h3>
-      <p className="mt-2 leading-7 text-slate-700">{children}</p>
-    </div>
-  );
-}
+  const tones = {
+    blue: {
+      wrapper: "border-sky-200 bg-sky-50",
+      title: "text-sky-950",
+      text: "text-sky-950",
+    },
+    amber: {
+      wrapper: "border-amber-200 bg-amber-50",
+      title: "text-amber-950",
+      text: "text-amber-950",
+    },
+    rose: {
+      wrapper: "border-rose-200 bg-rose-50",
+      title: "text-rose-950",
+      text: "text-rose-950",
+    },
+  };
 
-function DecisionCard({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+  const styles = tones[tone];
+
   return (
-    <div className="rounded-2xl border border-blue-200 bg-blue-50 p-5">
-      <h3 className="font-bold text-blue-950">{title}</h3>
-      <div className="mt-3 leading-7 text-slate-700">{children}</div>
+    <div className={`rounded-2xl border p-5 ${styles.wrapper}`}>
+      <h3 className={`font-bold ${styles.title}`}>{title}</h3>
+      <div className={`mt-2 leading-7 ${styles.text}`}>{children}</div>
     </div>
   );
 }
@@ -1245,37 +1581,6 @@ function DispositionCard({
           <li key={item}>• {item}</li>
         ))}
       </ul>
-    </div>
-  );
-}
-
-function Pearl({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 leading-7 text-slate-700">
-      <span className="mr-2" aria-hidden="true">
-        💡
-      </span>
-      {children}
-    </div>
-  );
-}
-
-function QuizFeedback({
-  correct = false,
-  children,
-}: {
-  correct?: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <div
-      className={`mt-5 rounded-2xl border p-5 leading-7 ${
-        correct
-          ? "border-emerald-300 bg-emerald-50 text-emerald-950"
-          : "border-red-300 bg-red-50 text-red-950"
-      }`}
-    >
-      {children}
     </div>
   );
 }
