@@ -69,26 +69,16 @@ export default function Callout({
   const styles = toneClasses[tone];
 
   return (
-    <div
-      className={`rounded-2xl border p-6 ${styles.container}`}
-    >
+    <div className={`rounded-2xl border p-6 ${styles.container}`}>
       <p
         className={`text-sm font-semibold uppercase tracking-[0.2em] ${styles.label}`}
       >
         {label}
       </p>
 
-      <h3
-        className={`mt-2 text-xl font-bold ${styles.title}`}
-      >
-        {title}
-      </h3>
+      <h3 className={`mt-2 text-xl font-bold ${styles.title}`}>{title}</h3>
 
-      <div
-        className={`mt-3 leading-7 ${styles.text}`}
-      >
-        {children}
-      </div>
+      <div className={`mt-3 leading-7 ${styles.text}`}>{children}</div>
     </div>
   );
 }

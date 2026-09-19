@@ -14,6 +14,7 @@ import {
   type Reference,
 } from "@/components/disease";
 import { MobileSectionNav } from "@/components";
+import PtaAnatomyFigure from "@/components/disease/figures/PtaAnatomyFigure";
 
 /* =========================================================
    REFERENCES
@@ -409,6 +410,8 @@ export default function PeritonsillarAbscessPage() {
             title="Localize the infection to the peritonsillar space"
             description="The anatomy explains the asymmetric examination: PTA develops immediately outside the tonsillar capsule rather than within the tonsil itself."
           >
+            <PtaAnatomyFigure />
+
             <div className="grid gap-5 md:grid-cols-2">
               <InfoCard title="Start with the palatine tonsil" tone="blue">
                 <ul className="space-y-2">
