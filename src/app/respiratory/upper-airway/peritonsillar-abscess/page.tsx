@@ -15,6 +15,7 @@ import {
 } from "@/components/disease";
 import { MobileSectionNav } from "@/components";
 import PtaAnatomyFigure from "@/components/disease/figures/PtaAnatomyFigure";
+import PtaUltrasoundFigure from "@/components/disease/figures/PtaUltrasoundFigure";
 
 /* =========================================================
    REFERENCES
@@ -22,37 +23,11 @@ import PtaAnatomyFigure from "@/components/disease/figures/PtaAnatomyFigure";
 
 const references: Reference[] = [
   {
-    title: "American Academy of Pediatrics — In Brief: Retropharyngeal Abscess",
-    description:
-      "Pediatric-focused review covering clinical presentation, deep-neck localization, radiographic evaluation, microbiology, complications, and management of retropharyngeal abscess.",
-    href: "https://publications.aap.org/pediatricsinreview/article-abstract/27/6/e45/34144/In-Brief-Retropharyngeal-Abscess",
-  },
-  {
     title:
-      "Predictors for Successful Treatment of Pediatric Deep Neck Infections Using Antimicrobials Alone",
+      "Treatment of Peritonsillar Abscess in Children: A Systematic Review",
     description:
-      "Pediatric study evaluating factors associated with successful nonsurgical treatment of retropharyngeal and parapharyngeal infections and supporting selective medical management in appropriate children.",
-    href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4151323/",
-  },
-  {
-    title:
-      "Accuracy of Computerized Tomography in Deep Neck Infections in the Pediatric Population",
-    description:
-      "Study evaluating the ability of CT findings to distinguish cellulitis from abscess in pediatric deep neck infection, highlighting the limitations of imaging alone in predicting drainable purulence.",
-    href: "https://pubmed.ncbi.nlm.nih.gov/12761699/",
-  },
-  {
-    title:
-      "Retropharyngeal and Parapharyngeal Abscesses Among Children and Adolescents in the United States",
-    description:
-      "National pediatric study describing epidemiology and management trends, including the substantial proportion of retropharyngeal abscesses managed without surgical drainage.",
-    href: "https://pubmed.ncbi.nlm.nih.gov/26407249/",
-  },
-  {
-    title: "NCBI Bookshelf — Retropharyngeal Abscess",
-    description:
-      "Clinical review of retropharyngeal anatomy, presentation, imaging, antimicrobial therapy, airway concerns, complications, and operative management.",
-    href: "https://www.ncbi.nlm.nih.gov/books/NBK441873/",
+      "Pediatric systematic review of peritonsillar abscess management, including antibiotics, drainage strategies, recurrence, and complications.",
+    href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11642394/",
   },
 ];
 /* =========================================================
@@ -63,155 +38,155 @@ export default function PeritonsillarAbscessPage() {
   const quizQuestions: QuizQuestion[] = [
     {
       question:
-        "A 3-year-old develops fever, poor oral intake, drooling, and progressive refusal to extend his neck after several days of upper respiratory symptoms. Which finding most strongly localizes the infection to a deep neck space?",
+        "A 15-year-old presents with fever, severe right-sided throat pain, muffled voice, and difficulty opening the mouth. Examination shows prominent right peritonsillar swelling with the uvula displaced to the left. Which diagnosis best explains this presentation?",
       answers: [
         {
-          text: "Torticollis with painful limitation of neck movement",
+          text: "Peritonsillar abscess",
           correct: true,
           feedback:
-            "Correct. Torticollis and painful limitation of neck movement are important clues to retropharyngeal infection in a young child and help localize the process to the deep neck.",
+            "Correct. Severe unilateral throat pain, trismus, muffled voice, asymmetric peritonsillar swelling, and contralateral uvular deviation strongly localize the process to the peritonsillar region and are classic for PTA.",
         },
         {
-          text: "Barking cough",
+          text: "Uncomplicated acute tonsillitis",
           correct: false,
           feedback:
-            "A barking cough is more characteristic of croup and localizes the process toward the laryngeal and subglottic airway.",
+            "Tonsillitis can cause fever and substantial throat pain, but marked unilateral peritonsillar bulging, trismus, and displacement of the uvula suggest infection extending beyond the tonsil.",
         },
         {
-          text: "Bilateral tonsillar erythema",
+          text: "Retropharyngeal abscess",
           correct: false,
           feedback:
-            "Tonsillar erythema is nonspecific and may occur with uncomplicated pharyngitis; it does not strongly localize infection to the deep neck.",
+            "Retropharyngeal infection more often produces deep-neck findings such as painful limitation of neck movement or torticollis rather than this focal unilateral peritonsillar examination.",
         },
         {
-          text: "Hoarse voice",
+          text: "Epiglottitis",
           correct: false,
           feedback:
-            "Hoarseness can occur in upper-airway disease but is less specific for a retropharyngeal process than painful limitation of neck movement or torticollis.",
+            "Epiglottitis can cause severe dysphagia and abnormal voice, but focal unilateral peritonsillar swelling with uvular displacement localizes the infection to the peritonsillar region.",
         },
       ],
     },
 
     {
       question:
-        "A child with suspected retropharyngeal abscess develops stridor, increasing work of breathing, and difficulty handling secretions. What is the most appropriate next step?",
+        "A teenager has severe unilateral throat pain and peritonsillar swelling, but the examination cannot reliably distinguish peritonsillar cellulitis from an abscess. The airway is stable and there are no findings suggesting deep-neck extension. Which study is most useful for determining whether a discrete peritonsillar collection is present?",
       answers: [
         {
-          text: "Obtain an urgent CT neck with IV contrast before treatment",
-          correct: false,
-          feedback:
-            "Imaging should not delay stabilization when there are signs of impending airway compromise.",
-        },
-        {
-          text: "Prioritize airway management with urgent ENT and experienced airway involvement",
+          text: "Intraoral or transcervical ultrasound",
           correct: true,
           feedback:
-            "Correct. Airway compromise changes the immediate priority. Stabilization and urgent airway planning should occur before additional diagnostic imaging.",
+            "Correct. Ultrasound can help distinguish peritonsillar cellulitis from a discrete abscess while avoiding ionizing radiation.",
         },
         {
-          text: "Obtain a lateral neck radiograph before consulting ENT",
+          text: "Lateral neck radiograph",
           correct: false,
           feedback:
-            "A lateral neck radiograph may be useful in selected stable patients, but it should not delay airway management in a deteriorating child.",
+            "A lateral neck radiograph is not the preferred study for determining whether a discrete peritonsillar collection is present.",
         },
         {
-          text: "Begin oral antibiotics and reassess in several hours",
+          text: "Noncontrast CT of the neck",
           correct: false,
           feedback:
-            "A child with stridor, respiratory distress, and impaired secretion handling requires urgent escalation rather than outpatient-style treatment.",
+            "When cross-sectional imaging is required for deep-neck infection, contrast enhancement is important; uncomplicated diagnostic uncertainty between peritonsillar cellulitis and abscess can often be addressed with ultrasound.",
+        },
+        {
+          text: "Chest radiograph",
+          correct: false,
+          feedback:
+            "A chest radiograph does not evaluate the peritonsillar tissues or determine whether a localized peritonsillar collection is present.",
         },
       ],
     },
 
     {
       question:
-        "Contrast-enhanced CT in an airway-stable child shows a retropharyngeal fluid collection with peripheral enhancement. Which interpretation is most appropriate?",
+        "A patient with suspected PTA also has increasing lateral neck swelling, torticollis, and worsening systemic illness. What is the most appropriate next diagnostic step?",
       answers: [
         {
-          text: "The child requires immediate operative drainage based on CT alone",
+          text: "Treat as uncomplicated PTA without additional evaluation",
           correct: false,
           feedback:
-            "CT findings alone do not mandate surgery because phlegmon and developing abscess can overlap in appearance and may not represent drainable pus.",
+            "Prominent neck findings and systemic deterioration raise concern that infection is no longer confined to the peritonsillar region.",
         },
         {
-          text: "The finding excludes retropharyngeal cellulitis or phlegmon",
-          correct: false,
-          feedback:
-            "Cellulitis, phlegmon, and abscess exist along a spectrum and may overlap radiographically.",
-        },
-        {
-          text: "CT helps define the infection but does not perfectly predict drainable purulence",
+          text: "CT neck with IV contrast",
           correct: true,
           feedback:
-            "Correct. Contrast-enhanced CT is useful for localization and defining disease extent, but operative findings do not always match the apparent degree of abscess formation on imaging.",
+            "Correct. When deep-neck extension is suspected, contrast-enhanced CT can define the involved spaces, disease extent, and relationship to surrounding structures.",
         },
         {
-          text: "The finding makes ENT consultation unnecessary",
+          text: "Routine lateral neck radiograph only",
           correct: false,
           feedback:
-            "ENT involvement remains important because management depends on airway status, disease extent, and clinical response in addition to imaging.",
+            "Concern for extension beyond the peritonsillar region requires better definition of the deep-neck spaces than a routine radiograph provides.",
+        },
+        {
+          text: "No imaging because PTA is always a clinical diagnosis",
+          correct: false,
+          feedback:
+            "A classic localized PTA may not require imaging, but new findings suggesting deep-neck extension change the clinical question and justify cross-sectional imaging.",
         },
       ],
     },
 
     {
       question:
-        "A 4-year-old with CT-confirmed retropharyngeal infection is breathing comfortably, handling secretions, and has no evidence of airway compromise. What is the most appropriate initial management strategy?",
+        "A 16-year-old with a confirmed PTA is breathing comfortably but has severe odynophagia, poor oral intake, and a clinically significant purulent collection. Which management approach best addresses the major components of the illness?",
       answers: [
         {
-          text: "Immediate surgical drainage in every case",
+          text: "Analgesia and hydration alone",
           correct: false,
           feedback:
-            "Not every airway-stable child requires immediate drainage; many can first receive IV antibiotics with close observation.",
+            "Supportive care is important, but a bacterial PTA also requires antimicrobial therapy and may require source control when a significant collection is present.",
         },
         {
-          text: "Discharge with oral antibiotics and outpatient ENT follow-up",
+          text: "Antibiotics alone with no reassessment",
           correct: false,
           feedback:
-            "Retropharyngeal infection generally warrants hospitalization for IV antibiotics, airway observation, and serial reassessment.",
+            "Antibiotics treat the infection, but a clinically significant purulent collection may require drainage, and the patient's response should be reassessed.",
         },
         {
-          text: "Observation without antimicrobial therapy",
-          correct: false,
-          feedback:
-            "Retropharyngeal infection is bacterial and requires appropriate antimicrobial therapy rather than observation alone.",
-        },
-        {
-          text: "Hospital admission for IV antibiotics, ENT involvement, and close reassessment",
+          text: "Analgesia and hydration, appropriate antibiotics, and drainage when indicated",
           correct: true,
           feedback:
-            "Correct. An airway-stable child can often be managed initially with IV antibiotics, ENT involvement, and close reassessment for clinical improvement or evidence that drainage is needed.",
+            "Correct. PTA management combines supportive care and antimicrobial therapy with source control when the collection and clinical situation warrant drainage.",
+        },
+        {
+          text: "Immediate tonsillectomy for every first episode",
+          correct: false,
+          feedback:
+            "Immediate tonsillectomy is not required for every PTA; it is reserved for selected clinical circumstances rather than serving as universal first-line source control.",
         },
       ],
     },
 
     {
       question:
-        "Which serious complication is most directly explained by the continuity of the deep cervical fascial spaces?",
+        "A teenager undergoes treatment for PTA. The next day, throat pain is improving, but the patient develops increasing neck swelling, persistent fever, and worsening limitation of neck movement. What is the most important concern?",
       answers: [
         {
-          text: "Descending mediastinitis",
+          text: "Expected inflammation during routine recovery",
+          correct: false,
+          feedback:
+            "Increasing neck swelling, persistent fever, and worsening neck movement are not a reassuring recovery pattern after treatment.",
+        },
+        {
+          text: "Extension of infection into an adjacent deep-neck space",
           correct: true,
           feedback:
-            "Correct. Deep cervical fascial planes can provide a pathway for infection to extend inferiorly from the neck into the mediastinum.",
+            "Correct. New or progressive neck findings despite PTA treatment should raise concern for inadequate source control or extension into adjacent deep-neck spaces.",
         },
         {
-          text: "Acute otitis media",
+          text: "Resolution of the peritonsillar infection",
           correct: false,
           feedback:
-            "Otitis media may precede or contribute to upper aerodigestive infection, but it is not caused by inferior spread through deep cervical fascial planes.",
+            "Improvement should include a favorable overall trajectory; progressive neck swelling and persistent fever instead indicate ongoing or extending disease.",
         },
         {
-          text: "Viral bronchiolitis",
+          text: "Isolated medication intolerance",
           correct: false,
           feedback:
-            "Bronchiolitis is a viral lower-airway illness and is unrelated to extension of a deep neck infection through fascial planes.",
-        },
-        {
-          text: "Periorbital cellulitis",
-          correct: false,
-          feedback:
-            "Periorbital cellulitis involves tissues around the eye and is not the characteristic complication of inferior spread from the retropharyngeal space.",
+            "Medication intolerance may affect treatment, but it does not adequately explain progressive neck swelling, persistent fever, and worsening limitation of neck movement.",
         },
       ],
     },
@@ -613,33 +588,37 @@ export default function PeritonsillarAbscessPage() {
           <DiseaseSection
             id="history-physical"
             label="History & Physical"
-            title="Fever plus a stiff neck should make you look deeper"
-            description="Early retropharyngeal infection can resemble an uncomplicated upper respiratory illness. Neck symptoms and progressive difficulty swallowing provide important clues that the infection has localized to a deep neck space."
+            title="Look for a strikingly unilateral oropharyngeal process"
+            description="PTA usually presents with severe unilateral throat symptoms plus asymmetric peritonsillar findings. Trismus, muffled voice, and displacement of the tonsil and uvula help localize the infection beyond uncomplicated pharyngotonsillitis."
           >
             {/* CLINICAL EVOLUTION */}
 
             <div className="grid gap-5 md:grid-cols-3">
-              <InfoCard title="1. Early illness" tone="blue">
+              <InfoCard title="1. Pharyngeal symptoms" tone="blue">
                 <p>
-                  The illness may begin with nonspecific symptoms such as fever,
-                  irritability, sore throat, rhinorrhea, decreased appetite, or
-                  other features of a preceding upper respiratory infection.
+                  Fever and sore throat often precede abscess formation. As the
+                  infection localizes, throat pain typically becomes severe and
+                  predominantly unilateral, with increasing odynophagia and
+                  difficulty maintaining oral intake.
                 </p>
               </InfoCard>
 
-              <InfoCard title="2. Deep-neck localization" tone="amber">
+              <InfoCard title="2. Local mass effect" tone="amber">
                 <p>
-                  Neck pain, stiffness, limited range of motion, or torticollis
-                  should raise concern that infection has extended beyond
-                  uncomplicated pharyngitis into the deep cervical tissues.
+                  Progressive peritonsillar swelling produces increasing
+                  oropharyngeal asymmetry. Patients may develop a muffled
+                  &quot;hot potato&quot; voice, difficulty swallowing, and
+                  ipsilateral referred ear pain.
                 </p>
               </InfoCard>
 
-              <InfoCard title="3. Progressive mass effect" tone="rose">
+              <InfoCard title="3. Trismus & airway concern" tone="rose">
                 <p>
-                  Dysphagia, odynophagia, drooling, muffled voice, or
-                  respiratory symptoms can emerge as inflammation and abscess
-                  formation increasingly affect the pharynx and upper airway.
+                  Inflammation involving nearby muscles of mastication can
+                  produce trismus. Drooling, inability to handle secretions,
+                  respiratory distress, or rapidly progressive swelling should
+                  raise concern for more severe disease and possible airway
+                  compromise.
                 </p>
               </InfoCard>
             </div>
@@ -649,56 +628,68 @@ export default function PeritonsillarAbscessPage() {
             <div className="mt-6 grid gap-5 md:grid-cols-2">
               <InfoCard title="History clues" tone="slate">
                 <ul className="space-y-2">
-                  <li>• Recent upper respiratory or pharyngeal infection</li>
-                  <li>• Persistent or increasing fever</li>
-                  <li>• Sore throat or painful swallowing</li>
-                  <li>• Decreased oral intake or food refusal</li>
-                  <li>• Neck pain or refusal to move the neck</li>
+                  <li>• Severe sore throat, often predominantly unilateral</li>
+                  <li>• Fever</li>
+                  <li>• Odynophagia or dysphagia</li>
+                  <li>• Decreased oral intake</li>
+                  <li>• Muffled or &quot;hot potato&quot; voice</li>
+                  <li>• Ipsilateral referred otalgia</li>
                   <li>• Drooling or difficulty handling secretions</li>
-                  <li>• Progressive symptoms rather than expected recovery</li>
                 </ul>
               </InfoCard>
 
               <InfoCard title="Physical examination" tone="slate">
                 <ul className="space-y-2">
-                  <li>• Ill or uncomfortable appearance</li>
-                  <li>• Limited cervical range of motion</li>
-                  <li>• Torticollis or abnormal head positioning</li>
-                  <li>• Cervical lymphadenopathy or neck swelling</li>
-                  <li>• Posterior pharyngeal erythema or fullness</li>
-                  <li>• Muffled voice or drooling</li>
-                  <li>
-                    • Stridor or respiratory distress with advanced disease
-                  </li>
+                  <li>• Unilateral peritonsillar and soft-palate swelling</li>
+                  <li>• Medial displacement of the affected tonsil</li>
+                  <li>• Uvular deviation away from the affected side</li>
+                  <li>• Trismus limiting mouth opening</li>
+                  <li>• Tonsillar and pharyngeal erythema</li>
+                  <li>• Tender cervical lymphadenopathy</li>
+                  <li>• Assess airway and ability to handle secretions</li>
                 </ul>
               </InfoCard>
             </div>
 
             <Callout
               label="Bedside Localization"
-              title="Neck movement may give you the clue before the airway does"
+              title="Trismus plus unilateral peritonsillar swelling is a powerful clue"
               tone="amber"
             >
               <p>
-                Stridor is not required for retropharyngeal abscess. A febrile
-                young child who develops painful limitation of neck movement or
-                torticollis deserves evaluation for a deep neck-space infection,
-                particularly when accompanied by dysphagia, drooling, or
-                worsening oral intake.
+                Uncomplicated tonsillitis can cause substantial throat pain and
+                tonsillar inflammation, but marked asymmetry, peritonsillar or
+                soft-palate bulging, and trismus should raise concern that
+                infection has extended beyond the tonsil into the peritonsillar
+                tissues.
               </p>
             </Callout>
 
             <Callout
-              label="Important Pitfall"
-              title="Do not require a visible posterior pharyngeal bulge"
+              label="Classic Finding"
+              title="Uvular deviation supports the diagnosis—but do not require it"
+              tone="blue"
+            >
+              <p>
+                Expansion of a unilateral peritonsillar collection can displace
+                the affected tonsillar region medially and push the uvula toward
+                the opposite side. This is a classic examination finding, but
+                its absence should not by itself exclude PTA when the remainder
+                of the clinical picture is convincing.
+              </p>
+            </Callout>
+
+            <Callout
+              label="Airway Check"
+              title="Before focusing on the throat, make sure the patient can protect the airway"
               tone="rose"
             >
               <p>
-                The retropharyngeal space is deep, and an obvious posterior
-                pharyngeal mass may be absent. A relatively unimpressive
-                oropharyngeal examination therefore does not exclude
-                retropharyngeal infection when the history and neck examination
-                are concerning.
+                Assess work of breathing, voice, secretion handling, and the
+                ability to swallow. Respiratory distress, progressive
+                obstruction, or inability to manage secretions should prompt
+                urgent escalation rather than an extended routine oropharyngeal
+                examination.
               </p>
             </Callout>
           </DiseaseSection>
@@ -710,40 +701,40 @@ export default function PeritonsillarAbscessPage() {
           <DiseaseSection
             id="differential"
             label="Differential Diagnosis"
-            title="Localize the symptoms before naming the disease"
-            description="Fever, dysphagia, drooling, abnormal voice, and respiratory symptoms overlap across several serious upper-airway infections. Neck findings and the anatomic pattern help distinguish retropharyngeal abscess from its major mimics."
+            title="Is this a PTA—or another cause of severe unilateral throat symptoms?"
+            description="Severe throat pain, dysphagia, abnormal voice, and tonsillar inflammation overlap across several infections. Asymmetry, trismus, neck findings, and the location of swelling help narrow the diagnosis."
           >
             <div className="overflow-hidden rounded-2xl border border-slate-200">
               {[
                 {
-                  diagnosis: "Peritonsillar abscess",
+                  diagnosis: "Peritonsillar cellulitis",
                   clues:
-                    "Usually produces prominent unilateral tonsillar or peritonsillar swelling, uvular deviation away from the affected side, muffled voice, and trismus. These lateral oropharyngeal findings favor PTA over a retropharyngeal process.",
+                    "The closest mimic of PTA. Peritonsillar tissues are inflamed and edematous, but there is no discrete purulent collection. Examination findings can overlap substantially with PTA, making the distinction difficult on examination alone.",
+                },
+                {
+                  diagnosis: "Acute tonsillitis / pharyngitis",
+                  clues:
+                    "Can cause fever, severe throat pain, tonsillar erythema, enlargement, and exudate. Marked unilateral peritonsillar bulging, significant trismus, and displacement of surrounding structures favor PTA.",
+                },
+                {
+                  diagnosis: "Retropharyngeal abscess",
+                  clues:
+                    "More often produces deep neck symptoms such as painful limitation of neck movement, stiffness, or torticollis, particularly in younger children. The infection is posterior to the pharynx rather than centered around the tonsillar capsule.",
                 },
                 {
                   diagnosis: "Parapharyngeal abscess",
                   clues:
-                    "Can also cause fever, neck pain, torticollis, dysphagia, and deep neck swelling. Lateral pharyngeal or neck findings and cross-sectional imaging help define which deep neck space is involved.",
+                    "A lateral deep-neck infection that may cause fever, neck pain or swelling, torticollis, dysphagia, and trismus. Cross-sectional imaging may be needed when examination suggests infection extending beyond the peritonsillar region.",
                 },
                 {
                   diagnosis: "Epiglottitis",
                   clues:
-                    "Rapid onset of high fever, severe dysphagia, drooling, muffled voice, tripod positioning, and reluctance to lie down favor supraglottic disease. Neck stiffness and torticollis are more suggestive of a deep neck-space infection.",
+                    "Severe dysphagia, drooling, muffled voice, respiratory distress, tripod positioning, or reluctance to lie flat favor supraglottic disease. Focal unilateral peritonsillar swelling and uvular displacement instead favor PTA.",
                 },
                 {
-                  diagnosis: "Bacterial tracheitis",
+                  diagnosis: "Infectious mononucleosis",
                   clues:
-                    "High fever, toxic appearance, stridor, harsh cough, and progressive respiratory distress after a viral prodrome favor infection within the trachea. Thick tracheal secretions and poor response to croup therapy are important clues.",
-                },
-                {
-                  diagnosis: "Cervical lymphadenitis",
-                  clues:
-                    "Fever and painful neck movement may overlap, but prominent superficial or lateral cervical lymph-node swelling without progressive dysphagia, drooling, or deep pharyngeal symptoms favors cervical lymphadenitis.",
-                },
-                {
-                  diagnosis: "Meningitis",
-                  clues:
-                    "Fever with neck stiffness can suggest meningitis, but altered mental status, headache, photophobia, seizures, or other meningeal findings shift concern toward CNS infection. Torticollis with dysphagia or drooling should prompt consideration of a deep neck process.",
+                    "Can produce marked tonsillar enlargement, exudative pharyngitis, fever, and cervical lymphadenopathy. Tonsillar disease is often bilateral, while focal unilateral peritonsillar bulging and trismus should raise concern for PTA or a superimposed abscess.",
                 },
               ].map((item, index) => (
                 <div
@@ -760,18 +751,18 @@ export default function PeritonsillarAbscessPage() {
             </div>
 
             <Callout
-              label="Highest-Yield Comparison"
-              title="Let the anatomy separate the dangerous upper-airway infections"
+              label="Highest-Yield Distinction"
+              title="Peritonsillar cellulitis and PTA lie on the same clinical spectrum"
               tone="amber"
             >
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="rounded-xl border border-amber-200 bg-white/70 p-4">
                   <p className="font-bold text-slate-950">
-                    Retropharyngeal abscess
+                    Peritonsillar cellulitis
                   </p>
                   <p className="mt-2 text-sm leading-6 text-slate-700">
-                    Deep/posterior neck → fever, painful neck movement,
-                    torticollis, dysphagia, and drooling.
+                    Inflammation and edema involve the peritonsillar tissues,
+                    but a discrete purulent collection has not formed.
                   </p>
                 </div>
 
@@ -780,27 +771,9 @@ export default function PeritonsillarAbscessPage() {
                     Peritonsillar abscess
                   </p>
                   <p className="mt-2 text-sm leading-6 text-slate-700">
-                    Lateral oropharynx → unilateral peritonsillar swelling,
-                    uvular deviation, muffled voice, and trismus.
-                  </p>
-                </div>
-
-                <div className="rounded-xl border border-amber-200 bg-white/70 p-4">
-                  <p className="font-bold text-slate-950">Epiglottitis</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-700">
-                    Supraglottic airway → severe dysphagia, drooling, muffled
-                    voice, tripod positioning, and potential rapid airway
-                    compromise.
-                  </p>
-                </div>
-
-                <div className="rounded-xl border border-amber-200 bg-white/70 p-4">
-                  <p className="font-bold text-slate-950">
-                    Bacterial tracheitis
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-slate-700">
-                    Trachea/subglottis → stridor, harsh cough, toxic appearance,
-                    thick secretions, and poor response to croup therapy.
+                    Suppuration has produced a localized collection of pus in
+                    the peritonsillar region, potentially requiring drainage in
+                    addition to antimicrobial therapy.
                   </p>
                 </div>
               </div>
@@ -808,15 +781,29 @@ export default function PeritonsillarAbscessPage() {
 
             <Callout
               label="Diagnostic Pearl"
-              title="Trismus and uvular deviation should make you reconsider the localization"
-              tone="amber"
+              title="The examination may strongly suggest PTA without proving that pus is present"
+              tone="blue"
             >
               <p>
-                Marked trismus and unilateral peritonsillar swelling with uvular
-                deviation are much more characteristic of peritonsillar disease
-                than retropharyngeal abscess. RPA more often announces its deep
-                location through painful neck movement, stiffness, or
-                torticollis.
+                Trismus, unilateral peritonsillar swelling, tonsillar
+                displacement, and uvular deviation can make PTA clinically
+                likely, but peritonsillar cellulitis may produce overlapping
+                findings. When the distinction remains uncertain and would
+                change management, ultrasonography can help identify a discrete
+                collection.
+              </p>
+            </Callout>
+
+            <Callout
+              label="Deep Extension"
+              title="Neck findings should make you reconsider whether the infection is still confined to the peritonsillar region"
+              tone="rose"
+            >
+              <p>
+                Prominent neck swelling, torticollis, painful limitation of neck
+                movement, systemic deterioration, or other findings that seem
+                disproportionate to a localized PTA should raise concern for
+                parapharyngeal, retropharyngeal, or other deep-neck extension.
               </p>
             </Callout>
           </DiseaseSection>
@@ -828,146 +815,165 @@ export default function PeritonsillarAbscessPage() {
           <DiseaseSection
             id="workup"
             label="Diagnostic Workup"
-            title="Assess the airway before chasing the diagnosis"
-            description="The diagnostic approach depends first on airway stability. In a stable child, imaging helps identify retropharyngeal inflammation, define its extent, and assess whether a mature abscess may be present."
+            title="Most PTAs are diagnosed at the bedside"
+            description="The classic combination of unilateral peritonsillar swelling, severe throat pain, trismus, muffled voice, and uvular displacement can make PTA a clinical diagnosis. Imaging is most useful when the diagnosis is uncertain or infection may extend beyond the peritonsillar space."
           >
             <Callout
-              label="First Decision"
-              title="Is the airway stable?"
+              label="First Question"
+              title="Does this look like a localized PTA—or something deeper?"
               tone="rose"
             >
               <p>
-                Stridor, increasing work of breathing, inability to handle
-                secretions, rapidly progressive symptoms, or other signs of
-                impending airway compromise should shift the priority from
-                diagnostic imaging to airway planning and urgent ENT/anesthesia
-                involvement. Do not delay stabilization simply to obtain a CT.
+                Before ordering tests, assess the airway and determine whether
+                the examination fits a localized peritonsillar process.
+                Respiratory distress, inability to handle secretions, prominent
+                neck swelling, torticollis, or other findings suggesting
+                deep-neck extension should change the diagnostic approach and
+                urgency.
               </p>
             </Callout>
 
             <div className="grid gap-5 md:grid-cols-3">
-              <InfoCard title="Laboratory studies" tone="slate">
+              <InfoCard title="Clinical examination" tone="blue">
                 <p>
-                  CBC and inflammatory markers may support the presence of
-                  bacterial infection but are nonspecific. Blood cultures can be
-                  considered in toxic-appearing, septic, or otherwise severely
-                  ill patients.
+                  PTA is often diagnosed clinically. Look for unilateral
+                  peritonsillar and soft-palate swelling, medial displacement of
+                  the affected tonsil, trismus, muffled voice, and deviation of
+                  the uvula away from the affected side.
                 </p>
               </InfoCard>
 
-              <InfoCard title="Lateral neck radiograph" tone="amber">
+              <InfoCard title="Ultrasound" tone="emerald">
                 <p>
-                  A lateral neck radiograph may demonstrate widening of the
-                  prevertebral soft tissues. Interpretation depends heavily on
-                  proper positioning and technique, and an abnormal radiograph
-                  does not reliably distinguish cellulitis or phlegmon from a
-                  mature abscess.
+                  Intraoral or transcervical ultrasonography can help
+                  distinguish peritonsillar cellulitis from a discrete abscess
+                  when the examination is equivocal. Ultrasound can also help
+                  define the location of a collection before drainage.
                 </p>
               </InfoCard>
 
-              <InfoCard title="CT neck with IV contrast" tone="blue">
+              <InfoCard title="CT neck with IV contrast" tone="amber">
                 <p>
-                  In an airway-stable child, contrast-enhanced CT is commonly
-                  used to define the location and extent of deep neck infection
-                  and identify features concerning for a fluid collection or
-                  abscess.
+                  CT is generally reserved for an atypical presentation, an
+                  examination limited by severe trismus, diagnostic uncertainty
+                  that cannot be resolved clinically or with ultrasound, or
+                  concern that infection has extended into adjacent deep-neck
+                  spaces.
                 </p>
               </InfoCard>
             </div>
 
-            <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white">
-              <div className="p-5">
-                <p className="text-sm leading-6 text-slate-700">
-                  <strong>A, sagittal:</strong> The retropharyngeal collection
-                  extends along the cervical spine posterior to the airway.{" "}
-                  <strong>B, axial:</strong> Contrast-enhanced CT better defines
-                  the collection, surrounding deep neck spaces, and associated
-                  mass effect.
-                </p>
-                <p className="mt-3 text-xs leading-5 text-slate-500">
-                  CT images adapted from{" "}
-                  <a
-                    href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12779289/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-sky-700 underline underline-offset-2 hover:text-sky-900"
-                  >
-                    Alzayed S, AlOlaywi A. Management of a Massive
-                    Retropharyngeal Abscess Through an External Cervical
-                    Approach: A Case Report.
-                  </a>{" "}
-                  Cureus. 2025;17(12):e98740. CC BY 4.0. Original figure
-                  modified to remove source annotations; PediAtlas annotations
-                  added.
-                </p>
-              </div>
-            </div>
+            <PtaUltrasoundFigure />
+
             <div className="rounded-2xl border border-sky-200 bg-sky-50 p-6">
               <p className="text-sm font-bold uppercase tracking-wide text-sky-700">
-                Reading the CT
+                A Practical Imaging Ladder
               </p>
 
               <h3 className="mt-2 text-xl font-bold text-slate-950">
-                Think in terms of a spectrum
+                Escalate imaging according to the clinical question
               </h3>
 
               <div className="mt-5 grid gap-4 md:grid-cols-3">
                 <div className="rounded-xl border border-sky-200 bg-white p-4">
-                  <p className="font-bold text-slate-950">Cellulitis</p>
+                  <p className="font-bold text-slate-950">
+                    1. Classic examination
+                  </p>
+
                   <p className="mt-2 text-sm leading-6 text-slate-600">
-                    Inflammatory soft-tissue thickening and edema without a
-                    well-organized fluid collection.
+                    A convincing unilateral peritonsillar examination may
+                    establish the diagnosis without routine cross-sectional
+                    imaging.
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-sky-200 bg-white p-4">
-                  <p className="font-bold text-slate-950">Phlegmon</p>
+                  <p className="font-bold text-slate-950">
+                    2. Cellulitis or abscess?
+                  </p>
+
                   <p className="mt-2 text-sm leading-6 text-slate-600">
-                    More organized inflammatory change may appear mass-like or
-                    heterogeneous but may still lack a clearly drainable
-                    purulent cavity.
+                    When the diagnosis is uncertain, ultrasound can look for a
+                    discrete fluid collection without exposing the patient to
+                    ionizing radiation.
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-sky-200 bg-white p-4">
-                  <p className="font-bold text-slate-950">Abscess</p>
+                  <p className="font-bold text-slate-950">
+                    3. Disease beyond the tonsil?
+                  </p>
+
                   <p className="mt-2 text-sm leading-6 text-slate-600">
-                    A discrete low-attenuation collection, particularly with
-                    peripheral enhancement, increases suspicion for a mature
-                    abscess.
+                    When the presentation suggests parapharyngeal,
+                    retropharyngeal, or other deep-neck extension,
+                    contrast-enhanced CT can define the involved spaces and
+                    surrounding structures.
                   </p>
                 </div>
               </div>
             </div>
 
+            <div className="grid gap-5 md:grid-cols-2">
+              <InfoCard title="Laboratory studies" tone="slate">
+                <p>
+                  Routine laboratory testing is not required to establish PTA in
+                  every patient. CBC, inflammatory markers, blood cultures, or
+                  other studies may be useful when the patient appears
+                  systemically ill, has significant dehydration, or there is
+                  concern for sepsis or a more extensive infection.
+                </p>
+              </InfoCard>
+
+              <InfoCard title="Microbiology" tone="slate">
+                <p>
+                  PTA is typically polymicrobial, involving organisms from the
+                  oropharyngeal flora. When purulent material is obtained during
+                  drainage, culture may be considered, particularly in severe,
+                  recurrent, unusual, or treatment-refractory infection.
+                </p>
+              </InfoCard>
+            </div>
+
             <Callout
-              label="Imaging Pitfall"
-              title="CT cannot perfectly tell you whether pus will be found"
-              tone="amber"
+              label="Imaging Pearl"
+              title="Ultrasound answers a different question than CT"
+              tone="blue"
             >
               <p>
-                Contrast-enhanced CT is very useful for defining deep neck
-                infection, but inflammatory phlegmon and developing abscess can
-                overlap in appearance. Rim enhancement or a fluid-appearing
-                collection should therefore be interpreted alongside the
-                child&apos;s clinical course, airway status, examination, and
-                ENT assessment rather than treated as an automatic indication
-                for operative drainage.
+                Ultrasound is particularly useful when the bedside question is
+                whether a discrete peritonsillar collection exists. CT becomes
+                more valuable when the question changes to how far the infection
+                extends and whether adjacent deep-neck spaces or critical
+                structures are involved.
               </p>
             </Callout>
 
             <Callout
-              label="Clinical Reasoning"
-              title="Imaging answers an anatomic question—not the entire management question"
-              tone="blue"
+              label="Important Pitfall"
+              title="Do not make CT a routine prerequisite for drainage"
+              tone="amber"
             >
               <p>
-                CT helps answer where the infection is, how extensive it is,
-                whether adjacent deep neck spaces are involved, and whether a
-                collection is present. The decision to continue medical therapy
-                or proceed to drainage depends on those findings together with
-                airway compromise, severity, abscess characteristics, and
-                response to treatment.
+                A patient with a classic localized PTA does not necessarily need
+                CT simply to confirm the diagnosis before treatment. Unnecessary
+                cross-sectional imaging adds radiation and may delay definitive
+                management without answering a clinically important question.
+              </p>
+            </Callout>
+
+            <Callout
+              label="Return to the Anatomy"
+              title="Deep Extension is the finding that changes the imaging strategy"
+              tone="rose"
+            >
+              <p>
+                The anatomy figure&apos;s progression from localized PTA to
+                lateral deep-neck extension is also a diagnostic framework. Once
+                symptoms or examination findings suggest that infection is no
+                longer confined to the peritonsillar region, imaging should
+                define the deeper spaces and their relationship to the airway
+                and major cervical structures.
               </p>
             </Callout>
           </DiseaseSection>
@@ -979,42 +985,49 @@ export default function PeritonsillarAbscessPage() {
           <DiseaseSection
             id="management"
             label="Management"
-            title="Airway stability determines the first move"
-            description="Management of retropharyngeal infection combines early airway assessment, IV antibiotics, ENT involvement, and selective surgical drainage. Not every radiographic abscess requires immediate surgery."
+            title="Treat the infection—and decide whether the collection needs drainage"
+            description="Management combines supportive care, antimicrobial therapy, and source control when appropriate. Airway status, illness severity, ability to tolerate oral intake, abscess characteristics, and clinical response help determine the treatment approach."
           >
-            {/* INITIAL MANAGEMENT */}
+            {/* INITIAL PRIORITIES */}
 
-            <div className="grid gap-5 md:grid-cols-2">
-              <InfoCard title="Airway compromise" tone="rose">
+            <div className="grid gap-5 md:grid-cols-3">
+              <InfoCard title="1. Assess stability" tone="rose">
                 <p>
-                  Respiratory distress, stridor, inability to handle secretions,
-                  rapidly progressive swelling, or other evidence of impending
-                  obstruction requires urgent ENT and airway involvement.
-                  Stabilization takes priority over additional diagnostic
-                  testing.
+                  Evaluate the airway, secretion handling, hydration, and
+                  overall appearance first. Respiratory distress, progressive
+                  obstruction, or inability to manage secretions requires urgent
+                  escalation and ENT involvement.
                 </p>
               </InfoCard>
 
-              <InfoCard title="Airway stable" tone="emerald">
+              <InfoCard title="2. Control symptoms" tone="blue">
                 <p>
-                  Begin IV antibiotics, involve ENT early, provide supportive
-                  care, and closely reassess the clinical response. Many stable
-                  children can initially be managed medically rather than
-                  proceeding directly to operative drainage.
+                  Provide adequate analgesia and hydration. Severe odynophagia
+                  can substantially limit oral intake, and some patients require
+                  IV fluids until pain and swallowing improve.
+                </p>
+              </InfoCard>
+
+              <InfoCard title="3. Treat the infection" tone="emerald">
+                <p>
+                  Begin antimicrobial therapy directed against the polymicrobial
+                  oropharyngeal flora associated with PTA. The route and regimen
+                  depend on illness severity, oral tolerance, allergy history,
+                  local susceptibility patterns, and institutional guidance.
                 </p>
               </InfoCard>
             </div>
 
             <Callout
-              label="Airway Safety"
-              title="A difficult airway should be anticipated"
+              label="Airway First"
+              title="A large abscess is important—a threatened airway is more important"
               tone="rose"
             >
               <p>
-                Deep neck infection can distort upper-airway anatomy and worsen
-                rapidly. When airway intervention is required, coordinate with
-                experienced airway personnel and ENT whenever possible rather
-                than approaching the airway as a routine intubation.
+                If the patient develops respiratory distress, progressive
+                upper-airway obstruction, or inability to handle secretions,
+                airway stabilization and urgent specialty involvement take
+                priority over routine imaging or bedside drainage planning.
               </p>
             </Callout>
 
@@ -1022,112 +1035,172 @@ export default function PeritonsillarAbscessPage() {
 
             <div>
               <p className="text-sm font-bold uppercase tracking-wide text-sky-700">
-                Empiric Antibiotic Therapy
+                Antimicrobial Therapy
               </p>
 
               <h3 className="mt-2 text-xl font-bold text-slate-950">
-                Cover the expected polymicrobial flora
+                Cover streptococci and oral anaerobes
               </h3>
 
               <p className="mt-3 max-w-3xl leading-7 text-slate-600">
-                Initial therapy should cover common upper respiratory and oral
-                organisms, including streptococci, Staphylococcus aureus, and
-                anaerobic organisms.
+                PTA is usually polymicrobial. Antibiotic selection should
+                provide coverage for common oropharyngeal pathogens, including
+                group A streptococci and anaerobic organisms.
               </p>
 
               <div className="mt-5 grid gap-5 md:grid-cols-2">
-                <InfoCard title="Common initial options" tone="blue">
+                <InfoCard title="Parenteral therapy" tone="blue">
                   <ul className="space-y-2">
-                    <li>• Ampicillin-sulbactam</li>
-                    <li>• Clindamycin</li>
+                    <li>• Ampicillin-sulbactam is a commonly used option.</li>
+                    <li>
+                      • Other regimens may be selected according to allergy
+                      history, local susceptibility patterns, and illness
+                      severity.
+                    </li>
+                    <li>
+                      • Broader coverage may be appropriate in severe or
+                      complicated infection.
+                    </li>
                   </ul>
-
-                  <p className="mt-4 text-sm leading-6 text-slate-600">
-                    Selection should reflect local susceptibility patterns,
-                    allergy history, illness severity, and institutional
-                    guidance.
-                  </p>
                 </InfoCard>
 
-                <InfoCard title="When to broaden for MRSA" tone="amber">
-                  <p>
-                    Additional MRSA-active therapy, such as vancomycin, may be
-                    appropriate in severe disease, high-risk patients, or when
-                    the child fails to improve on initial therapy.
-                  </p>
+                <InfoCard title="Oral therapy" tone="emerald">
+                  <ul className="space-y-2">
+                    <li>
+                      • Oral therapy is appropriate when the patient can
+                      reliably swallow and maintain hydration.
+                    </li>
+                    <li>
+                      • Amoxicillin-clavulanate is a commonly used oral option.
+                    </li>
+                    <li>
+                      • Antibiotic choice should follow local guidance and
+                      individual patient factors.
+                    </li>
+                  </ul>
                 </InfoCard>
               </div>
             </div>
 
-            {/* MEDICAL VS SURGICAL */}
+            {/* DRAINAGE DECISION */}
 
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
               <p className="text-sm font-bold uppercase tracking-wide text-sky-700">
-                Medical Therapy vs Drainage
+                Source Control
               </p>
 
               <h3 className="mt-2 text-xl font-bold text-slate-950">
-                The response over time matters
+                Does this abscess need drainage?
               </h3>
+
+              <p className="mt-3 max-w-3xl leading-7 text-slate-600">
+                Many established PTAs are managed with drainage plus
+                antibiotics, but treatment should be individualized. Abscess
+                size, severity, airway status, oral intake, age and cooperation,
+                and response to therapy all influence the decision.
+              </p>
 
               <div className="mt-6 grid gap-5 md:grid-cols-2">
                 <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-5">
                   <p className="font-bold text-emerald-950">
-                    Initial medical management
+                    Selected medical management
                   </p>
 
                   <p className="mt-2 leading-7 text-emerald-950/80">
-                    In a clinically stable child without airway compromise, IV
-                    antibiotics with close observation and ENT involvement can
-                    be appropriate initially. Reassess symptoms, examination,
-                    airway status, fever curve, and overall trajectory over the
-                    next 24–48 hours.
+                    Carefully selected patients with limited disease and
+                    reassuring airway status may improve with antimicrobial
+                    therapy and close reassessment without immediate drainage.
+                    The threshold for procedural management depends on the
+                    clinical course and local practice.
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-rose-200 bg-rose-50 p-5">
                   <p className="font-bold text-rose-950">
-                    Consider operative drainage
+                    Drainage becomes more important
                   </p>
 
                   <ul className="mt-2 space-y-2 text-rose-950/80">
-                    <li>• Airway compromise or respiratory distress</li>
-                    <li>• Clinical deterioration despite medical therapy</li>
+                    <li>• A well-formed or clinically significant abscess</li>
                     <li>
-                      • Failure to improve after an adequate antibiotic trial
+                      • Significant symptoms or inability to maintain hydration
                     </li>
-                    <li>• Large or well-organized drainable collection</li>
-                    <li>• Complications or extension into adjacent spaces</li>
+                    <li>• Clinical deterioration</li>
+                    <li>
+                      • Failure to improve with appropriate medical therapy
+                    </li>
+                    <li>• Complicated or extending infection</li>
                   </ul>
                 </div>
               </div>
             </div>
 
+            {/* DRAINAGE OPTIONS */}
+
+            <div>
+              <p className="text-sm font-bold uppercase tracking-wide text-sky-700">
+                Drainage Options
+              </p>
+
+              <h3 className="mt-2 text-xl font-bold text-slate-950">
+                Source control can be achieved in several ways
+              </h3>
+
+              <div className="mt-5 grid gap-5 md:grid-cols-3">
+                <InfoCard title="Needle aspiration" tone="blue">
+                  <p>
+                    Needle aspiration can both confirm the presence of purulence
+                    and provide therapeutic drainage in an appropriately
+                    selected and cooperative patient.
+                  </p>
+                </InfoCard>
+
+                <InfoCard title="Incision & drainage" tone="blue">
+                  <p>
+                    Incision and drainage provides direct evacuation of the
+                    collection and is a commonly used procedural approach for an
+                    established PTA.
+                  </p>
+                </InfoCard>
+
+                <InfoCard title="Tonsillectomy" tone="purple">
+                  <p>
+                    Immediate tonsillectomy is not required for every PTA but
+                    may be considered in selected patients based on recurrence,
+                    severity, airway considerations, or other indications for
+                    tonsillectomy.
+                  </p>
+                </InfoCard>
+              </div>
+            </div>
+
             <Callout
-              label="Management Pearl"
-              title="A collection on CT does not automatically equal surgery"
-              tone="amber"
+              label="Procedural Safety"
+              title="Remember what lies lateral to the abscess"
+              tone="rose"
             >
               <p>
-                In an airway-stable child, the decision to drain should
-                integrate imaging with the clinical examination and response to
-                IV antibiotics. Imaging can suggest abscess formation, but it
-                does not perfectly predict whether operative exploration will
-                reveal drainable purulence.
+                The carotid space and major cervical vascular structures lie
+                lateral and posterolateral to the peritonsillar region. Drainage
+                should respect this anatomy, and unusual anatomy or suspected
+                deep extension should lower the threshold for specialty
+                management and additional imaging rather than blind procedural
+                exploration.
               </p>
             </Callout>
 
             <Callout
               label="Reassessment"
-              title="Watch the child—not just the scan"
+              title="Treatment success should be visible at the bedside"
               tone="blue"
             >
               <p>
-                Improving fever, neck mobility, swallowing, oral intake, pain,
-                and overall appearance support continued medical management.
-                Worsening airway symptoms, persistent systemic illness, or
-                failure of local symptoms to improve should prompt
-                reconsideration of drainage and repeat ENT assessment.
+                Improvement should include decreasing pain and fever, better
+                mouth opening, improved swallowing and oral intake, and
+                reduction in peritonsillar swelling. Persistent or worsening
+                symptoms should prompt reconsideration of an undrained
+                collection, inadequate antimicrobial therapy, or extension into
+                another deep-neck space.
               </p>
             </Callout>
           </DiseaseSection>
@@ -1139,88 +1212,103 @@ export default function PeritonsillarAbscessPage() {
           <DiseaseSection
             id="complications"
             label="Complications"
-            title="A deep neck infection does not have to stay in the neck"
-            description="The retropharyngeal space sits beside the upper airway and communicates with other deep cervical fascial planes. Progressive infection can therefore threaten the airway, spread into neighboring spaces, or descend into the chest."
+            title="Most PTAs remain localized—but extension can become dangerous"
+            description="Complications arise from progressive local swelling, spread into adjacent deep-neck spaces, involvement of nearby vascular structures, aspiration, or systemic dissemination of infection."
           >
             <div className="grid gap-5 md:grid-cols-2">
-              <InfoCard title="Upper-airway obstruction" tone="rose">
+              <InfoCard title="Airway compromise" tone="rose">
                 <p>
-                  Expanding inflammation, edema, and abscess can displace the
-                  posterior pharyngeal wall anteriorly and progressively narrow
-                  the upper airway. Respiratory distress or stridor represents
-                  an immediate escalation in severity.
+                  Progressive peritonsillar and pharyngeal swelling can narrow
+                  the upper airway. Respiratory distress, increasing
+                  obstruction, or inability to handle secretions represents an
+                  urgent escalation in severity.
                 </p>
               </InfoCard>
 
-              <InfoCard title="Descending mediastinitis" tone="rose">
+              <InfoCard title="Deep-neck extension" tone="rose">
                 <p>
-                  Infection can spread inferiorly through communicating deep
-                  cervical fascial planes toward the mediastinum. Descending
-                  mediastinal infection is a severe complication that can
-                  produce extensive thoracic infection and systemic illness.
-                </p>
-              </InfoCard>
-
-              <InfoCard title="Sepsis and bacteremia" tone="rose">
-                <p>
-                  Progressive or inadequately controlled infection can extend
-                  beyond the original deep neck space and produce bacteremia,
-                  sepsis, and systemic deterioration.
-                </p>
-              </InfoCard>
-
-              <InfoCard title="Adjacent deep-space spread" tone="amber">
-                <p>
-                  Infection may extend into neighboring cervical spaces rather
-                  than remaining confined to the retropharyngeal compartment,
-                  increasing disease extent and potentially altering the
-                  drainage approach.
+                  Infection may spread beyond the peritonsillar region into
+                  adjacent deep-neck spaces, including the parapharyngeal space.
+                  Extension changes both the risk profile and the approach to
+                  imaging and source control.
                 </p>
               </InfoCard>
 
               <InfoCard title="Vascular complications" tone="rose">
                 <p>
-                  Deep cervical infection can involve nearby major vessels,
-                  producing rare but serious complications such as internal
-                  jugular vein thrombosis, carotid involvement, or hemorrhage.
+                  Extension toward the lateral deep-neck spaces can place major
+                  cervical vessels at risk. Rare complications include internal
+                  jugular vein thrombosis and other infectious or vascular
+                  complications involving nearby structures.
                 </p>
               </InfoCard>
 
-              <InfoCard title="Aspiration or pulmonary infection" tone="amber">
+              <InfoCard title="Aspiration" tone="amber">
                 <p>
-                  Purulent material and impaired handling of secretions can
-                  contribute to aspiration and lower respiratory infection,
-                  particularly in children with advanced disease.
+                  Rupture or drainage of purulent material into the oropharynx,
+                  particularly when secretion handling is impaired, creates a
+                  risk of aspiration into the lower respiratory tract.
+                </p>
+              </InfoCard>
+
+              <InfoCard title="Sepsis" tone="rose">
+                <p>
+                  Local infection can progress to bacteremia and systemic
+                  illness. Persistent fever, toxicity, hemodynamic instability,
+                  or worsening clinical status should raise concern for
+                  uncontrolled or extending infection.
+                </p>
+              </InfoCard>
+
+              <InfoCard title="Recurrence" tone="amber">
+                <p>
+                  PTA can recur after successful treatment. Recurrence is one
+                  reason the history of previous PTA and other indications for
+                  tonsillectomy may influence longer-term ENT management.
                 </p>
               </InfoCard>
             </div>
 
             <Callout
               label="Anatomy → Complication"
-              title="This is why the sagittal anatomy matters"
+              title="The lateral boundary is what makes extension dangerous"
               tone="rose"
             >
               <p>
-                The danger of retropharyngeal infection is determined partly by
-                where it lives. The deep cervical fascial planes create
-                potential pathways for infection to extend inferiorly from the
-                neck toward the mediastinum. A child whose disease is spreading
-                beyond the original space can therefore become critically ill
-                even without dramatic findings on the initial oropharyngeal
-                examination.
+                A localized PTA begins immediately lateral to the tonsillar
+                capsule, but infection that progresses beyond the pharyngeal
+                musculature can enter deeper cervical spaces containing major
+                neurovascular structures. This is why new neck swelling,
+                torticollis, worsening systemic illness, or an atypical
+                examination should trigger concern for disease beyond a simple
+                localized PTA.
               </p>
             </Callout>
 
             <Callout
               label="Clinical Warning"
-              title="A worsening trajectory should trigger a search for complications"
+              title="A changing examination matters more than the original diagnosis"
               tone="amber"
             >
               <p>
-                New respiratory symptoms, chest symptoms, increasing neck
-                swelling, persistent fever or toxicity, hemodynamic instability,
-                or failure to improve despite appropriate therapy should prompt
-                reassessment for uncontrolled or extending infection.
+                Increasing neck swelling, worsening trismus, new respiratory
+                symptoms, inability to handle secretions, persistent fever or
+                toxicity, or failure to improve after appropriate therapy should
+                prompt reassessment for inadequate source control or extension
+                into another deep-neck space.
+              </p>
+            </Callout>
+
+            <Callout
+              label="Recurrence"
+              title="Successful drainage does not make future PTA impossible"
+              tone="purple"
+            >
+              <p>
+                Recurrent PTA occurs in a minority of pediatric patients. A
+                history of recurrent abscesses or other established indications
+                for tonsillectomy should prompt consideration of longer-term ENT
+                management rather than treating each episode in isolation.
               </p>
             </Callout>
           </DiseaseSection>
@@ -1232,63 +1320,100 @@ export default function PeritonsillarAbscessPage() {
           <DiseaseSection
             id="disposition"
             label="Disposition"
-            title="Admission is about the airway and the trajectory"
-            description="Children with retropharyngeal abscess generally require hospitalization for IV antibiotics, airway observation, ENT evaluation, and serial reassessment."
+            title="Disposition depends on the airway, hydration, and response to treatment"
+            description="Many patients with uncomplicated PTA can be managed without prolonged hospitalization once pain is controlled, oral intake is adequate, and the airway is reassuring. Admission is appropriate when those conditions are not met or the infection is complicated."
           >
             <div className="grid gap-5 md:grid-cols-3">
-              <InfoCard title="Hospital admission" tone="blue">
-                <p>
-                  Admit for IV antibiotic therapy, hydration and analgesia as
-                  needed, ENT involvement, and repeated assessment of airway
-                  status, swallowing, neck mobility, fever, and overall clinical
-                  trajectory.
-                </p>
+              <InfoCard title="Consider discharge" tone="emerald">
+                <ul className="space-y-2">
+                  <li>• Airway is stable</li>
+                  <li>• Able to handle secretions</li>
+                  <li>• Pain is adequately controlled</li>
+                  <li>• Able to tolerate oral fluids and medications</li>
+                  <li>
+                    • No evidence of deep-neck extension or systemic instability
+                  </li>
+                  <li>
+                    • Reliable follow-up and return precautions are established
+                  </li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard title="Consider admission" tone="amber">
+                <ul className="space-y-2">
+                  <li>
+                    • Inability to maintain hydration or take oral medications
+                  </li>
+                  <li>
+                    • Poorly controlled pain or significant ongoing symptoms
+                  </li>
+                  <li>• Need for continued IV therapy or observation</li>
+                  <li>• Failure to improve after initial treatment</li>
+                  <li>
+                    • Significant comorbidity or concern for complicated
+                    infection
+                  </li>
+                  <li>• Uncertain ability to obtain appropriate follow-up</li>
+                </ul>
               </InfoCard>
 
               <InfoCard title="Higher-acuity care" tone="rose">
-                <p>
-                  Respiratory distress, progressive airway symptoms, inability
-                  to manage secretions, sepsis, rapidly worsening disease, or
-                  need for advanced airway management warrants escalation to a
-                  closely monitored or intensive care setting.
-                </p>
-              </InfoCard>
-
-              <InfoCard title="Improving child" tone="emerald">
-                <p>
-                  Clinical improvement should include a stable airway, improving
-                  fever and pain, better neck mobility and swallowing, and the
-                  ability to maintain hydration as therapy transitions toward an
-                  outpatient regimen.
-                </p>
+                <ul className="space-y-2">
+                  <li>
+                    • Respiratory distress or progressive airway obstruction
+                  </li>
+                  <li>• Inability to handle secretions</li>
+                  <li>• Hemodynamic instability or sepsis</li>
+                  <li>• Rapidly progressive swelling</li>
+                  <li>
+                    • Significant deep-neck extension or other serious
+                    complication
+                  </li>
+                  <li>• Need for advanced airway management</li>
+                </ul>
               </InfoCard>
             </div>
 
             <Callout
               label="Discharge Readiness"
-              title="Discharge follows clinical improvement—not simply a better scan"
+              title="Make sure the patient can actually drink before sending them home"
               tone="emerald"
             >
               <p>
-                A child may be considered for discharge once the airway remains
-                stable, symptoms and examination are clearly improving, oral
-                intake and hydration are adequate, and an appropriate oral
-                antibiotic plan and follow-up strategy are established.
+                Improvement in the appearance of the throat alone is not enough.
+                Before discharge, confirm that pain is controlled well enough
+                for the patient to swallow, maintain hydration, and reliably
+                take prescribed oral therapy.
               </p>
             </Callout>
 
             <Callout
-              label="Escalation"
-              title="Reconsider the plan when the trajectory is wrong"
+              label="Follow-Up"
+              title="The trajectory still matters after treatment"
+              tone="blue"
+            >
+              <p>
+                Arrange appropriate clinical follow-up after discharge,
+                particularly after drainage or when symptoms were substantial.
+                Continued improvement in pain, trismus, swallowing, fever, and
+                peritonsillar swelling should be expected rather than simply
+                assuming that the procedure or first antibiotic dose completed
+                treatment.
+              </p>
+            </Callout>
+
+            <Callout
+              label="Return Precautions"
+              title="Worsening airway or deep-neck symptoms require urgent reassessment"
               tone="rose"
             >
               <p>
-                New or worsening stridor, respiratory distress, drooling or
-                inability to handle secretions, increasing neck swelling or
-                stiffness, persistent systemic illness, or failure to improve
-                with IV antibiotics should prompt urgent reassessment and
-                reconsideration of airway intervention, drainage, or additional
-                evaluation for complications.
+                New or worsening difficulty breathing, inability to swallow or
+                handle secretions, increasing neck swelling, worsening trismus,
+                recurrent or persistent fever, progressive pain, or clinical
+                deterioration should prompt urgent reassessment for recurrent
+                collection, inadequate source control, or extension beyond the
+                peritonsillar space.
               </p>
             </Callout>
           </DiseaseSection>
@@ -1301,80 +1426,84 @@ export default function PeritonsillarAbscessPage() {
             id="pearls"
             label="Clinical Pearls"
             title="The high-yield takeaways"
-            description="Retropharyngeal abscess is a disease of anatomy, age, and trajectory. Recognizing the localization early can identify deep neck infection before airway compromise develops."
+            description="Peritonsillar abscess is a disease of localization. Recognize the unilateral examination, distinguish cellulitis from a true collection when necessary, and identify when infection is no longer confined to the peritonsillar space."
           >
             <div className="grid gap-5 md:grid-cols-2">
               <PearlCard
                 number={1}
-                title="Think RPA in the young child with fever + torticollis"
+                title="Severe unilateral findings should make you think beyond tonsillitis"
               >
-                Retropharyngeal lymph nodes are most prominent in young children
-                and involute with age. Fever accompanied by painful limitation
-                of neck movement or torticollis should raise concern for a deep
-                neck-space infection.
+                Routine pharyngotonsillitis can cause substantial pain and
+                tonsillar inflammation, but marked unilateral peritonsillar
+                swelling, trismus, tonsillar displacement, and uvular deviation
+                should raise concern for infection extending into the
+                peritonsillar tissues.
               </PearlCard>
 
               <PearlCard
                 number={2}
-                title="The throat examination may look surprisingly unimpressive"
+                title="Trismus is an important localization clue"
               >
-                Do not require a visible posterior pharyngeal bulge. The
-                infection lies deep to the pharynx, so neck stiffness,
-                torticollis, dysphagia, drooling, or progressive symptoms may
-                provide stronger localization clues than the oral examination.
+                Inflammation around the peritonsillar region can provoke painful
+                limitation of mouth opening. Significant trismus in a patient
+                with severe unilateral throat symptoms should increase suspicion
+                for PTA and may also make examination and procedural treatment
+                more difficult.
               </PearlCard>
 
               <PearlCard
                 number={3}
-                title="Airway stability comes before imaging"
+                title="PTA and peritonsillar cellulitis can look very similar"
               >
-                Stridor, respiratory distress, inability to handle secretions,
-                or rapidly progressive symptoms should trigger urgent airway and
-                ENT planning. Do not delay stabilization simply to obtain a CT.
+                Peritonsillar cellulitis causes inflammation and edema without a
+                discrete collection of pus. When the examination cannot reliably
+                distinguish cellulitis from abscess and the distinction would
+                change management, ultrasound can help identify a drainable
+                collection.
               </PearlCard>
 
-              <PearlCard
-                number={4}
-                title="CT defines anatomy better than it predicts pus"
-              >
-                Contrast-enhanced CT helps determine the location and extent of
-                deep neck infection, but cellulitis, phlegmon, and developing
-                abscess can overlap radiographically. Imaging does not perfectly
-                predict whether operative exploration will reveal drainable
-                purulence.
+              <PearlCard number={4} title="CT is for the deeper question">
+                A classic localized PTA does not routinely require CT
+                confirmation. Contrast-enhanced CT becomes more useful when the
+                presentation is atypical or there is concern that infection has
+                extended into parapharyngeal, retropharyngeal, or other
+                deep-neck spaces.
               </PearlCard>
 
               <PearlCard
                 number={5}
-                title="Not every radiographic abscess needs immediate drainage"
+                title="Treatment is antibiotics plus source control when needed"
               >
-                An airway-stable child can often receive IV antibiotics with ENT
-                involvement and close reassessment. Clinical deterioration,
-                airway compromise, a significant organized collection, or
-                failure to improve increases the need for operative drainage.
+                PTA treatment combines analgesia and hydration with
+                antimicrobial therapy directed against polymicrobial
+                oropharyngeal flora. An established or clinically significant
+                collection may require needle aspiration, incision and drainage,
+                or another source-control strategy based on the clinical
+                situation.
               </PearlCard>
 
               <PearlCard
                 number={6}
-                title="Know where the deep neck spaces can lead"
+                title="Know when the disease has outgrown the diagnosis"
               >
-                Infection is not necessarily confined to the retropharyngeal
-                space. Extension through communicating cervical fascial planes
-                can spread infection inferiorly toward the mediastinum and
-                produce serious complications.
+                Prominent neck swelling, torticollis, worsening systemic
+                illness, respiratory symptoms, inability to handle secretions,
+                or failure to improve should trigger reassessment for inadequate
+                source control, airway compromise, or extension beyond the
+                peritonsillar space.
               </PearlCard>
             </div>
 
             <Callout
               label="One-Line Summary"
-              title="Fever + torticollis + dysphagia in a young child = think deep neck"
+              title="Unilateral throat pain + trismus + peritonsillar bulging = localize to the peritonsillar space"
               tone="amber"
             >
               <p>
-                Localize first, assess the airway, define the anatomy when it is
-                safe to do so, begin appropriate antimicrobial therapy, and
-                follow the child&apos;s clinical trajectory when deciding
-                whether drainage is necessary.
+                Assess the airway first, decide whether a discrete collection
+                needs to be demonstrated, treat the polymicrobial infection,
+                obtain source control when appropriate, and reconsider the
+                anatomy if the patient is not improving as expected.
               </p>
             </Callout>
           </DiseaseSection>
@@ -1397,19 +1526,15 @@ export default function PeritonsillarAbscessPage() {
           ================================================== */}
 
           <AnkiDeck
-            title="Retropharyngeal Abscess Anki Deck"
+            title="Peritonsillar Abscess Anki Deck"
             cardCount={16}
-            downloadHref="/Anki/retropharyngeal-abscess.apkg"
+            downloadHref="/Anki/peritonsillar-abscess.apkg"
           />
-
           {/* =================================================
               EVIDENCE BASE
           ================================================== */}
 
-          <EvidenceBase
-            references={references}
-            secondarySources="Nelson Textbook of Pediatrics and Ferri's Clinical Advisor were used as additional textbook references for deep-neck anatomy, pathophysiology, microbiology, clinical presentation, imaging, antimicrobial therapy, complications, and operative decision-making."
-          />
+          <EvidenceBase references={references} />
         </div>
       </div>
     </main>

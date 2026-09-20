@@ -479,7 +479,7 @@ export default function PtaAnatomyFigure() {
                   {[
                     [1, "Peritonsillar abscess"],
                     [2, "Lateral extension"],
-                    [3, "Deep neck tissues"],
+                    [3, "Deep neck extension"],
                     [4, "Medially displaced tonsil"],
                     [5, "Oropharyngeal airway"],
                   ].map(([number, label]) => (
