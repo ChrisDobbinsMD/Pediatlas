@@ -6,7 +6,7 @@ const diseases = [
     description:
       "Acute viral infection of the upper respiratory tract causing rhinorrhea, congestion, cough, and pharyngeal irritation.",
     age: "All pediatric age groups, especially young children",
-    status: "Coming soon",
+    status: "Available!",
   },
   {
     name: "Sinusitis",
@@ -168,7 +168,14 @@ export default function UpperAirwayPage() {
                     </div>
 
                     <div className="mt-auto pt-6">
-                      {disease.name === "Croup" ? (
+                      {disease.name === "Viral URI" ? (
+                        <Link
+                          href="/respiratory/upper-airway/viral-uri"
+                          className="font-semibold text-blue-700 hover:text-blue-900"
+                        >
+                          Open viral URI →
+                        </Link>
+                      ) : disease.name === "Croup" ? (
                         <Link
                           href="/respiratory/upper-airway/croup"
                           className="font-semibold text-blue-700 hover:text-blue-900"
