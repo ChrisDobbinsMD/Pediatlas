@@ -48,7 +48,7 @@ const diseases = [
     description:
       "Collection of purulent material adjacent to the tonsil causing severe unilateral throat pain, muffled voice, and uvular deviation.",
     age: "More common in adolescents and older children",
-    status: "Coming soon",
+    status: "Available!",
   },
   {
     name: "Upper Airway Foreign Body",
@@ -195,6 +195,13 @@ export default function UpperAirwayPage() {
                           className="font-semibold text-blue-700 hover:text-blue-900"
                         >
                           Open retropharyngeal abscess →
+                        </Link>
+                      ) : disease.name === "Peritonsillar Abscess" ? (
+                        <Link
+                          href="/respiratory/upper-airway/peritonsillar-abscess"
+                          className="font-semibold text-blue-700 hover:text-blue-900"
+                        >
+                          Open peritonsillar abscess →
                         </Link>
                       ) : (
                         <span className="font-semibold text-slate-400">
