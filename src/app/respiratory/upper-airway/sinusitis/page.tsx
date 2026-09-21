@@ -448,7 +448,11 @@ export default function SinusitisPage() {
               </InfoCard>
             </div>
 
-            <Callout variant="blue" title="Sinus anatomy changes with age">
+            <Callout
+              tone="blue"
+              label="Development"
+              title="Sinus anatomy changes with age"
+            >
               A young child does have paranasal sinuses—but not the same fully
               developed sinus anatomy as an adolescent. Maxillary and ethmoid
               disease can occur early in life, while the frontal and sphenoid
@@ -474,14 +478,22 @@ export default function SinusitisPage() {
               </InfoCard>
             </div>
 
-            <Callout variant="amber" title="Why drainage matters">
+            <Callout
+              tone="amber"
+              label="Clinical Anatomy"
+              title="Why drainage matters"
+            >
               Sinuses are lined by ciliated respiratory epithelium. Viral
               inflammation can produce mucosal edema, obstruct the sinus ostia,
               and impair mucociliary clearance—creating conditions that favor
               bacterial growth.
             </Callout>
 
-            <Callout variant="rose" title="Anatomy predicts complications">
+            <Callout
+              tone="rose"
+              label="Complication Risk"
+              title="Anatomy predicts complications"
+            >
               The paranasal sinuses sit immediately adjacent to important
               structures. Ethmoid sinusitis is particularly associated with
               orbital complications, while frontal sinusitis can extend

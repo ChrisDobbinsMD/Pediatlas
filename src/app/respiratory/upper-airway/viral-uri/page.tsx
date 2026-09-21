@@ -445,7 +445,11 @@ export default function ViralURIPage() {
               <ViralUriFigure />
             </div>
 
-            <Callout variant="purple" title="Anatomy → Complication">
+            <Callout
+              tone="purple"
+              label="Clinical Anatomy"
+              title="Anatomy → Complication"
+            >
               Nasopharyngeal inflammation during a viral URI can impair drainage
               through the auditory tube and paranasal sinuses, helping explain
               why acute otitis media and bacterial sinusitis can follow a viral
