@@ -11,6 +11,7 @@ import {
   EvidenceBase,
 } from "@/components/disease";
 import { MobileSectionNav } from "@/components";
+import SinusitisAnatomyFigure from "@/components/disease/figures/SinusitisAnatomyFigure";
 
 /* =========================================================
    REFERENCES
@@ -430,6 +431,8 @@ export default function SinusitisPage() {
             title="Localize sinusitis to the paranasal sinuses"
             description="Sinus anatomy changes throughout childhood, and the location of infection helps predict both symptoms and complications."
           >
+            <SinusitisAnatomyFigure />
+
             <div className="grid gap-4 md:grid-cols-2">
               <InfoCard title="Maxillary & Ethmoid Sinuses" tone="blue">
                 <p>
