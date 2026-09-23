@@ -13,7 +13,7 @@ const diseases = [
     description:
       "Inflammation and infection of the paranasal sinuses, often occurring after a preceding viral upper respiratory infection.",
     age: "More common after development of the paranasal sinuses",
-    status: "Coming soon",
+    status: "Available!",
   },
   {
     name: "Croup",
@@ -174,6 +174,13 @@ export default function UpperAirwayPage() {
                           className="font-semibold text-blue-700 hover:text-blue-900"
                         >
                           Open viral URI →
+                        </Link>
+                      ) : disease.name === "Sinusitis" ? (
+                        <Link
+                          href="/respiratory/upper-airway/sinusitis"
+                          className="font-semibold text-blue-700 hover:text-blue-900"
+                        >
+                          Open sinusitis →
                         </Link>
                       ) : disease.name === "Croup" ? (
                         <Link
