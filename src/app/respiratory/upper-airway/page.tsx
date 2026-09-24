@@ -55,7 +55,7 @@ const diseases = [
     description:
       "Foreign material lodged within the nose, pharynx, larynx, or proximal trachea causing focal symptoms or acute airway obstruction.",
     age: "Most common in toddlers and young children",
-    status: "Coming soon",
+    status: "Available!",
   },
 ];
 
@@ -216,6 +216,13 @@ export default function UpperAirwayPage() {
                           className="font-semibold text-blue-700 hover:text-blue-900"
                         >
                           Open peritonsillar abscess →
+                        </Link>
+                      ) : disease.name === "Upper Airway Foreign Body" ? (
+                        <Link
+                          href="/respiratory/upper-airway/upper-airway-foreign-body"
+                          className="font-semibold text-blue-700 hover:text-blue-900"
+                        >
+                          Open upper airway foreign body →
                         </Link>
                       ) : (
                         <span className="font-semibold text-slate-400">

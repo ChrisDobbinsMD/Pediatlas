@@ -3,115 +3,322 @@
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { AnkiDeck, EvidenceBase } from "@/components/disease";
 
-const obstructionPatterns = [
+import {
+  DiseaseSection,
+  InfoCard,
+  Callout,
+  ProcessStep,
+  PearlCard,
+  AnkiDeck,
+  ProgressiveQuiz,
+  EvidenceBase,
+  type QuizQuestion,
+} from "@/components/disease";
+
+import { MobileSectionNav } from "@/components";
+
+const sections = [
+  { id: "vignette", label: "Vignette" },
+  { id: "localization", label: "Anatomy & Localization" },
+  { id: "pathophysiology", label: "Pathophysiology" },
+  { id: "history-physical", label: "History & Physical" },
+  { id: "differential", label: "Differential" },
+  { id: "workup", label: "Workup" },
+  { id: "management", label: "Management" },
+  { id: "disposition", label: "Disposition" },
+  { id: "pearls", label: "Pearls" },
+  { id: "quiz", label: "Quiz" },
+];
+
+const questions: QuizQuestion[] = [
   {
-    title: "Complete obstruction",
-    description:
-      "The object completely blocks airflow. A child may be unable to speak, cough effectively, or breathe and can rapidly develop cyanosis, loss of consciousness, and cardiac arrest.",
-    accentClass: "border-rose-200 bg-rose-50",
-    titleClass: "text-rose-950",
-    textClass: "text-rose-900",
+    question:
+      "A previously healthy 2-year-old suddenly coughs and chokes while eating peanuts. He later appears comfortable but has persistent unilateral wheezing and decreased breath sounds. What is the most likely diagnosis?",
+    answers: [
+      {
+        text: "Bronchiolitis",
+        correct: false,
+        feedback:
+          "Bronchiolitis usually follows a viral prodrome and causes more diffuse lower-airway findings rather than abrupt focal symptoms after choking.",
+      },
+      {
+        text: "Foreign body aspiration",
+        correct: true,
+        feedback:
+          "Sudden choking followed by persistent focal wheeze or asymmetric breath sounds is a classic pattern for a retained tracheobronchial foreign body.",
+      },
+      {
+        text: "Asthma exacerbation",
+        correct: false,
+        feedback:
+          "Asthma more commonly causes diffuse wheezing and recurrent or trigger-associated symptoms rather than abrupt persistent unilateral findings after choking.",
+      },
+      {
+        text: "Viral pneumonia",
+        correct: false,
+        feedback:
+          "Pneumonia may cause focal findings, but the abrupt onset during eating followed by persistent unilateral wheezing strongly suggests aspiration.",
+      },
+    ],
   },
   {
-    title: "Partial fixed obstruction",
-    description:
-      "Airflow is reduced during both inspiration and expiration. Depending on location, this may produce stridor, persistent wheeze, decreased air entry, or respiratory distress.",
-    accentClass: "border-amber-200 bg-amber-50",
-    titleClass: "text-amber-950",
-    textClass: "text-amber-900",
+    question:
+      "Which examination finding most strongly supports a retained bronchial foreign body?",
+    answers: [
+      {
+        text: "Diffuse bilateral expiratory wheezing",
+        correct: false,
+        feedback:
+          "Diffuse bilateral wheezing is more typical of generalized lower-airway obstruction such as asthma or bronchiolitis.",
+      },
+      {
+        text: "Bilateral inspiratory crackles",
+        correct: false,
+        feedback:
+          "Bilateral crackles suggest a more diffuse pulmonary process rather than focal mechanical airway obstruction.",
+      },
+      {
+        text: "Persistent unilateral wheezing",
+        correct: true,
+        feedback:
+          "Persistent unilateral wheezing is an important clue to focal bronchial obstruction from a retained foreign body.",
+      },
+      {
+        text: "Isolated nasal congestion",
+        correct: false,
+        feedback:
+          "Nasal congestion localizes to the upper respiratory tract and does not suggest focal bronchial obstruction.",
+      },
+    ],
   },
   {
-    title: "Ball-valve obstruction",
-    description:
-      "Air enters around the object during inspiration but cannot escape effectively during expiration, producing distal air trapping and unilateral hyperinflation.",
-    accentClass: "border-sky-200 bg-sky-50",
-    titleClass: "text-sky-950",
-    textClass: "text-sky-900",
+    question:
+      "A bronchial foreign body permits airflow into the distal lung during inspiration but limits airflow during expiration. What physiologic pattern results?",
+    answers: [
+      {
+        text: "Air trapping and hyperinflation",
+        correct: true,
+        feedback:
+          "This ball-valve mechanism allows air to enter more easily than it exits, producing progressive distal air trapping and hyperinflation.",
+      },
+      {
+        text: "Immediate bilateral atelectasis",
+        correct: false,
+        feedback:
+          "A ball-valve obstruction preferentially produces distal air trapping rather than immediate bilateral loss of lung volume.",
+      },
+      {
+        text: "Pulmonary edema",
+        correct: false,
+        feedback:
+          "Pulmonary edema is not the expected physiologic consequence of a focal ball-valve bronchial obstruction.",
+      },
+      {
+        text: "Diffuse bronchospasm",
+        correct: false,
+        feedback:
+          "The primary problem is mechanical obstruction of a focal airway rather than generalized bronchial smooth-muscle constriction.",
+      },
+    ],
   },
   {
-    title: "Delayed distal disease",
-    description:
-      "A retained foreign body causes mucosal edema, impaired secretion clearance, granulation tissue, atelectasis, recurrent pneumonia, or bronchiectasis.",
-    accentClass: "border-purple-200 bg-purple-50",
-    titleClass: "text-purple-950",
-    textClass: "text-purple-900",
+    question:
+      "A child has a convincing choking history and persistent unilateral wheezing, but the chest radiograph is normal. What is the most appropriate interpretation?",
+    answers: [
+      {
+        text: "Foreign body aspiration has been excluded",
+        correct: false,
+        feedback:
+          "A normal chest radiograph cannot reliably exclude foreign body aspiration because many aspirated objects are radiolucent.",
+      },
+      {
+        text: "The child most likely has asthma",
+        correct: false,
+        feedback:
+          "A convincing choking history with persistent focal findings remains concerning for aspiration despite normal radiographs.",
+      },
+      {
+        text: "Further evaluation for a retained foreign body is still warranted",
+        correct: true,
+        feedback:
+          "Clinical suspicion should drive further airway evaluation when the history and examination remain concerning despite normal radiographs.",
+      },
+      {
+        text: "No additional evaluation is needed if oxygen saturation is normal",
+        correct: false,
+        feedback:
+          "A child with a retained bronchial foreign body may maintain normal oxygen saturation and appear relatively well.",
+      },
+    ],
+  },
+  {
+    question:
+      "Which chest radiograph finding is most characteristic of a ball-valve bronchial obstruction?",
+    answers: [
+      {
+        text: "Unilateral hyperinflation",
+        correct: true,
+        feedback:
+          "Partial expiratory obstruction can trap air distal to the foreign body, producing unilateral hyperinflation.",
+      },
+      {
+        text: "Diffuse bilateral interstitial opacities",
+        correct: false,
+        feedback:
+          "Diffuse bilateral interstitial disease does not fit a focal ball-valve bronchial obstruction.",
+      },
+      {
+        text: "Bilateral pleural effusions",
+        correct: false,
+        feedback:
+          "Pleural effusions are not a typical consequence of an aspirated bronchial foreign body.",
+      },
+      {
+        text: "Cardiomegaly",
+        correct: false,
+        feedback:
+          "Cardiac enlargement is unrelated to the focal airway mechanics produced by foreign body aspiration.",
+      },
+    ],
+  },
+  {
+    question:
+      "A child has recurrent pneumonia involving the same right lower-lobe region despite appropriate treatment. Which diagnosis should be considered?",
+    answers: [
+      {
+        text: "Retained airway foreign body",
+        correct: true,
+        feedback:
+          "A missed foreign body can impair secretion clearance and produce recurrent post-obstructive infection in the same region.",
+      },
+      {
+        text: "Recurrent viral bronchiolitis",
+        correct: false,
+        feedback:
+          "Bronchiolitis is generally a diffuse viral small-airway process and would not typically produce recurrent pneumonia in the same focal location.",
+      },
+      {
+        text: "Seasonal allergic rhinitis",
+        correct: false,
+        feedback:
+          "Allergic rhinitis does not explain recurrent focal lower-airway infection.",
+      },
+      {
+        text: "Acute viral laryngitis",
+        correct: false,
+        feedback:
+          "Laryngitis affects the upper airway and does not explain recurrent pneumonia in one pulmonary region.",
+      },
+    ],
+  },
+  {
+    question:
+      "Which procedure provides definitive evaluation and removal of a suspected retained tracheobronchial foreign body?",
+    answers: [
+      {
+        text: "Flexible nasolaryngoscopy",
+        correct: false,
+        feedback:
+          "Nasolaryngoscopy evaluates the upper airway but does not provide definitive evaluation and extraction of a retained bronchial foreign body.",
+      },
+      {
+        text: "Bronchoscopy",
+        correct: true,
+        feedback:
+          "Bronchoscopy directly visualizes the tracheobronchial tree and permits removal of the retained foreign body.",
+      },
+      {
+        text: "Repeat chest radiography",
+        correct: false,
+        feedback:
+          "Radiography may demonstrate indirect evidence of obstruction but cannot directly evaluate and remove the object.",
+      },
+      {
+        text: "Nebulized bronchodilator therapy",
+        correct: false,
+        feedback:
+          "Bronchodilators do not remove a mechanical airway obstruction caused by a retained foreign body.",
+      },
+    ],
+  },
+  {
+    question:
+      "Which statement about the location of aspirated foreign bodies in young children is most accurate?",
+    answers: [
+      {
+        text: "They almost always enter the right mainstem bronchus",
+        correct: false,
+        feedback:
+          "The right-sided predominance seen in adults should not be assumed in young children.",
+      },
+      {
+        text: "They almost always enter the left mainstem bronchus",
+        correct: false,
+        feedback:
+          "Young children may aspirate objects into either mainstem bronchus.",
+      },
+      {
+        text: "They may lodge in either mainstem bronchus",
+        correct: true,
+        feedback:
+          "Differences between the right and left mainstem bronchial angles are less pronounced in young children, so either side may be involved.",
+      },
+      {
+        text: "They remain above the larynx in nearly all cases",
+        correct: false,
+        feedback:
+          "Foreign body aspiration specifically includes objects that pass through the larynx and enter the tracheobronchial tree.",
+      },
+    ],
   },
 ];
 
-const differential = [
+const references = [
   {
-    diagnosis: "Esophageal foreign body",
-    clue: "Drooling, dysphagia, odynophagia, feeding refusal, vomiting, or retrosternal discomfort suggest ingestion. A large esophageal object can still cause cough, stridor, or respiratory symptoms through posterior tracheal compression.",
+    title:
+      "Foreign Bodies of the Ear, Nose, Airway, and Esophagus — Pediatric Care Online",
+    description:
+      "American Academy of Pediatrics review covering the presentation, evaluation, and management of pediatric airway and esophageal foreign bodies.",
+    href: "https://publications.aap.org/pediatriccare/article-abstract/doi/10.1542/aap.ppcqr.396161/197872/Foreign-Bodies-of-the-Ear-Nose-Airway-and",
   },
   {
-    diagnosis: "Asthma",
-    clue: "Asthma usually causes recurrent or diffuse wheezing and improves with bronchodilator therapy. Sudden onset, a witnessed choking event, or persistent focal wheeze argues against uncomplicated asthma.",
+    title:
+      "Airway foreign bodies: A critical review for a common pediatric emergency",
+    description:
+      "Clinical review of pediatric airway foreign body presentation, diagnostic evaluation, bronchoscopy, and complications of delayed diagnosis.",
+    href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4786499/",
   },
   {
-    diagnosis: "Bronchiolitis",
-    clue: "A viral prodrome followed by diffuse bilateral wheezing or crackles is more typical. Abrupt onset and asymmetric breath sounds should raise concern for an aspirated object.",
+    title:
+      "Diagnostic Value of Chest Computed Tomography Scan for Identification of Foreign Body Aspiration in Children",
+    description:
+      "Systematic review and meta-analysis evaluating the diagnostic performance of chest CT for suspected pediatric foreign body aspiration.",
+    href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11417639/",
   },
   {
-    diagnosis: "Pneumonia",
-    clue: "Fever, focal crackles, hypoxemia, and an acute infectious course support pneumonia. Recurrent pneumonia in the same lobe may be the delayed presentation of a retained foreign body.",
-  },
-  {
-    diagnosis: "Croup or upper-airway infection",
-    clue: "Barking cough, hoarseness, and viral symptoms suggest croup. Abrupt stridor while eating or playing with a small object should prompt concern for a laryngeal or tracheal foreign body.",
-  },
-  {
-    diagnosis: "Anaphylaxis",
-    clue: "Rapid respiratory symptoms accompanied by urticaria, angioedema, vomiting, hypotension, or multisystem involvement suggest anaphylaxis rather than mechanical obstruction.",
+    title:
+      "Imaging of ingested and aspirated foreign bodies in the paediatric population",
+    description:
+      "Pediatric radiology review describing radiographic evaluation, additional views, and advanced imaging of aspirated and ingested foreign bodies.",
+    href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11638315/",
   },
 ];
-
-const quizAnswers = [
-  "A normal chest radiograph excludes an aspirated foreign body",
-  "Begin repeated albuterol treatments and discharge if oxygenation remains normal",
-  "Maintain a high suspicion for bronchial foreign body and obtain urgent specialty evaluation for bronchoscopy",
-  "Encourage oral intake to determine whether the object is in the esophagus",
-];
-
-const correctAnswer =
-  "Maintain a high suspicion for bronchial foreign body and obtain urgent specialty evaluation for bronchoscopy";
-
-function getIncorrectFeedback(answer: string) {
-  if (
-    answer === "A normal chest radiograph excludes an aspirated foreign body"
-  ) {
-    return "Many aspirated objects are radiolucent, and chest radiographs can be normal. A concerning choking history with persistent focal findings should not be dismissed because imaging is unrevealing.";
-  }
-
-  if (
-    answer ===
-    "Begin repeated albuterol treatments and discharge if oxygenation remains normal"
-  ) {
-    return "Bronchodilator-responsive diffuse wheezing supports asthma, but sudden onset after choking with unilateral findings strongly suggests a retained foreign body. Normal oxygen saturation does not make discharge safe.";
-  }
-
-  if (
-    answer ===
-    "Encourage oral intake to determine whether the object is in the esophagus"
-  ) {
-    return "A child with suspected aspiration or a potentially urgent ingestion should generally remain NPO while the location and need for procedural removal are determined.";
-  }
-
-  return "";
-}
 
 export default function ForeignBodyAspirationPage() {
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-
   const [showAirwayAnnotations, setShowAirwayAnnotations] = useState(false);
   const [showCoinAnnotations, setShowCoinAnnotations] = useState(false);
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 to-white px-6 py-14">
+      {/* =================================================
+    HERO
+================================================== */}
+
+      <header className="border-b border-sky-100 bg-gradient-to-b from-sky-100 via-sky-50/70 to-white px-6 py-12">
         <div className="mx-auto max-w-6xl">
-          <nav className="flex flex-wrap gap-3 text-sm font-semibold">
+          {/* Breadcrumb */}
+          <div className="flex flex-wrap items-center gap-3 text-sm font-medium">
             <Link href="/" className="text-blue-800 hover:text-blue-600">
               PediAtlas
             </Link>
@@ -137,12 +344,13 @@ export default function ForeignBodyAspirationPage() {
             <span className="text-slate-400">/</span>
 
             <span className="text-slate-600">Foreign Body Aspiration</span>
-          </nav>
+          </div>
 
-          <div className="mt-9 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+          {/* Hero content */}
+          <div className="mt-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-700">
-                Mechanical airway obstruction
+                Trachea &amp; Bronchi
               </p>
 
               <h1 className="mt-3 text-5xl font-bold tracking-tight text-blue-950 md:text-6xl">
@@ -150,34 +358,40 @@ export default function ForeignBodyAspirationPage() {
               </h1>
 
               <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-                Entry of food or another object into the larynx, trachea, or
-                bronchial tree can cause complete obstruction, focal air
-                trapping, atelectasis, or delayed recurrent pulmonary disease. A
-                child may appear well after the initial choking event despite a
-                retained airway foreign body.
+                Aspiration of food or another object into the tracheobronchial
+                tree can cause focal airway obstruction, air trapping,
+                atelectasis, or delayed recurrent pulmonary disease. The initial
+                choking episode may resolve even though the foreign body remains
+                in the lower airway.
               </p>
 
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <span className="rounded-full bg-sky-100 px-4 py-2 text-sm font-semibold text-sky-800">
-                  Sudden choking
+                  Lower Airway
                 </span>
 
                 <span className="rounded-full bg-purple-100 px-4 py-2 text-sm font-semibold text-purple-800">
-                  Focal airway findings
+                  Foreign Body Aspiration
+                </span>
+
+                <span className="rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-800">
+                  Focal Airway Obstruction
                 </span>
 
                 <span className="rounded-full bg-rose-100 px-4 py-2 text-sm font-semibold text-rose-800">
-                  Bronchoscopy may be urgent
+                  Bronchoscopy
                 </span>
               </div>
             </div>
 
-            <div className="text-8xl" aria-hidden="true">
-              🪙🫁🥜
+            <div className="text-7xl" aria-hidden="true">
+              🫁
             </div>
           </div>
         </div>
       </header>
+
+      <MobileSectionNav sections={sections} />
 
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-14 lg:grid-cols-[220px_1fr]">
         <aside className="h-fit rounded-3xl border border-slate-200 bg-white p-5 shadow-sm lg:sticky lg:top-6">
@@ -186,33 +400,36 @@ export default function ForeignBodyAspirationPage() {
           </p>
 
           <nav className="mt-4 flex flex-col gap-3 text-sm font-semibold text-blue-800">
-            <a href="#vignette">Clinical vignette</a>
-            <a href="#localization">Anatomy &amp; localization</a>
-            <a href="#pathophysiology">Pathophysiology</a>
-            <a href="#assessment">History and exam</a>
-            <a href="#differential">Differential</a>
-            <a href="#workup">Diagnostic workup</a>
-            <a href="#management">Management</a>
-            <a href="#disposition">Disposition</a>
-            <a href="#pearls">Clinical pearls</a>
-            <a href="#quiz">Quiz</a>
+            {sections.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                className="transition hover:text-blue-600"
+              >
+                {section.label}
+              </a>
+            ))}
           </nav>
         </aside>
 
         <div className="space-y-8">
+          {/* =================================================
+    CLINICAL VIGNETTE
+================================================== */}
+
           <section
             id="vignette"
-            className="rounded-3xl border border-blue-200 bg-blue-950 p-8 text-white shadow-sm"
+            className="rounded-3xl border border-blue-800 bg-blue-950 p-8 text-white shadow-sm md:p-10"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-300">
-              Clinical vignette
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-sky-300">
+              Clinical Vignette
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold">
-              A toddler with sudden choking and unilateral wheezing
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+              A toddler with persistent wheezing after a choking episode
             </h2>
 
-            <p className="mt-5 text-lg leading-8 text-blue-50">
+            <p className="mt-6 text-lg leading-8 text-blue-50">
               A previously healthy 22-month-old boy is brought to the emergency
               department after suddenly coughing and choking while eating
               peanuts. His parents report that he briefly became cyanotic but
@@ -222,347 +439,401 @@ export default function ForeignBodyAspirationPage() {
               Oxygen saturation is 97% on room air.
             </p>
 
-            <div className="mt-7 rounded-2xl bg-white/10 p-5">
+            <div className="mt-7 rounded-2xl bg-white/10 p-5 md:p-6">
               <p className="font-semibold text-sky-200">
-                Your first clinical task
+                What should you decide first?
               </p>
 
               <p className="mt-2 leading-7 text-blue-50">
-                Determine whether the object entered the airway or the
-                esophagus, assess for current airway compromise, and recognize
-                that normal oxygenation does not exclude a retained bronchial
-                foreign body.
+                Determine whether the choking episode resulted in a retained
+                lower-airway foreign body and whether the child requires further
+                diagnostic evaluation and bronchoscopic removal.
               </p>
             </div>
           </section>
 
-          <section
+          {/* =================================================
+    ANATOMY & LOCALIZATION
+================================================== */}
+
+          <DiseaseSection
             id="localization"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Anatomy & Localization"
+            title="Airway or esophagus?"
+            description="After passing through the oropharynx, an object may enter the respiratory tract or pass posteriorly into the esophagus. For an aspirated foreign body that passes below the larynx, the level of tracheobronchial impaction helps determine the clinical pattern."
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Anatomy &amp; localization
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">Airway or esophagus?</h2>
-
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              After passing through the oropharynx, an object may enter the
-              anterior laryngeal inlet and tracheobronchial tree or pass
-              posteriorly into the esophagus. Symptoms depend on both the
-              pathway taken and the level at which the object becomes lodged.
-            </p>
+            {/* Existing figure — intentionally preserved */}
             <Image
               src="/images/aspiration-ingestion-pthwy.png"
               alt="Comparison of airway aspiration versus esophageal ingestion showing the aspiration pathway into the tracheobronchial tree and the ingestion pathway into the esophagus."
               width={1600}
               height={900}
-              className="mt-8 h-auto w-full rounded-2xl border border-slate-200 shadow-sm"
+              className="h-auto w-full rounded-2xl border border-slate-200 shadow-sm"
               unoptimized
             />
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
-                  Airway aspiration
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <InfoCard title="Airway aspiration" tone="blue">
+                <p className="font-semibold text-blue-950">
+                  Think cough, wheeze, and focal respiratory findings
                 </p>
 
-                <h3 className="mt-2 text-2xl font-bold text-blue-950">
-                  Think cough, wheeze, or stridor
-                </h3>
-
-                <ul className="mt-5 space-y-3 leading-7 text-blue-900">
-                  <li>• Sudden choking or coughing</li>
-                  <li>• Inability to speak or cry with complete obstruction</li>
-                  <li>• Stridor or voice change with upper-airway impaction</li>
-                  <li>• Unilateral wheeze or decreased breath sounds</li>
-                  <li>• Persistent cough after the child appears to recover</li>
+                <ul className="mt-3 space-y-2">
+                  <li>• Sudden choking or coughing event</li>
+                  <li>• Persistent cough after apparent recovery</li>
+                  <li>• Unilateral or focal wheezing</li>
+                  <li>• Asymmetric or decreased breath sounds</li>
+                  <li>• Focal air trapping or atelectasis</li>
                   <li>• Recurrent focal pneumonia with delayed diagnosis</li>
                 </ul>
-              </div>
+              </InfoCard>
 
-              <div className="rounded-2xl border border-purple-200 bg-purple-50 p-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-700">
-                  Esophageal ingestion
+              <InfoCard title="Esophageal ingestion" tone="purple">
+                <p className="font-semibold text-purple-950">
+                  Think drooling, dysphagia, and feeding refusal
                 </p>
 
-                <h3 className="mt-2 text-2xl font-bold text-purple-950">
-                  Think drooling, dysphagia, or feeding refusal
-                </h3>
-
-                <ul className="mt-5 space-y-3 leading-7 text-purple-900">
+                <ul className="mt-3 space-y-2">
                   <li>• Drooling or inability to manage secretions</li>
                   <li>• Dysphagia or odynophagia</li>
                   <li>• Gagging, vomiting, or feeding refusal</li>
                   <li>• Retrosternal or neck discomfort</li>
                   <li>• Object visible within the esophagus on imaging</li>
                   <li>
-                    • Possible respiratory symptoms from posterior tracheal
-                    compression
+                    • Respiratory symptoms may occur from tracheal compression
                   </li>
                 </ul>
-              </div>
+              </InfoCard>
             </div>
 
-            <div className="mt-7 rounded-2xl border border-amber-200 bg-amber-50 p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
-                Localization within the airway
+            <div>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-amber-700">
+                Localization within the lower airway
               </p>
 
-              <div className="mt-5 grid gap-4">
-                {[
-                  {
-                    region: "Larynx or subglottis",
-                    findings:
-                      "Stridor, hoarseness, aphonia, severe distress, or complete airway obstruction.",
-                  },
-                  {
-                    region: "Trachea",
-                    findings:
-                      "Cough, biphasic noisy breathing, variable wheeze, or an object that may move with changes in position.",
-                  },
-                  {
-                    region: "Mainstem bronchus",
-                    findings:
-                      "Unilateral wheeze, asymmetric breath sounds, focal air trapping, or atelectasis.",
-                  },
-                  {
-                    region: "Distal bronchus",
-                    findings:
-                      "Subtle focal findings, persistent cough, segmental atelectasis, or recurrent pneumonia in the same location.",
-                  },
-                ].map((item) => (
-                  <div
-                    key={item.region}
-                    className="grid gap-2 rounded-2xl border border-amber-100 bg-white p-5 md:grid-cols-[190px_1fr]"
-                  >
-                    <h4 className="font-bold text-amber-950">{item.region}</h4>
-
-                    <p className="leading-7 text-slate-700">{item.findings}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-7 rounded-2xl bg-slate-950 p-6 text-white">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
-                Pediatric anatomy pearl
-              </p>
-
-              <p className="mt-3 leading-7 text-slate-200">
-                Do not assume every pediatric foreign body enters the right
-                mainstem bronchus. Unlike adults, young children have less
-                pronounced differences between the right and left mainstem
-                bronchial angles, so either side may be involved.
-              </p>
-            </div>
-          </section>
-
-          <section
-            id="pathophysiology"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
-          >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Pathophysiology
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              The object changes airflow and obstructs secretion clearance
-            </h2>
-
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              The physiologic consequences depend on the object&apos;s size,
-              shape, location, duration, and whether air can pass around it
-              during inspiration or expiration.
-            </p>
-
-            <div className="mt-8 grid gap-5 md:grid-cols-2">
-              {obstructionPatterns.map((pattern) => (
-                <div
-                  key={pattern.title}
-                  className={`rounded-2xl border p-6 ${pattern.accentClass}`}
-                >
-                  <h3 className={`text-xl font-bold ${pattern.titleClass}`}>
-                    {pattern.title}
-                  </h3>
-
-                  <p className={`mt-3 leading-7 ${pattern.textClass}`}>
-                    {pattern.description}
+              <div className="grid gap-5 md:grid-cols-3">
+                <InfoCard title="Trachea" tone="amber">
+                  <p>
+                    Cough, noisy breathing, variable wheeze, or symptoms that
+                    change as the object moves within the trachea.
                   </p>
-                </div>
-              ))}
-            </div>
+                </InfoCard>
 
-            <div className="mt-7 rounded-2xl border border-rose-200 bg-rose-50 p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-rose-700">
-                Deceptive improvement
-              </p>
+                <InfoCard title="Mainstem bronchus" tone="amber">
+                  <p>
+                    Unilateral wheeze, asymmetric breath sounds, focal air
+                    trapping, or atelectasis.
+                  </p>
+                </InfoCard>
 
-              <p className="mt-3 leading-7 text-rose-900">
-                The dramatic choking episode may stop once the object moves
-                distally. This apparent recovery does not confirm expulsion—the
-                child may enter a quieter interval despite persistent bronchial
-                obstruction.
-              </p>
-            </div>
-          </section>
-
-          <section
-            id="assessment"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
-          >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              History and physical exam
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Ask specifically about the moment symptoms began
-            </h2>
-
-            <div className="mt-7 grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl bg-slate-50 p-6">
-                <h3 className="text-xl font-bold">History</h3>
-
-                <ul className="mt-4 space-y-3 leading-7 text-slate-600">
-                  <li>• Sudden coughing, choking, gagging, or cyanosis</li>
-                  <li>• Eating or playing with small objects at onset</li>
-                  <li>• Witnessed versus unwitnessed event</li>
-                  <li>• Type, size, shape, and number of possible objects</li>
-                  <li>• Persistent cough, wheeze, stridor, or voice change</li>
-                  <li>• Drooling, dysphagia, vomiting, or feeding refusal</li>
-                  <li>• Fever or recurrent focal pneumonia</li>
-                  <li>• Response—or lack of response—to asthma therapy</li>
-                </ul>
+                <InfoCard title="Distal bronchus" tone="amber">
+                  <p>
+                    Subtle focal findings, persistent cough, segmental
+                    atelectasis, or recurrent pneumonia involving the same
+                    region.
+                  </p>
+                </InfoCard>
               </div>
+            </div>
 
-              <div className="rounded-2xl bg-slate-50 p-6">
-                <h3 className="text-xl font-bold">Physical exam</h3>
+            <Callout
+              tone="purple"
+              label="Pediatric Anatomy Pearl"
+              title="Do not assume the foreign body is on the right"
+            >
+              Young children have less pronounced differences between the right
+              and left mainstem bronchial angles than adults, so an aspirated
+              foreign body may lodge on either side.
+            </Callout>
+          </DiseaseSection>
 
-                <ul className="mt-4 space-y-3 leading-7 text-slate-600">
-                  <li>• Ability to speak, cry, and cough effectively</li>
-                  <li>• Mental status, color, and oxygen saturation</li>
-                  <li>• Stridor or altered voice</li>
-                  <li>• Respiratory rate and work of breathing</li>
-                  <li>• Unilateral wheeze or asymmetric air entry</li>
-                  <li>• Focal crackles or signs of atelectasis</li>
-                  <li>• Drooling and ability to manage secretions</li>
+          {/* =================================================
+    PATHOPHYSIOLOGY
+================================================== */}
+
+          <DiseaseSection
+            id="pathophysiology"
+            label="Pathophysiology"
+            title="A retained foreign body changes ventilation distal to the obstruction"
+            description="The physiologic effect depends on how completely the object obstructs the airway and whether air can move around it during inspiration, expiration, or both."
+          >
+            <div className="grid gap-5 md:grid-cols-2">
+              <ProcessStep
+                number="1"
+                title="The foreign body lodges"
+                description="After passing through the larynx, the object may become lodged within the trachea, mainstem bronchus, or a more distal bronchus."
+              />
+
+              <ProcessStep
+                number="2"
+                title="Airflow becomes mechanically obstructed"
+                description="The degree and behavior of the obstruction depend on the object's size, shape, position, and interaction with the airway wall."
+              />
+
+              <ProcessStep
+                number="3"
+                title="Distal ventilation becomes abnormal"
+                description="Ventilation beyond the obstruction becomes asymmetric, producing focal physiologic and examination findings."
+              />
+
+              <ProcessStep
+                number="4"
+                title="Retained objects cause delayed disease"
+                description="Persistent obstruction can impair secretion clearance and produce local inflammation, post-obstructive infection, recurrent pneumonia, or chronic airway injury when diagnosis is delayed."
+              />
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <InfoCard title="Ball-valve obstruction" tone="amber">
+                <p>
+                  Air enters around the object more easily during inspiration
+                  than it escapes during expiration, progressively trapping air
+                  distal to the obstruction.
+                </p>
+
+                <p className="mt-3 font-semibold">
+                  Imaging clue: unilateral hyperinflation or air trapping.
+                </p>
+              </InfoCard>
+
+              <InfoCard
+                title="Fixed or near-complete obstruction"
+                tone="purple"
+              >
+                <p>
+                  When airflow past the object is markedly limited in both
+                  directions, ventilation distal to the obstruction falls and
+                  the affected lung segment may lose volume.
+                </p>
+
+                <p className="mt-3 font-semibold">
+                  Imaging clue: segmental or lobar atelectasis.
+                </p>
+              </InfoCard>
+            </div>
+
+            <Callout
+              tone="amber"
+              label="Clinical Pearl"
+              title="The child may look better while the obstruction remains"
+            >
+              The initial choking and coughing may improve after the foreign
+              body moves distally. Persistent focal wheeze, asymmetric breath
+              sounds, air trapping, atelectasis, or recurrent focal infection
+              may be the remaining clues to a retained tracheobronchial foreign
+              body.
+            </Callout>
+          </DiseaseSection>
+
+          {/* =================================================
+    HISTORY & PHYSICAL
+================================================== */}
+
+          <DiseaseSection
+            id="history-physical"
+            label="History & Physical"
+            title="The choking episode may be over by the time you examine the child"
+            description="Foreign body aspiration should remain high on the differential when an abrupt choking or coughing event is followed by persistent focal respiratory symptoms, even if the child initially appears to recover."
+          >
+            <div className="grid gap-5 md:grid-cols-2">
+              <InfoCard title="History clues" tone="blue">
+                <ul className="space-y-2">
+                  <li>• Sudden choking, coughing, or gagging event</li>
                   <li>
-                    • Signs of exhaustion or impending respiratory failure
+                    • Symptoms beginning while eating or playing with a small
+                    object
+                  </li>
+                  <li>
+                    • Brief cyanosis or respiratory distress during the initial
+                    event
+                  </li>
+                  <li>• Persistent cough after apparent recovery</li>
+                  <li>
+                    • New wheezing without a prior history of recurrent wheeze
+                  </li>
+                  <li>• Recurrent pneumonia involving the same region</li>
+                  <li>
+                    • A choking event may be unwitnessed or not initially
+                    recalled
                   </li>
                 </ul>
-              </div>
+              </InfoCard>
+
+              <InfoCard title="Physical examination" tone="purple">
+                <ul className="space-y-2">
+                  <li>• Focal or unilateral wheezing</li>
+                  <li>• Asymmetric or decreased breath sounds</li>
+                  <li>• Localized crackles</li>
+                  <li>• Tachypnea or increased work of breathing</li>
+                  <li>• Unequal chest expansion</li>
+                  <li>
+                    • Examination may be subtle when obstruction is incomplete
+                  </li>
+                  <li>
+                    • Normal oxygen saturation does not exclude a retained
+                    foreign body
+                  </li>
+                </ul>
+              </InfoCard>
             </div>
 
-            <div className="mt-7 rounded-2xl border border-amber-200 bg-amber-50 p-6">
-              <h3 className="text-xl font-bold text-amber-950">
-                The examination may be normal
-              </h3>
+            <Callout
+              tone="amber"
+              label="High-Yield Pattern"
+              title="Sudden onset + persistent unilateral findings = foreign body until evaluated"
+            >
+              A previously well child who develops abrupt coughing or choking
+              followed by persistent focal wheeze or asymmetric breath sounds
+              has a classic pattern for retained tracheobronchial foreign body
+              aspiration. The initial choking episode may resolve even though
+              the object remains.
+            </Callout>
 
-              <p className="mt-3 leading-7 text-amber-900">
-                Children with a retained foreign body may appear comfortable
-                between episodes and may have normal oxygen saturation, no
-                audible wheeze, or subtle findings. Clinical suspicion must
-                incorporate the history rather than relying on one reassuring
-                examination.
-              </p>
-            </div>
-          </section>
+            <Callout
+              tone="purple"
+              label="Delayed Presentation"
+              title="Not every aspiration presents immediately"
+            >
+              When the initial event is unwitnessed or forgotten, children may
+              present later with persistent cough, treatment-resistant wheezing,
+              atelectasis, or recurrent pneumonia involving the same region.
+            </Callout>
+          </DiseaseSection>
 
-          <section
+          {/* =================================================
+    DIFFERENTIAL DIAGNOSIS
+================================================== */}
+
+          <DiseaseSection
             id="differential"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Differential Diagnosis"
+            title="Persistent wheezing is not always asthma"
+            description="Age, abrupt symptom onset, choking history, and focal examination findings help distinguish foreign body aspiration from more common respiratory illnesses."
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Differential diagnosis
-            </p>
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              <InfoCard title="Asthma" tone="blue">
+                Recurrent or episodic wheezing is usually more diffuse and often
+                occurs with a prior history of similar episodes, triggers, or
+                atopy. Persistent unilateral findings should prompt
+                consideration of another diagnosis.
+              </InfoCard>
 
-            <h2 className="mt-2 text-3xl font-bold">
-              Sudden focal symptoms are the strongest clue
-            </h2>
+              <InfoCard title="Bronchiolitis" tone="blue">
+                Typically occurs in infants with a viral prodrome followed by
+                diffuse crackles, wheezing, and increased work of breathing
+                rather than abrupt focal findings after choking.
+              </InfoCard>
 
-            <div className="mt-7 overflow-hidden rounded-2xl border border-slate-200">
-              {differential.map((item) => (
-                <div
-                  key={item.diagnosis}
-                  className="grid gap-2 border-b border-slate-200 p-5 last:border-b-0 md:grid-cols-[220px_1fr]"
-                >
-                  <p className="font-bold">{item.diagnosis}</p>
+              <InfoCard title="Pneumonia" tone="amber">
+                Fever, infectious symptoms, focal crackles, or consolidation may
+                suggest pneumonia, but recurrent pneumonia in the same location
+                can be a clue to an underlying retained foreign body.
+              </InfoCard>
 
-                  <p className="leading-7 text-slate-600">{item.clue}</p>
-                </div>
-              ))}
+              <InfoCard title="Mucus plugging" tone="amber">
+                Airway obstruction from secretions may produce focal atelectasis
+                or asymmetric breath sounds, particularly in children with
+                impaired airway clearance or underlying pulmonary disease.
+              </InfoCard>
+
+              <InfoCard title="Airway malacia" tone="purple">
+                Tracheomalacia or bronchomalacia may cause recurrent or
+                persistent noisy breathing and wheezing, but symptoms are
+                generally not linked to a sudden choking event.
+              </InfoCard>
+
+              <InfoCard title="Extrinsic airway compression" tone="purple">
+                Vascular or mediastinal structures can compress the airway and
+                produce persistent focal respiratory symptoms, usually without
+                an abrupt choking history.
+              </InfoCard>
             </div>
-          </section>
 
-          <section
+            <Callout
+              tone="amber"
+              label="Diagnostic Clue"
+              title="Focality matters"
+            >
+              Wheezing that remains localized to one lung or one region is less
+              typical of diffuse small-airway diseases such as asthma or
+              bronchiolitis. When focal findings follow a sudden choking event,
+              foreign body aspiration should move high on the differential.
+            </Callout>
+          </DiseaseSection>
+
+          {/* =================================================
+    DIAGNOSTIC WORKUP
+================================================== */}
+
+          <DiseaseSection
             id="workup"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Diagnostic Workup"
+            title="Normal imaging does not exclude aspiration"
+            description="Evaluation begins with the clinical history and examination. Imaging can support the diagnosis and localize secondary effects of obstruction, but a normal study cannot reliably exclude a retained tracheobronchial foreign body."
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Diagnostic workup
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Normal imaging does not exclude aspiration
-            </h2>
-
-            <div className="mt-7 grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
-                <h3 className="text-xl font-bold text-blue-950">
-                  Standard radiographs
-                </h3>
-
-                <p className="mt-3 leading-7 text-blue-900">
-                  Obtain 2-view chest radiographs when the child is stable.
-                  Imaging may directly show a radiopaque object or indirectly
-                  demonstrate unilateral hyperinflation, mediastinal shift,
-                  atelectasis, consolidation, or pneumothorax.
+            <div className="grid gap-5 md:grid-cols-2">
+              <InfoCard title="Chest radiographs" tone="blue">
+                <p>
+                  Obtain frontal and lateral chest radiographs in a stable child
+                  with suspected foreign body aspiration. The foreign body may
+                  be directly visible if radiopaque, but many aspirated objects
+                  are radiolucent.
                 </p>
-              </div>
 
-              <div className="rounded-2xl border border-purple-200 bg-purple-50 p-6">
-                <h3 className="text-xl font-bold text-purple-950">
-                  Additional imaging in selected patients
-                </h3>
-
-                <p className="mt-3 leading-7 text-purple-900">
-                  Standard frontal and lateral chest radiographs remain the
-                  initial imaging study for suspected foreign body aspiration.
-                  Inspiratory-expiratory or lateral decubitus views have
-                  historically been used to demonstrate unilateral air trapping,
-                  but their diagnostic performance is limited and they are no
-                  longer routinely recommended in many centers.
+                <p className="mt-3 font-semibold">
+                  Look for unilateral hyperinflation, air trapping, mediastinal
+                  shift, atelectasis, or focal consolidation.
                 </p>
-              </div>
+              </InfoCard>
 
-              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
-                <h3 className="text-xl font-bold text-emerald-950">
-                  Imaging for possible ingestion
-                </h3>
-
-                <p className="mt-3 leading-7 text-emerald-900">
-                  When the pathway or object is uncertain, imaging may need to
-                  include the neck, chest, and abdomen. Coins, button batteries,
-                  magnets, sharp objects, and other high-risk ingestions require
-                  object-specific urgent management.
+              <InfoCard title="Additional radiographic views" tone="purple">
+                <p>
+                  Inspiratory-expiratory radiographs may help demonstrate
+                  unilateral air trapping when standard radiographs are
+                  nondiagnostic. In younger children who cannot cooperate with
+                  expiratory imaging, lateral decubitus views may sometimes be
+                  used.
                 </p>
-              </div>
 
-              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
-                <h3 className="text-xl font-bold text-amber-950">
-                  CT in selected patients
-                </h3>
-
-                <p className="mt-3 leading-7 text-amber-900">
-                  Most aspirated foreign bodies are radiolucent, and normal
-                  chest radiographs do not exclude aspiration. When suspicion
-                  remains high despite unrevealing radiographs, further
-                  evaluation should not be delayed. Depending on institutional
-                  practice and resource availability, patients may proceed
-                  directly to bronchoscopy or undergo low-dose noncontrast chest
-                  CT when the diagnosis remains uncertain.
+                <p className="mt-3">
+                  Their added diagnostic value is variable, so use depends on
+                  patient age, clinical suspicion, and institutional practice.
                 </p>
-              </div>
+              </InfoCard>
+
+              <InfoCard title="CT in selected patients" tone="amber">
+                <p>
+                  When the diagnosis remains uncertain after radiographs,
+                  low-dose noncontrast chest CT may help identify a radiolucent
+                  foreign body or secondary airway changes in selected stable
+                  patients.
+                </p>
+
+                <p className="mt-3 font-semibold">
+                  CT should not delay bronchoscopy when clinical suspicion is
+                  high.
+                </p>
+              </InfoCard>
+
+              <InfoCard title="Bronchoscopy" tone="rose">
+                <p>
+                  Persistent clinical concern warrants airway evaluation even
+                  when radiographs are normal. Bronchoscopy provides direct
+                  visualization of the tracheobronchial tree and allows
+                  foreign-body removal during the same procedure.
+                </p>
+              </InfoCard>
             </div>
+
+            <Callout
+              tone="amber"
+              label="Key Principle"
+              title="A normal chest radiograph does not rule out foreign body aspiration"
+            >
+              Many aspirated foreign bodies are radiolucent. When the history
+              and examination remain concerning, normal radiographs should not
+              provide false reassurance or prevent further airway evaluation.
+            </Callout>
             {/* Imaging Examples */}
 
             <div className="mt-8 rounded-3xl border border-slate-200 bg-slate-50 p-8">
@@ -580,7 +851,9 @@ export default function ForeignBodyAspirationPage() {
 
                 <div>
                   <div className="flex items-center justify-between">
-                    <h4 className="text-xl font-bold">Airway Foreign Body</h4>
+                    <h4 className="text-xl font-bold">
+                      Bronchial Foreign Body: Unilateral Air Trapping
+                    </h4>
 
                     <button
                       onClick={() =>
@@ -642,7 +915,11 @@ export default function ForeignBodyAspirationPage() {
                 <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-2xl font-bold text-blue-950">
+                      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-700">
+                        Comparison
+                      </p>
+
+                      <h3 className="mt-2 text-2xl font-bold text-blue-950">
                         Esophageal Coin
                       </h3>
                       <p className="mt-2 text-slate-600">
@@ -743,333 +1020,211 @@ export default function ForeignBodyAspirationPage() {
                 </div>
               </div>
             </div>
-            <div className="mt-7 rounded-2xl border border-rose-200 bg-rose-50 p-6">
-              <h3 className="text-xl font-bold text-rose-950">
-                Bronchoscopy is the definitive diagnostic test
-              </h3>
+          </DiseaseSection>
 
-              <p className="mt-3 leading-7 text-rose-900">
-                If clinical suspicion remains high, urgent consultation for
-                bronchoscopy is appropriate even when radiographs are normal.
-                Bronchoscopy allows direct airway visualization and removal
-                during the same procedure.
-              </p>
-            </div>
-          </section>
+          {/* =================================================
+    MANAGEMENT
+================================================== */}
 
-          <section
+          <DiseaseSection
             id="management"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Management"
+            title="A suspected retained foreign body requires definitive airway evaluation"
+            description="Once the immediate choking episode has resolved, management focuses on maintaining clinical stability, recognizing when suspicion remains high, and arranging bronchoscopic evaluation and removal."
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Management
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Management depends on whether obstruction is complete
-            </h2>
-
-            <div className="mt-7 grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl border border-rose-200 bg-rose-50 p-6">
-                <h3 className="text-xl font-bold text-rose-950">
-                  Severe active airway obstruction
-                </h3>
-
-                <ul className="mt-4 space-y-3 leading-7 text-rose-900">
-                  <li>• Activate emergency assistance immediately</li>
+            <div className="grid gap-5 md:grid-cols-2">
+              <InfoCard title="Initial management" tone="blue">
+                <ul className="space-y-2">
                   <li>
-                    • Allow coughing when the cough remains strong and effective
+                    • Keep the child calm and minimize unnecessary agitation
                   </li>
                   <li>
-                    • For an infant: cycles of 5 back blows and 5 chest thrusts
-                    (heel-of-hand technique)
+                    • Assess respiratory status and provide oxygen when
+                    indicated
                   </li>
+                  <li>• Maintain appropriate monitoring</li>
                   <li>
-                    • For a child: cycles of 5 back blows and 5 abdominal
-                    thrusts
+                    • Keep the child NPO when bronchoscopy may be required
                   </li>
-                  <li>
-                    • If unresponsive, begin CPR starting with compressions
-                  </li>
-                  <li>• Remove an object only when it is clearly visible</li>
-                  <li>• Do not perform a blind finger sweep</li>
-                </ul>
-              </div>
-
-              <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
-                <h3 className="text-xl font-bold text-blue-950">
-                  Stable suspected retained foreign body
-                </h3>
-
-                <ul className="mt-4 space-y-3 leading-7 text-blue-900">
-                  <li>• Keep the child calm and minimize agitation</li>
-                  <li>• Provide oxygen when indicated</li>
-                  <li>• Maintain continuous clinical observation</li>
-                  <li>• Keep the child NPO</li>
                   <li>• Avoid unnecessary airway manipulation</li>
+                  <li>• Involve the appropriate airway team early</li>
+                </ul>
+              </InfoCard>
+
+              <InfoCard title="When suspicion remains high" tone="amber">
+                <ul className="space-y-2">
+                  <li>• Witnessed or strongly suspected aspiration event</li>
+                  <li>• Persistent focal wheeze or asymmetric breath sounds</li>
+                  <li>• Unilateral air trapping or focal atelectasis</li>
+                  <li>• Persistent symptoms despite normal radiographs</li>
                   <li>
-                    • Obtain appropriate imaging if it will not delay care
-                  </li>
-                  <li>
-                    • Consult the local airway team urgently for bronchoscopy
+                    • Recurrent focal pneumonia without another explanation
                   </li>
                 </ul>
-              </div>
+              </InfoCard>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-purple-200 bg-purple-50 p-6">
-              <h3 className="text-xl font-bold text-purple-950">
-                Definitive removal
-              </h3>
+            <Callout
+              tone="rose"
+              label="Definitive Management"
+              title="Bronchoscopy allows visualization and removal"
+            >
+              A retained tracheobronchial foreign body requires bronchoscopic
+              removal. Rigid bronchoscopy is commonly used because it provides
+              airway control, ventilation, direct visualization, and access for
+              extraction instruments. The procedural team varies by institution
+              and may include otolaryngology, pediatric surgery, pulmonology,
+              and anesthesia.
+            </Callout>
+          </DiseaseSection>
 
-              <p className="mt-3 leading-7 text-purple-900">
-                Rigid bronchoscopy under general anesthesia is commonly used
-                because it provides airway control, ventilation, direct
-                visualization, and access for extraction instruments. The exact
-                procedural team varies by institution and may include
-                otolaryngology, pediatric surgery, pulmonology, and anesthesia.
-              </p>
-            </div>
+          {/* =================================================
+    DISPOSITION
+================================================== */}
 
-            <div className="mt-6 rounded-2xl bg-slate-950 p-6 text-white">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
-                Avoid preventable deterioration
-              </p>
-
-              <p className="mt-3 leading-7 text-slate-200">
-                A partially obstructing object can move and suddenly produce
-                complete obstruction. Do not leave the child unobserved or
-                create unnecessary distress while awaiting definitive
-                evaluation.
-              </p>
-            </div>
-          </section>
-
-          <section
+          <DiseaseSection
             id="disposition"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Disposition"
+            title="Disposition depends on whether a foreign body remains"
+            description="Clinical improvement after the choking episode is not enough to determine disposition. Persistent suspicion for a retained tracheobronchial foreign body requires continued evaluation and appropriate airway consultation."
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Disposition
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold">
-              Suspected airway foreign bodies require definitive planning
-            </h2>
-
-            <div className="mt-8 grid gap-6 lg:grid-cols-3">
-              <div className="rounded-2xl border border-emerald-300 bg-emerald-50 p-6">
-                <h3 className="text-xl font-bold text-emerald-950">
-                  Consider discharge
-                </h3>
-
-                <ul className="mt-5 space-y-4 leading-7 text-emerald-900">
+            <div className="grid gap-5 md:grid-cols-3">
+              <InfoCard title="Discharge" tone="emerald">
+                <ul className="space-y-2">
                   <li>
-                    • Aspiration has been confidently excluded or the object was
-                    completely removed
+                    • Foreign body successfully removed or aspiration excluded
                   </li>
-                  <li>• Stable respiratory status and oxygenation</li>
-                  <li>• No stridor, focal wheeze, or asymmetric air entry</li>
-                  <li>• Able to tolerate appropriate oral intake</li>
-                  <li>• No procedural complication requiring observation</li>
-                  <li>• Clear return precautions and follow-up plan</li>
-                </ul>
-              </div>
-
-              <div className="rounded-2xl border border-amber-300 bg-amber-50 p-6">
-                <h3 className="text-xl font-bold text-amber-950">
-                  Observe or admit
-                </h3>
-
-                <ul className="mt-5 space-y-4 leading-7 text-amber-900">
-                  <li>• Ongoing concern for retained foreign body</li>
-                  <li>• Procedure planned but not immediately performed</li>
-                  <li>• Persistent cough, wheeze, or asymmetric examination</li>
-                  <li>• Oxygen requirement or increased work of breathing</li>
+                  <li>• Breathing comfortably without respiratory distress</li>
+                  <li>• Normal or reassuring respiratory examination</li>
+                  <li>• No persistent hypoxemia</li>
+                  <li>• No concerning post-procedural complication</li>
                   <li>
-                    • Atelectasis, pneumonia, or other pulmonary complication
+                    • Appropriate follow-up and return precautions arranged
                   </li>
-                  <li>• Post-bronchoscopy monitoring is indicated</li>
                 </ul>
-              </div>
+              </InfoCard>
 
-              <div className="rounded-2xl border border-rose-300 bg-rose-50 p-6">
-                <h3 className="text-xl font-bold text-rose-950">
-                  Escalate immediately
-                </h3>
-
-                <ul className="mt-5 space-y-4 leading-7 text-rose-900">
-                  <li>• Complete or rapidly worsening airway obstruction</li>
-                  <li>• Altered mental status or exhaustion</li>
-                  <li>• Severe hypoxemia or cyanosis</li>
-                  <li>• Marked stridor or minimal air movement</li>
-                  <li>• Increasing respiratory support</li>
-                  <li>• Hemodynamic instability or cardiac arrest</li>
+              <InfoCard title="Observe & reassess" tone="amber">
+                <ul className="space-y-2">
+                  <li>• Persistent cough or wheeze after the choking event</li>
+                  <li>• Focal or asymmetric respiratory findings</li>
+                  <li>• Abnormal chest imaging</li>
+                  <li>• Uncertainty that the foreign body was expelled</li>
+                  <li>• Requires further diagnostic or specialty evaluation</li>
+                  <li>
+                    • Monitoring after bronchoscopic removal when indicated
+                  </li>
                 </ul>
-              </div>
+              </InfoCard>
+
+              <InfoCard title="Escalate care" tone="rose">
+                <ul className="space-y-2">
+                  <li>• Respiratory distress or hypoxemia</li>
+                  <li>• Worsening or unstable airway symptoms</li>
+                  <li>• Suspected retained tracheobronchial foreign body</li>
+                  <li>• Requires urgent bronchoscopy or operative removal</li>
+                  <li>
+                    • Significant atelectasis or post-obstructive infection
+                  </li>
+                  <li>• Complication following foreign-body removal</li>
+                </ul>
+              </InfoCard>
             </div>
 
-            <div className="mt-7 rounded-2xl border border-blue-200 bg-blue-50 p-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
-                After removal
-              </p>
+            <Callout
+              tone="amber"
+              label="Disposition Pearl"
+              title="Normal oxygen saturation does not equal a safe discharge"
+            >
+              A child with a retained bronchial foreign body may appear
+              comfortable and maintain normal oxygen saturation. Persistent
+              focal findings or a convincing aspiration history should drive
+              further evaluation rather than reassurance from the pulse oximeter
+              alone.
+            </Callout>
+          </DiseaseSection>
 
-              <p className="mt-3 leading-7 text-blue-900">
-                Reassess respiratory symptoms and examination findings.
-                Depending on the duration and complexity of impaction, evaluate
-                for residual fragments, airway edema, bleeding, granulation
-                tissue, pneumothorax, atelectasis, or secondary infection.
-              </p>
-            </div>
-          </section>
+          {/* =================================================
+    CLINICAL PEARLS
+================================================== */}
 
-          <section
+          <DiseaseSection
             id="pearls"
-            className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+            label="Clinical Pearls"
+            title="High-yield takeaways"
+            description="Keep these principles in mind when evaluating a child with possible foreign body aspiration."
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">
-              Clinical pearls
-            </p>
+            <div className="grid gap-5 md:grid-cols-2">
+              <PearlCard
+                number={1}
+                title="The choking may stop while the foreign body remains"
+              >
+                Improvement after the initial choking episode does not prove
+                that the object was expelled. A retained foreign body may
+                continue to cause cough, wheeze, or focal respiratory findings.
+              </PearlCard>
 
-            <h2 className="mt-2 text-3xl font-bold">
-              High-yield foreign body aspiration takeaways
-            </h2>
+              <PearlCard
+                number={2}
+                title="Focal wheezing deserves an explanation"
+              >
+                Persistent unilateral wheeze or asymmetric breath sounds are
+                important clues to focal airway obstruction, particularly when
+                symptoms began abruptly in a previously well child.
+              </PearlCard>
 
-            <div className="mt-7 grid gap-4">
-              {[
-                {
-                  title: "The choking event may be remote",
-                  description:
-                    "Ask specifically about sudden coughing or choking even when symptoms began days or weeks earlier.",
-                },
-                {
-                  title: "A normal radiograph does not rule it out",
-                  description:
-                    "Most food items and many small objects are radiolucent, and both the examination and imaging may initially appear normal.",
-                },
-                {
-                  title: "Unilateral wheeze is not always asthma",
-                  description:
-                    "Sudden focal wheezing or persistent asymmetry—especially without prior recurrent symptoms—should prompt evaluation for aspiration.",
-                },
-                {
-                  title: "Normal oxygen saturation can be misleading",
-                  description:
-                    "A child may oxygenate normally despite significant focal bronchial obstruction.",
-                },
-                {
-                  title: "Either mainstem bronchus may be involved",
-                  description:
-                    "The right-sided predominance seen in adults is less reliable in young children.",
-                },
-                {
-                  title: "Bronchoscopy can diagnose and treat",
-                  description:
-                    "When suspicion remains high, direct visualization permits confirmation and removal during the same procedure.",
-                },
-                {
-                  title: "Do not forget the esophagus",
-                  description:
-                    "Drooling, dysphagia, feeding refusal, and vomiting suggest ingestion, but esophageal objects may also produce respiratory symptoms.",
-                },
-              ].map((pearl) => (
-                <div
-                  key={pearl.title}
-                  className="flex gap-4 rounded-2xl border border-sky-100 bg-sky-50 p-5"
-                >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-700 font-bold text-white">
-                    ✓
-                  </span>
+              <PearlCard
+                number={3}
+                title="A normal radiograph does not rule it out"
+              >
+                Many aspirated foreign bodies are radiolucent. When the history
+                and examination remain concerning, normal chest radiographs
+                should not end the evaluation.
+              </PearlCard>
 
-                  <div>
-                    <h3 className="font-bold text-slate-900">{pearl.title}</h3>
+              <PearlCard
+                number={4}
+                title="Delayed aspiration can mimic common respiratory disease"
+              >
+                An unwitnessed or missed aspiration may present later as
+                persistent cough, treatment-resistant wheezing, atelectasis, or
+                recurrent pneumonia involving the same region.
+              </PearlCard>
 
-                    <p className="mt-2 leading-7 text-slate-700">
-                      {pearl.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+              <PearlCard
+                number={5}
+                title="Do not assume the foreign body is on the right"
+              >
+                In young children, the differences between the right and left
+                mainstem bronchial angles are less pronounced than in adults, so
+                an aspirated foreign body may lodge on either side.
+              </PearlCard>
             </div>
-          </section>
 
-          <section
+            <Callout
+              tone="purple"
+              label="Bottom Line"
+              title="Think foreign body when the story is sudden and the findings are focal"
+            >
+              A sudden choking or coughing event followed by persistent
+              unilateral wheezing, asymmetric breath sounds, or focal
+              radiographic abnormalities should raise concern for a retained
+              tracheobronchial foreign body—even when the child appears well or
+              the initial radiograph is normal.
+            </Callout>
+          </DiseaseSection>
+          {/* =================================================
+    QUIZ
+================================================== */}
+
+          <DiseaseSection
             id="quiz"
-            className="rounded-3xl border border-purple-200 bg-purple-50 p-8 shadow-sm"
+            label="Knowledge Check"
+            title="Test your understanding"
+            description="Apply the major diagnostic and management principles of pediatric foreign body aspiration."
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-700">
-              Knowledge check
-            </p>
-
-            <h2 className="mt-2 text-3xl font-bold text-purple-950">
-              What is the next best step?
-            </h2>
-
-            <p className="mt-5 leading-8 text-purple-900">
-              A 2-year-old suddenly choked while eating nuts. He now appears
-              comfortable with an oxygen saturation of 98%, but has persistent
-              unilateral wheezing. Chest radiographs show no visible foreign
-              body and no definite abnormality. What is the most appropriate
-              next step?
-            </p>
-
-            <div className="mt-6 grid gap-3">
-              {quizAnswers.map((answer) => (
-                <button
-                  key={answer}
-                  type="button"
-                  onClick={() => setSelectedAnswer(answer)}
-                  className={`rounded-2xl border px-5 py-4 text-left font-semibold transition ${
-                    selectedAnswer === answer
-                      ? answer === correctAnswer
-                        ? "border-green-500 bg-green-100 text-green-950"
-                        : "border-red-500 bg-red-100 text-red-950"
-                      : "border-purple-200 bg-white text-purple-950 hover:border-purple-400 hover:bg-purple-100"
-                  }`}
-                >
-                  {answer}
-                </button>
-              ))}
-            </div>
-
-            {selectedAnswer && (
-              <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6">
-                {selectedAnswer === correctAnswer ? (
-                  <>
-                    <h3 className="text-xl font-bold text-green-700">
-                      Correct!
-                    </h3>
-
-                    <p className="mt-4 leading-7 text-slate-700">
-                      A classic choking event followed by persistent focal
-                      respiratory findings creates a high suspicion for a
-                      retained bronchial foreign body. Normal oxygenation and
-                      radiographs do not exclude aspiration. The child needs
-                      urgent specialty evaluation for bronchoscopy.
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <h3 className="text-xl font-bold text-red-700">
-                      Not quite.
-                    </h3>
-
-                    <p className="mt-4 leading-7 text-slate-700">
-                      The best answer is:
-                    </p>
-
-                    <p className="mt-2 font-bold text-green-700">
-                      {correctAnswer}
-                    </p>
-
-                    <p className="mt-4 leading-7 text-slate-700">
-                      {getIncorrectFeedback(selectedAnswer)}
-                    </p>
-                  </>
-                )}
-              </div>
-            )}
-          </section>
+            <ProgressiveQuiz questions={questions} />
+          </DiseaseSection>
 
           <AnkiDeck
             title="Foreign Body Aspiration"
@@ -1077,38 +1232,12 @@ export default function ForeignBodyAspirationPage() {
             downloadHref="/Anki/foreign-body-aspiration.apkg"
           />
 
+          {/* =================================================
+    EVIDENCE BASE
+================================================== */}
           <EvidenceBase
-            references={[
-              {
-                title:
-                  "American Academy of Pediatrics — Foreign Body Ingestion and Aspiration",
-                href: "https://publications.aap.org/pediatricsinreview/article/47/6/352/207798/Foreign-Body-Ingestion-and-Aspiration",
-                description:
-                  "Current Pediatrics in Review discussion of the presentation, evaluation, and management of ingested and aspirated foreign bodies in children.",
-              },
-              {
-                title:
-                  "American Heart Association — Pediatric Basic Life Support",
-                href: "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/pediatric-basic-life-support",
-                description:
-                  "2025 pediatric basic life support guidance, including management of severe foreign-body airway obstruction in infants and children.",
-              },
-              {
-                title:
-                  "Royal Children’s Hospital Melbourne — Foreign Bodies Inhaled",
-                href: "https://www.rch.org.au/clinicalguide/guideline_index/Foreign_bodies_inhaled/",
-                description:
-                  "Clinical guidance for recognition, investigation, observation, consultation, and management of inhaled foreign bodies.",
-              },
-              {
-                title:
-                  "Children’s Hospital of Philadelphia — Foreign Body Aspiration",
-                href: "https://www.chop.edu/conditions-diseases/foreign-body-aspiration",
-                description:
-                  "Overview of pediatric foreign body aspiration and bronchoscopic removal using a rigid ventilating bronchoscope.",
-              },
-            ]}
-            secondarySources="Additional AAP educational material and current institutional pediatric airway guidance were used for educational verification and consistency checks."
+            references={references}
+            secondarySources="Additional educational synthesis incorporates established pediatric emergency medicine, pulmonology, otolaryngology, and radiology principles. PediAtlas is intended for education and does not replace institution-specific protocols or clinical judgment."
           />
         </div>
       </div>
