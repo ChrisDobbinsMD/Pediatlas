@@ -3,8 +3,7 @@ import Link from "next/link";
 const sections = [
   {
     title: "Upper Airway",
-    description:
-      "Nose, pharynx, larynx, and proximal trachea disorders.",
+    description: "Nose, pharynx, larynx, and proximal trachea disorders.",
     icon: "👃",
     href: "/respiratory/upper-airway",
     topics: [
@@ -110,6 +109,71 @@ export default function RespiratoryPage() {
         </div>
       </header>
 
+      {/* Respiratory Foundations */}
+      <section className="px-6 pt-12">
+        <div className="mx-auto max-w-6xl">
+          <Link
+            href="/respiratory/foundations"
+            className="group block rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-lg md:p-10"
+          >
+            <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-3xl">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-sky-700">
+                    Start Here
+                  </span>
+
+                  <span className="text-sm font-medium text-slate-500">
+                    6 foundational modules
+                  </span>
+                </div>
+
+                <h2 className="mt-5 text-3xl font-bold tracking-tight text-blue-950">
+                  Respiratory Foundations
+                </h2>
+
+                <p className="mt-3 text-lg leading-8 text-slate-600">
+                  Build the framework for respiratory disease before diving into
+                  individual diagnoses. Learn anatomy, physiology, bedside
+                  assessment, respiratory support, blood gases, and imaging.
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {[
+                    "Anatomy",
+                    "Physiology",
+                    "Assessment",
+                    "Respiratory Support",
+                    "Blood Gases",
+                    "Imaging & POCUS",
+                  ].map((topic) => (
+                    <span
+                      key={topic}
+                      className="rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-700"
+                    >
+                      {topic}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex shrink-0 items-center gap-5 md:flex-col md:items-end">
+                <div
+                  className="text-5xl transition duration-300 group-hover:scale-110"
+                  aria-hidden="true"
+                >
+                  🫁
+                </div>
+
+                <span className="font-semibold text-blue-700 transition group-hover:text-blue-900">
+                  Explore foundations →
+                </span>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* Respiratory regions */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
@@ -133,9 +197,7 @@ export default function RespiratoryPage() {
                   <div>
                     <div className="text-5xl">{section.icon}</div>
 
-                    <h3 className="mt-5 text-2xl font-bold">
-                      {section.title}
-                    </h3>
+                    <h3 className="mt-5 text-2xl font-bold">{section.title}</h3>
                   </div>
 
                   <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-700">
